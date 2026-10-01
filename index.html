@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <HTML lang="en">
     <head>
-        <link rel = "stylesheet" href = "style.css?version=v0.5.5.30">
+        <link rel = "stylesheet" href = "style.css?version=v0.5.5.30-00f190c6482f">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type='module' src="dist/bundle.js?version=v0.5.5.30"></script>
+        <script type='module' src="dist/bundle.js?version=v0.5.5.30-9e83f0107798"></script>
         <!--script type="module" src="src/main.js"></script-->
 
         <!--Icons-->
@@ -1425,18 +1425,22 @@
             }
 
             function saveToFile() {
+                const payload = save_to_file();
+                if(!payload) return;
                 var a = window.document.createElement('a');
-                a.href = window.URL.createObjectURL(new Blob([save_to_file()], {type: 'text/plain'}));
+                a.href = window.URL.createObjectURL(new Blob([payload], {type: 'text/plain'}));
                 a.download = `yet-another-idle-rpg${isOnDev()?"-dev":""} ${getDate()}.txt`;
 
                 document.body.appendChild(a);
                 a.click();
 
                 document.body.removeChild(a);
+                setTimeout(() => window.URL.revokeObjectURL(a.href), 1000);
             }
 
             function loadProgress(event) {
                     var file = event.target.files[0];
+                    if(!file) return;
                     var reader = new FileReader();
 
                     reader.onload = function() {

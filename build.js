@@ -2,6 +2,7 @@
 import * as esbuild from 'esbuild';
 import * as fs from 'fs';
 import { styleText } from 'node:util';
+import { createHash } from 'node:crypto';
 import { get_game_version } from './src/game_version.js';
 
 const bundle_regex = /dist\/bundle\.js\?version=[^&"]+/;
@@ -33,12 +34,13 @@ esbuild
             return;
         }
 
+        const fingerprint = path => createHash('sha256').update(fs.readFileSync(path)).digest('hex').slice(0, 12);
         htmlContent = htmlContent.replace(
             bundle_regex,
-            `dist/bundle.js?version=${get_game_version()}`
+            `dist/bundle.js?version=${get_game_version()}-${fingerprint('dist/bundle.js')}`
         ).replace(
             style_regex,
-            `style.css?version=${get_game_version()}`
+            `style.css?version=${get_game_version()}-${fingerprint('style.css')}`
         );
         try {
             fs.writeFileSync(htmlPath, htmlContent);
@@ -48,4 +50,3 @@ esbuild
         }
         
     }).catch(() => process.exit(1));
-

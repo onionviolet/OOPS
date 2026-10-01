@@ -114,11 +114,87 @@ import { get_current_temperature_smoothed, is_raining } from "./weather.js";
 import { Pathfinder, speed_modifiers_from_skills } from "./pathfinding.js";
 import { translationManager } from "./translation.js";
 import { characterCreator } from "./character_creation.js";
+import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
+import {encodeSaveFile, importSaveFile} from "./save_files.js";
+import {preflightImport, installImportProbe} from "./import_probe.js";
+import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
+import {hasEarnedClear} from "./clear_state.js";
+import {createExpansionState, loadExpansionState, commitAction, advanceSimulation} from "./expansion_engine.js";
+import {expeditionRegistry, initializeExpedition} from "./expedition_content.js";
+import {createExpeditionPanel} from "./expedition_ui.js";
+import {persistExpansionPlan} from "./expansion_persistence.js";
+
+let retiredContent = {schema: 1, entries: []};
+let foundationSaveBlocked = false;
+const importProbeToken = new URL(window.location.href).searchParams.get("import_probe");
+let importInProgress = false;
+let loadingReputationTotals = null;
 
 const save_key = "save data";
 const dev_save_key = "dev save data";
 const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
+
+let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
+let expansionError = "";
+let expeditionPanel;
+// One writer owns the entire envelope, including legacy autosave. Import probes
+// never acquire a lock or write. A second tab remains a read-only preview.
+let ownsSave = !!importProbeToken;
+async function acquireSaveOwnership() {return importProbeToken ? true : new Promise(resolve => {
+    if(!navigator.locks) {resolve(false); return;}
+    navigator.locks.request(`yairpg-save:${is_on_dev() ? dev_save_key : save_key}`, {ifAvailable: true}, lock => {
+        resolve(!!lock);
+        if(lock) return new Promise(() => {}); // Released by the browser when this document closes.
+    }).catch(() => resolve(false));
+});}
+
+function expeditionContext() {
+    return {actorId: "player", worldId: "base.frontier", external: {money: character.money},
+        facts: {location: current_location?.id, strength: character.stats.full.strength,
+            climbing: skills.Climbing ? get_total_skill_level("Climbing") : 0,
+            kits: expansionState.actors.player.resources.kits || 0}};
+}
+
+function persistExpansion(plan) {
+    if(!ownsSave || importProbeToken || expansionError) throw new Error(expansionError || "This tab cannot commit expeditions.");
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, key: is_on_dev() ? dev_save_key : save_key});}
+    catch(error) {
+        expansionError = "Expedition paused because saving failed. Free storage and reload before continuing.";
+        throw error;
+    }
+    // Publish only after durable storage succeeds. Money is the sole legacy
+    // resource adapter in this increment; item/XP transactions are not claimed.
+    expansionState = plan.state;
+    character.money = plan.external.money;
+    update_displayed_money();
+}
+
+function startExpedition(actionId, sequence) {
+    if(current_activity || current_game_action || current_enemies || is_sleeping || is_reading || is_in_trade()) {
+        throw new Error("Finish your current activity, combat, trade or rest before beginning an expedition.");
+    }
+    persistExpansion(commitAction(expansionState, expeditionRegistry, actionId, expeditionContext(), sequence));
+}
+
+function expeditionOccupiesPlayer() {
+    if(!expansionState.pending.some(job => job.context.actorId === "player")) return false;
+    log_message("Finish the current field expedition before starting another activity.", "notification");
+    return true;
+}
+
+function advanceExpeditions(minutes) {
+    if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error) return;
+    // Idle clocks need no write. Timers request simulation work; committed jobs
+    // and opportunities, including crossed travel deadlines, decide the result.
+    const active = expansionState.pending.length || Object.values(expansionState.opportunities)
+        .some(o => o.status === "scheduled" || o.status === "available");
+    if(active) {
+        try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}));}
+        catch(error) {expansionError ||= error.message;}
+    }
+    expeditionPanel?.render();
+}
 
 const do_hero_creation = false;
 
@@ -596,6 +672,7 @@ function option_do_dynamic_loot_message(option) {
  * @param {Boolean} params.skip_combat used to not call start_combat function, used in loading as it's only called after 'PLAY' button is clicked
  */
 function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false}) {
+    if(!skip_travel_time && expeditionOccupiesPlayer()) return;
     if(event?.target.classList.contains("fast_travel_removal_button")) {
         return;
     }
@@ -690,6 +767,7 @@ function handle_location_icon_click() {
  * @param {Object} selected_activity - {id} of activity in Location's activities list??
  */
 function start_activity(selected_activity) {
+    if(expeditionOccupiesPlayer()) return;
     current_activity = Object.assign({},current_location.activities[selected_activity]);
     current_activity.id = selected_activity;
 
@@ -761,6 +839,7 @@ function end_activity() {
  * @returns 
  */
 function start_game_action(action_key, event) {
+    if(expeditionOccupiesPlayer()) return;
     current_game_action = action_key;
     let game_action;
     if(current_dialogue) {
@@ -1082,6 +1161,7 @@ function do_sleeping() {
 }
 
 function start_sleeping() {
+    if(expeditionOccupiesPlayer()) return;
     start_sleeping_display();
     is_sleeping = true;
 
@@ -1095,6 +1175,7 @@ function end_sleeping() {
 }
 
 function start_reading(book_key) {
+    if(expeditionOccupiesPlayer()) return;
     
     const book_id = is_JSON(book_key)?JSON.parse(book_key).id:book_key;
     if(current_location?.parent_location) {
@@ -2236,7 +2317,7 @@ function get_location_rewards(location) {
  * @param {Boolean} rewards_data.inform_overall //if unlocks are to be logged
  * @param {Boolean} rewards_data.inform_textline //if textline unlock is to be logged (requires inform_overall to also be true)
  * @param {String} rewards_data.source_name //in case it's needed for logging a message
- * @param {Boolean} rewards_data.only_unlocks //processes only unlock-type rewards (skips money, item, etc; doesn't skip rep)
+ * @param {Boolean} rewards_data.only_unlocks //processes unlocks; legacy loads may reconstruct reputation if no totals were saved
  */
 function process_rewards({rewards = {}, source_type, source_name, is_first_clear, inform_overall = true, inform_textline = true, only_unlocks = false, is_from_loading = false}) {
     let was_any_location_availability_changed = false;
@@ -2537,7 +2618,9 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
 
     if(rewards.reputation) {
         Object.keys(rewards.reputation).forEach(region => {
-            ReputationManager.add_reputation({region, reputation: rewards.reputation[region]});
+            if(shouldReplayReputation(region, loadingReputationTotals)) {
+                ReputationManager.add_reputation({region, reputation: rewards.reputation[region]});
+            }
         });
         update_displayed_reputation();
     }
@@ -3401,6 +3484,8 @@ function is_JSON(str) {
  */
 function create_save() {
     try{
+        if(!ownsSave) throw new Error("This tab does not own the save. Close the other game tab and reload.");
+        if(foundationSaveBlocked || is_loading_error) throw new Error("Saving disabled after a loading error. Preserve the original save and use a compatible build.");
         const save_data = {};
         save_data["game version"] = game_version;
         save_data["current time"] = current_game_time;
@@ -3672,7 +3757,8 @@ function create_save() {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
-        return JSON.stringify(save_data);
+        save_data.expansion = expansionState;
+        return JSON.stringify(retainRetiredContent(save_data, retiredContent));
     } catch(error) {
         console.error("Something went wrong on saving the game!");
         console.error(error);
@@ -3685,14 +3771,24 @@ function create_save() {
  * @returns save string encoded to base64
  */
 function save_to_file() {
-    if(Date.now() - last_rewarded_export > time_between_export_rewards) {
-        last_rewarded_export = Date.now();
-        give_export_reward();
+    if(importProbeToken) return null;
+    try {
+        // Validate creation/encoding before offering a download or saving anything.
+        encodeSaveFile(create_save());
+        if(Date.now() - last_rewarded_export > time_between_export_rewards) {
+            last_rewarded_export = Date.now();
+            give_export_reward();
+        }
+        const serialized = create_save();
+        const encoded = encodeSaveFile(serialized);
+        localStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
+        save_counter = 0;
+        log_message("Saved the game manually");
+        return encoded;
+    } catch(error) {
+        log_message("Export canceled: no valid save file could be created. " + error.message, "message_critical");
+        return null;
     }
-
-    //will create save twice...
-    save_progress();
-    return btoa(create_save());
 }
 
 /**
@@ -3700,6 +3796,7 @@ function save_to_file() {
  * @param {Boolean} is_manual 
  */
 function save_to_localStorage({key, is_manual}) {
+    if(importProbeToken || !ownsSave) return;
     const save = create_save();
     if(save) {
         localStorage.setItem(key, save);
@@ -3708,7 +3805,7 @@ function save_to_localStorage({key, is_manual}) {
             save_counter = 0;
         }
     }
-    return JSON.parse(save).saved_at;
+    return save ? JSON.parse(save).saved_at : undefined;
 }
 
 function save_progress() {
@@ -3722,6 +3819,17 @@ function save_progress() {
 //core function for loading
 function load(save_data) {
     try{
+        try {
+            const prepared = prepareFoundationSave(save_data);
+            save_data = prepared.save;
+            retiredContent = prepared.retired;
+            expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+        } catch(error) {
+            foundationSaveBlocked = true;
+            throw error;
+        }
+        character.reputation = restoreSavedReputation(character.reputation, save_data.character.reputation);
+        loadingReputationTotals = save_data.character.reputation ?? null;
         //single loading method
         
         //current enemies are not saved
@@ -3841,16 +3949,6 @@ function load(save_data) {
             favourite_items[key] = true;
         })
 
-        /*
-        Object.keys(save_data.character.reputation || {}).forEach(rep_region => {
-            if(rep_region in character.reputation) {
-                character.reputation[rep_region] = save_data.character.reputation[rep_region];
-            } else {
-                console.warn(`Skipped reputation, no such region as "${rep_region}"`);
-                any_warnings = true;
-            }
-        });
-        */
         update_displayed_reputation();
 
         set_loading_screen_progress("Checking out your books");
@@ -3894,6 +3992,11 @@ function load(save_data) {
             }
         }
         
+        // Meditation has a zero visibility threshold. Its bar must exist before
+        // replaying saved XP, rather than waiting for location entrance rewards.
+        if(save_data.skills?.Meditation?.total_xp > 0) {
+            process_rewards({rewards: {skills: ["Meditation"]}, is_from_loading: true, only_unlocks: true});
+        }
         Object.keys(save_data.skills).forEach(key => { 
             if(key === "Literacy") {
                 return; //done separately, for compatibility with older saves (can be eventually removed)
@@ -4640,13 +4743,13 @@ function load(save_data) {
                         }
                     }
 
-                    if(locations[key].first_reward) {
-                        //process first clear reward, as it won't be checked on further clears
+                    if(locations[key].first_reward && hasEarnedClear(locations[key].enemy_groups_killed, locations[key].enemy_count)) {
+                        //Restore first-clear unlocks only when a clear was actually earned.
                         process_rewards({
                             rewards: locations[key].first_reward, 
                             source_type: "location", 
                             is_first_clear: true, 
-                            source_id: location.id,
+                            source_id: locations[key].id,
                             is_from_loading: true,
                             only_unlocks: true,
                         });
@@ -5123,9 +5226,12 @@ function load(save_data) {
 
         update_displayed_time();
         set_loading_screen_versions(save_data["game version"]);
+        return {warnings: any_warnings};
     } catch(error) {
         set_loading_screen_versions(save_data["game version"]);
         throw error;
+    } finally {
+        loadingReputationTotals = null;
     }
 } 
 
@@ -5134,17 +5240,18 @@ function load(save_data) {
  * loads game from file by resetting everything that needs to be reset and then calling main loading method with same parameter;
  * @param {String} save_string 
  */
-function load_from_file(save_string) {
-    try{
-        if(is_on_dev()) {
-            localStorage.setItem(dev_save_key, atob(save_string));
-        } else {
-            localStorage.setItem(save_key, atob(save_string));
-        }        
+async function load_from_file(save_string) {
+    if(importProbeToken || importInProgress) return;
+    if(!ownsSave) {log_message("Import blocked: this tab is read-only.", "message_critical"); return;}
+    importInProgress = true;
+    try {
+        await importSaveFile(save_string, {currentVersion: game_version, preflight: preflightImport,
+            storage: localStorage, key: is_on_dev() ? dev_save_key : save_key});
         window.location.reload(false);
     } catch (error) {
-        console.error("Something went wrong on preparing to load from file!");
-        console.error(error);
+        log_message("Import rejected. Current save kept. " + error.message, "message_critical");
+    } finally {
+        importInProgress = false;
     }
 } 
 
@@ -5176,6 +5283,7 @@ function load_from_localstorage() {
 }
 
 function load_backup() {
+    if(!ownsSave) {log_message("Backup restore blocked: this tab is read-only.", "message_critical"); return;}
     try{
         if(is_on_dev()) {
             if(localStorage.getItem(dev_backup_key)){
@@ -5201,6 +5309,7 @@ function load_backup() {
 }
 
 function load_other_release_save() {
+    if(!ownsSave) {log_message("Import blocked: this tab is read-only.", "message_critical"); return;}
     try{
         if(is_on_dev()) {
             if(localStorage.getItem(save_key)){
@@ -5226,6 +5335,7 @@ function load_other_release_save() {
 }
 
 function hard_reset() {
+    if(!ownsSave) {log_message("Reset blocked: this tab is read-only.", "message_critical"); return;}
     let confirmation = prompt(`This will erase all your progress and you will have to start from the very beginning. If you are sure this is what you want, type "reset" below`);
 
     if(confirmation === "reset" || confirmation === `"reset"`) {
@@ -5245,7 +5355,9 @@ function hard_reset() {
 //update game time
 function update_timer(time_in_minutes) {
     const was_night = is_night(current_game_time);
-    current_game_time.goUp(time_in_minutes || (is_sleeping ? 6 : 1));
+    const minutes = time_in_minutes || (is_sleeping ? 6 : 1);
+    current_game_time.goUp(minutes);
+    advanceExpeditions(minutes);
 
     //update_character_stats(); //done every second, probably only used for day-night cycle at this point
     const daynight_change = was_night !== is_night(current_game_time);
@@ -5725,6 +5837,7 @@ function update() {
 }
 
 function run() {
+    if(importProbeToken) return;
     if(typeof current_location === "undefined") {
         change_location({location_id: "Village", skip_travel_time: true});
     } 
@@ -5770,7 +5883,7 @@ window.end_sleeping = end_sleeping;
 window.start_reading = start_reading;
 window.end_reading = end_reading;
 
-window.start_trade = start_trade;
+window.start_trade = (...args) => {if(!expeditionOccupiesPlayer()) return start_trade(...args);};
 window.exit_trade = exit_trade;
 window.add_to_buying_list = add_to_buying_list;
 window.remove_from_buying_list = remove_from_buying_list;
@@ -5850,13 +5963,22 @@ window.get_game_version = get_game_version;
 
 window.run = run;
 
+// Do not suspend the legacy initialization before its onload UI has elements.
+acquireSaveOwnership().then(owned => {
+    ownsSave = owned;
+    if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
+    expeditionPanel?.render(true);
+});
+
 //Verify_Game_Objects();
 window.Verify_Game_Objects = Verify_Game_Objects;
 
 set_loading_screen_progress("Waking up from a nyap...");
 
 //check if there's an existing save file, otherwise just do some initial setup
-if(!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage )) {
+if(importProbeToken) {
+    // A probe starts with untouched definitions/defaults, never an existing save.
+} else if(!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage )) {
     load_from_localstorage();
     update_character_stats();
     update_displayed_xp_bonuses();
@@ -5948,9 +6070,22 @@ function add_all_active_effects(duration){
 update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
-if(game_options.skip_play_button) {
+if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    expeditionPanel = createExpeditionPanel({registry: expeditionRegistry,
+        read: () => ({state: expansionState, context: expeditionContext(), error: expansionError,
+            enabled: ownsSave && !current_activity && !current_game_action && !current_enemies && !is_sleeping && !is_reading && !is_in_trade()}),
+        command: startExpedition});
+}
+
+if(game_options.skip_play_button && !importProbeToken) {
     play_button.click();
 }
+
+if(importProbeToken) installImportProbe(importProbeToken, data => {
+    const result = load(data);
+    character.stats.add_race_bonus();
+    return result;
+});
 
 if(is_on_dev()) {
     log_message("It looks like you are playing on the dev release. It is recommended to keep the developer console open (in Chrome/Firefox/Edge it's at F12 => 'Console' tab) in case of any errors/warnings appearing in there.", "notification");

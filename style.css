@@ -2778,3 +2778,15 @@ i {
 ::-webkit-scrollbar-thumb:hover {
 	background: white; 
   }
+/* New field journal uses stable native buttons and keeps upstream layout. */
+.expedition_panel { margin: 0.7rem; padding: 0.7rem; border: 1px solid #7778; border-radius: 6px; text-align: left; }
+.expedition_panel summary { cursor: pointer; font-weight: bold; padding: 0.3rem; }
+.expedition_panel p { margin: 0.4rem 0; line-height: 1.4; }
+.expedition_card { padding: 0.6rem 0; border-top: 1px solid #7776; }
+.expedition_card button { padding: 0.5rem 0.7rem; cursor: pointer; font: inherit; }
+.expedition_card button:disabled { opacity: 0.55; cursor: default; }
+.expedition_card button:focus-visible { outline: 2px solid #80bde9; outline-offset: 3px; }
+.expedition_requirements { color: #dfab72; }
+.expedition_preview, .expedition_state { font-size: 0.9em; }
+.expedition_notice { min-height: 1.4em; }
+.expedition_history { padding-left: 1.5rem; }
