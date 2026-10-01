@@ -14,7 +14,7 @@ Builds use pinned esbuild, fingerprinted JavaScript/CSS and the actual built bun
 
 ## Verification and compatibility
 
-31 tests and the rebuilt browser/file gates in PLAYTEST.md pass. Generated old-base, dormant-prototype, paid pending and v0.6 fixtures preserve the tested state. The actual downloaded Unicode file roundtrips with all15 checked groups identical, and rejected files retain current bytes. No personal saves were accessed or migrated. This does not establish every historical format or full upstream balance/content coverage.
+32 tests and the rebuilt browser/file gates in PLAYTEST.md pass. Generated old-base, dormant-prototype, paid pending and v0.6 fixtures preserve the tested state. The actual downloaded Unicode file roundtrips with all15 checked groups identical, and rejected files retain current bytes. No personal saves were accessed or migrated. This does not establish every historical format or full upstream balance/content coverage.
 
 Run `npm ci`, `npm test`, `npm run build`, then `npm run serve` in the shared checkout. Use one game tab per origin and reload older tabs before using the new build. The standard preview is port8123; isolated verification uses a separate fresh port. Do not import fork exports into unchanged upstream builds: their serializers do not preserve our extension/dormant namespaces.
 

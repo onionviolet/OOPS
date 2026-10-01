@@ -1,6 +1,6 @@
 # YAIRPG expansion project
 
-Status: v0.6 development foundation adopted with the expedition and save safeguards ported, 2026-10-01. Research and archived cultivation prototype retained. Build, 31 tests and generated-save browser/file migration checks pass; human gameplay acceptance remains pending. Evidence and limits are in `docs/PLAYTEST.md`.
+Status: v0.6 development foundation adopted with the expedition and save safeguards ported, 2026-10-01. Research and archived cultivation prototype retained. Build, 32 tests and generated-save browser/file migration checks pass; human gameplay acceptance remains pending. Evidence and limits are in `docs/PLAYTEST.md`.
 
 ## Intent
 

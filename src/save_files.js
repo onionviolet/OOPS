@@ -64,10 +64,10 @@ export function validateSaveEnvelope(original, currentVersion) {
                 if(!Number.isInteger(flag) || flag < 0 || flag > 7) throw new Error("Invalid availability status.");
             }
         }
-        if(save.books && !Object.hasOwn(hero.skill_xp, "Literacy")) throw new Error("Book progress needs Literacy XP.");
+        if(save.books && Object.keys(save.books).length && !Object.hasOwn(hero.skill_xp, "Literacy")) throw new Error("Book progress needs Literacy XP.");
     } else {
         for(const skill of Object.values(save.skills)) {object(skill, "Skill record"); number(skill.total_xp, "Skill XP");}
-        if(save.books && !save.skills.Literacy) throw new Error("Book progress needs Literacy XP.");
+        if(save.books && Object.keys(save.books).length && !save.skills.Literacy) throw new Error("Book progress needs Literacy XP.");
     }
     for(const key of ["year", "month", "day", "hour", "minute"]) {
         number(save["current time"][key], `Time ${key}`);

@@ -18,6 +18,13 @@ test("component saves and upstream unmarked UTF-8 exports preserve progress and 
     assert.deepEqual(decodeSaveFile(upstreamFile, "v0.6"), save);
 });
 
+test("a fresh component save needs no Literacy record until it contains book progress", () => {
+    const save = fixture(); delete save.levels.person.main_character.skill_xp.Literacy;
+    assert.deepEqual(validateSaveEnvelope(save, "v0.6"), save);
+    save.books["Medicine for dummies"] = {accumulated_time: 1};
+    assert.throws(() => validateSaveEnvelope(save, "v0.6"), /Literacy/);
+});
+
 test("invalid component owners, XP, status flags and future fork schemas cannot replace storage", async () => {
     for(const mutate of [s => delete s.levels.person.main_character, s => s.levels.person.main_character.total_xp = 51,
         s => s.levels.person.main_character.skill_xp.Meditation = -1, s => delete s.inventories.person.main_character,

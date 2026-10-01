@@ -3671,7 +3671,7 @@ function load(save_data) {
         if(is_a_older_than_b(save_data["game version"], "v0.6")) {
             if(save_data.books) {
                 let total_book_xp = 0;
-                const literacy_xp = save_data.skills["Literacy"].total_xp;
+                const literacy_xp = save_data.skills["Literacy"]?.total_xp ?? 0;
                 Object.keys(save_data.books).forEach(book=>{
                     if(!item_templates[book]) {
                         console.warn(`Book ${book} couldn't be found and was skipped!`);
@@ -3704,7 +3704,7 @@ function load(save_data) {
         } else {
             if(save_data.books) {
                 let total_book_xp = 0;
-                const literacy_xp = save_data.levels["person"]["main_character"].skill_xp["Literacy"];
+                const literacy_xp = save_data.levels["person"]["main_character"].skill_xp["Literacy"] ?? 0;
                 Object.keys(save_data.books).forEach(book_id=>{
                     if(!item_templates[book_id]) {
                         console.warn(`Book ${book_id} couldn't be found and was skipped!`);
