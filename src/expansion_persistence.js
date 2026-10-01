@@ -1,0 +1,18 @@
+import {validateExpansionState} from "./expansion_engine.js";
+
+// Caller publishes plan.state and plan.external only after this succeeds.
+// The existing envelope is copied, retaining unrelated and dormant content.
+export function persistExpansionPlan(plan, {createSave, storage, key}) {
+    validateExpansionState(plan.state);
+    const serialized = createSave();
+    if(typeof serialized !== "string") throw new Error("No valid save could be created.");
+    const envelope = JSON.parse(serialized);
+    if(!envelope?.character || !Number.isFinite(plan.external.money) || plan.external.money < 0) {
+        throw new Error("Invalid character resource transaction.");
+    }
+    envelope.expansion = plan.state;
+    envelope.character.money = plan.external.money;
+    const committed = JSON.stringify(envelope);
+    storage.setItem(key, committed);
+    return committed;
+}

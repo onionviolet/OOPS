@@ -1,8 +1,10 @@
-import InventoryComponent from "../components/inventory_component.js";
+import InventoryComponent, {inventories} from "../components/inventory_component.js";
 import { exit_displayed_storage, update_displayed_storage } from "../display.js";
 import { character } from "./character.js";
 
 const player_storage = new InventoryComponent();
+// Component saves must own the chest too, including migrated pre-v0.6 items.
+inventories.storage = {player: player_storage};
 let storage_open = false;
 
 /**

@@ -4660,7 +4660,7 @@ function update_displayed_skill_xp_gain(skill) {
     if(!skill_bar_divs[skill.category] || !skill_bar_divs[skill.category][skill.skill_id]){
         return;
     }
-    const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*character.getSkillXPGain(skill.skill_id))/100 ?? 1;
+    const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*character.getSkillXPGain(skill.skill_id))/100;
     let html_content = `XP gain: x${xp_gain}<br>`;
     if(skill.can_level) {
         html_content += "<span>XP cost scaling: x${skill.xp_scaling}</span>"
