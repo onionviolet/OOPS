@@ -1,12 +1,20 @@
 "use strict";
 
+import AvailabilityComponent from "./components/availability_component.js";
+import { availabilities, availability_havers } from "./data/component_references.js";
 import { add_quest_to_display, log_message, update_displayed_quest, update_displayed_quest_task } from "./display.js";
-import { process_rewards } from "./main.js";
+import { Rewards } from "./rewards.js";
+import { process_rewards } from "./main.js"
+
+availabilities["quest"] = {};
 
 const quests = {};
 const active_quests = {};
 
 class QuestTask {
+
+    #availability;
+
     constructor({
         task_description = "", //optional
         task_condition = {}, 
@@ -19,9 +27,9 @@ class QuestTask {
     {
         this.task_description = task_description;
         this.task_condition = task_condition;
-        this.task_rewards = task_rewards;
+        this.task_rewards = new Rewards(task_rewards);
         this.is_hidden = is_hidden;
-        this.is_finished = is_finished;
+        this.#availability = new AvailabilityComponent({is_finished});
         this.skip_message = skip_message;
 
         Object.keys(this.task_condition).forEach(task_group => {
@@ -32,9 +40,16 @@ class QuestTask {
             });
         });
     }
+
+    getAvailabilityComponent() {
+        return this.#availability;
+    }
 }
     
 class Quest {
+
+    #availability;
+
     constructor({
                 quest_name, //for display, can be skipped if getQuestName covers all possibilites
                 quest_id, //can be skipped, will be set by a short script at the end of the file
@@ -42,7 +57,7 @@ class Quest {
                 questline, //questline for grouping or something, skippable
                 quest_tasks = [], //an array of tasks that need to be completed one by one
                 quest_condition, //conditions for task to be completed; can be skipped if it's meant to be achieved via some rewards object; works the same as in QuestTask
-                quest_rewards, //may include a new quest to automatically start
+                quest_rewards = {}, //may include a new quest to automatically start
                 display_priority = Infinity, //the lower, the higher up it will show
                 is_hidden = false, //hidden quests are not visible and are meant to function as additional unlock mechanism; name and description are skipped
                 is_finished = false,
@@ -55,21 +70,31 @@ class Quest {
         this.questline = questline;
         this.quest_tasks = quest_tasks;
         this.quest_description = quest_description;
-        this.quest_rewards = quest_rewards || {};
+        this.quest_rewards = new Rewards(quest_rewards);
         this.display_priority = display_priority; 
         this.is_hidden = is_hidden;
-        this.is_finished = is_finished;
         this.is_repeatable = is_repeatable;
         this.quest_condition = quest_condition;
         this.getQuestName = getQuestName;
         this.getQuestDescription = getQuestDescription;
+
+        this.#availability = new AvailabilityComponent({is_finished});
+        availabilities["quest"][this.id] = this.#availability;
+        
+        for(let i = 0; i < this.quest_tasks.length; i++) {
+            availabilities["quest"][this.id+":task:"+i] = this.quest_tasks[i].getAvailabilityComponent();
+        }
+    }
+
+    getAvailabilityComponent() {
+        return this.#availability;
     }
 
     getCompletedTaskCount(){
         if(this.quest_tasks.length == 0) {
             return 0;
         } else {
-            return this.quest_tasks.filter(task => task.is_finished).length;
+            return this.quest_tasks.filter(task => task.isFinished()).length;
         }
     }
 }
@@ -77,7 +102,7 @@ class Quest {
 const questManager = {
     startQuest({quest_id, should_inform = true}) {
         const quest = quests[quest_id];
-        if((!quest.is_finished || quest.is_repeatable) && !this.isQuestActive(quest_id)) {
+        if((!quest.isFinished() || quest.is_repeatable) && !this.isQuestActive(quest_id)) {
             active_quests[quest_id] = new Quest(quests[quest_id]);
         }
 
@@ -94,7 +119,7 @@ const questManager = {
     },
 
     isQuestFinished(quest_id) {
-        return quests[quest_id].is_finished;
+        return quests[quest_id].isFinished();
     },
 
     finishQuest({quest_id, only_unlocks, is_from_loading, skip_rewards}) {
@@ -109,7 +134,7 @@ const questManager = {
             }
 
             if(!quest.is_repeatable) {
-                quest.is_finished = true;
+                quest.setFinished();
             }
             delete active_quests[quest_id];
             if(!quests[quest_id].is_hidden) {
@@ -128,7 +153,7 @@ const questManager = {
     finishQuestTask({quest_id, task_index, only_unlocks, skip_warning = false, allowed_to_finish_quest = true, skip_message = false, is_from_loading = false}) {
         if(this.isQuestActive(quest_id)) {
             let quest = quests[quest_id];
-            quest.quest_tasks[task_index].is_finished = true;
+            quest.quest_tasks[task_index].setFinished();
             if(!quests[quest_id].is_hidden) {
                 //update_displayed_quest_task(quest_id, task_index);
                 update_displayed_quest(quest_id);
@@ -143,7 +168,7 @@ const questManager = {
 
             process_rewards({rewards: quest.quest_tasks[task_index].task_rewards, source_type: "QuestTask", source_name: quests[quest_id].getQuestName(), only_unlocks: only_unlocks, is_from_loading});
 
-            const remaining_tasks = active_quests[quest_id].quest_tasks.filter(task => !task.is_finished);
+            const remaining_tasks = active_quests[quest_id].quest_tasks.filter(task => !task.isFinished());
             if(allowed_to_finish_quest && remaining_tasks.length == 0) { //no more tasks
                 this.finishQuest({quest_id: quest_id, only_unlocks: only_unlocks});
             }
@@ -162,7 +187,7 @@ const questManager = {
                 return;
             }
 
-            const current_task_index = active_quests[active_quest_id].quest_tasks.findIndex(task => !task.is_finished); //get the first unfinished
+            const current_task_index = active_quests[active_quest_id].quest_tasks.findIndex(task => !task.isFinished()); //get the first unfinished
             const current_task = active_quests[active_quest_id].quest_tasks[current_task_index];
 
             if(!("any" in current_task.task_condition) && !("all" in current_task.task_condition)) {
@@ -265,7 +290,7 @@ const questManager = {
                 }
             }
 
-            const remaining_tasks = active_quests[active_quest_id].quest_tasks.filter(task => !task.is_finished);
+            const remaining_tasks = active_quests[active_quest_id].quest_tasks.filter(task => !task.isFinished());
             if(remaining_tasks.length == 0) { //no more tasks
                 this.finishQuest({quest_id: active_quest_id});
             }
@@ -319,7 +344,7 @@ const questManager = {
         quest_name: "It won't mill itself",
         display_priority: 1,
         getQuestDescription: ()=>{
-            if(!quests["It won't mill itself"].quest_tasks[0].is_finished) {
+            if(!quests["It won't mill itself"].quest_tasks[0].isFinished()) {
                 return `Village elder asked you to check how the "kids" running the eastern mill are doing`;
             } else {
                 return "Boys running the eastern mill could use your help";
@@ -335,8 +360,12 @@ const questManager = {
             xp: 250,
             reputation: {
                 Village: 100,
-            }
-        }
+            },
+            actions: [
+                { location: "Eastern mill", action: "unlock weightlifting" },
+                { location: "Eastern mill", action: "unlock balancing"}
+            ],
+        },
     });
 
     quests["Village expansion"] = new Quest({
@@ -356,6 +385,7 @@ const questManager = {
             new QuestTask({task_description: "[To be continued]"}), //tbc, duh
         ],
         quest_rewards: {
+            //todo, once quest is completable
         }
     });
 
@@ -372,7 +402,7 @@ const questManager = {
             reputation: {
                 Town: 40,
             }
-        }
+        },
     });
     quests["Light in the darkness"] = new Quest({
         quest_name: "Light in the darkness",
@@ -390,7 +420,7 @@ const questManager = {
         quest_name: "Ploughs to swords",
         display_priority: 1,
         getQuestDescription: ()=>{
-            if(!quests["Ploughs to swords"].quest_tasks[1].is_finished) {
+            if(!quests["Ploughs to swords"].quest_tasks[1].isFinished()) {
                 return "Supervisor of the town's farms seems to have some interesting tasks, but first requires you to be strong enough for it.";
             } else {
                 return "Supervisor of the town's farms has a need for a capable fighter";
@@ -408,7 +438,7 @@ const questManager = {
             reputation: {
                 Town: 60,
             }
-        }
+        },
     });
 })();
 
@@ -431,7 +461,7 @@ const questManager = {
         ],
         quest_rewards: {
             textlines: [{dialogue: "village elder", lines: ["more training"], skip_message: true}],
-        }
+        },
     });
     quests["Swimming alternative unlock"] = new Quest({
         //climbing can still be unlocked via fights in the cave
@@ -478,9 +508,9 @@ const questManager = {
         quest_name: "Giant Enemy Crab",
         display_priority: 9,
         getQuestDescription: ()=>{
-            if(quests["Giant Enemy Crab"].quest_tasks[1].is_finished) {
+            if(quests["Giant Enemy Crab"].quest_tasks[1].isFinished()) {
                 return "You slew the giant crab nesting at the lake beach. With your task completed, you might as well explore the region further.";
-            } else if(quests["Giant Enemy Crab"].quest_tasks[0].is_finished) {
+            } else if(quests["Giant Enemy Crab"].quest_tasks[0].isFinished()) {
                 return "You managed to chase the giant crab away, but if you don't finish it off soon, it'll just nest somewhere else and be a problem for somebody else later. And even if someone did find it, would they be strong enough to defeat it? Better just to take care of it yourself now";
             } else {
                 return "The elder gave you his blessing to investigate the rumors of enormous crab nests somewhere downriver. Or was it an enormous crab's nest? Or was it some enormous crabs' nest? Either way, he reminded you to prepare for the journey ahead";
@@ -496,9 +526,9 @@ const questManager = {
         quest_name: "In Times of Need",
         display_priority: 9,
         getQuestDescription: ()=>{
-            if(quests["In Times of Need"].quest_tasks[quests["In Times of Need"].quest_tasks.length-1].is_finished) {    //update upon completion of final task
+            if(quests["In Times of Need"].quest_tasks[quests["In Times of Need"].quest_tasks.length-1].isFinished()) {    //update upon completion of final task
                 return "You helped the snakefang tribe in their time of need";
-            } else if(quests["In Times of Need"].quest_tasks[0].is_finished) {
+            } else if(quests["In Times of Need"].quest_tasks[0].isFinished()) {
                 return `You accepted the chief's "request" to ask around and see how you could assist the tribe`;
             } else {
                 return "You should introduce yourself to whomever is in charge";
@@ -559,5 +589,7 @@ quests["Test quest"] = new Quest({
 Object.keys(quests).forEach(quest => {
     quests[quest].quest_id = quest;
 });
+
+availability_havers.push(Quest, QuestTask);
 
 export { quests, active_quests, questManager};

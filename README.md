@@ -1,4 +1,4 @@
-Personal idle-RPG expansion fork. See [PROJECT.md](PROJECT.md) for scope, setup and next work. Agent instructions: [AGENTS.md](AGENTS.md).
+Personal idle-RPG expansion fork based on Miktaew's v0.6 development source. See [PROJECT.md](PROJECT.md) for scope, setup and next work. Agent instructions: [AGENTS.md](AGENTS.md).
 
 # yet another idle rpg
 ###### by Miktaew

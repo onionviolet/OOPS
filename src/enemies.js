@@ -1,6 +1,8 @@
 "use strict";
 
-import { get_total_skill_coefficient } from "./character.js";
+import LevelableComponent from "./components/levelable_component.js";
+import { config } from "./config.js";
+import { character } from "./data/character.js";
 import { log_message } from "./display.js";
 import { add_active_effect } from "./main.js";
 
@@ -34,6 +36,9 @@ Object.keys(droprate_modifier_skills_for_tags).forEach(tag => {
 const droplist = {};
 
 class Enemy {
+
+    #levelable;
+
     constructor({
         name, 
         id,
@@ -45,9 +50,9 @@ class Enemy {
         size = "small",
         add_to_bestiary = true,
         tags = [],
-        on_hit = (character) => { },
-        on_damaged = (character) => { },
-        on_death = (character) => { },
+        on_hit = (attacker) => { },
+        on_damaged = (target) => { },
+        on_death = (attacker) => { },
     }) {
                     
         this.name = name;
@@ -60,6 +65,8 @@ class Enemy {
         this.stats.max_health = stats.health;
         this.loot_list = loot_list;
         this.tags = {};
+
+        this.#levelable = new LevelableComponent(stats);
 
         if(tags.length) {
             for(let i = 0; i < tags.length; i++) {
@@ -86,6 +93,78 @@ class Enemy {
         this.on_death = on_death;
         //try to limit the usage of those 3
     }
+
+    init() {
+        const levelable = this.getLevelableComponent();
+        levelable.stats.full.attack_power = this.stats.attack;
+        levelable.stats.full.attack_points = levelable.stats.full.dexterity * Math.sqrt(levelable.stats.full.intuition);
+        levelable.stats.full.evasion_points = levelable.stats.full.agility * Math.sqrt(levelable.stats.full.intuition);
+    }
+
+    getLevelableComponent() {
+        return this.#levelable;
+    }
+
+    getAttackSpeed() {
+        return this.getLevelableComponent().getAttackSpeed();
+    }
+
+    getAttackPower() {
+        return this.getLevelableComponent().getAttackPower();
+    }
+
+    getFullStats() {
+        return this.getLevelableComponent().getFullStats();
+    }
+
+    isWearingArmor() {
+        return false;
+    }
+
+    getEquipment() {
+        return {};
+    }
+
+    /**
+     * 
+     * @param {*}
+     * @returns [actual damage taken; Boolean if target should faint] 
+     */
+    takeDamage({damage_values, can_faint = true, defense_modifier = 0}) {
+
+        //TODO: move this to levelable, only make a shortcut in Person?
+
+        /*
+        TODO:
+                - damage types: "physical", "elemental", "magic"
+                - each with it's own defense on equipment (and potentially spells)
+                - damage elements (for elemental damage type)
+                - resistance skills
+        */
+
+        const levelable = this.getLevelableComponent();
+        let fainted;
+    
+        damage_values = damage_values.map(val => {
+            if(val < 1) {
+                return Math.max(Math.ceil(10*val)/10, 0);
+            } else {
+                return Math.ceil(10*Math.max(val - (levelable.stats.full.defense + defense_modifier), val*0.05, 1))/10;
+            }
+        });
+        const damage_taken = damage_values.reduce((a,b)=>a+b);
+        levelable.stats.full.health -= damage_taken;
+    
+        if(levelable.stats.full.health <= 0 && can_faint) {
+            fainted = true;
+            levelable.stats.full.health = 0;
+        } else {
+            fainted = false;
+        }
+    
+        return {damage_taken, fainted};
+    }
+
     get_loot({drop_chance_modifier = 1} = {}) {
         // goes through items and calculates drops
         // result is in form [{item: Item, count: item_count}, {...}, {...}]
@@ -118,11 +197,18 @@ class Enemy {
 
         Object.keys(this.tags).forEach(tag => {
             if(droprate_modifier_skills_for_tags[tag]) {
-                droprate_modifier *= get_total_skill_coefficient({ skill_id: droprate_modifier_skills_for_tags[tag], scaling_type: "multiplicative" });
+                droprate_modifier *= character.getTotalSkillCoefficient({ skill_id: droprate_modifier_skills_for_tags[tag], scaling_type: "multiplicative" });
             }
         });
 
         return droprate_modifier;
+    }
+
+    hasShield() {
+        return false; // ¯\_(ツ)_/¯
+    }
+    getBlockStrength() {
+        return 0;
     }
 }
 
@@ -155,7 +241,7 @@ const enemy_abilites = {
         rank: 1,
         size: "small",
         tags: ["living", "beast", "wolf rat"],
-        stats: {health: 20, attack: 4, agility: 5, dexterity: 4, magic: 0, intuition: 5, attack_speed: 0.8, defense: 0},
+        stats: {health: 20, attack: 4, agility: 5, dexterity: 4, magic: 0, intuition: 5, attack_speed: .8, defense: 0},
         loot_list: [
             {item_name: "Rat tail", chance: 0.04},
             {item_name: "Rat fang", chance: 0.04},
@@ -351,6 +437,8 @@ const enemy_abilites = {
         loot_list: [
             {item_name: "Frog meat", chance: 0.08},
             {item_name: "Frog hide", chance: 0.05},
+            {item_name: "Toxin gland", chance: 0.1},
+            {item_name: "Bufonite", chance: 0.002},
             {item_name: "Weak monster bone", chance: 0.05},
         ],
         size: enemy_sizes.LARGE,
@@ -367,11 +455,11 @@ const enemy_abilites = {
         },
         on_damaged: (character) => {
             const roll = Math.random();
-            if (character.equipment.weapon == null && roll < 0.1) {
+            if (character.getEquipment().weapon == null && roll < 0.1) {
                 log_message("Touching the frog with your bare hands leaves them covered in toxins!", "hero_attacked");
                 enemy_abilites.bufotoxin(10);
             }
-            else if (character.equipment.weapon != null && roll < 0.05) {
+            else if (character.getEquipment().weapon != null && roll < 0.05) {
                 log_message("Striking the frog causes some toxins to splash on you!", "hero_attacked");
                 enemy_abilites.bufotoxin(10);
             }

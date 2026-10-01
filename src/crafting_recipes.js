@@ -1,10 +1,15 @@
 "use strict";
 
-import { character, get_total_skill_level } from "./character.js";
+import { character } from "./data/character.js";
 import { Armor, ArmorComponent, Cape, Shield, ShieldComponent, Weapon, WeaponComponent, Amulet, item_templates } from "./items.js";
-import { skills } from "./skills.js";
+import { skills } from "./data/skills.js";
 import { clamp, random_range } from "./misc.js";
 import { game_options } from "./main.js";
+import { availabilities, availability_havers } from "./data/component_references.js";
+import AvailabilityComponent from "./components/availability_component.js";
+import { config } from "./config.js";
+
+availabilities["recipe"] = {};
 
 const crafting_recipes = {items: {}, components: {}, equipment: {}};
 const cooking_recipes = {items: {}};
@@ -25,18 +30,21 @@ const woodworking_recipes = {items: {}, components: {}};
     overal max quality achievable scales with related skills
 */
 
-function get_crafting_quality_caps(skill_name) {
-    return {
-        components: Math.min(Math.round(100+2*get_total_skill_level(skill_name)),200),
-        equipment: Math.min(Math.round(100+2.8*get_total_skill_level(skill_name)),250),
-    }
-}
-
 function round_quality(quality, precision) {
     return Math.round(quality/precision)*precision;
 }
 
+function get_crafting_quality_caps(skill_name) {
+    return {
+        components: round_quality(Math.min(Math.round(100+2*character.getTotalSkillLevel(skill_name)),200), config.item_crafting_quality_precision),
+        equipment: round_quality(Math.min(Math.round(100+2.8*character.getTotalSkillLevel(skill_name)),250), config.equipment_crafting_quality_precision),
+    }
+}
+
 class Recipe {
+
+    #availability;
+
     constructor({
         name,
         id,
@@ -51,18 +59,24 @@ class Recipe {
     }) {
         this.name = name;
         this.id = id;
-        this.is_unlocked = is_unlocked;
+
+        this.#availability = new AvailabilityComponent({is_unlocked});
+        availabilities["recipe"][this.id] = this.#availability;
         this.recipe_type = recipe_type;
         this.result = result;
         this.scale_results = scale_results;
         this.getResult = getResult || function(){return this.result};
         this.recipe_level = recipe_level;
         this.recipe_skill = recipe_skill;
-        this.quality_precision = 4;
+        this.quality_precision = config.item_crafting_quality_precision;
+    }
+
+    getAvailabilityComponent() {
+        return this.#availability;
     }
 
     get_success_chance(station_tier=1) {
-        const level = clamp(get_total_skill_level(this.recipe_skill), 0, this.recipe_level[1]) - this.recipe_level[0] + 1;
+        const level = clamp(character.getTotalSkillLevel(this.recipe_skill), 0, this.recipe_level[1]) - this.recipe_level[0] + 1;
         const skill_modifier = Math.min(1,(0||(level+(station_tier-1))/(this.recipe_level[1]-this.recipe_level[0]+1)));
         return this.success_chance[0]*(this.success_chance[1]/this.success_chance[0])**skill_modifier;
     }
@@ -70,14 +84,14 @@ class Recipe {
     get_quality_range(tier = 0, component_quality) {
         const skill = skills[this.recipe_skill];
         if (component_quality) {
-            const quality = (3 * get_total_skill_level(this.recipe_skill) - skill.max_level) + 50 + component_quality + (10 * tier);
+            const quality = (3 * character.getTotalSkillLevel(this.recipe_skill) - skill.max_level) + 50 + component_quality + (10 * tier);
             return [
                 round_quality(clamp(Math.round(quality - 15), 10, this.get_quality_cap()), this.quality_precision),
                 round_quality(clamp(Math.round(quality + 15), 10, this.get_quality_cap()), this.quality_precision)
             ];
         }
         else {
-            const quality = (3 * get_total_skill_level(this.recipe_skill) - skill.max_level) + 130 + (15 * tier);
+            const quality = (3 * character.getTotalSkillLevel(this.recipe_skill) - skill.max_level) + 130 + (15 * tier);
             return [
                 round_quality(clamp(Math.round(quality - 15), 10, this.get_quality_cap()), this.quality_precision),
                 round_quality(clamp(Math.round(quality + 10), 10, this.get_quality_cap()), this.quality_precision)
@@ -221,7 +235,7 @@ class EquipmentRecipe extends Recipe {
         super({name, id, is_unlocked, recipe_type: "equipment", result, getResult: null, recipe_level: [1,1], recipe_skill, success_rate: [1,1]})
         this.components = components;
         this.item_type = item_type;
-        this.quality_precision = 2;
+        this.quality_precision = config.equipment_crafting_quality_precision;
         this.getResult = function (components, station_tier = 1) {
             const component_stats = get_component_stats(components);
             let quality = this.roll_quality(component_stats.weighted_quality, station_tier - component_stats.max_tier);
@@ -284,59 +298,60 @@ class EquipmentRecipe extends Recipe {
 function find_recipe_material({material, ignore_stop, needed_count}) {
     let count = 0;
     let items = [];
+    let materials;
 
     if (material.material_id) {
-        //grab count of material with provided id
-        const material_id = material.material_id;
-        const key = item_templates[material_id].getInventoryKey();
-        if (character.inventory[key]) {
-            //material without quality exists, no need to search further
-            count = character.inventory[key].count;
-            items = [character.inventory[key]];
+        const key = item_templates[material.material_id].getInventoryKey();
+        //material without quality exists, no need to search further
+        if (character.getItems()[key]) {
+            count = character.getItems()[key].count;
+            items = [character.getItems()[key]];
+
+            return { count, items };
         }
-        
-    } else if(material.material_type) {
 
-        if(game_options.stop_crafting_on_material_change && !ignore_stop) {
-            //crafting stops when material changes
+        //grab materials with provided id, sorted by price 
+        materials = Object.values(character.getItems())
+            .filter(item => (material.material_id && item.item.id === material.material_id))
+            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue());
 
-            //grab material of provided type, sorted by price 
-            const materials = Object.values(character.inventory)
-                .filter(item => (material.material_type && item.item.material_type === material.material_type))
-                .sort((a,b) => a.item.getBaseValue()-b.item.getBaseValue());
-                
-            if(materials[0]) {
-                let current_mat = materials[0];
+    } else if (material.material_type) {
+        //grab materials of provided type, sorted by price 
+        materials = Object.values(character.getItems())
+            .filter(item => (material.material_type && item.item.material_type === material.material_type))
+            .sort((a, b) => a.item.getBaseValue() - b.item.getBaseValue());
+    }
 
-                count = current_mat.count;
-                items.push(current_mat);
-                //add it to list either way, no matter if it's enough
+    if(game_options.stop_crafting_on_material_change && !ignore_stop) {
+        //crafting stops when material changes
+        if(materials[0]) {
+            let current_mat = materials[0];
+
+            count = current_mat.count;
+            items.push(current_mat);
+            //add it to list either way, no matter if it's enough
             
-                let i = 1;
-                while(count < needed_count && materials[i]) {
-                    /*
-                    there is not enough, check next cheapest, add it, and so on
-                    this way:
-                        if there's enough of first mat, on click it will only use first mat
-                        if there's not enough of first mat, on click it will use first mat and next mat, and so on, until it has enough
-                    */
-                    current_mat = materials[i];
-                    count += current_mat.count;
-                    items.push(current_mat);
-                    i++;
-                }
+            let i = 1;
+            while(count < needed_count && materials[i]) {
+                /*
+                there is not enough, check next cheapest, add it, and so on
+                this way:
+                    if there's enough of first mat, on click it will only use first mat
+                    if there's not enough of first mat, on click it will use first mat and next mat, and so on, until it has enough
+                */
+                current_mat = materials[i];
+                count += current_mat.count;
+                items.push(current_mat);
+                i++;
             }
-        
-        } else {
-            //grab total count of all materials of desired type
-            Object.values(character.inventory)
-                .filter(item => (material.material_type && item.item.material_type === material.material_type))
-                .sort((a,b) => a.item.getBaseValue()-b.item.getBaseValue())
-                .forEach(item => {
-                    count += item.count;
-                    items.push(item);
-            });
         }
+        
+    } else {
+        //grab total count of all materials of desired type
+        materials.forEach(item => {
+            count += item.count;
+            items.push(item);
+        });
     }
 
     return { count, items };
@@ -372,7 +387,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     }
     let exp_value = 4;
     const selected_recipe = recipes[category][subcategory][recipe_id];
-    const skill_level = skills[selected_recipe.recipe_skill].current_level; //don't use buffed level as that would only result in reduced xp gain, which is not desired here
+    const skill_level = skills[selected_recipe.recipe_skill].getCurrentLvl(); //don't use buffed level as that would only result in reduced xp gain, which is not desired here
     if(!selected_recipe) {
         throw new Error(`Tried to use a recipe that doesn't exist: ${category} -> ${subcategory} -> ${recipe_id}`);
     }
@@ -1227,7 +1242,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     woodworking_recipes.items["Wicker"] = new ItemRecipe({
         name: "Wicker",
         recipe_type: "material",
-        materials: [{material_id: "Piece of willow wood", count: 6}], 
+        materials: [{material_id: "Piece of willow wood", count: 2}], 
         result: {result_id: "Wicker", count: 1},
         success_chance: [0.2,1],
         recipe_level: [7,17],
@@ -1236,8 +1251,8 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     woodworking_recipes.items["Willow bark"] = new ItemRecipe({
         name: "Willow bark",
         recipe_type: "material",
-        materials: [{material_id: "Piece of willow wood", count: 2}], 
-        result: {result_id: "Willow bark", count: 1},
+        materials: [{material_id: "Piece of willow wood", count: 1}], 
+        result: {result_id: "Willow bark", count: 3},
         success_chance: [0.1,1],
         recipe_level: [10,25],
         recipe_skill: "Woodworking",
@@ -1335,6 +1350,15 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [18,25],
         recipe_skill: "Butchering",
     });
+    butchering_recipes.items["Frumious claw"] = new ItemRecipe({
+        name: "Frumious claw",
+        recipe_type: "material",
+        materials: [{material_id: "Bandersnatch claw", count: 50}], 
+        result: {result_id: "Frumious claw", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [20,27],
+        recipe_skill: "Butchering",
+    });
     butchering_recipes.items["Sinew"] = new ItemRecipe({
         name: "Sinew",
         recipe_type: "material",
@@ -1353,6 +1377,16 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         result: {result_id: "Potash", count: 1},
         success_chance: [0.5,1],
         recipe_level: [10,20],
+        recipe_skill: "Alchemy",
+    });
+    alchemy_recipes.items["Bufonite"] = new ItemRecipe({
+        name: "Bufonite",
+        is_unlocked: false,
+        recipe_type: "material",
+        materials: [{material_id: "Toxin gland", count: 50}], 
+        result: {result_id: "Bufonite", count: 1},
+        success_chance: [0.5,1],
+        recipe_level: [15,23],
         recipe_skill: "Alchemy",
     });
 })();
@@ -1374,8 +1408,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Makeshift fishing pole",
         recipe_type: "equipment",
         materials: [
-            { material_id: "Processed rough wood", count: 4 },
-            //{ material_id: "Simple long wooden shaft", count: 1 },    //TODO
+            { material_id: "Simple wooden long handle", count: 1 },
             { material_id: "Wool", count: 1 },
         ],
         result: { result_id: "Makeshift fishing pole", count: 1 },
@@ -1387,8 +1420,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Wooden fishing pole",
         recipe_type: "equipment",
         materials: [
-            { material_id: "Processed wood", count: 4 },
-            //{ material_id: "Simple long wooden shaft", count: 1 },    //TODO
+            { material_id: "Wooden long handle", count: 1 },
             { material_id: "Sinew string", count: 1 },
             { material_id: "Metal fishing hook", count: 1 },
         ],
@@ -1401,8 +1433,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Ash wood fishing pole",
         recipe_type: "equipment",
         materials: [
-            { material_id: "Processed ash wood", count: 4 },
-            //{ material_id: "Simple long wooden shaft", count: 1 },    //TODO
+            { material_id: "Ash wood long handle", count: 1 },
             { material_id: "Sinew string", count: 1 },
             { material_id: "Metal fishing hook", count: 1 },
         ],
@@ -1415,8 +1446,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Hickory wood fishing pole",
         recipe_type: "equipment",
         materials: [
-            { material_id: "Processed hickory wood", count: 4 },
-            //{ material_id: "Simple long wooden shaft", count: 1 },    //TODO
+            { material_id: "Hickory long handle", count: 1 },
             { material_id: "Flax string", count: 1 },
             { material_id: "Metal fishing hook", count: 1 },
         ],
@@ -1429,8 +1459,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Alchemical wood fishing pole",
         recipe_type: "equipment",
         materials: [
-            { material_id: "Alchemical Wood", count: 4 },
-            //{ material_id: "Simple long wooden shaft", count: 1 },    //TODO
+            { material_id: "Alchemical wood long handle", count: 1 }, 
             { material_id: "Flax string", count: 1 },
             { material_id: "Metal fishing hook", count: 1 },
         ],
@@ -1438,6 +1467,103 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         success_chance: [0.1, 1],
         recipe_level: [22, 32],
         recipe_skill: "Woodworking",
+    });
+
+    forging_recipes.items["Iron pickaxe"] = new ItemRecipe({
+        name: "Iron pickaxe",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Wooden medium handle", count: 1 },
+            { material_id: "Iron long blade", count: 1 },
+        ],
+        result: { result_id: "Iron pickaxe", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [7, 17],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Steel pickaxe"] = new ItemRecipe({
+        name: "Steel pickaxe",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Ash wood medium handle", count: 1 },
+            { material_id: "Steel long blade", count: 1 },
+        ],
+        result: { result_id: "Steel pickaxe", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [12, 22],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Iron chopping axe"] = new ItemRecipe({
+        name: "Iron chopping axe",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Wooden medium handle", count: 1 },
+            { material_id: "Iron axe head", count: 1 },
+        ],
+        result: { result_id: "Iron chopping axe", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [7, 17],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Steel chopping axe"] = new ItemRecipe({
+        name: "Steel chopping axe",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Ash wood medium handle", count: 1 },
+            { material_id: "Steel axe head", count: 1 },
+        ],
+        result: { result_id: "Steel chopping axe", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [12, 22],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Iron sickle"] = new ItemRecipe({
+        name: "Iron sickle",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Wooden short handle", count: 1 },
+            { material_id: "Iron short blade", count: 1 },
+        ],
+        result: { result_id: "Iron sickle", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [7, 17],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Steel sickle"] = new ItemRecipe({
+        name: "Steel sickle",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Ash wood short handle", count: 1 },
+            { material_id: "Steel short blade", count: 1 },
+        ],
+        result: { result_id: "Steel sickle", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [12, 22],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Iron shovel"] = new ItemRecipe({
+        name: "Iron shovel",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Wooden long handle", count: 1 },
+            { material_id: "Iron axe head", count: 1 },
+        ],
+        result: { result_id: "Iron shovel", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [7, 17],
+        recipe_skill: "Forging",
+    });
+    forging_recipes.items["Steel shovel"] = new ItemRecipe({
+        name: "Steel shovel",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Ash wood long handle", count: 1 },
+            { material_id: "Steel axe head", count: 1 },
+        ],
+        result: { result_id: "Steel shovel", count: 1 },
+        success_chance: [0.1, 1],
+        recipe_level: [12, 22],
+        recipe_skill: "Forging",
     });
 })();
 
@@ -1501,6 +1627,26 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [12,22],
         recipe_skill: "Cooking",
     });
+    cooking_recipes.items["Bread"] = new ItemRecipe({
+        name: "Bread",
+        recipe_type: "usable",
+        materials: [{material_id: "Flour", count: 5}], 
+        result: {result_id: "Fresh bread", count: 1},
+        success_chance: [0.2,1],
+        recipe_level: [5,12],
+        recipe_skill: "Cooking",
+    });
+    cooking_recipes.items["Apple pie"] = new ItemRecipe({
+        name: "Apple pie",
+        recipe_type: "usable",
+        materials: [{ material_id: "Flour", count: 5 },
+                    { material_id: "Apple", count: 5 }
+                ], 
+        result: {result_id: "Apple pie", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [10,18],
+        recipe_skill: "Cooking",
+    });
     cooking_recipes.items["Bread kwas"] = new ItemRecipe({
         name: "Bread kwas",
         recipe_type: "usable",
@@ -1510,6 +1656,17 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         result: {result_id: "Bread kwas", count: 1},
         success_chance: [0.3,1],
         recipe_level: [10,15],
+        recipe_skill: "Cooking",
+    });
+    cooking_recipes.items["Cider"] = new ItemRecipe({
+        name: "Cider",
+        recipe_type: "usable",
+        materials: [{material_id: "Apple", count: 4}, 
+                    {material_id: "Glass bottle", count: 1}
+                ], 
+        result: {result_id: "Cider", count: 1},
+        success_chance: [0.1,1],
+        recipe_level: [12,18],
         recipe_skill: "Cooking",
     });
     cooking_recipes.items["Fish skewer"] = new ItemRecipe({
@@ -1814,6 +1971,16 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_level: [15,25],
         recipe_skill: "Crafting",
     });
+    alchemy_recipes.items["Frog trophy"] = new ItemRecipe({
+        name: "Frog trophy",
+        recipe_type: "equipment",
+        is_unlocked: false,
+        materials: [{material_id: "Bufonite", count: 4}],
+        result: {result_id: "Frog trophy", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [18,28],
+        recipe_skill: "Alchemy",
+    });
     crafting_recipes.items["Crab trophy"] = new ItemRecipe({
         name: "Crab trophy",
         recipe_type: "equipment",
@@ -1821,6 +1988,18 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         result: {result_id: "Crab trophy", count: 1},
         success_chance: [0.3,1],
         recipe_level: [22,30],
+        recipe_skill: "Crafting",
+    });
+    crafting_recipes.items["Bandersnatch trophy"] = new ItemRecipe({
+        name: "Bandersnatch trophy",
+        recipe_type: "equipment",
+        materials: [
+            { material_id: "Wolf trophy", count: 1},
+            { material_id: "Frumious claw", count: 4 }
+        ],
+        result: {result_id: "Bandersnatch trophy", count: 1},
+        success_chance: [0.3,1],
+        recipe_level: [25,35],
         recipe_skill: "Crafting",
     });
 
@@ -1857,5 +2036,7 @@ Object.keys(recipes).forEach(recipe_category => {
         });
     });
 });
+
+availability_havers.push(Recipe);
 
 export { recipes, find_recipe_material, get_recipe_xp_value, get_crafting_quality_caps, get_component_stats, ItemRecipe }

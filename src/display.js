@@ -1,10 +1,10 @@
 "use strict";
 
-import { traders } from "./traders.js";
 import { current_trader, to_buy, to_sell } from "./trade.js";
-import { skills, get_unlocked_skill_rewards, get_next_skill_milestone } from "./skills.js";
-import { character, get_skill_xp_gain, get_hero_xp_gain, get_skills_overall_xp_gain, get_total_skill_coefficient, get_total_skill_level, get_effect_with_bonuses, cold_status_temperatures, get_character_cold_tolerance, lowest_tolerable_temperature, get_skill_xp_gain_bonus, tool_slots } from "./character.js";
-import { current_enemies, game_options, 
+import { skills } from "./data/skills.js";
+import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
+import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
+import { game_options, 
     can_work, current_location, 
     active_effects, enough_time_for_earnings, 
     get_current_book, last_location_with_bed, 
@@ -14,26 +14,29 @@ import { current_enemies, game_options,
     unlocked_beds,
     favourite_consumables,
     travel_times, 
-    language,
-    favourite_items} from "./main.js";
-import { dialogues } from "./dialogues.js";
+    favourite_items,
+    get_context,
+    translate} from "./main.js";
 import { activities } from "./activities.js";
 import { format_time, current_game_time, seasons } from "./game_time.js";
 import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, getItemRarity, getItemFromKey, item_log } from "./items.js";
-import { favourite_locations, get_location_type_penalty, location_types, locations } from "./locations.js";
-import { enemy_killcount, enemy_tag_to_skill_mapping, enemy_templates } from "./enemies.js";
-import { expo, format_reading_time, stat_names, get_hit_chance, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
+import { favourite_locations, location_types, locations } from "./data/locations.js";
+import { get_location_type_penalty } from "./models/location.js";
+import { enemy_killcount, enemy_templates } from "./enemies.js";
+import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
-import { get_recipe_xp_value, find_recipe_material, get_component_stats, recipes } from "./crafting_recipes.js";
+import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import { effect_templates } from "./active_effects.js";
-import { player_storage } from "./storage.js";
+import { player_storage } from "./data/storage.js";
 import { quests } from "./quests.js";
 import { get_current_light_level, get_current_light_level_for_roofed_location, get_current_temperature_smoothed, is_raining } from "./weather.js";
 import { PointyStarParticle, RainParticle, SnowParticle } from "./particles.js";
 import { get_game_version } from "./game_version.js";
-import { process_conditions } from "./conditions.js";
-import { translationManager } from "./translation.js";
 import { playable_races } from "./races.js";
+import { config } from "./config.js";
+import { height_stats } from "./models/person.js";
+import NPCRegistry from "./data/npcs.js";
+import { stances } from "./combat_stances.js";
 let activity_anim; //for the activity and gameAction animation interval
 
 let location_choice_divs = {}; //for dropdowns
@@ -69,43 +72,9 @@ let dynamic_loot_message = null;
 
 //enemy info
 const combat_div = document.getElementById("combat_div");
-const enemies_div = document.getElementById("enemies_div");
 
 const enemy_count_div = document.getElementById("enemy_count_div");
 const clear_count_div = document.getElementById("clear_count_div");
-
-//enemy onhit animation
-const onhitAnimation = [
-    {
-        "backgroundColor": "rgba(0, 0, 0, 0)",
-        "rotate": "0deg",
-    },
-    {
-        "backgroundColor": "rgba(255, 0, 0, 0.2)",
-        "rotate": "0.3deg",
-    }
-]
-const onhitAnimationTiming = {
-    duration: 100,
-	iterations: 2,
-    direction: "alternate",
-}
-
-const onstartAnimation = [
-    {
-        "opacity": "0.2",
-        "backgroundColor": "rgba(0, 124, 17, 0.2)",
-    },
-    {
-        "opacity": "1",
-    },
-]
-const onstartAnimationTiming = {
-    duration: 800,
-	iterations: 1,
-}
-
-const enemy_animations = {};
 
 //character health display
 const current_health_value_div = document.getElementById("character_health_value");
@@ -196,8 +165,6 @@ const other_combat_divs = {attack_points: document.getElementById("hit_chance_sl
 
 let effect_divs = {};
 
-const character_attack_bar = document.getElementById("character_attack_bar");
-
 //equipment slots
 const equipment_slots_divs = {head: document.getElementById("head_slot"), torso: document.getElementById("torso_slot"),
                               arms: document.getElementById("arms_slot"), ring: document.getElementById("ring_slot"),
@@ -286,6 +253,10 @@ function obscure_name(item_id) {
     return item_log.is_known(item_id) ? item_templates[item_id].getName() : "???";
 }
 
+function obscure_name_to_type(item_id) {
+    return item_log.is_known(item_id) ? item_templates[item_id].getName() : "Unknown " + (item_templates[item_id].material_type || item_templates[item_id].component_type || "material");
+}
+
 function create_floating_effect(text, pos) {
     const effect_elem = document.createElement("div");
     pos.x = pos.x + Math.random()*80-40;
@@ -354,6 +325,73 @@ function create_item_tooltip(item, options = {}, is_trade = false) {
 
 function round(number) {
     return +number.toFixed(1);
+}
+
+
+/**
+ * Writes comparison of hovered equippable item vs one currently equipped in same slot, to be used in item tooltip
+ *
+ * @param {Object} item the item being hovered
+ * @param {Number} quality
+ * @returns {String} HTML string
+ */
+function create_equipment_comparison(item, quality) {
+    if(!item?.equip_slot) {
+        return "";
+    }
+
+    const worn = character.getEquipment()[item.equip_slot];
+    if(!worn || worn === item) {
+        return "";
+    }
+
+    let comparison = "";
+
+    const flat_line = (label, mine, theirs) => {
+        const delta = Math.round(((mine || 0) - (theirs || 0))*100)/100;
+        if(!delta) {
+            return;
+        }
+        const better = delta > 0 ? "comparison_better" : "comparison_worse";
+        comparison += `<br><span class="${better}">${label}: ${delta > 0 ? "+" : ""}${delta}</span>`;
+    };
+
+    const multiplier_line = (label, mine, theirs) => {
+        const multi = 1 + Math.round(((mine || 1) / (theirs || 1) - 1) * 100) / 100;
+        if(multi == 1) {
+            return;
+        }
+        const better = multi > 1 ? "comparison_better" : "comparison_worse";
+        comparison += `<br><span class="${better}">${label}: ${multi > 0 ? "x" : "x"}${multi}</span>`;
+    };
+
+
+    if(item.getAttack && worn.getAttack) {
+        flat_line("Attack", item.getAttack(quality), worn.getAttack());
+    } else if(item.getDefense && worn.getDefense) {
+        flat_line("Defense", item.getDefense(quality), worn.getDefense());
+    } else if(item.getShieldStrength && worn.getShieldStrength) {
+        flat_line("Block", item.getShieldStrength(quality), worn.getShieldStrength());
+    }
+
+    const mine = item.getStats(quality);
+    const theirs = worn.getStats();
+    for(const stat_key of new Set([...Object.keys(mine), ...Object.keys(theirs)])) {
+        const label = capitalize_first_letter(stat_names[stat_key] ?? stat_key.replace("_", " "));
+        if(mine[stat_key]?.flat != null || theirs[stat_key]?.flat != null) {
+            flat_line(label, mine[stat_key]?.flat, theirs[stat_key]?.flat);
+        }
+        if(mine[stat_key]?.multiplier != null || theirs[stat_key]?.multiplier != null) {
+            multiplier_line(label, mine[stat_key]?.multiplier, theirs[stat_key]?.multiplier);
+        }
+    }
+
+    if(!comparison) {
+        return "";
+    } else {
+        return "<br><br>Compared to equipped:" + comparison;
+    }
+
 }
 
 /**
@@ -432,7 +470,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 item_tooltip += 
                     `<br><br>Defense: ${round(item.getDefense(options.quality[0]))} - ${round(item.getDefense(options.quality[1]))}`;
             } else if (item.offhand_type === "shield") {
-                const block_multiplier = item.tags.ignore_skill ? character.stats.total_multiplier.block_strength : 1;
+                const block_multiplier = item.tags.ignore_skill ? character.getStats().total_multiplier.block_strength : 1;
                 item_tooltip += 
                     `<br><br>Can block up to: ${round(item.getShieldStrength(options.quality[0])*block_multiplier)} - ${round(item.getShieldStrength(options.quality[1])*block_multiplier)} damage [base: ${item.getShieldStrength(options.quality[0])}-${item.getShieldStrength(options.quality[1])}]`;
             }
@@ -465,7 +503,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength())/10} damage [unaffected by skill]`;
                 } else {
                     item_tooltip += 
-                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength()*(character.stats.total_multiplier.block_strength))/10} damage [base: ${item.getShieldStrength()}]`;
+                `<br><br>Can block up to: ${Math.round(10*item.getShieldStrength()*(character.getStats().total_multiplier.block_strength))/10} damage [base: ${item.getShieldStrength()}]`;
                 }
             }
 
@@ -494,12 +532,12 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             if(skill_key.includes("category_")) {
                 item_tooltip +=  `<br>${skill_key} skills level: +${equip_bonus_skill_levels[skill_key]}`;
             } else {
-                item_tooltip += `<br>${skills[skill_key].name()} level: +${equip_bonus_skill_levels[skill_key]}`;
+                item_tooltip += `<br>${skills[skill_key].getName()} level: +${equip_bonus_skill_levels[skill_key]}`;
             }
         });
     }
 
-    if (item.component_stats) {
+    if(item.component_stats) {
         if(item.component_tier) {
             item_tooltip += `<br><br>Component tier: ${item.component_tier}`;
         }
@@ -529,6 +567,11 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
         });
     }
 
+    //for singular tooltips (i.e. not ones in crafting), add comparison with worn item
+    if(!(options?.quality?.length > 1)) {
+        item_tooltip += create_equipment_comparison(item, quality);
+    }
+
     if(item?.base_size) {
         item_tooltip += `<br><br>Size: ${item.getSize()}cm`;
     }
@@ -542,7 +585,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     }
 
     if (item.item_type === "BOOK") {
-        if(!book_stats[item.name].is_finished) {
+        if(!item.isFinished()) {
             item_tooltip += `<br><br>Time to read: ${item.getRemainingTime()} minutes`;
         }
         else {
@@ -571,6 +614,15 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
         item_tooltip += `<br><br>Material type: ${item.material_type}`;
     }
 
+    if(!item.quality || !item.use_quality) {
+        const count_in_main = character.getItems()[item.getInventoryKey()]?.count;
+
+        if(count_in_main) {
+            item_tooltip += `<br><br>Count in player inventory: ${count_in_main}`;
+            //always show how much player currently has in inventory; this makes it easier to find (with no need for scrolling) when buying, crafting, or taking out of storage
+        }
+    }
+
     if(!item.tags.unique && item.getBaseValue()) {
         if(!options.skip_quality && options?.quality?.length == 2) { 
             //ignore quality, instead use quality passed as param
@@ -579,9 +631,9 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
                 item[value_function]({quality:options.quality[0], region:current_location?.market_region})))} - ${format_money(round_item_price(item.getBaseValue({quality:options.quality[1]})
             ))}`;
         } else {
-            item_tooltip += `<br><br>Value: ${format_money(round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? traders[current_trader].getProfitMargin(current_location.market_region) : 1)})))}`;
+            item_tooltip += `<br><br>Value: ${format_money(round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1)})))}`;
             if(item.saturates_market) {
-                item_tooltip += ` [originally ${format_money(round_item_price(item.getBaseValue({quality, region:current_location?.market_region}) * ((options && options.trader) ? traders[current_trader].getProfitMargin(current_location.market_region) : 1) || 1))}]`
+                item_tooltip += ` [originally ${format_money(round_item_price(item.getBaseValue({quality, region:current_location?.market_region}) * ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1) || 1))}]`
             }
         }
     }
@@ -589,9 +641,25 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
     return item_tooltip;
 }
 
+function xp_target_name(target) {
+    if(target === "all" || target === "hero" || target === "all_skill") {
+        return target.replace("_", " ");
+    }
+    if(target.includes("category_")) {
+        return target.replace("category_", "") + " skills";
+    }
+    if(!skills[target]) {
+        console.warn(`An xp multiplier names "${target}", which is not a skill, a category`
+            + ` or an aggregate.`);
+        return target;
+    }
+    return skills[target].getName();
+}
+
 /** 
  * @param {Object} item_effect from item effects[]
  */
+
 function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
     const effect = effect_templates[effect_name];
     const tooltip = document.createElement("div");
@@ -623,7 +691,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
 
     let effects;
     if(add_bonus) {
-        effects = get_effect_with_bonuses(effect);
+        effects = character.getEffectWithBonuses(effect);
     } else {
         effects = effect.effects;
     }
@@ -651,13 +719,9 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
     
     const xp_multipliers = Object.keys(effects.xp_multipliers);
     if(xp_multipliers.length > 0) {
-        let name;
-        if(xp_multipliers[0] !== "all" && xp_multipliers[0] !== "hero" && xp_multipliers[0] !== "all_skill") {
-            name = skills[xp_multipliers[0]].name();
-        } else {
-            name = xp_multipliers[0].replace("_"," ");
-        }
-        name = capitalize_first_letter(name);
+        //Same three cases models/skill.js handles, including category_ - which this copy
+        //did not, so a category target would have asked the skill registry for it.
+        const name = capitalize_first_letter(xp_target_name(xp_multipliers[0]));
         if(tooltip_html_content) {
             tooltip_html_content += `<br>${name} xp gain: x${effects.xp_multipliers[xp_multipliers[0]]}`;
         } else {
@@ -666,7 +730,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
         for(let i = 1; i < xp_multipliers.length; i++) {
             let name;
             if(xp_multipliers[i] !== "all" && xp_multipliers[i] !== "hero" && xp_multipliers[i] !== "all_skill") {
-                name = skills[xp_multipliers[i]].name();
+                name = skills[xp_multipliers[i]].getName();
             } else {
                 name = xp_multipliers[i].replace("_"," ");
             }
@@ -899,12 +963,7 @@ function format_book_bonuses(bonuses) {
     }
     if(bonuses.xp_multipliers) {
         const xp_multipliers = Object.keys(bonuses.xp_multipliers);
-        let name;
-        if(xp_multipliers[0] !== "all" && xp_multipliers[0] !== "hero" && xp_multipliers[0] !== "all_skill") {
-            name = skills[xp_multipliers[0]].name();
-        } else {
-            name = xp_multipliers[0].replace("_"," ");
-        }
+        const name = xp_target_name(xp_multipliers[0]);
 
         if(formatted) {
             formatted += `, x${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
@@ -914,7 +973,7 @@ function format_book_bonuses(bonuses) {
         for(let i = 1; i < xp_multipliers.length; i++) {
             let name;
             if(xp_multipliers[i] !== "all" && xp_multipliers[i] !== "hero" && xp_multipliers[i] !== "all_skill") {
-                name = skills[xp_multipliers[i]].name();
+                name = skills[xp_multipliers[i]].getName();
             } else {
                 name = xp_multipliers[i].replace("_"," ");
             }
@@ -991,6 +1050,12 @@ function start_activity_animation(settings) {
     end_activity_animation();
     activity_anim = setInterval(() => { //sets a tiny little "animation" for activity text
         const action_status_div = document.getElementById("action_status_div");
+        
+        //small safeguard in case something clears out activity without cancelling the animation
+        if(!action_status_div) {
+            end_activity_animation();
+            return;
+        }
         let end = "";
         if(action_status_div.innerText.endsWith("...")) {
             end = "...";
@@ -1018,7 +1083,7 @@ function start_activity_animation(settings) {
 function update_displayed_trader() {
     action_div.style.display = "none";
     trade_div.style.display = "inherit";
-    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (traders[current_trader].getProfitMargin(current_location.market_region)))}%`
+    document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
     update_displayed_trader_inventory();
 }
 
@@ -1292,12 +1357,13 @@ function sort_displayed_inventory({sort_by, target = "character", change_directi
 }
 
 function update_displayed_trader_inventory({item_key, trader_sorting="name", sorting_direction="asc", was_anything_new_added=false} = {}) {
-    const trader = traders[current_trader];
+    const trader = NPCRegistry.get(current_trader).getTraderComponent();
+    const inventory = trader.getTradeInventory();
 
     //removal of unneeded divs
     if(!item_key){
         Object.keys(trader_item_divs).forEach(div_key => {
-            if(!trader.inventory[div_key]) {
+            if(!inventory[div_key]) {
                 trader_item_divs[div_key].remove();
                 delete trader_item_divs[div_key];
             }
@@ -1315,7 +1381,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
 
     if(item_key) {
         //key passed -> deal only with this singular item
-        let item_count = trader.inventory[item_key].count;
+        let item_count = inventory[item_key].count;
 
         //find if item is in to_buy, if so then grab the count and subtract it
         for(let i = 0; i < to_buy.items.length; i++) {
@@ -1349,8 +1415,8 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
         //no key passed - go through all items
 
         //go through inventory items
-        Object.keys(trader.inventory).forEach(inventory_key => {
-            let item_count = trader.inventory[inventory_key].count;
+        Object.keys(inventory).forEach(inventory_key => {
+            let item_count = inventory[inventory_key].count;
 
             //find if item is in to_buy, if so then grab the count and subtract it
             for(let i = 0; i < to_buy.items.length; i++) {
@@ -1394,10 +1460,10 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
 
                 //overwrite tooltip (for displayed prices)
                 const tooltip_div = trader_item_divs[inventory_key].querySelector(".item_tooltip");
-                tooltip_div.replaceWith(create_item_tooltip(trader.inventory[inventory_key].item, {trader: true}, true));
+                tooltip_div.replaceWith(create_item_tooltip(inventory[inventory_key].item, {trader: true}, true));
 
                 const price_span = trader_item_divs[inventory_key].getElementsByClassName("item_value")[0];
-                set_HTML(price_span, `${format_money(round_item_price(trader.inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (traders[current_trader].getProfitMargin(current_location.market_region) || 1)})), true)}`);
+                set_HTML(price_span, `${format_money(round_item_price(inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (trader.getProfitMargin(current_location.market_region) || 1)})), true)}`);
             }
         });
 
@@ -1440,20 +1506,23 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
  */
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {    
     //removal of unneeded divs
+
+    const equipment = character.getEquipment();
+
     if(!item_key){
         Object.keys(item_divs).forEach(div_key => {
             if(item_divs[div_key].classList.contains("equipped_item_control")) {
                 //since equipment is keyed with slots and not item_keys, there might be something different under it, so needs additional check
                 //div_key is the slot
                 const item_key = item_divs[div_key].dataset.character_item;
-                if(!character.equipment[div_key] || item_key !== character.equipment[div_key].getInventoryKey()) {
+                if(!equipment[div_key] || item_key !== equipment[div_key].getInventoryKey()) {
                     //character has nothing in this slot - remove
                     //character has something else in this slot - remove, will be recreated later
                     item_divs[div_key].remove();
                     delete item_divs[div_key];
                 }
             } else {
-                if(!character.inventory[div_key]) {
+                if(!character.getItems()[div_key]) {
                     item_divs[div_key].remove();
                     delete item_divs[div_key];
                 }
@@ -1471,7 +1540,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
     //creation of missing divs and updating of others
     if(item_key) {
         //specific item to be updated
-        let item_count = character.inventory[item_key].count;
+        let item_count = character.getItems()[item_key].count;
 
         //find if item is in to_sell, if so then grab the count and subtract it
         for(let i = 0; i < to_sell.items.length; i++) {
@@ -1514,8 +1583,8 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
         }
     } else {
         //inventory items
-        Object.keys(character.inventory).forEach(inventory_key => {
-            let item_count = character.inventory[inventory_key].count;
+        Object.keys(character.getItems()).forEach(inventory_key => {
+            let item_count = character.getItems()[inventory_key].count;
 
             //find if item is in to_sell, if so then grab the count and subtract it
             for(let i = 0; i < to_sell.items.length; i++) {
@@ -1556,24 +1625,24 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
 
                 //overwrite tooltip (for displayed prices)
                 const tooltip_div = item_divs[inventory_key].querySelector(".item_tooltip");
-                tooltip_div.replaceWith(create_item_tooltip(character.inventory[inventory_key].item, {}, is_trade));
+                tooltip_div.replaceWith(create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade));
 
                 //grab and update price div, do it for all as trading can affect prices of multiple items
-                if(!character.inventory[inventory_key].item.tags.unsellable) {
+                if(!character.getItems()[inventory_key].item.tags.unsellable) {
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
                     if(is_trade) {
-                        set_HTML(price_span , `${format_money(round_item_price(character.inventory[inventory_key].item.getValue({region: current_location.market_region})), true)}`);
+                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`);
                     } else {
-                        set_HTML(price_span, `${format_money(round_item_price(character.inventory[inventory_key].item.getBaseValue()), true)}`);
+                        set_HTML(price_span, `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`);
                     }
                 }
             }
         });
 
-        Object.keys(character.equipment).forEach(eq_slot => {
+        Object.keys(equipment).forEach(eq_slot => {
             if(!item_divs[eq_slot]) {
-                if(character.equipment[eq_slot]) {
-                    if(character.equipment[eq_slot]?.tags.tool) {
+                if(equipment[eq_slot]) {
+                    if(equipment[eq_slot]?.tags.tool) {
                         //don't display the equipped tools
                         return;
                     }
@@ -1613,11 +1682,12 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
 }
 
 function update_displayed_storage_inventory({item_key, sorting_direction="asc", was_anything_new_added=false} = {}) {
+    const inventory = player_storage.getItems();
 
     //removal of unneeded divs
     if(!item_key){
         Object.keys(storage_item_divs).forEach(div_key => {
-            if(!player_storage.inventory[div_key]) {
+            if(!inventory[div_key]) {
                 storage_item_divs[div_key].remove();
                 delete storage_item_divs[div_key];
             }
@@ -1626,15 +1696,15 @@ function update_displayed_storage_inventory({item_key, sorting_direction="asc", 
 
     //creation of missing divs and updating of others
     if(item_key) {
-        const item_count = player_storage.inventory[item_key].count;
+        const item_count = inventory[item_key].count;
         storage_item_divs[item_key].remove();
         delete storage_item_divs[item_key];
         storage_item_divs[item_key] = create_inventory_item_div({key: item_key, item_count, target: "storage"});
         storage_inventory_div.appendChild(storage_item_divs[item_key]);
         was_anything_new_added = true;
     } else {
-        Object.keys(player_storage.inventory).forEach(inventory_key => {
-            let item_count = player_storage.inventory[inventory_key].count;
+        Object.keys(inventory).forEach(inventory_key => {
+            let item_count = inventory[inventory_key].count;
 
 
             if(!storage_item_divs[inventory_key]) {
@@ -1696,13 +1766,13 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     let price_multiplier = 1;
     if(target === "trader") {
         options.trader = true;
-        price_multiplier = traders[current_trader].getProfitMargin(current_location.market_region) || price_multiplier;
+        price_multiplier = NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) || price_multiplier;
     } else if(target === "storage") {
         options.storage = true;
     }
 
     if(is_equipped) {
-        target_item = character.equipment[key];
+        target_item = character.getEquipment()[key];
         key = target_item.getInventoryKey();
         item_count = item_count ?? 1;
         item_class = "equipped_item";
@@ -1711,25 +1781,25 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         item_class = "inventory_item";
         if(target === "character") {
             if(typeof trade_index === "undefined") {
-                target_item = character.inventory[key].item;
-                item_count = item_count || character.inventory[key].count;
+                target_item = character.getItems()[key].item;
+                item_count = item_count || character.getItems()[key].count;
             } else {
-                target_item = traders[current_trader].inventory[to_buy.items[trade_index].item_key].item;
+                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[to_buy.items[trade_index].item_key].item;
                 item_count = item_count || to_buy.items[trade_index].count;
             }
             target_class_name = "character_item";
         } else if(target === "trader") {
             if(typeof trade_index === "undefined") {
-                target_item = traders[current_trader].inventory[key].item;
-                item_count = item_count || traders[current_trader].inventory[key].count;
+                target_item = NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].item;
+                item_count = item_count || NPCRegistry.get(current_trader).getTraderComponent().getTradeInventory()[key].count;
             } else {
-                target_item = character.inventory[to_sell.items[trade_index].item_key].item;
+                target_item = character.getItems()[to_sell.items[trade_index].item_key].item;
                 item_count = item_count || to_sell.items[trade_index].count;
             }
             target_class_name = "trader_item";
         } else if(target === "storage") {
-            target_item = player_storage.inventory[key].item;
-            item_count = item_count || player_storage.inventory[key].count;
+            target_item = player_storage.getItems()[key].item;
+            item_count = item_count || player_storage.getItems()[key].count;
             target_class_name = "storage_item";
         } else {
             throw new Error(`"${target}" is not a correct inventory owner`);
@@ -1777,7 +1847,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         item_name_div_content = `<span class = "item_category">[Book]</span> <span class = "book_name item_name">"${target_item.name}"</span>`;
         item_name_div.classList.add(`${item_class}`);
 
-        if(book_stats[target_item.name].is_finished) {
+        if(target_item.isFinished()) {
             item_div.classList.add("book_finished");
         } else if(get_current_book() === target_item.name) {
             item_control_div.classList.add("book_active");
@@ -1895,20 +1965,21 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
  * updates the displayed worn items + attaches tooltips
  */
 function update_displayed_equipment() {
+    const equipment = character.getEquipment();
     Object.keys(equipment_slots_divs).forEach(function(key) {
         let eq_tooltip; 
 
-        if(character.equipment[key] == null) { //no item in slot
+        if(equipment[key] == null) { //no item in slot
             eq_tooltip = document.createElement("span");
             eq_tooltip.classList.add("item_tooltip");
             set_HTML(equipment_slots_divs[key], `${key.replace("_"," ")} slot`);
             equipment_slots_divs[key].classList.add("equipment_slot_empty");
             set_HTML(eq_tooltip, `Your ${key.replace("_"," ")} slot`);
         } else {
-            set_HTML(equipment_slots_divs[key], character.equipment[key].getName());
+            set_HTML(equipment_slots_divs[key], equipment[key].getName());
             equipment_slots_divs[key].classList.remove("equipment_slot_empty");
             
-            eq_tooltip = create_item_tooltip(character.equipment[key]);
+            eq_tooltip = create_item_tooltip(equipment[key]);
         }
         equipment_slots_divs[key].appendChild(eq_tooltip);
     });
@@ -1932,7 +2003,7 @@ function update_fav_display(node, is_fav) {
 function update_displayed_book(book_id) {
     const book = item_templates[book_id];
     const book_key = book.getInventoryKey();
-    if(book_stats[book.name].is_finished) {
+    if(book.isFinished()) {
         item_divs[book_key].classList.add("book_finished");
         item_divs[book_key].classList.remove("book_active");
     } else if(get_current_book() === book.name) {
@@ -1943,88 +2014,11 @@ function update_displayed_book(book_id) {
 
     item_divs[book_key].getElementsByClassName("item_tooltip")[0].remove();
     item_divs[book_key].getElementsByClassName("item_book")[0].appendChild(create_item_tooltip(book));
-}
 
-/**
- * sets visibility of divs for enemies (based on how many there are in current combat),
- * and enemies' AP / EP
- * 
- * called when new enemies get loaded and when player stats change
- */
-function update_displayed_enemies() {
-    for(let i = 0; i < 8; i++) { //go to max enemy count
-        if(i < current_enemies.length) {
-            enemies_div.children[i].children[0].style.display = null;
-            set_HTML(enemies_div.children[i].children[0].children[0], current_enemies[i].name)
 
-            let disp_speed;
 
-            if(current_enemies[i].stats.attack_speed > 20) {
-                disp_speed = Math.round(current_enemies[i].stats.attack_speed);
-            } else if (current_enemies[i].stats.attack_speed > 2) {
-                disp_speed = Math.round(current_enemies[i].stats.attack_speed*10)/10;
-            } else {
-                disp_speed = Math.round(current_enemies[i].stats.attack_speed*100)/100;
-            }
-
-            let hero_hit_chance_modifier = current_enemies.filter(enemy => enemy.is_alive).length**(-1/4); // down to ~ 60% if there's full 8 enemies
-            let hero_evasion_chance_modifier = current_enemies.filter(enemy => enemy.is_alive).length**(-1/3); //down to .5 if there's full 8 enemies (multiple attackers make it harder to evade attacks)
-
-            let target = current_enemies[i];
-            Object.keys(target.tags).forEach(enemy_tag => {
-                if(enemy_tag_to_skill_mapping[enemy_tag]) {
-                    for(let i = 0; i < enemy_tag_to_skill_mapping[enemy_tag].length; i++) {
-                        const skill = skills[enemy_tag_to_skill_mapping[enemy_tag][i]];
-                        const {modifier_to_hit_chance, modifier_to_evasion} = skill.get_stat_modifiers();
-                        hero_hit_chance_modifier *= modifier_to_hit_chance || 1;
-                        hero_evasion_chance_modifier *= modifier_to_evasion || 1;
-                    }
-                }
-            });
-        
-            const evasion_chance = 1 - get_hit_chance(character.stats.full.attack_points*hero_hit_chance_modifier, current_enemies[i].stats.agility * Math.sqrt(current_enemies[i].stats.intuition ?? 1));
-            let hit_chance = get_hit_chance(current_enemies[i].stats.dexterity * Math.sqrt(current_enemies[i].stats.intuition ?? 1), character.stats.full.evasion_points*hero_evasion_chance_modifier);
-
-            if(character.equipment["off-hand"]?.offhand_type === "shield") { //has shield
-                hit_chance = 1;
-            }
-
-            let html_string = `Atk: ${current_enemies[i].stats.attack}dmg`;
-            
-            if(current_enemies[i].stats.attack_count > 1) {
-                html_string +=` x${current_enemies[i].stats.attack_count}`;
-            }
-            enemies_div.children[i].children[0].children[1].children[0].innerText = html_string;
-            enemies_div.children[i].children[0].children[1].children[1].innerText = `Spd: ${disp_speed}`;
-            enemies_div.children[i].children[0].children[1].children[2].innerText = `Hit: ${Math.min(100,Math.max(0,Math.round(100*hit_chance)))}%`; //100% if shield!
-            enemies_div.children[i].children[0].children[1].children[3].innerText = `Ddg: ${Math.min(100,Math.max(0,Math.round(100*evasion_chance)))}%`;
-            enemies_div.children[i].children[0].children[1].children[4].innerText = `Def: ${current_enemies[i].stats.defense}`;
-
-        } else {
-            enemies_div.children[i].children[0].style.display = "none"; //just hide it
-        }     
-    }
-}
-
-/**
- * updates displayed health and healthbars of enemies
- */
-function update_displayed_health_of_enemies() {
-    for(let i = 0; i < current_enemies.length; i++) {
-        if(current_enemies[i].is_alive) {
-            enemies_div.children[i].children[0].style.filter = "brightness(100%)";
-        } else {
-            enemies_div.children[i].children[0].style.filter = "brightness(30%)";
-            update_displayed_enemies();
-        }
-
-        //update size of health bar
-        enemies_div.children[i].children[0].children[2].children[0].children[0].style.width = 
-            Math.max(0, 100*current_enemies[i].stats.health/current_enemies[i].stats.max_health) + "%";
-
-            enemies_div.children[i].children[0].children[2].children[1].innerText = `${Math.ceil(current_enemies[i].stats.health)}/${Math.ceil(current_enemies[i].stats.max_health)} hp`;
-
-    }
+    let percent = Math.min(book_stats[book_key].accumulated_time / book_stats[book_key].required_time, 1);
+    document.getElementById("action_progress_bar").style.width = 385*percent+"px";
 }
 
 function update_displayed_normal_location(location) {
@@ -2053,7 +2047,7 @@ function update_displayed_normal_location(location) {
     /////////////////////////////////
     //add butttons to change location
 
-    const available_locations = location.connected_locations.filter(loc => (loc.location.is_unlocked && !loc.location.is_finished && !loc.location.is_challenge));
+    const available_locations = location.connected_locations.filter(loc => (loc.location.canBeStarted(get_context()) && !loc.location.is_challenge));
     if(available_locations.length > 0) {
         location_choice_divs["locations"] = create_location_choice_dropdown({name: "Move somewhere else", icon: "directions", class_name: "choice_travel"});
 
@@ -2066,7 +2060,7 @@ function update_displayed_normal_location(location) {
     const available_fast_travel = 
     [
         ...Object.keys(favourite_locations).filter(key => (key !== current_location.id)), 
-        ...Object.keys(unlocked_beds).filter(key => (key !== current_location.id && locations[key].is_unlocked && !locations[key].is_finished))
+        ...Object.keys(unlocked_beds).filter(key => (key !== current_location.id && locations[key].canBeStarted(get_context())))
     ];
 
     if((available_fast_travel.length + (last_combat_location?1:0)) > 0) {
@@ -2078,7 +2072,7 @@ function update_displayed_normal_location(location) {
     /////////////////////////////
     //add button to open crafting
     if(global_flags.is_crafting_unlocked) {
-        if(location.crafting?.is_unlocked) {
+        if(location.crafting?.isUnlocked()) {
             const crafting_button = document.createElement("div");
             crafting_button.classList.add("location_choices", "choice_craft");
             crafting_button.setAttribute("onclick", 'openCraftingWindow()');
@@ -2091,10 +2085,10 @@ function update_displayed_normal_location(location) {
     ///////////////////////////
     //add button to go to sleep
 
-    if(location.housing?.is_unlocked) { 
+    if(location.housing?.isUnlocked()) { 
         const start_sleeping_div = document.createElement("div");
         
-        insert_HTML(start_sleeping_div, '<i class="material-icons">bed</i>  ' + location.housing.text_to_sleep);
+        insert_HTML(start_sleeping_div, '<i class="material-icons">bed</i>  ' + translate(location.housing.text_to_sleep));
         start_sleeping_div.id = "start_sleeping_div";
         start_sleeping_div.setAttribute('onclick', 'start_sleeping()');
 
@@ -2113,31 +2107,19 @@ function update_displayed_normal_location(location) {
     ////////////////////////////////////
     //add buttons for starting dialogues
 
-    const available_dialogues = location.dialogues.filter(dialogue => {
-        if(!dialogues[dialogue].is_unlocked || dialogues[dialogue].is_finished) {
+    const talkable_npcs = location.npcs.filter(npc_id => {
+        const npc = NPCRegistry.get(npc_id);
+        if(!npc.canBeDisplayed(get_context()) || !npc.getDialogueComponent().canBeDisplayed(get_context())) {
             return false;
         } else {
-            let lines_available = false;
-            let actions_available = false;
-            Object.keys(dialogues[dialogue].textlines).forEach(line => {
-                if(lines_available) {
-                    return;
-                } else {
-                    lines_available = dialogues[dialogue].textlines[line].is_unlocked && !dialogues[dialogue].textlines[line].is_finished;
-                }
-            });
-            Object.keys(dialogues[dialogue].actions).forEach(action => {
-                if(actions_available) {
-                    return;
-                } else {
-                    actions_available = dialogues[dialogue].actions[action].is_unlocked && !dialogues[dialogue].actions[action].is_finished;
-                }
-            });
-            return lines_available || actions_available;
+            let lines_available = Object.keys(npc.getAvailableTextlines(get_context())).length;
+            let actions_available = Object.keys(npc.getAvailableActions(get_context())).length;
+
+            return lines_available + actions_available > 0;
         }
     });
 
-    if(available_dialogues.length > 0) {
+    if(talkable_npcs.length > 0) {
         location_choice_divs["dialogues"] = create_location_choice_dropdown({name: "Talk to someone", icon: "question_answer", class_name: "choice_dialogue"});
 
         location_choice_divs["dialogues"].append(...create_location_choices({location: location, category: "talk"}));
@@ -2146,9 +2128,12 @@ function update_displayed_normal_location(location) {
     /////////////////////////
     //add buttons for trading
 
-    const available_traders = location.traders.filter(trader => traders[trader].is_unlocked && !traders[trader].is_finished);
+    const tradeable_npcs = location.npcs.filter(npc_id => {
+        const npc = NPCRegistry.get(npc_id);
+        return npc.tags.trader && npc.canBeDisplayed(get_context()) && npc.canBeTradedWith(get_context());
+    });
 
-    if(available_traders.length > 0) {
+    if(tradeable_npcs.length > 0) {
         location_choice_divs["traders"] = create_location_choice_dropdown({name: "Visit a merchant", icon: "storefront", class_name: "choice_trade"});
 
         location_choice_divs["traders"].append(...create_location_choices({location: location, category: "trade"}));
@@ -2159,9 +2144,9 @@ function update_displayed_normal_location(location) {
     //add buttons to start jobs
 
     const available_jobs = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "JOB" 
-                                                                    && activities[activity.activity_name].is_unlocked
-                                                                    && activity.is_unlocked
-                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].is_unlocked).length == 0);
+                                                                    && activities[activity.activity_name].canBeDisplayed(get_context())
+                                                                    && activity.canBeDisplayed(get_context())
+                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
     
     if(available_jobs.length > 0) {
         location_choice_divs["jobs"] = create_location_choice_dropdown({name: "Find work", icon: "work_outline", class_name: "choice_work"});
@@ -2174,9 +2159,9 @@ function update_displayed_normal_location(location) {
     //add buttons to start training
 
     const available_trainings = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "TRAINING" 
-                                                                    && activities[activity.activity_name].is_unlocked
-                                                                    && activity.is_unlocked
-                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].is_unlocked).length == 0);
+                                                                    && activities[activity.activity_name].canBeDisplayed(get_context())
+                                                                    && activity.canBeDisplayed(get_context())
+                                                                    && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
     
     if(available_trainings.length > 0) {
         location_choice_divs["trainings"] = create_location_choice_dropdown({name: "Train", icon: "fitness_center", class_name: "choice_train"});
@@ -2189,9 +2174,9 @@ function update_displayed_normal_location(location) {
 
     if(global_flags.is_gathering_unlocked) {
         const available_gatherings = Object.values(location.activities).filter(activity => activities[activity.activity_name].type === "GATHERING" 
-                                                                        && activities[activity.activity_name].is_unlocked
-                                                                        && activity.is_unlocked
-                                                                        && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].is_unlocked).length == 0);
+                                                                        && activities[activity.activity_name].canBeDisplayed(get_context())
+                                                                        && activity.canBeDisplayed(get_context())
+                                                                        && activities[activity.activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length == 0);
         
         
         if(available_gatherings.length > 0) {
@@ -2202,7 +2187,7 @@ function update_displayed_normal_location(location) {
         
     }
 
-    const available_actions = Object.values(location.actions).filter(action => action.is_unlocked && !action.is_finished && action.can_be_displayed(character));
+    const available_actions = Object.values(location.actions).filter(action => action.canBeDisplayed(get_context()));
     if(available_actions.length > 0) {
         location_choice_divs["actions"] = create_location_choice_dropdown({name: "Take an action", icon: "circle", class_name: "choice_action"});
 
@@ -2212,7 +2197,7 @@ function update_displayed_normal_location(location) {
     ////////////////////////////
     //add buttons for challenges
 
-    const available_challenges = location.connected_locations.filter(loc => (loc.location.is_challenge && loc.location.is_unlocked && !loc.location.is_finished));
+    const available_challenges = location.connected_locations.filter(loc => (loc.location.is_challenge && loc.location.canBeStarted(get_context())));
     if(available_challenges.length > 0) {
         location_choice_divs["challenges"] = create_location_choice_dropdown({name: "Take on a challenge", icon: "warning_amber", class_name: "choice_travel"});
 
@@ -2224,7 +2209,7 @@ function update_displayed_normal_location(location) {
 }
 
 function update_location_icon() {
-    if(current_location.housing && current_location.housing.is_unlocked) {
+    if(current_location.housing && current_location.housing.isUnlocked()) {
         set_HTML(location_icon_span, '<i class="material-icons location_bed_icon">bed</i>');
     } else if(favourite_locations[current_location.id]) {
         set_HTML(location_icon_span, '<i class="material-icons">star</i>');
@@ -2268,17 +2253,20 @@ function create_location_choices({location, category, is_combat = false}) {
     let choice_list = [];
 
     if(category === "talk") {
-        for(let i = 0; i < location.dialogues.length; i++) { 
-            if(!dialogues[location.dialogues[i]].is_unlocked || dialogues[location.dialogues[i]].is_finished) { //skip if dialogue is not available
-                continue;
-            } 
+        for(let i = 0; i < location.npcs.length; i++) { 
+            const npc = NPCRegistry.get(location.npcs[i]);
+            const dialogue = npc.getDialogueComponent();
 
-            const lines_available = Object.values(dialogues[location.dialogues[i]].textlines).filter(textline => {
-                return textline.is_unlocked && !textline.is_finished;
+            if(!npc.canBeDisplayed(get_context()) || !dialogue.canBeDisplayed(get_context())) {
+                continue;
+            }
+
+            const lines_available = Object.values(dialogue.textlines).filter(textline => {
+                return textline.canBeDisplayed(get_context());
             }).length;
 
-            const actions_available = Object.values(dialogues[location.dialogues[i]].actions).filter(action => {
-                return action.is_unlocked && !action.is_finished;
+            const actions_available = Object.values(dialogue.actions).filter(action => {
+                return action.canBeDisplayed(get_context());
             }).length;
             
             if(!lines_available && !actions_available) {
@@ -2287,30 +2275,37 @@ function create_location_choices({location, category, is_combat = false}) {
             
             const dialogue_div = document.createElement("div");
             
-            insert_HTML(dialogue_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + dialogues[location.dialogues[i]].getStartingText({is_mofu_mofu_enabled: global_flags.is_mofu_mofu_enabled}));
+            insert_HTML(dialogue_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + dialogue.getStartingText({is_mofu_mofu_enabled: global_flags.is_mofu_mofu_enabled}));
             dialogue_div.classList.add("start_dialogue", "location_choice");
-            dialogue_div.setAttribute("data-dialogue", location.dialogues[i]);
+            dialogue_div.setAttribute("data-dialogue", location.npcs[i]);
             dialogue_div.setAttribute("onclick", "start_dialogue(this.getAttribute('data-dialogue'));");
             choice_list.push(dialogue_div);
         }
     } else if (category === "trade") {
-        for(let i = 0; i < location.traders.length; i++) { 
-            if(!traders[location.traders[i]].is_unlocked || traders[location.traders[i]].is_finished) { //skip if trader is not available
+        for(let i = 0; i < location.npcs.length; i++) { 
+            const npc = NPCRegistry.get(location.npcs[i]);
+            if(!npc.tags.trader) {
                 continue;
-            } 
+            }
+
+            const trader = npc.getTraderComponent();
+            
+            if(!npc.canBeDisplayed(get_context()) || !trader.canBeDisplayed(get_context())) { //skip if trader is not available
+                continue;
+            }
             
             const trader_div = document.createElement("div");  
 
-            insert_HTML(trader_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + traders[location.traders[i]].trade_text);
+            insert_HTML(trader_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + trader.trade_text);
             trader_div.classList.add("start_trade", "location_choice");
-            trader_div.setAttribute("data-trader", location.traders[i]);
+            trader_div.setAttribute("data-trader", location.npcs[i]);
             trader_div.setAttribute("onclick", "startTrade(this.getAttribute('data-trader'));");
             choice_list.push(trader_div);
         }
     } else if (category === "work") {
         Object.keys(location.activities).forEach(key => {
-            if(!activities[location.activities[key].activity_name]?.is_unlocked 
-                || !location.activities[key]?.is_unlocked 
+            if(!activities[location.activities[key].activity_name]?.isUnlocked() 
+                || !location.activities[key]?.canBeDisplayed(get_context()) 
                 || activities[location.activities[key].activity_name].type !== "JOB") 
             {
                 return;
@@ -2356,10 +2351,10 @@ function create_location_choices({location, category, is_combat = false}) {
         });
     } else if (category === "train") {
         Object.keys(location.activities).forEach(key => {
-            if(!activities[location.activities[key].activity_name]?.is_unlocked 
-                || !location.activities[key]?.is_unlocked 
+            if(!activities[location.activities[key].activity_name]?.canBeDisplayed(get_context())
+                || !location.activities[key]?.canBeDisplayed(get_context())
                 || activities[location.activities[key].activity_name].type !== "TRAINING"
-                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].is_unlocked).length > 0) 
+                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length > 0) 
             {
                 return;
             }
@@ -2387,10 +2382,10 @@ function create_location_choices({location, category, is_combat = false}) {
         });
     } else if (category === "gather") {
         Object.keys(location.activities).forEach(key => {
-            if(!activities[location.activities[key].activity_name]?.is_unlocked 
-                || !location.activities[key]?.is_unlocked 
+            if(!activities[location.activities[key].activity_name]?.canBeDisplayed(get_context())
+                || !location.activities[key]?.canBeDisplayed(get_context())
                 || activities[location.activities[key].activity_name].type !== "GATHERING"
-                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].is_unlocked).length > 0) 
+                || activities[location.activities[key].activity_name].base_skills_names.filter(skill => !skills[skill].isUnlocked()).length > 0) 
             {
                 return;
             }
@@ -2417,7 +2412,7 @@ function create_location_choices({location, category, is_combat = false}) {
         if(!is_combat){
             for(let i = 0; i < location.connected_locations.length; i++) { 
                 
-                if(!location.connected_locations[i].location.is_unlocked || location.connected_locations[i].location.is_finished) { //skip if not unlocked or if finished
+                if(!location.connected_locations[i].location.canBeStarted(get_context())) { //skip if not unlocked or if finished
                     continue;
                 }
                 if(location.connected_locations[i].location.is_challenge) {
@@ -2430,7 +2425,7 @@ function create_location_choices({location, category, is_combat = false}) {
                 
                 const travel_time = format_time({time: {minutes: travel_times[location.id][location.connected_locations[i].location.id]}});
 
-                if("connected_locations" in location.connected_locations[i].location) {// check again if connected location is normal or combat
+                if(location.connected_locations[i].location.tags.safe_zone) {// check again if connected location is normal or combat
                     action.classList.add("travel_normal");
                     if("custom_text" in location.connected_locations[i]) {
                         action_html_content = `<div class='location_choice_icon_box'><i class="material-icons location_choice_icon">check_box_outline_blank</i></div> ` + location.connected_locations[i].custom_text + " [" + travel_time + "]";
@@ -2477,7 +2472,7 @@ function create_location_choices({location, category, is_combat = false}) {
             choice_list.push(action);
         }
 
-        if(last_location_with_bed && !location.housing?.is_unlocked && !location.connected_locations) {
+        if(last_location_with_bed && location.tags.combat_zone) {
             const last_bed = locations[last_location_with_bed];
 
             const action = document.createElement("div");
@@ -2504,7 +2499,7 @@ function create_location_choices({location, category, is_combat = false}) {
 
         choice_list.sort((a,b) => b.classList.contains("travel_normal") - a.classList.contains("travel_normal"));
     } else if (category === "challenge") {
-        const available_challenges = location.connected_locations.filter(loc => (loc.location.is_challenge && loc.location.is_unlocked && !loc.location.is_finished));
+        const available_challenges = location.connected_locations.filter(loc => (loc.location.is_challenge && loc.location.canBeDisplayed(get_context())));
        
         for(let i = 0; i < available_challenges.length; i++) { 
             const action = document.createElement("div");
@@ -2525,7 +2520,7 @@ function create_location_choices({location, category, is_combat = false}) {
         }
     } else if (category === "action") {
         Object.keys(location.actions).forEach(key => {
-            if(location.actions[key].is_finished || !location.actions[key].is_unlocked || !location.actions[key].can_be_displayed(character)) {
+            if(!location.actions[key].canBeDisplayed(get_context())) {
                 return;
             }
 
@@ -2553,7 +2548,7 @@ function create_fast_travel_choices() {
     let available_fast_travel = 
     [
         ...Object.keys(favourite_locations).filter(key => (key !== current_location.id)),
-        ...Object.keys(unlocked_beds).filter(key => (key !== current_location.id && locations[key].is_unlocked && !locations[key].is_finished))
+        ...Object.keys(unlocked_beds).filter(key => (key !== current_location.id && locations[key].canBeStarted(get_context())))
     ];
 
     if(last_combat_location && !available_fast_travel.includes(last_combat_location)) {
@@ -2561,9 +2556,9 @@ function create_fast_travel_choices() {
     }
 
     available_fast_travel = available_fast_travel.sort((a,b) => {
-        if(locations[a].housing?.is_unlocked && !locations[b].housing?.is_unlocked) {
+        if(locations[a].housing?.isUnlocked() && !locations[b].housing?.isUnlocked()) {
             return -1;
-        } else if(!locations[a].housing?.is_unlocked && locations[b].housing?.is_unlocked) {
+        } else if(!locations[a].housing?.isUnlocked() && locations[b].housing?.isUnlocked()) {
             return 1;
         } else {
             if(locations[a].tags.safe_zone && !locations[b].tags.safe_zone) {
@@ -2577,7 +2572,7 @@ function create_fast_travel_choices() {
     });
 
     for(let i = 0; i < available_fast_travel.length; i++) { 
-        if(!locations[available_fast_travel[i]].is_unlocked || locations[available_fast_travel[i]].is_finished) { //skip if not unlocked or if finished
+        if(!locations[available_fast_travel[i]].canBeStarted(get_context())) { //skip if not unlocked or if finished
             continue;
         }
         if(available_fast_travel[i] === current_location.id) { //do not show current location as a valid destination
@@ -2592,7 +2587,7 @@ function create_fast_travel_choices() {
         
             action.classList.add("travel_normal");
 
-            if(locations[available_fast_travel[i]].housing?.is_unlocked) {
+            if(locations[available_fast_travel[i]].housing?.isUnlocked()) {
                 action_html_content = `<i class="material-icons">bed</i> <span class="fast_travel_name">` + "Travel to [" + locations[available_fast_travel[i]].name+"] [" + travel_time + "]</span>";
             } else {
                 action_html_content = `<i class="material-icons location_choice_icon">check_box_outline_blank</i> <span class="fast_travel_name">` + "Travel to [" + locations[available_fast_travel[i]].name+"] [" + travel_time + "]</span>";
@@ -2613,7 +2608,7 @@ function create_fast_travel_choices() {
 
         insert_HTML(action, action_html_content);
 
-        if(!locations[available_fast_travel[i]].housing?.is_unlocked && locations[available_fast_travel[i]].id !== last_combat_location) {
+        if(!locations[available_fast_travel[i]].housing?.isUnlocked() && locations[available_fast_travel[i]].id !== last_combat_location) {
             const removal_button = document.createElement("span");
             insert_HTML(removal_button, `<i class="material-icons fast_travel_removal_button">close</i>`);
             removal_button.setAttribute("onclick","remove_location_from_favourites({location_id:this.parentNode.getAttribute('data-travel')})");
@@ -2636,7 +2631,7 @@ function remove_fast_travel_choice({location_id}) {
         return;
     }
 
-    if(location_id === last_combat_location || locations[location_id].housing?.is_unlocked) {
+    if(location_id === last_combat_location || locations[location_id].housing?.isUnlocked()) {
         //remove only button
         element.getElementsByClassName("fast_travel_removal_button")[0].parentNode.remove();
     } else {
@@ -2876,7 +2871,7 @@ function add_crafting_recipe_to_display({ category, subcategory, recipe_id }) {
     }
 
     const recipe = recipes[category][subcategory][recipe_id];
-    if(!recipe.is_unlocked) {
+    if(!recipe.isUnlocked()) {
         return;
     }
     const recipe_div = document.createElement("div");
@@ -3045,7 +3040,7 @@ function update_displayed_crafting_recipes() {
     Object.keys(recipes).forEach(recipe_category => {
         Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
             Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe => {
-                if(recipes[recipe_category][recipe_subcategory][recipe].is_unlocked){
+                if(recipes[recipe_category][recipe_subcategory][recipe].isUnlocked()){
                     if(crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`)) {
                         update_displayed_crafting_recipe({category: recipe_category, subcategory: recipe_subcategory, recipe_id: recipe});
                     } else {
@@ -3121,7 +3116,7 @@ function update_item_recipe_tooltips() {
         Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
             if(recipe_subcategory === "items") {
                 Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe => {
-                    if(recipes[recipe_category][recipe_subcategory][recipe].is_unlocked){
+                    if(recipes[recipe_category][recipe_subcategory][recipe].isUnlocked()){
                         update_recipe_tooltip({category: recipe_category, subcategory: "items", recipe_id: recipe});
                     }
                 });
@@ -3172,7 +3167,7 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
             const material = find_recipe_material({material: recipe.materials[i], ignore_stop: true});
 
             //base type
-            let main_name = recipe.materials[i].material_type ? "Any " + recipe.materials[i].material_type + ":" : obscure_name(recipe.materials[i].material_id);
+            let main_name = recipe.materials[i].material_type ? "Any " + recipe.materials[i].material_type + ":" : obscure_name_to_type(recipe.materials[i].material_id);
             let any_available = recipe.materials[i].count <= material.count;
 
             tooltip += `<span style="color:${any_available?"lime":"red"}"><b>${main_name} x${material.count}/${recipe.materials[i].count}</b></span><br>`;
@@ -3193,14 +3188,14 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
         tooltip += `<br>Result: <br><div class="recipe_result">${create_item_tooltip_content({item: item_templates[recipe.getResult().result_id], options: {skip_quality: true, anchor_tooltip: true}})}</div>`;
     } else if(!components) {
         //some component
-        let name = obscure_name(material.material_id);
+        let name = obscure_name_to_type(material.material_id);
 
         //TODO maybe allow material type?
         tooltip += `Material required:<br>`;
-        if(character.inventory[item_templates[material.material_id].getInventoryKey()]?.count >= material.count) {
-            tooltip += `<span style="color:lime"><b>${name} x${character.inventory[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
+        if(character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count >= material.count) {
+            tooltip += `<span style="color:lime"><b>${name} x${character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
         } else {
-            tooltip += `<span style="color:red"><b>${name} x${character.inventory[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
+            tooltip += `<span style="color:red"><b>${name} x${character.getItems()[item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
         }
 
         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
@@ -3289,7 +3284,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
     for (let i = 0; i < recipe.components.length; i++) {
         clear_HTML_content(component_selections_div[i].children[1]);
 
-        const components = Object.values(character.inventory)
+        const components = Object.values(character.getItems())
             .filter(item => recipe.components[i] === item.item.component_type)
             .sort((a, b) => {
                 if (a.item.component_tier != b.item.component_tier) {
@@ -3315,13 +3310,13 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
                 toggle_exclusive_class({element: item_div, siblings_only: true, class_name: "selected_component"});
                 const components = [];
                 const component_1_key = recipe_div.children[1].children[0].children[1].querySelector(".selected_component")?.dataset.item_key;
-                if(component_1_key && character.inventory[component_1_key]) {
-                    components.push(character.inventory[component_1_key]);
+                if(component_1_key && character.getItems()[component_1_key]) {
+                    components.push(character.getItems()[component_1_key]);
                 }
 
                 const component_2_key = recipe_div.children[1].children[1].children[1].querySelector(".selected_component")?.dataset.item_key;
-                if(component_2_key && character.inventory[component_2_key]) {
-                    components.push(character.inventory[component_2_key]);
+                if(component_2_key && character.getItems()[component_2_key]) {
+                    components.push(character.getItems()[component_2_key]);
                 }
                 update_recipe_tooltip({category, subcategory, recipe_id, components});
             });
@@ -3405,7 +3400,7 @@ function update_item_recipe_visibility() {
                 return;
             }
             Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe => {
-                if(!recipes[recipe_category][recipe_subcategory][recipe].is_unlocked) {
+                if(!recipes[recipe_category][recipe_subcategory][recipe].isUnlocked()) {
                     return;
                 }
                 const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"`);
@@ -3455,7 +3450,7 @@ function create_gathering_tooltip(location_activity) {
     }
 
     for(let i = 0; i < activities[location_activity.activity_name].base_skills_names.length; i++) {
-        skill_names += skills[activities[location_activity.activity_name].base_skills_names[i]].name();
+        skill_names += skills[activities[location_activity.activity_name].base_skills_names[i]].getName();
     }
 
     if(location_activity.gained_resources.skill_required) {
@@ -3495,7 +3490,7 @@ function update_gathering_tooltip(activity) {
     let skill_names = "";
     let tooltip_content = "";
     for(let i = 0; i < activities[activity.activity_name].base_skills_names.length; i++) {
-        skill_names += skills[activities[activity.activity_name].base_skills_names[i]].name();
+        skill_names += skills[activities[activity.activity_name].base_skills_names[i]].getName();
     }
 
     if(activity.gained_resources.skill_required) {
@@ -3509,79 +3504,93 @@ function update_gathering_tooltip(activity) {
 }
 
 function update_displayed_health() { //call it when using healing items, resting or getting hit
-    const total_regen = character.stats.get_health_regeneration_total() + character.stats.get_health_loss_total();
+    const full_stats = character.getFullStats();
+
+    const total_regen = character.getHealthRegenerationTotal() + character.getHealthLossTotal();
     const sign = total_regen > 0 ? "+":"";
-    current_health_value_div.innerText = Math.ceil(character.stats.full.health) + "/" + Math.ceil(character.stats.full.max_health)
+    current_health_value_div.innerText = Math.ceil(full_stats.health) + "/" + Math.ceil(full_stats.max_health)
         + (total_regen != 0 ? " ("+ sign + expo({number: total_regen, precision: 1}) + "/s) " : "")
         + " hp";
-    current_health_bar.style.width = (character.stats.full.health*100/character.stats.full.max_health).toString() +"%";
+    current_health_bar.style.width = (full_stats.health*100/full_stats.max_health).toString() +"%";
 }
 function update_displayed_stamina() { //call it when eating, resting or fighting
-    const total_regen = character.stats.get_stamina_regeneration_total();
+    const full_stats = character.getFullStats();
+
+    const total_regen = character.getStaminaRegenerationTotal();
     const sign = total_regen > 0 ? "+":"";
-    current_stamina_value_div.innerText = Math.round(character.stats.full.stamina) + "/" + Math.round(character.stats.full.max_stamina)
-        + (total_regen != 0 ? " (" + sign + expo({number: total_regen, precision: 1}) + "/s) " : "")
+    current_stamina_value_div.innerText = Math.round(full_stats.stamina) + "/" + Math.round(full_stats.max_stamina)
+        + (total_regen != 0 ? " (" + sign + expo({number: total_regen, precision: 1}) + "/s) " : " ")
         + "stamina";
-    current_stamina_bar.style.width = (character.stats.full.stamina*100/character.stats.full.max_stamina).toString() +"%";
+    current_stamina_bar.style.width = (full_stats.stamina*100/full_stats.max_stamina).toString() +"%";
 }
 
 /**
  * updates displayed stats and their breakdowns (including health and stamina)
  */
 function update_displayed_stats() {
+    const full_stats = character.getFullStats();
+    const equipment = character.getEquipment();
     Object.keys(stats_divs).forEach(function(key){
         if(key === "crit_rate" || key === "crit_multiplier") {
-            stats_divs[key].innerText = `${(character.stats.full[key]*100).toFixed(1)}%`;
+            stats_divs[key].innerText = `${(full_stats[key]*100).toFixed(1)}%`;
         } 
         else if(key === "attack_speed") {
-            stats_divs[key].innerText = `${(character.get_attack_speed()).toFixed(1)}`;
+            stats_divs[key].innerText = `${(character.getAttackSpeed()).toFixed(1)}`;
         }
         else if(key === "attack_power") {
-            stats_divs[key].innerText = `${(character.get_attack_power()).toFixed(1)}`;
+            stats_divs[key].innerText = `${(character.getAttackPower()).toFixed(1)}`;
         }
         else {
-            stats_divs[key].innerText = `${(character.stats.full[key]).toFixed(1)}`;
+            stats_divs[key].innerText = `${(full_stats[key]).toFixed(1)}`;
         }
         update_stat_description(key);
     });
 
-    const attack_stats = document.getElementById("attack_stats");
+    const attack_stats = document.querySelector?.("[data-character_attack_div]")?.getElementById?.("attack_stats");
 
-    const ap = Math.round(character.stats.full.attack_points);
+    const ap = Math.round(full_stats.attack_points);
     other_combat_divs.attack_points.innerText = `${ap}`;
 
-    if(character.equipment["off-hand"] != null && character.equipment["off-hand"].offhand_type === "shield") { //HAS SHIELD
-        const dp = (character.stats.full.block_chance*100).toFixed(1)
-        other_combat_divs.defensive_action.innerText = "Block :";
-        other_combat_divs.defensive_points.innerText = `${dp}%`;
+    if(equipment["off-hand"] != null && equipment["off-hand"].offhand_type === "shield") { //HAS SHIELD
+        const dp = (full_stats.block_chance*100).toFixed(1)
+        other_combat_divs.defensive_action.classList.remove("stat_name");
+        other_combat_divs.defensive_action.classList.add("stat_name_short");
+        other_combat_divs.defensive_points.classList.remove("stat_value");
+        other_combat_divs.defensive_points.classList.add("stat_value_long");
+        other_combat_divs.defensive_action.innerText = "Block:";
+        other_combat_divs.defensive_points.innerText = `${dp}% / ${expo({number: character.getBlockStrength()})}`;
         other_combat_divs.defensive_points.parentNode.children[2].children[0].innerText = "Chance to block an attack";
-
-        attack_stats.children[3].innerText = `Block : ${Math.round(dp)}%`;
     }
     else { //NO SHIELD
-        const ep = Math.round(character.stats.full.evasion_points);
+        const ep = Math.round(full_stats.evasion_points);
+        other_combat_divs.defensive_action.classList.remove("stat_name_short");
+        other_combat_divs.defensive_action.classList.add("stat_name");
+        other_combat_divs.defensive_points.classList.remove("stat_value_long");
+        other_combat_divs.defensive_points.classList.add("stat_value");
         other_combat_divs.defensive_action.innerText = "EP : ";
         other_combat_divs.defensive_points.innerText = `${ep}`;
         other_combat_divs.defensive_points.parentNode.children[2].children[0].innerText = 
         "Evasion points, a total value of everything that contributes to the evasion chance, except for some situational skills and modifiers";
 
-        attack_stats.children[3].innerText = `EP: ${Math.round(ep)} `;
+        if(attack_stats) attack_stats.children[3].innerText = `EP: ${Math.round(ep)} `;
     }
 
     update_stat_description("defensive_points");
     update_stat_description("attack_points");
     update_bar_tooltips();
 
-    let atk = character.get_attack_power();
+    let atk = character.getAttackPower();
     if(atk > 100) {
         atk = Math.round(atk);
     } else {
         atk = Math.round(10*atk)/10;
     }
-    attack_stats.children[0].innerText = `Atk: ${atk}`;
-    attack_stats.children[1].innerText = `Spd: ${Math.round(character.get_attack_speed()*100)/100}`;
-    attack_stats.children[2].innerText = `AP:  ${Math.round(ap)}`;
-    attack_stats.children[4].innerText = `Def: ${Math.round(character.stats.full.defense)} `;
+    if(attack_stats) {
+        attack_stats.children[0].innerText = `Atk: ${atk}`;
+        attack_stats.children[1].innerText = `Spd: ${Math.round(character.getAttackSpeed()*100)/100}`;
+        attack_stats.children[2].innerText = `AP:  ${Math.round(ap)}`;
+        attack_stats.children[4].innerText = `Def: ${Math.round(full_stats.defense)} `;
+    }
 }
 
 function update_stat_description(stat) {
@@ -3610,30 +3619,32 @@ function update_bar_tooltips(){
  * health bar tooltip, max health only
  */
 function update_health_bar_tooltip() {
-    let html_content = "<b>Max health:</b> " + Math.ceil(character.stats.full.max_health) + "<br>";
+    const full_stats = character.getFullStats();
+
+    let html_content = "<b>Max health:</b> " + Math.ceil(full_stats.max_health) + "<br>";
     html_content += create_stat_breakdown("max_health");
 
-    if(character.stats.full.health_regeneration_flat) {
-        html_content += "<br>------------------------<br><b>Health regen (flat):</b> " + Math.round(10*character.stats.full.health_regeneration_flat)/10 + "<br>";
+    if(full_stats.health_regeneration_flat) {
+        html_content += "<br>------------------------<br><b>Health regen (flat):</b> " + Math.round(10*full_stats.health_regeneration_flat)/10 + "<br>";
         html_content += create_stat_breakdown("health_regeneration_flat");
     }
 
-    if(character.stats.full.health_regeneration_percent) {
-        html_content += "<br>------------------------<br><b>Health regen (%):</b> " + Math.round(10*character.stats.full.health_regeneration_percent)/10 + "<br>";
+    if(full_stats.health_regeneration_percent) {
+        html_content += "<br>------------------------<br><b>Health regen (%):</b> " + Math.round(10*full_stats.health_regeneration_percent)/10 + "<br>";
         html_content += create_stat_breakdown("health_regeneration_percent");
     }
 
-    if(character.stats.full.health_loss_flat) {
-        html_content += "<br>------------------------<br><b>Health loss (flat):</b> " + Math.round(10*character.stats.full.health_loss_flat)/10 + "<br>";
+    if(full_stats.health_loss_flat) {
+        html_content += "<br>------------------------<br><b>Health loss (flat):</b> " + Math.round(10*full_stats.health_loss_flat)/10 + "<br>";
         html_content += create_stat_breakdown("health_loss_flat");
     }
 
-    if(character.stats.full.health_loss_percent) {
-        html_content += "<br>------------------------<br><b>Health loss (%):</b> " + Math.round(10*character.stats.full.health_loss_percent)/10 + "<br>";
+    if(full_stats.health_loss_percent) {
+        html_content += "<br>------------------------<br><b>Health loss (%):</b> " + Math.round(10*full_stats.health_loss_percent)/10 + "<br>";
         html_content += create_stat_breakdown("health_loss_percent");
     }
 
-    const health_recovery_balance = character.stats.full.health_regeneration_flat + character.stats.full.health_loss_flat + character.stats.full.max_health * (character.stats.full.health_regeneration_percent + character.stats.full.health_loss_percent)/100;
+    const health_recovery_balance = full_stats.health_regeneration_flat + full_stats.health_loss_flat + full_stats.max_health * (full_stats.health_regeneration_percent + full_stats.health_loss_percent)/100;
 
     html_content += "<br>------------------------<br><b>Total health balance:</b> " + (health_recovery_balance>0?"+":"") + Math.round(10*health_recovery_balance)/10 + "<br>";
 
@@ -3644,22 +3655,23 @@ function update_health_bar_tooltip() {
  * stamina bar tooltip, max and efficiency only
  */
 function update_stamina_bar_tooltip() {
+    const full_stats = character.getFullStats();
     let html_content;
-    html_content = "<b>Max stamina:</b> " + Math.round(character.stats.full.max_stamina) + "<br>";
+    html_content = "<b>Max stamina:</b> " + Math.round(full_stats.max_stamina) + "<br>";
     html_content += create_stat_breakdown("max_stamina");
 
-    if(character.stats.full.stamina_efficiency != 1) {
-        html_content += "<br>------------------------<br><b>Stamina efficiency:</b> " + Math.round(100*character.stats.full.stamina_efficiency)/100 + "<br>";
+    if(full_stats.stamina_efficiency != 1) {
+        html_content += "<br>------------------------<br><b>Stamina efficiency:</b> " + Math.round(100*full_stats.stamina_efficiency)/100 + "<br>";
         html_content += create_stat_breakdown("stamina_efficiency");
     }
 
-    if(character.stats.full.stamina_regeneration_flat) {
-        html_content += "<br>------------------------<br><b>Stamina regen (flat):</b> " + Math.round(10*character.stats.full.stamina_regeneration_flat)/10 + "<br>";
+    if(full_stats.stamina_regeneration_flat) {
+        html_content += "<br>------------------------<br><b>Stamina regen (flat):</b> " + Math.round(10*full_stats.stamina_regeneration_flat)/10 + "<br>";
         html_content += create_stat_breakdown("stamina_regeneration_flat");
     }
 
-    if(character.stats.full.stamina_regeneration_percent) {
-        html_content += "<br>------------------------<br><b>Stamina regen (%):</b> " + Math.round(10*character.stats.full.stamina_regeneration_percent)/10 + "<br>";
+    if(full_stats.stamina_regeneration_percent) {
+        html_content += "<br>------------------------<br><b>Stamina regen (%):</b> " + Math.round(10*full_stats.stamina_regeneration_percent)/10 + "<br>";
         html_content += create_stat_breakdown("stamina_regeneration_percent");
     }
 
@@ -3668,24 +3680,25 @@ function update_stamina_bar_tooltip() {
 
 function update_xp_bar_tooltip() {
 
+    const total_multiplier = character.getTotalXPMultipliers();
 
     let html_content = "";
-    if(character.xp_bonuses.total_multiplier.all != 1) {
-        html_content += "<b>Global xp multiplier:</b> " + Math.round(100*character.xp_bonuses.total_multiplier.all)/100 + "<br>";
+    if(total_multiplier.all != 1) {
+        html_content += "<b>Global xp multiplier:</b> " + Math.round(100*total_multiplier.all)/100 + "<br>";
         html_content += create_xp_bonus_breakdown("all", false);
     } else {
         html_content += "<b>No global xp multipliers</b><br>";
     }
 
-    if(character.xp_bonuses.total_multiplier.hero != 1) {
-        html_content += "<br>------------------------<br><b>Hero xp multiplier:</b> " + Math.round(100*character.xp_bonuses.total_multiplier.hero)/100 
-                                        + " (with global: " + Math.round(get_hero_xp_gain()*100)/100 +")<br>";
+    if(total_multiplier.hero != 1) {
+        html_content += "<br>------------------------<br><b>Hero xp multiplier:</b> " + Math.round(100*total_multiplier.hero)/100 
+                                        + " (with global: " + Math.round(character.getMainXPGain()*100)/100 +")<br>";
         html_content += create_xp_bonus_breakdown("hero", false);
     }
 
-    if(character.xp_bonuses.total_multiplier.all_skill != 1) {
-        html_content += "<br>------------------------<br><b>Skill xp multiplier:</b> " + Math.round(100*character.xp_bonuses.total_multiplier.all_skill)/100
-                                        + " (with global: " + Math.round(get_skills_overall_xp_gain()*100)/100 +")<br>";
+    if(total_multiplier.all_skill != 1) {
+        html_content += "<br>------------------------<br><b>Skill xp multiplier:</b> " + Math.round(100*total_multiplier.all_skill)/100
+                                        + " (with global: " + Math.round(character.getSkillsOveralXPGain()*100)/100 +")<br>";
         html_content += create_xp_bonus_breakdown("all_skill", false);
     }
 
@@ -3698,41 +3711,45 @@ function update_xp_bar_tooltip() {
  * @returns 
  */
 function create_stat_breakdown(stat) {
+    const stats = character.getStats();
+    const base_stats = character.getBaseStats();
+    const equipment = character.getEquipment();
+
     let html_string = "";
 
     if(stat === "attack_power") {
         html_string += 
         `<br>Breakdown:
-        <br>Base value (weapon * str/10): ${Math.round(100* character.stats.total_flat.attack_power)/100}`;
+        <br>Base value (weapon * str/10): ${Math.round(100 * stats.total_flat.attack_power)/100}`;
     } else if (stat === "attack_points"){
         html_string += 
         `<br>Breakdown:
-        <br>Base value: ${Math.round(100* character.stats.total_flat.attack_points)/100}`;
+        <br>Base value: ${Math.round(100* stats.total_flat.attack_points)/100}`;
     } else if(stat === "defensive_points"){
-        if(character.equipment["off-hand"] != null && character.equipment["off-hand"].offhand_type === "shield") {
+        if(equipment["off-hand"] != null && equipment["off-hand"].offhand_type === "shield") {
             stat = "block_chance";
         } else {
             stat = "evasion_points";
         }
         html_string += 
             `<br>Breakdown:
-            <br>Base value: ${Math.round(100 * character.stats.total_flat[stat])/100}`;
+            <br>Base value: ${Math.round(100 * stats.total_flat[stat])/100}`;
     } else {
        html_string += 
         `<br>Breakdown:
-        <br>Base value: ${Math.round(100*character.base_stats[stat])/100}`;
+        <br>Base value: ${Math.round(100*base_stats[stat])/100}`;
     }
 
-    Object.keys(character.stats.flat).forEach(stat_type => {
-        if(character.stats.flat[stat_type][stat] && character.stats.flat[stat_type][stat] !== 0) {
-            const sign = character.stats.flat[stat_type][stat]>=0?"+":"";
-            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: ${sign}${Math.round(100*character.stats.flat[stat_type][stat])/100}`;
+    Object.keys(stats.flat).forEach(stat_type => {
+        if(stats.flat[stat_type][stat] && stats.flat[stat_type][stat] !== 0) {
+            const sign = stats.flat[stat_type][stat]>=0?"+":"";
+            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: ${sign}${Math.round(100*stats.flat[stat_type][stat])/100}`;
         }
     });
 
-    Object.keys(character.stats.multiplier).forEach(stat_type => {
-        if(character.stats.multiplier[stat_type][stat] && character.stats.multiplier[stat_type][stat] !== 1) {
-            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: x${Math.round(100*character.stats.multiplier[stat_type][stat])/100}`;
+    Object.keys(stats.multiplier).forEach(stat_type => {
+        if(stats.multiplier[stat_type][stat] && stats.multiplier[stat_type][stat] !== 1) {
+            html_string +=  `<br>${capitalize_first_letter(stat_type.replace("_"," "))}: x${Math.round(100*stats.multiplier[stat_type][stat])/100}`;
         }
     });
 
@@ -3741,7 +3758,7 @@ function create_stat_breakdown(stat) {
 
 /**
  * creates full breakdown for provided bonus category (skill id, skill category, all, all skill, hero)
- * @param {*} bonus 
+ * @param {String} bonus xp category 
  * @param {*} include_multipliers 
  * @returns 
  */
@@ -3752,9 +3769,9 @@ function create_xp_bonus_breakdown(bonus, include_multipliers) {
     if(include_multipliers) {
         if(bonus !== "all") {
             if(bonus !== "all_skill" && bonus !== "hero") {
-                xp_bonus_value = get_skill_xp_gain_bonus(bonus);
+                xp_bonus_value = character.getSkillXPGainBonus(bonus);
             } else {
-                xp_bonus_value *= (character.xp_bonuses.total_multiplier.all || 1);
+                xp_bonus_value *= (character.getTotalXPMultipliers().all || 1);
             }
         }
     }
@@ -3762,9 +3779,10 @@ function create_xp_bonus_breakdown(bonus, include_multipliers) {
     html_string += `<br>Breakdown:
         <br>Base value: ${Math.round(100*xp_bonus_value)/100}`;
     
-    Object.keys(character.xp_bonuses.multiplier).forEach(bonus_type => {
-        if(character.xp_bonuses.multiplier[bonus_type]?.[bonus] && character.xp_bonuses.multiplier[bonus_type]?.[bonus] !== 1) {
-            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: x${Math.round(100*character.xp_bonuses.multiplier[bonus_type][bonus])/100}`;
+    const xp_bonuses = character.getXPBonuses();
+    Object.keys(xp_bonuses.multiplier).forEach(bonus_type => {
+        if(xp_bonuses.multiplier[bonus_type]?.[bonus] && xp_bonuses.multiplier[bonus_type]?.[bonus] !== 1) {
+            html_string +=  `<br>${capitalize_first_letter(bonus_type.replace("_"," "))}: x${Math.round(100*xp_bonuses.multiplier[bonus_type][bonus])/100}`;
         }
     });
 
@@ -3821,7 +3839,7 @@ function update_displayed_temperature() {
     const temperature_unit = game_options.use_uncivilised_temperature_scale?"°F":"°C";
 
     //whether temperature is low enough to give any cold effect
-    const is_cold = temperature < (cold_status_temperatures[0]-get_character_cold_tolerance())?true:false;
+    const is_cold = temperature < (cold_status_temperatures[0]-character.getColdTolerance())?true:false;
     let temperature_class = "normal_temperature";
     if(is_cold) {
         temperature_class = "cold_temperature";
@@ -3859,17 +3877,19 @@ function update_displayed_temperature() {
 
 function create_temperature_tooltip() {
     const tooltip = document.createElement("div");
+    
+    const cold_tolerance = character.getColdTolerance();
 
     tooltip.id = "temperature_tooltip";
     clear_HTML_content(tooltip);
     let html_content = "";
     if(!game_options.use_uncivilised_temperature_scale) {
-        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(lowest_tolerable_temperature - get_character_cold_tolerance()))/10}</strong>`;
-        html_content += `<br>(<strong>${lowest_tolerable_temperature}</strong> base minus <strong>${Math.round(10*get_character_cold_tolerance())/10}</strong> cold protection)<br>`;
+        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(lowest_tolerable_temperature - cold_tolerance))/10}</strong>`;
+        html_content += `<br>(<strong>${lowest_tolerable_temperature}</strong> base minus <strong>${Math.round(10*cold_tolerance)/10}</strong> cold protection)<br>`;
         html_content += create_stat_breakdown("cold_tolerance");
     } else {
-        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(celsius_to_fahrenheit(lowest_tolerable_temperature - get_character_cold_tolerance())))/10}</strong>`;
-        html_content += `<br>(<strong>${Math.round(10*celsius_to_fahrenheit(lowest_tolerable_temperature))/10}</strong> base minus <strong>${Math.round(10*celsius_to_fahrenheit(get_character_cold_tolerance())-320)/10}</strong> cold protection)<br>`;
+        html_content = `Lowest tolerable temperature: <strong>${Math.round(10*(celsius_to_fahrenheit(lowest_tolerable_temperature - cold_tolerance)))/10}</strong>`;
+        html_content += `<br>(<strong>${Math.round(10*celsius_to_fahrenheit(lowest_tolerable_temperature))/10}</strong> base minus <strong>${Math.round(10*celsius_to_fahrenheit(cold_tolerance)-320)/10}</strong> cold protection)<br>`;
         html_content += create_stat_breakdown("cold_tolerance");
         html_content += `<br>Scale conversion: x1.8`;
     }
@@ -3917,11 +3937,13 @@ function update_displayed_character_xp(did_level = false) {
             character_xp_bar_current
         charaxter_xp_value
     */
-    character_xp_div.children[0].children[0].style.width = `${100*character.xp.current_xp/character.xp.xp_to_next_lvl}%`;
-    character_xp_div.children[1].innerText = `${expo({number: character.xp.current_xp})} / ${expo({number: character.xp.xp_to_next_lvl})} xp`;
+
+    const levelable = character.getLevelableComponent();
+    character_xp_div.children[0].children[0].style.width = `${100*levelable.current_xp/levelable.xp_to_next_lvl}%`;
+    character_xp_div.children[1].innerText = `${expo({number: levelable.current_xp})} / ${expo({number: levelable.xp_to_next_lvl})} xp`;
 
     if(did_level) {
-        character_level_div.innerText = `Level: ${character.xp.current_level}`;
+        character_level_div.innerText = `Level: ${levelable.current_level}`;
         update_displayed_health();
     }
 }
@@ -4004,16 +4026,17 @@ function update_displayed_item_log() {
 
 /**
  * 
- * @param {String} dialogue_key 
+ * @param {String} npc_id 
  * @param {Object} textlines that still belong to the dialogue, but are to be displayed alone for some reason (i.e. because they are from dialogue branching)
  * @param {String} origin - the key of textline that created a dialogue branch, ignored if textlines is not passed
  */
-function update_displayed_dialogue({dialogue_key, textlines, origin}) {
-    const dialogue = dialogues[dialogue_key];
+function update_displayed_dialogue({npc_id, textlines, origin}) {
+    const npc = NPCRegistry.get(npc_id);
+    const dialogue = npc.getDialogueComponent();
     
     clear_action_div();
     const dialogue_name_div = document.createElement("div");
-    insert_HTML(dialogue_name_div, capitalize_first_letter(dialogues[dialogue_key].getName({is_mofu_mofu_enabled: global_flags.is_mofu_mofu_enabled})));
+    insert_HTML(dialogue_name_div, capitalize_first_letter(npc.getName({is_mofu_mofu_enabled: global_flags.is_mofu_mofu_enabled})));
     dialogue_name_div.id = "dialogue_name_div";
     action_div.appendChild(dialogue_name_div);
 
@@ -4021,12 +4044,13 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
     dialogue_answer_div.id = "dialogue_answer_div";
     action_div.appendChild(dialogue_answer_div);
     if(!textlines) {
+        //no textlines specified => show all available + trade option (if npc is a trader)
         Object.keys(dialogue.textlines).forEach(key => { //add buttons for textlines
-            if(dialogue.textlines[key].is_unlocked && !dialogue.textlines[key].is_finished && !dialogue.textlines[key].is_branch_only && process_conditions(dialogue.textlines[key].display_conditions, character)) { 
+            if(dialogue.textlines[key].canBeDisplayed(get_context()) && !dialogue.textlines[key].is_branch_only) { 
                 //do only if text_line is not unavailable and not a branch
                 if(dialogue.textlines[key].required_flags) {
                     if(dialogue.textlines[key].required_flags.yes && !Array.isArray(dialogue.textlines[key].required_flags.yes) || dialogue.textlines[key].required_flags.no && !Array.isArray(dialogue.textlines[key].required_flags.no)) {
-                        console.error(`Textline "${key}" in dialogue "${dialogue_key}" has required flag passed as a single value but it should be an array!`)
+                        console.error(`Textline "${key}" in dialogue with "${npc_id}" has required flag passed as a single value but it should be an array!`)
                     }
                     if(dialogue.textlines[key].required_flags.yes) {
                         for(let i = 0; i < dialogue.textlines[key].required_flags.yes.length; i++) {
@@ -4046,7 +4070,7 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
                 }
                 
                 const textline_div = document.createElement("div");
-                insert_HTML(textline_div, `"${translationManager.getText(language, dialogue.textlines[key].name)}"`);
+                insert_HTML(textline_div, `"${translate(dialogue.textlines[key].name)}"`);
                 textline_div.classList.add("dialogue_textline");
                 textline_div.setAttribute("data-textline", key);
                 textline_div.setAttribute("onclick", `start_textline(this.getAttribute('data-textline'))`);
@@ -4055,21 +4079,23 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
         });
 
         Object.keys(dialogue.actions).forEach(key => { //add buttons for actions
-            if(dialogue.actions[key].is_unlocked && !dialogue.actions[key].is_finished && dialogue.actions[key].can_be_displayed(character)) { 
+            if(dialogue.actions[key].canBeDisplayed(get_context())) { 
                 const dialogue_action_div = document.createElement("div");
-                insert_HTML(dialogue_action_div, `${translationManager.getText(language,dialogue.actions[key].starting_text)}`);
+                insert_HTML(dialogue_action_div, `${translate(dialogue.actions[key].starting_text)}`);
                 dialogue_action_div.classList.add("dialogue_textline");
                 dialogue_action_div.setAttribute("data-location_action", key);
                 dialogue_action_div.setAttribute("onclick", `start_game_action(this.getAttribute('data-location_action'), event)`);
                 action_div.appendChild(dialogue_action_div);
+                
             }
         });
 
-        if(dialogue.trader) {
+        if(npc.tags.trader) {
+            const trader = npc.getTraderComponent();
             const trade_div = document.createElement("div");
-            insert_HTML(trade_div, `<i class="material-icons">storefront</i>  ` + traders[dialogue.trader].trade_text);
+            insert_HTML(trade_div, `<i class="material-icons">storefront</i>  ` + trader.trade_text);
             trade_div.classList.add("dialogue_trade")
-            trade_div.setAttribute("data-trader", dialogue.trader);
+            trade_div.setAttribute("data-trader", npc_id);
             trade_div.setAttribute("onclick", "startTrade(this.getAttribute('data-trader'))")
             action_div.appendChild(trade_div);
         }
@@ -4086,10 +4112,10 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
         for(let i = 0; i < textlines.length; i++) {
             const key = textlines[i];
             //get key from passed array, read relevant entry from dialogue
-            if(dialogue.textlines[key].is_unlocked && !dialogue.textlines[key].is_finished && process_conditions(dialogue.textlines[key].display_conditions, character)) { //do only if text_line is not unavailable
+            if(dialogue.textlines[key].canBeDisplayed(get_context())) { //do only if text_line is not unavailable
                 if(dialogue.textlines[key].required_flags) {
                     if(dialogue.textlines[key].required_flags.yes && !Array.isArray(dialogue.textlines[key].required_flags.yes) || dialogue.textlines[key].required_flags.no && !Array.isArray(dialogue.textlines[key].required_flags.no)) {
-                        console.error(`Textline "${key}" in dialogue "${dialogue_key}" has required flag passed as a single value but it should be an array!`)
+                        console.error(`Textline "${key}" in dialogue with "${npc_id}" has required flag passed as a single value but it should be an array!`)
                     }
                     if(dialogue.textlines[key].required_flags.yes) {
                         for(let i = 0; i < dialogue.textlines[key].required_flags.yes.length; i++) {
@@ -4109,7 +4135,7 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
                 }
                 
                 const textline_div = document.createElement("div");
-                insert_HTML(textline_div, `"${translationManager.getText(language,dialogue.textlines[key].name)}"`);
+                insert_HTML(textline_div, `"${translate(dialogue.textlines[key].name)}"`);
                 textline_div.classList.add("dialogue_textline");
                 textline_div.setAttribute("data-textline", key);
                 textline_div.setAttribute("onclick", `start_textline(this.getAttribute('data-textline'), ${origin})`); //additional param compared to when there's no textlines passed
@@ -4121,14 +4147,15 @@ function update_displayed_dialogue({dialogue_key, textlines, origin}) {
 
         insert_HTML(backstep_dialogue_div, "<i class='material-icons'>arrow_back</i> " + default_dialogue_return_text);
         backstep_dialogue_div.classList.add("backstep_dialogue_button");
-        backstep_dialogue_div.setAttribute("onclick", `start_dialogue("${dialogue_key}")`);
+        backstep_dialogue_div.setAttribute("onclick", `start_dialogue("${npc_id}")`);
 
         action_div.appendChild(backstep_dialogue_div);
     }
+
 }
 
 function update_displayed_textline_answer({text, is_description}) {
-    text = translationManager.getText(language, text);
+    text = translate(text);
     
     if(is_description) {
         document.getElementById("dialogue_answer_div").innerText =  "*"+text+"*";
@@ -4239,7 +4266,7 @@ function update_displayed_ongoing_activity(current_activity) {
 
         const skill = skills[skill_names[i]];
         const xp_rate = xp_rates[i];
-        const is_maxed = get_total_skill_level(skill.skill_id) == skill.max_level;
+        const is_maxed = character.getTotalSkillLevel(skill.skill_id) == skill.max_level;
 
         if (base_activity.type !== "GATHERING") {
             action_xp_div.innerText += `Getting ${xp_rate} base xp per in-game minute to `;
@@ -4248,14 +4275,14 @@ function update_displayed_ongoing_activity(current_activity) {
         }
 
         if (is_maxed) {
-            action_xp_div.innerText += ` ${skill.name()} (Maxed out!)`;
+            action_xp_div.innerText += ` ${skill.getName()} (Maxed out!)`;
         } else {
-            const percent_xp = is_maxed ? "Max" : `${Math.floor(10000 * skill.current_xp / skill.xp_to_next_lvl) / 100}%`
-            const curr_xp = is_maxed ? "Max" : `${Math.floor(skill.current_xp)}`;
-            const needed_xp = is_maxed ? "Max" : `${Math.ceil(skill.xp_to_next_lvl)}`;
-            const time_needed = Math.ceil((needed_xp - curr_xp) / (xp_rate * get_skill_xp_gain(skill.skill_id))) * (current_activity.xp_given_per_working_period?current_activity.gathering_time_needed:1);
+            const percent_xp = is_maxed ? "Max" : `${Math.floor(10000 * skill.getCurrentXP() / skill.getXPToNextLvl()) / 100}%`
+            const curr_xp = is_maxed ? "Max" : `${Math.floor(skill.getCurrentXP())}`;
+            const needed_xp = is_maxed ? "Max" : `${Math.ceil(skill.getXPToNextLvl())}`;
+            const time_needed = Math.ceil((needed_xp - curr_xp) / (xp_rate * character.getSkillXPGain(skill.skill_id))) * (current_activity.xp_given_per_working_period?current_activity.gathering_time_needed:1);
 
-            action_xp_div.innerText += ` ${skill.name()} (${percent_xp}  [${expo({number: curr_xp})} / ${expo({number: needed_xp})}])`;
+            action_xp_div.innerText += ` ${skill.getName()} (${percent_xp}  [${expo({number: curr_xp})} / ${expo({number: needed_xp})}])`;
             insert_HTML(action_xp_div, `<br>Next level in ${format_reading_time(time_needed)} (${format_time({ time: { minutes: time_needed / 60 }, long_names: true })}realtime)`);
         }
     }
@@ -4265,15 +4292,14 @@ function update_displayed_ongoing_activity(current_activity) {
     }
 }
 
-function start_game_action_display(dialogue_key, action_key) {
+function start_game_action_display(npc_id, action_key) {
     clear_action_div();
 
     let action;
-    if(dialogue_key) {
-        action = dialogues[dialogue_key].actions[action_key];
+    if(npc_id) {
+        action = NPCRegistry.get(npc_id).getDialogueComponent().actions[action_key];
     } else {
         action = current_location.actions[action_key];
-        
     }
     const action_status_div = document.createElement("div");
     action_status_div.innerText = action.action_text;
@@ -4329,27 +4355,27 @@ function fill_action_box({content_type, data}) {
     }
 
     if(content_type === "dialogue") {
-        update_displayed_dialogue({dialogue_key: data.dialogue_key});
+        update_displayed_dialogue({npc_id: data.npc_id});
         if(!text) {
-            text = dialogues[data.dialogue_key].getDescription();
+            text = NPCRegistry.get(data.npc_id).getDescription();
         }
         //if(!document.getElementById("dialogue_answer_div").innerText) { //probably pointless to check?
         update_displayed_textline_answer({text, is_description: true});
         //}
     } else if(content_type === "dialogue_answer") {
-        update_displayed_dialogue({dialogue_key: data.dialogue_key});
+        update_displayed_dialogue({npc_id: data.npc_id});
         if(!text) {
             text = data.text;
         }
         update_displayed_textline_answer({text});
     } else if(content_type === "dialogue_branch") {
-        update_displayed_dialogue({dialogue_key: data.dialogue_key, textlines: data.textlines});
+        update_displayed_dialogue({npc_id: data.npc_id, textlines: data.textlines});
         if(!text) {
             text = data.text;
         }
         update_displayed_textline_answer({text});
     } else if(content_type === "action") {
-        start_game_action_display(data.dialogue_key, data.action_key);
+        start_game_action_display(data.npc_id, data.action_key);
     } else if(content_type === "activity") {
         start_activity_display(data.activity);
     } else {
@@ -4392,6 +4418,16 @@ function start_reading_display(title) {
     const action_status_div = document.createElement("div");
     action_status_div.innerText = `Reading the book, ${format_reading_time(item_templates[title].getRemainingTime())} left`;
     action_status_div.id = "action_status_div";
+
+
+    const action_progress_bar_max = document.createElement("div");
+    const action_progress_bar = document.createElement("div");
+    action_progress_bar_max.appendChild(action_progress_bar);
+    action_progress_bar.id = "action_progress_bar";
+    action_progress_bar.style.width = "0px";
+    action_progress_bar_max.id = "action_progress_bar_max";
+    action_div.appendChild(action_progress_bar_max);
+
 
     const action_end_div = document.createElement("div");
     action_end_div.setAttribute("onclick", "end_reading()");
@@ -4556,17 +4592,16 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
                     tooltip_milestones,
                     tooltip_next
     */
-
-    if(!skill_bar_divs[skill.category][skill.skill_id]) {
-        return;
+    if(!skill_bar_divs[skill.category]?.[skill.skill_id]) {
+        create_new_skill_bar(skill);
     }
 
     update_displayed_skill_level(skill);
 
-    if (skill.current_xp !== "Max") {
+    if (skill.getCurrentXP() !== "Max") {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.remove("skill_bar_capped");
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.current_xp/skill.xp_to_next_lvl*1000)/1000}%`;
-        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `${expo({number: skill.current_xp})} / ${expo({number: skill.xp_to_next_lvl})}`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[0].children[1].innerText = `${100*Math.floor(skill.getCurrentXP()/skill.getXPToNextLvl()*1000)/1000}%`;
+        skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[0].innerText = `${expo({number: skill.getCurrentXP()})} / ${expo({number: skill.getXPToNextLvl()})}`;
 
     } else {
         skill_bar_divs[skill.category][skill.skill_id].children[0].classList.add("skill_bar_capped");
@@ -4575,7 +4610,7 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
     }
     //skill_bar_xp && tooltip_xp
 
-    skill_bar_divs[skill.category][skill.skill_id].children[0].children[1].style.width = `${100*skill.current_xp/skill.xp_to_next_lvl}%`;
+    skill_bar_divs[skill.category][skill.skill_id].children[0].children[1].style.width = `${100*skill.getCurrentXP()/skill.getXPToNextLvl()}%`;
     //skill_bar_current
 
     if(get_unlocked_skill_rewards(skill.skill_id)) {
@@ -4603,8 +4638,10 @@ function update_displayed_skill_level(skill) {
         return;
     }
 
-    let html_content = `${skill.name()} : level ${skill.current_level}/${skill.max_level}`;
-    const bonus = character.bonus_skill_levels.full[skill.skill_id];
+    const skillXP = skill.getDefaultSkillXP();
+
+    let html_content = `${skill.getName()} : level ${skillXP.current_level}/${skill.max_level}`;
+    const bonus = character.getBonusSkillLevels()[skill.skill_id];
     if(bonus != 0) {
         html_content += ` <b>[${bonus>0?"+":""}${bonus}]</b>`;
     }
@@ -4623,8 +4660,14 @@ function update_displayed_skill_xp_gain(skill) {
     if(!skill_bar_divs[skill.category] || !skill_bar_divs[skill.category][skill.skill_id]){
         return;
     }
-    const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*get_skill_xp_gain(skill.skill_id))/100 || 1;
-    set_HTML(skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[1], `XP gain: x${xp_gain}<br><span>XP cost scaling: x${skill.xp_scaling}</span>`);
+    const xp_gain = Math.round(100*skill.get_parent_xp_multiplier()*character.getSkillXPGain(skill.skill_id))/100;
+    let html_content = `XP gain: x${xp_gain}<br>`;
+    if(skill.can_level) {
+        html_content += "<span>XP cost scaling: x${skill.xp_scaling}</span>"
+    } else {
+        html_content += "<br>This skill cannot receive xp and levels can only be gained from temporary sources."
+    }
+    set_HTML(skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[1], html_content);
 }
 
 function update_all_displayed_skills_xp_gain(){
@@ -4663,17 +4706,17 @@ function sort_displayed_skills({sort_by="name", change_direction=false}) {
             let elem_b;
             if (sort_by === "level") {
                 skill_sorting = sort_by;
-                elem_a = skills[a.getAttribute("data-skill")].current_level;
-                elem_b = skills[b.getAttribute("data-skill")].current_level;
+                elem_a = skills[a.getAttribute("data-skill")].getCurrentLvl();
+                elem_b = skills[b.getAttribute("data-skill")].getCurrentLvl();
             } else if (sort_by === "progress") {
-                if (isNaN(skills[a.getAttribute("data-skill")].current_xp)) return 1;
-                if (isNaN(skills[b.getAttribute("data-skill")].current_xp)) return -1;
+                if (isNaN(skills[a.getAttribute("data-skill")].getCurrentXP())) return 1;
+                if (isNaN(skills[b.getAttribute("data-skill")].getCurrentXP())) return -1;
 
-                elem_a = -skills[a.getAttribute("data-skill")].current_xp / skills[a.getAttribute("data-skill")].xp_to_next_lvl;
-                elem_b = -skills[b.getAttribute("data-skill")].current_xp / skills[b.getAttribute("data-skill")].xp_to_next_lvl ;
+                elem_a = -skills[a.getAttribute("data-skill")].getCurrentXP() / skills[a.getAttribute("data-skill")].getXPToNextLvl();
+                elem_b = -skills[b.getAttribute("data-skill")].getCurrentXP() / skills[b.getAttribute("data-skill")].getXPToNextLvl();
             } else {
-                elem_a = skills[a.getAttribute("data-skill")].name();
-                elem_b = skills[b.getAttribute("data-skill")].name();
+                elem_a = skills[a.getAttribute("data-skill")].getName();
+                elem_b = skills[b.getAttribute("data-skill")].getName();
                 skill_sorting = "name";
             }
     
@@ -4717,8 +4760,7 @@ function update_skill_category_order() {
 /**
  * @description updates the list of stances, 
  */
-function update_displayed_stance_list(stances, current_stance, fav_stances) {
-
+function update_displayed_stance_list(current_stance) {
     clear_HTML_content(stance_list);
 
     Object.keys(stance_bar_divs).forEach(bar => {
@@ -4734,7 +4776,7 @@ function update_displayed_stance_list(stances, current_stance, fav_stances) {
     ); //why is this not in .html file...?
 
     Object.keys(stances).forEach(stance => {
-        if(stances[stance].is_unlocked) {
+        if(stances[stance].isUnlocked()) {
             stance_bar_divs[stance] = document.createElement("tr");
             stance_bar_divs[stance].classList.add("stance_list_entry");
             stance_bar_divs[stance].dataset.stance = stance;
@@ -4764,7 +4806,7 @@ function update_displayed_stance_list(stances, current_stance, fav_stances) {
             return -1;
         }
 
-        if(!stance_a || !stance_b || !stance_a.is_unlocked || !stance_b.is_unlocked) {
+        if(!stance_a || !stance_b || !stance_a.isUnlocked() || !stance_b.isUnlocked()) {
             console.error(`No such stance as either '${stance_a}' or '${stance_b}', or at least one of them is not yet unlocked!`);
         }
         
@@ -4782,7 +4824,7 @@ function update_displayed_stance_list(stances, current_stance, fav_stances) {
     }).forEach(node=>stance_list.appendChild(node));
 
     update_displayed_stance(current_stance);
-    update_displayed_faved_stances(fav_stances);
+    update_displayed_faved_stances(stances);
 }
 
 function create_stance_tooltip(stance) {
@@ -4796,7 +4838,7 @@ function create_stance_tooltip(stance) {
 
     let target_count = stance.target_count;
     if(target_count > 1 && stance.related_skill) {
-        target_count = target_count + Math.round(target_count * get_total_skill_level(stance.related_skill)/skills[stance.related_skill].max_level);
+        target_count = target_count + Math.round(target_count * character.getTotalSkillLevel(stance.related_skill)/skills[stance.related_skill].max_level);
     }
 
     if(target_count > 1) {
@@ -4824,7 +4866,7 @@ function update_stance_tooltip(stance) {
     let target_count = stance.target_count;
     if(target_count > 1){
         if(stance.related_skill) {
-            target_count = target_count + Math.round(target_count * get_total_skill_level(stance.related_skill)/skills[stance.related_skill].max_level);
+            target_count = target_count + Math.round(target_count * character.getTotalSkillLevel(stance.related_skill)/skills[stance.related_skill].max_level);
         }
         set_HTML(stance_bar_divs[stance.id].querySelector(".stance_tooltip_hitcount"), `${stance.randomize_target_count?"Randomly hits up to":"Hits up to"} ${target_count} enemies</div>`);
     } 
@@ -4832,11 +4874,18 @@ function update_stance_tooltip(stance) {
 
 /**
  * 
- * @param {Stance} stance current stance 
+ * @param {Object} stance current stance 
  */
 function update_displayed_stance(stance) {
+    const stance_div = document.getElementById("character_stance_div");
+    
     stance_bar_divs[stance.id].children[1].children[0].checked = true;
-    document.getElementById("character_stance_name").children[0].innerText = stance.name;
+
+    if(!stance_div) {
+        return;
+    }
+
+    stance_div.children[0].innerText = stance.name;
 
     const selection = document.getElementById("character_stance_selection");
 
@@ -4849,10 +4898,9 @@ function update_displayed_stance(stance) {
     }
 }
 
-function update_displayed_faved_stances(stances) {
-    
+function update_displayed_faved_stances() {    
     const list = document.getElementById("character_stance_selection");
-    clear_HTML_content(list);
+    
     let html_content = "";
     Object.keys(faved_stances).forEach(stance => {
         stance_bar_divs[stance].children[0].children[0].checked = true;
@@ -4861,35 +4909,36 @@ function update_displayed_faved_stances(stances) {
             <label for="stances_quick_select_${stance}">${stances[stance].name}</div>`;
     });
 
-    insert_HTML(list, html_content);
 
-    //different stamina cost: cheaper first; same stamina cost: sort alphabetically
-    [...list.children].sort((a,b)=>{
-        const stance_a = stances[a.getAttribute("data-stance")];
-        const stance_b = stances[b.getAttribute("data-stance")];
+    if(list) {
+        set_HTML(list, html_content);
 
-        if(!stance_a || !stance_b) {
-            console.error(`No such stance as either '${stance_a}' or '${stance_b}'!`);
-        }
-        
-        if(stance_a.stamina_cost < stance_b.stamina_cost) {
-            return -1;
-        } else if(stance_a.stamina_cost > stance_b.stamina_cost) {
-            return 1;
-        } else {
-            if(stance_a.name > stance_b.name) {
+        //different stamina cost: cheaper first; same stamina cost: sort alphabetically
+        [...list.children].sort((a,b)=>{
+            const stance_a = stances[a.getAttribute("data-stance")];
+            const stance_b = stances[b.getAttribute("data-stance")];
+
+            if(!stance_a || !stance_b) {
+                console.error(`No such stance as either '${stance_a}' or '${stance_b}'!`);
+            }
+            
+            if(stance_a.stamina_cost < stance_b.stamina_cost) {
+                return -1;
+            } else if(stance_a.stamina_cost > stance_b.stamina_cost) {
                 return 1;
             } else {
-                return -1;
+                if(stance_a.name > stance_b.name) {
+                    return 1;
+                } else {
+                    return -1;
+                }
             }
+        }).forEach(node=>list.appendChild(node));
+
+        //mark selected stance as checked in quick selection
+        if(list.children && list.querySelector(`[data-stance='${selected_stance}']`)) {
+            list.querySelector(`[data-stance='${selected_stance}']`).children[0].checked = true;
         }
-    }).forEach(node=>list.appendChild(node));
-
-    //mark selected stance as checked in quick selection
-
-    const selection = document.getElementById("character_stance_selection");
-    if(selection.children && selection.querySelector(`[data-stance='${selected_stance}']`)) {
-        selection.querySelector(`[data-stance='${selected_stance}']`).children[0].checked = true;
     }
 }
 
@@ -4914,13 +4963,8 @@ function create_new_bestiary_entry(enemy_name) {
         if(rank_a != rank_b) {
             return rank_a - rank_b;
         } else {
-            const name_a = a.querySelector(".bestiary_entry_name").innerText;
-            const name_b = b.querySelector(".bestiary_entry_name").innerText;
-            if(name_a > name_b) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return a.querySelector(".bestiary_entry_name").innerText
+                .localeCompare(b.querySelector(".bestiary_entry_name").innerText);
         }
     }).forEach(node=>bestiary_list.appendChild(node));
 }
@@ -5130,8 +5174,10 @@ function create_new_booklist_entry(book_name) {
 
     booklist_list.appendChild(booklist_entry_divs[book_name]);
 
-    //sorts booklist_list div by book title
-    [...booklist_list.children].sort((a,b)=>a.getAttribute("data-book") - b.getAttribute("data-book"))
+    //sorts by title
+    [...booklist_list.children].sort((a, b) =>
+                                    a.getAttribute("data-book")
+                                        .localeCompare(b.getAttribute("data-book")))
                                 .forEach(node=>booklist_list.appendChild(node));
 }
 
@@ -5159,30 +5205,6 @@ function clear_skill_list(){
     //remove skill bars from display
 }
 
-function update_enemy_attack_bar(enemy_id, num) {
-    enemies_div.children[enemy_id].querySelector(".enemy_attack_bar").style.width = `${Math.min(num*100,100)}%`;
-}
-
-function do_enemy_onhit_animation(enemy_id) {
-    const enemy_div = enemies_div.children[enemy_id];
-    enemy_animations[enemy_id]?.cancel(); //almost certainly unnecessary
-    enemy_animations[enemy_id] = enemy_div.animate(onhitAnimation, onhitAnimationTiming);
-}
-
-function remove_enemy_onhit_animation(enemy_id) {
-    enemy_animations[enemy_id]?.cancel();
-}
-
-function do_enemy_onstart_animation(enemy_id) {
-    const enemy_div = enemies_div.children[enemy_id];
-    enemy_animations[enemy_id]?.cancel(); //almost certainly unnecessary
-    enemy_animations[enemy_id] =  enemy_div.animate(onstartAnimation, onstartAnimationTiming);
-}
-
-function update_character_attack_bar(num) {
-    character_attack_bar.style.width = `${Math.min(num*100,100)}%`;
-}
-
 /**
  * Adds quest to display
  * @param {String} quest_id 
@@ -5204,7 +5226,7 @@ function add_quest_to_display(quest_id) {
     quest_entry_divs[quest_id] = quest_div;
     quest_list.appendChild(quest_div);
 
-    if(quest.is_finished) {
+    if(quest.isFinished()) {
         quest_div.classList.add("quest_finished");
     }
 
@@ -5236,7 +5258,7 @@ function update_displayed_quest(quest_id) {
     const quest_description_div = quest_div.querySelector(".quest_description_div");
     quest_description_div.innerText = quest.getQuestDescription() ?? "";
 
-    if(quest.is_finished) {
+    if(quest.isFinished()) {
         quest_div.classList.add("quest_finished");
     }
     
@@ -5249,9 +5271,9 @@ function sort_displayed_quests() {
         [...quest_list.children].sort((a,b) => {
             let quest_a = quests[a.getAttribute("data-quest_id")];
             let quest_b = quests[b.getAttribute("data-quest_id")];
-            if(quest_a.is_finished && !quest_b.is_finished) {
+            if(quest_a.isFinished() && !quest_b.isFinished()) {
                 return 1;
-            } else if(!quest_a.is_finished && quest_b.is_finished) {
+            } else if(!quest_a.isFinished() && quest_b.isFinished()) {
                 return -1;
             } else {
                 if(quest_a.display_priority !== quest_b.display_priority) {
@@ -5312,7 +5334,7 @@ function create_displayed_quest_tasks_content(quest_id) {
     //put task description and tasks into it
     //set color based on completion status
 
-    let unfinished_index = quest.quest_tasks.findIndex(x => !x.is_finished);
+    let unfinished_index = quest.quest_tasks.findIndex(x => !x.isFinished());
     unfinished_index = unfinished_index==-1?quest.quest_tasks.length:unfinished_index;
 
     for(let i = 0; i < unfinished_index; i++) {
@@ -5339,7 +5361,7 @@ function create_displayed_quest_task(quest_id, task_index) {
     const task_status_icon_span = document.createElement("span");
     task_status_icon_span.classList.add("task_status_icon");
     let icon_html;
-    if(task.is_finished) {
+    if(task.isFinished()) {
         task_div.classList.add("task_finished");
         icon_html = '<i class="material-icons">check_box</i>';
     } else {
@@ -5431,21 +5453,96 @@ function change_completed_quest_visibility() {
 }
 
 function fill_character_bio() {
-    const bio = document.getElementById("character_bio_div");
+    const bio = character.getBioComponent();
+    const age_div = document.getElementById("character_age_div");
+    age_div.innerText = translate("age") + ": "+ translate(bio.age);
 
-    const age_div = document.createElement("div");
-    age_div.innerText = translationManager.getText(language, "age") + ": "+ translationManager.getText(language, character.personal.age);
+    const gender_div = document.getElementById("character_gender_div");
+    gender_div.innerText = translate("gender") + ": "+ translate(bio.gender);
 
-    const height_div = document.createElement("div");
-    height_div.innerText = translationManager.getText(language, "height") + ": "+ translationManager.getText(language, character.personal.height);
+    const height_div = document.getElementById("character_height_div");
+    height_div.innerText = translate("height") + ": "+ translate(bio.height);
 
-    const race_div = document.createElement("div");
-    race_div.innerText = translationManager.getText(language, "race") + ": "+ translationManager.getText(language, playable_races[character.personal.race].name);
+    if(config.use_height_bonuses && Object.keys(height_stats[bio.height]).length > 0) {
+        height_div.appendChild(create_height_tooltip(bio.height, "character_height_tooltip"));
+    }
 
-    bio.appendChild(age_div);
-    bio.appendChild(height_div);
-    bio.appendChild(race_div);
+    const race_div = document.getElementById("character_race_div");
+    race_div.innerText = translate("race") + ": "+ translate(playable_races[bio.race].name);
 
+    race_div.appendChild(create_race_tooltip(playable_races[bio.race], "character_race_tooltip"));
+    gender_div.appendChild(create_gender_tooltip(bio.gender, "character_gender_tooltip"));
+}
+
+function create_race_tooltip(race, css_class) {
+    const tooltip = document.createElement("div");
+    tooltip.classList.add(css_class);
+
+    let tooltip_content = "";
+
+    tooltip_content += translate(race.description);
+    if(race.gameplay_description) {
+        tooltip_content += "\n\n" + translate(race.gameplay_description);
+    }
+
+    if(config.use_racial_bonuses) {
+        if(Object.keys(race.stats).length > 0) {
+            tooltip_content += `\n`;
+        }
+
+        Object.keys(race.stats).forEach(effect_key => {
+            if(race.stats[effect_key].multiplier != null) {
+                tooltip_content +=
+            `\n${capitalize_first_letter(translate(effect_key+" long"))}: x${race.stats[effect_key].multiplier}`;
+            }
+        });
+    }
+
+    /*
+    if(Object.keys(race.stats).length !== 0 && Object.keys(race.xp_multipliers).length !== 0) {
+        tooltip_content += "\n";
+    }
+
+    Object.keys(race.xp_multipliers).forEach(effect_key => {
+        if(race.xp_multipliers[effect_key] != null) {
+            tooltip_content +=
+        `\n${capitalize_first_letter(translate(effect_key))}: x${race.xp_multipliers[effect_key]}`;
+        }
+    });
+    */
+    tooltip.innerText = tooltip_content;
+            
+
+    return tooltip;
+}
+
+function create_height_tooltip(height_key, css_class) {
+    const stats = height_stats[height_key];
+    const tooltip = document.createElement("div");
+    tooltip.classList.add(css_class);
+
+    let tooltip_content = "";
+    Object.keys(stats).forEach(effect_key => {
+        if(stats[effect_key].multiplier != null) {
+            tooltip_content +=
+        `${capitalize_first_letter(translate(effect_key+" long"))}: x${stats[effect_key].multiplier}\n`;
+        }
+    });
+    
+    tooltip.innerText = tooltip_content;
+
+    return tooltip;
+}
+
+function create_gender_tooltip(gender_key, css_class) {
+    const tooltip = document.createElement("div");
+    tooltip.classList.add(css_class);
+
+    let tooltip_content = translate("ui " + gender_key + " tooltip");
+    
+    tooltip.innerText = tooltip_content;
+
+    return tooltip;
 }
 
 function start_rain_animation() {
@@ -5687,7 +5784,7 @@ export {
     update_displayed_money,
     log_message,
     clear_action_div,
-    update_displayed_enemies, update_displayed_health_of_enemies, update_displayed_normal_location, update_displayed_combat_location,
+    update_displayed_normal_location, update_displayed_combat_location,
     log_loot,
     update_displayed_equipment, update_displayed_health, update_displayed_stamina, update_displayed_stats, update_displayed_effects, update_displayed_effect_durations,
     capitalize_first_letter,
@@ -5703,10 +5800,7 @@ export {
     clear_skill_bars,
     update_displayed_ongoing_activity,
     clear_skill_list,
-    update_character_attack_bar,
     clear_message_log,
-    update_enemy_attack_bar, 
-    do_enemy_onhit_animation, remove_enemy_onhit_animation, do_enemy_onstart_animation,
     remove_fast_travel_choice,
     create_new_bestiary_entry, update_bestiary_entry, update_bestiary_entry_killcount, clear_bestiary, update_bestiary_entry_tooltip,
     start_reading_display,
@@ -5744,5 +5838,6 @@ export {
     set_HTML,
     set_light_based_background_color,
     unassign_dynamic_loot_message,
-    fill_character_bio
+    fill_character_bio, create_race_tooltip, create_height_tooltip, create_gender_tooltip,
+    insert_HTML, clear_HTML_content
 }

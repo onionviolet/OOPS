@@ -1,17 +1,18 @@
 import { effect_templates } from "./active_effects.js";
 import { activities } from "./activities.js";
-import { character } from "./character.js";
-import { dialogues } from "./dialogues.js";
+import { character } from "./data/character.js";
+import { dialogues } from "./data/dialogues.js";
 import { enemy_templates } from "./enemies.js";
 import { item_templates } from "./items.js";
-import { locations } from "./locations.js";
-import { skills, skill_categories } from "./skills.js";
-import { traders } from "./traders.js";
+import { locations } from "./data/locations.js";
+import { skills, skill_categories } from "./data/skills.js";
 import { quests } from "./quests.js";
 import { market_region_mapping } from "./market_saturation.js";
 import { translations } from "./translation.js";
 import { recipes } from "./crafting_recipes.js";
 import { language } from "./main.js";
+import { translations_for_verifier } from "../locales/english.js";
+import NPCRegistry from "./data/npcs.js";
 
 const trc = 1000000; //time rounding precision
 
@@ -36,20 +37,10 @@ function Verify_Game_Objects() {
                 }
             }
         }
-        /*
-        UNNEEDED, check is already done in item creation
-        if(item.components) {
-            Object.values(item.components).forEach(component => {
-                if(!item_templates[component]) {
-                    console.error(`Component "${component}" of item "${key}" is not defined in item templates`);
-                    has_issue = true;
-                }
-            })
-        }*/
 
         if(item.stats) {
             Object.keys(item.stats).forEach(stat_key => {
-                if(character.base_stats[stat_key] === undefined) {
+                if(character.getBaseStats()[stat_key] === undefined) {
                     console.error(`Item "${key}" has a non-existent stat "${stat_key}"`);
                     has_issue = true;
                 } else {
@@ -115,7 +106,7 @@ function Verify_Game_Objects() {
                             });
                         } else if(milestone_reward_type_key === "stats"){
                             Object.keys(milestone[milestone_reward_type_key]).forEach(stat_key => {
-                                if(character.base_stats[stat_key] === undefined) {
+                                if(character.getBaseStats()[stat_key] === undefined) {
                                     console.error(`Skill "${key}" has a milestone reward for a non-existent stat "${stat_key}"`);
                                     has_issue = true;
                                 }
@@ -181,30 +172,27 @@ function Verify_Game_Objects() {
             has_issue = true;
         }
         if(location.tags["safe_zone"]) {
-            for(let i = 0; i < location.dialogues.length; i++) {
-                if(!dialogues[location.dialogues[i]]) {
-                    console.error(`Location "${key}" refers to a non-existent dialogue "${dialogues[location.dialogues[i]]}"`);
+            for(let i = 0; i < location.npcs.length; i++) {
+                try {
+                    const npc = NPCRegistry.get(location.npcs[i]); //this can throw an error if npc doesn't exist, therefore try-catch
+
+                    if(npc.tags.trader) {
+                        if(!location.market_region) {
+                            console.error(`Location "${key}" has at least one trader but no trade region assigned!`);
+                            has_issue = true;
+                        } else {
+                            if(!market_region_mapping[location.market_region]) {
+                                console.error(`Location "${key}" has market region "${location.market_region}" assigned, but no such region is present in region mapping!`);
+                                has_issue = true;
+                            }
+                        }
+                    }
+                } catch(e) {
+                    console.error(`Location "${key}" refers to a non-existent npc "${location.npcs[i]}"`);
                     has_issue = true;
                 }
             }
-            if(location.traders?.length > 0) {
-                if(!location.market_region) {
-                    console.error(`Location "${key}" has at least one trader but no trade region assigned!`);
-                    has_issue = true;
-                } else {
-                    if(!market_region_mapping[location.market_region]) {
-                        console.error(`Location "${key}" has market region "${location.market_region}" assigned, but no such region is present in region mapping!`);
-                        has_issue = true;
-                    }
-                }
-                for(let i = 0; i < location.traders.length; i++) {
-                    if(!traders[location.traders[i]]) {
-                        console.error(`Location "${key}" refers to a non-existent trader "${location.traders[i]}"`);
-                        has_issue = true;
-                    }
-                }
-            }
-            
+
             for(let i = 0; i < location.connected_locations.length; i++) {
                 if(!location.connected_locations[i].location) {
                     console.error(`Location "${key}" is connected to a non-existent location.`);
@@ -223,7 +211,7 @@ function Verify_Game_Objects() {
                     }
                 }   
             });
-        } else if(location.tags["combat zone"]) {
+        } else if(location.tags["combat_zone"]) {
 
             if(location.parent_location == undefined) {
                 console.error(`Combat location "${key}" refers to a non-existent parent"`);
@@ -364,9 +352,14 @@ function Verify_Game_Objects() {
                 console.error(`Action "${action_key}" in "${key}" has no translation provided for starting text for your chosen language "${language}"`);
             }
             if(!translations[language][action.success_text]) {
-                //might miss something if there are multiple options provided
                 has_issue = true;
                 console.error(`Textline "${action_key}" in "${key}" has no translation provided for success text for your chosen language "${language}"`);
+            }
+            for(let i = 0; i < action.success_texts.length; i++) {
+                if(!translations[language][action.success_texts[i]]) {
+                    has_issue = true;
+                    console.error(`Textline "${action_key}" in "${key}" has no translation provided for success text #${i} (translation key: '${action.success_texts[i]}' for your chosen language "${language}"`);
+                }
             }
         }
 
@@ -375,6 +368,7 @@ function Verify_Game_Objects() {
         results[0]++;
         results[1]+=has_issue;
     }
+
     end_time = performance.now();
     if(dialogue_results[1] > 0) {
         console.log(`Finished verifying dialogues in: ${Math.round(trc*(end_time-start_time))/trc}s\nFound issue in ${dialogue_results[1]} out of ${dialogue_results[0]}`);
@@ -435,6 +429,27 @@ function Verify_Game_Objects() {
         console.log(`Finished verifying ${recipes_results[0]} recipes in: ${Math.round(trc*(end_time-start_time))/trc}s\nNo issues were found.`);
     }
 
+
+    start_time = performance.now();
+    let translation_results = [0,0];
+    Object.values(translations_for_verifier).forEach(translation_category => {
+        const unique_keys = {};
+        Object.keys(translation_category).forEach(key => {
+
+            translation_results[0]++;
+            results[0]++;
+
+            if(unique_keys[key]) {
+
+                console.error(`Translation key "${key}" is used multiple times!`);
+                translation_results[1]++;
+                results[1]++;
+            } else {
+                unique_keys[key] = true;
+            }
+        });
+    });
+
     let overall_end_time = performance.now();
     let result_message;
     if(results[1] > 0) {
@@ -451,60 +466,73 @@ function verify_rewards(rewards, source_type, source_key, subsource_key) {
     //todo
     //doesn't yet cover: actions, activities, global activities, locking, quest unlocks, traders, money, reputation, items, flags
     let is_correct = true;
+    let rewards_to_process;
 
-    Object.keys(rewards).forEach(reward_type => {
-        if(reward_type === "xp" && typeof rewards[reward_type] !== 'number') {
-            console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong kind of reward of 'xp' type, should be Number but found '"+typeof rewards[reward_type]+"'");
-            is_correct = false;
-        } else if(reward_type === "skill_xp") {
-            Object.keys(rewards[reward_type]).forEach(skill_id =>{
-                if(!skills[skill_id]) {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong skill id for 'skill_xp', no such skill as '"+skill_id+"'");
-                    is_correct = false;
-                }
-                if(typeof rewards[reward_type][skill_id] !== 'number') {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong kind of reward of 'skill xp' type for '" +skill_id+"', should be Number but found '"+typeof rewards[reward_type][skill_id]+"'");
-                    is_correct = false;
-                }
-            });
-        } else if(reward_type === "locations") {
-            for(let i = 0; i < rewards[reward_type].length; i++) {
-                if(!locations[rewards[reward_type][i].location]) {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent location '${rewards[reward_type][i].location}' listed for unlocks`);
-                    is_correct = false;
-                }
+    if(!Array.isArray(rewards)) {
+        rewards_to_process = [rewards];
+    } else {
+        rewards_to_process = rewards;
+    }
+
+    for(let i = 0; i < rewards_to_process.length; i++) {
+        Object.keys(rewards_to_process[i]).forEach(reward_type => {
+            if(!rewards_to_process[i][reward_type]) {
+                return; //nullish value is not an issue
             }
-        } else if(reward_type === "textlines") {
-            for(let i = 0; i < rewards[reward_type].length; i++) {
-                if(!dialogues[rewards[reward_type][i].dialogue]) {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent dialogue '${rewards[reward_type][i].dialogue}' listed for textline unlocks`);
+
+            if(reward_type === "xp" && typeof rewards_to_process[i][reward_type] !== 'number') {
+                console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong kind of reward of 'xp' type, should be Number but found '"+typeof rewards_to_process[i][reward_type]+"'");
+                is_correct = false;
+            } else if(reward_type === "skill_xp") {
+                Object.keys(rewards_to_process[i][reward_type]).forEach(skill_id =>{
+                    if(!skills[skill_id]) {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong skill id for 'skill_xp', no such skill as '"+skill_id+"'");
+                        is_correct = false;
+                    }
+                    if(typeof rewards_to_process[i][reward_type][skill_id] !== 'number') {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + "wrong kind of reward of 'skill xp' type for '" +skill_id+"', should be Number but found '"+typeof rewards_to_process[i][reward_type][skill_id]+"'");
+                        is_correct = false;
+                    }
+                });
+            } else if(reward_type === "locations") {
+                for(let j = 0; j < rewards_to_process[i][reward_type].length; j++) {
+                    if(!locations[rewards_to_process[i][reward_type][j].location]) {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent location '${rewards_to_process[i][reward_type][j].location}' listed for unlocks`);
+                        is_correct = false;
+                    }
+                }
+            } else if(reward_type === "textlines") {
+                for(let j = 0; j < rewards_to_process[i][reward_type].length; j++) {
+                    if(!dialogues[rewards_to_process[i][reward_type][j].dialogue]) {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent dialogue '${rewards_to_process[i][reward_type][j].dialogue}' listed for textline unlocks`);
+                        is_correct = false;
+                    }
+                    for(let k = 0; k < rewards_to_process[i][reward_type][j].lines.length; k++) {
+                        if(!dialogues[rewards_to_process[i][reward_type][j].dialogue].textlines[rewards_to_process[i][reward_type][j].lines[k]]) {
+                            console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent textline '${rewards_to_process[i][reward_type][j].lines[k]}' listed for unlocks in dialogue '${rewards_to_process[i][reward_type][j].dialogue}'`);
+                            is_correct = false;
+                        }
+                    }
+                }
+            } else if(reward_type === "move_to") {
+                if(!locations[rewards_to_process[i][reward_type].location]) {
+                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent location '${rewards_to_process[i][reward_type].location}' listed for moving to`);
                     is_correct = false;
                 }
-                for(let j = 0; j < rewards[reward_type][i].lines.length; j++) {
-                    if(!dialogues[rewards[reward_type][i].dialogue].textlines[rewards[reward_type][i].lines[j]]) {
-                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent textline '${rewards[reward_type][i].lines[j]}' listed for unlocks in dialogue '${rewards[reward_type][i].dialogue}'`);
+            } else if(reward_type === "quest_progress") {
+                for(let j = 0; j < rewards_to_process[i][reward_type].length; j++) {
+                    if(!quests[rewards_to_process[i][reward_type][j].quest_id]) {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent quest '${rewards_to_process[i][reward_type][j].quest_id}' listed for progressing`);
+                        is_correct = false;
+                    }
+                    if(quests[rewards_to_process[i][reward_type][j].quest_id].quest_tasks.length < rewards_to_process[i][reward_type][j].task_index) {
+                        console.error(create_reward_error_message(source_type, source_key, subsource_key) + `too high task index for progressing quest '${rewards_to_process[i][reward_type][j].quest_id}'`);
                         is_correct = false;
                     }
                 }
             }
-        } else if(reward_type === "move_to") {
-            if(!locations[rewards[reward_type].location]) {
-                console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent location '${rewards[reward_type].location}' listed for moving to`);
-                is_correct = false;
-            }
-        } else if(reward_type === "quest_progress") {
-            for(let i = 0; i < rewards[reward_type].length; i++) {
-                if(!quests[rewards[reward_type][i].quest_id]) {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + `non-existent quest '${rewards[reward_type][i].quest_id}' listed for progressing`);
-                    is_correct = false;
-                }
-                if(quests[rewards[reward_type][i].quest_id].quest_tasks.length < rewards[reward_type][i].task_index) {
-                    console.error(create_reward_error_message(source_type, source_key, subsource_key) + `too high task index for progressing quest '${rewards[reward_type][i].quest_id}'`);
-                    is_correct = false;
-                }
-            }
-        }
-    });
+        });
+    }
 
     return is_correct;
 }

@@ -1,6 +1,6 @@
 # YAIRPG expansion project
 
-Status: first engine extension and provisional Village expedition implemented, 2026-10-01. Base YAIRPG and research retained; cultivation prototype archived. Evidence and limits are in `docs/PLAYTEST.md`; human gameplay acceptance is pending.
+Status: v0.6 development foundation adopted with the expedition and save safeguards ported, 2026-10-01. Research and archived cultivation prototype retained. Build, 31 tests and generated-save browser/file migration checks pass; human gameplay acceptance remains pending. Evidence and limits are in `docs/PLAYTEST.md`.
 
 ## Intent
 
@@ -37,7 +37,7 @@ Worlds may be wholly original, inspired by selected books, or direct fan setting
 
 ### 1. Deepen the existing game
 
-The checkout contains skill levels and milestones, gathering/training/jobs, combat stances, equipment and crafting, quests/dialogues, locations/travel, weather/time and reputation. The first source and save audit is recorded in `docs/BASELINE_AUDIT.md`; browser smoke testing does not establish full upstream-content coverage. Race bonuses are currently commented out and races are described as cosmetic; do not assume functional race progression already exists.
+The checkout contains skill levels and milestones, gathering/training/jobs, combat stances, equipment and crafting, quests/dialogues, locations/travel, weather/time and reputation. The first source and save audit is recorded in `docs/BASELINE_AUDIT.md`; browser smoke testing does not establish full upstream-content coverage. The v0.6 foundation supports configurable race/height stat bonuses, disabled by default and unbalanced upstream. Character biography remains mostly cosmetic; no new race progression is selected.
 
 Extend these systems through skill specializations, technique discovery, crafting mastery and material traits, enemy adaptations, faction access and branching quest rewards. Keep ordinary skills useful at later stages: farming can grow alchemical herbs, cooking can support breakthrough preparation, and environmental skills can unlock routes or resources. Each expansion should create an observable choice or interaction, not just another XP bar.
 
@@ -84,13 +84,13 @@ UI must explain unlock requirements, modifiers, resource uses and reset conseque
 
 ## Repository
 
-Foundation direction, 2026-10-01: begin from the pinned v0.6 development source. [v0.6 migration](docs/V06_MIGRATION.md) owns candidate evidence and the port checklist. The isolated `codex/v06-foundation` worktree at `/Users/weiwei/.codex/worktrees/v06-foundation/yet-another-idle-rpg` builds and exercises ordinary dialogue, equipment, combat and generated v0.6 save/reload. This shared checkout still contains v0.5.5.30 plus the expedition/save work; switch it after that work is checkpointed and its save guards/extension integration pass in the candidate. No personal-save migration or full v0.6 fork integration is complete.
+Foundation adopted, 2026-10-01: the shared project now uses Miktaew's pinned v0.6 development revision `25afe1a879459d85af609088a046ac4f1d3893e1` plus the ported fork work, on `codex/v06-migration`. The recoverable pre-migration checkpoint is `codex/pre-v06-checkpoint` (`62f100f9975e856517b623c9ba6c568b6d143aac`). [v0.6 migration](docs/V06_MIGRATION.md) owns the source changes, evidence and compatibility limits. Candidate work was verified in the isolated `codex/v06-foundation` worktree before the shared switch. Personal saves were untouched; no remote changes were pushed.
 
 Fork: https://github.com/onionviolet/yet-another-idle-rpg
 Upstream: https://github.com/miktaew/yet-another-idle-rpg
 Keep the MIT license and upstream attribution.
 
-Source lives in `src/`; the browser currently loads `dist/bundle.js`. `build.js` uses esbuild. The fork now tracks package.json and package-lock.json with pinned esbuild 0.25.10. Use Node >=22.13, `npm ci`, `npm test`, then `npm run build`. Builds fingerprint JavaScript and CSS URLs to prevent stale previews.
+Source lives in `src/`, with content in `src/data/`, character/combat models in `src/models/` and shared state components in `src/components/`. The browser loads `dist/bundle.js`. `build.js` uses esbuild. The fork now tracks package.json and package-lock.json with pinned esbuild 0.25.10. Use Node >=22.13, `npm ci`, `npm test`, then `npm run build`. Builds fingerprint JavaScript and CSS URLs to prevent stale previews.
 
 Serve the existing game from this folder:
 
@@ -98,13 +98,13 @@ Serve the existing game from this folder:
 python3 -m http.server 8123 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8123 and choose Play for the base adventure. Open the Field journal in Village for the new expedition. Cultivation controls and Jade Hollow are absent. Use a separate fresh origin for tests; do not use personal save exports. Saving requires browser Web Locks on localhost/HTTPS. A browser without Web Locks opens read-only; do not use a file:// URL.
+Open http://127.0.0.1:8123 and choose Play for the base adventure. Open the Field journal in Village for the new expedition. Cultivation controls and Jade Hollow are absent. Use a separate fresh origin for tests; do not use personal save exports. Use one game tab per origin and close older builds before reopening that origin. Saving requires browser Web Locks on localhost/HTTPS. A browser without Web Locks opens read-only; do not use a file:// URL.
 
 ## Next work
 
 Accepted steering, 2026-10-01: return playable content to the existing YAIRPG foundation, remove the added cultivation slice from active gameplay, and retain reusable engine/build improvements and all research. Expand from that base toward the researched worlds, stories, events and run-defining opportunities. This retires the instruction to keep Jade Hollow playable; cultivation remains a possible later path.
 
-Current implementation: base YAIRPG plus the first expansion runtime and a provisional Village field-journal expedition. `src/expansion_engine.js` owns versioned scoped state, immutable content definitions, preview/commit rules, reserved costs, persisted random draws, frozen pending effects, ordered simulation deadlines, bounded history and isolated scenario checkpoints. `src/expansion_persistence.js` commits extension state and real money in one existing save envelope before publishing them. `src/expedition_content.js` and `src/expedition_ui.js` exercise the rules with inspection, kit or strength routes, a saved guide condition and a later departure. Browser Web Locks permit one save writer per release; other tabs remain read-only. Native activities cannot start while an expedition occupies the player. Jade Hollow stays archived and dormant data stays preserved.
+Current implementation: the v0.6 YAIRPG foundation plus the first expansion runtime and a provisional Village field-journal expedition. `src/expansion_engine.js` owns versioned scoped state, immutable content definitions, preview/commit rules, reserved costs, persisted random draws, frozen pending effects, ordered simulation deadlines, bounded history and isolated scenario checkpoints. `src/expansion_persistence.js` commits extension state and real money in one existing save envelope before publishing them. `src/expedition_content.js` and `src/expedition_ui.js` exercise the rules with inspection, kit or strength routes, a saved guide condition and a later departure. Browser Web Locks permit one save writer per release; other tabs remain read-only. Native activities cannot start while an expedition occupies the player. Jade Hollow stays archived and dormant data stays preserved.
 
 Native file checkpoint, 2026-10-01: imports validate structure/version/retirement compatibility and pass the real loader in an isolated non-running frame before storage replacement; rejected files retain current saves and show a player message. Export supports Unicode through a marked UTF-8 file format and accepts old unmarked Latin-1 files on import. Failed creation cannot emit an invalid export. Saved reputation is authoritative per region; legacy omissions reconstruct only earned rewards. First-clear unlocks require actual cleared groups, fixing unearned load-time story flags. Seventeen tests and native generated-save file roundtrip/rejection/reload checks pass; exact evidence and limits are in PLAYTEST.md. New exports require the updated fork importer; no upstream roundtrip is implied.
 
@@ -112,7 +112,7 @@ Compatibility: `src/save_compatibility.js` moves retired prototype fields and re
 
 Requested steering, 2026-10-01: extend the engine to make the audit candidates implementable. This authorizes engine work; it does not accept every research proposal or a final campaign roster. The Village route survey is a reversible original demonstration. Its names, costs, odds and timer remain proposals for review. The earlier [broken crossing rescue](docs/NEXT_EVENT_PROPOSAL.md) remains a separate unselected story option. `docs/ENGINE_EXPANSION.md` owns runtime contracts, the audit coverage map and remaining architecture; `docs/DIRECTION_SYNTHESIS.md` owns broader creative proposals; `docs/RUN_DEFINING_ADVANTAGES.md` owns the origin comparison.
 
-Next gate: port the completed expedition and save safeguards onto the v0.6 candidate and verify migration before switching this shared checkout. Then review the playable expedition for a worthwhile choice and add one authored helper or a second obstacle requiring a different capability. Add an item/XP transaction adapter and a second world only when their actual content needs them. Full party combat, physiology/equipment compatibility, policy-driven NPC arcs, identity transfer, automated production, offline wall-time replay, global rebirth and historical rollback remain unimplemented. Isolated checkpoint and multiple actor-budget contracts are unit-tested engine features, not active ring/clone gameplay. No second world or prestige layer was added.
+Next gate: review the playable expedition for a worthwhile choice and add one authored helper or a second obstacle requiring a different capability. Add an item/XP transaction adapter and a second world only when their actual content needs them. Authored party progression, physiology/equipment compatibility, policy-driven NPC arcs, identity transfer, automated production, offline wall-time replay, global rebirth and historical rollback remain unimplemented. Isolated checkpoint and multiple actor-budget contracts are unit-tested engine features, not active ring/clone gameplay. No second world or prestige layer was added.
 
 Requested research scope, 2026-10-01: enemy/peer tropes and young-master chains, heaven's chosen and other identities, villain-MC routes, identity/luck stealing and persistent nemesis-style rivals. [Rivals, identities and fate](docs/RIVALS_IDENTITIES_AND_FATE.md) records the current-source audit, bounded source evidence, broad catalogue and original future implementation proposals. This accepts the research scope, not a particular roster, theft rule or runtime implementation. An ordinary recurring-rival dispute is one candidate for the next event; the event itself remains unselected.
 

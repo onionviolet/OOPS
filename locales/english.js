@@ -50,7 +50,7 @@ const dialogues = {
                     +"Before that, maybe get some sleep? Some folks prepared that shack over there for you. It's clean, it's dry, and it will give you some privacy. ",
     "elder leave 3": "Can I leave the village?",
     "elder leave 3 answ":  "You still need to get stronger.",
-    "elder room clear": "I dealt with some rats in the cave, but is there anything else to help with?",
+    "elder room clear": "I dealt with some rats in the cave, but is there anything else to help with before I go deeper?",
     "elder room clear answ": "Ahh, good to hear you are making progress. Let me think... Could you check on the eastern mill? I'm a bit worried if the two kids running it can manage everything by themselves.",
     "elder cave clear":  "I cleared the cave. Most of it, at least",
     "elder cave clear answ": `Then I can't call you "too weak" anymore, can I? You are free to leave whenever you want, but still, be careful. You might also want to ask the guard for some tips about the outside. She used to be an adventurer.`,
@@ -141,10 +141,11 @@ const dialogues = {
     "mofu#craftsman about guard answ": "Ahhh, our fierce she-wolf... She once wanted to be an adventurer, but I believe it didn't work out for her. Hard work is not enough when talent is lacking nor can it allow one to conquer fate. Still, she's a good girl and keeps us safe now.",
     
     //VILLAGE GUARD
-    "guard description": "You see a woman in a set of light armor, with a spear in her hand and two daggers on her belt. There's a scar across her face.",
+    "guard description": "You see a woman in a set of light armor, with a spear in her hand and two daggers on her belt. There's a scar across her face. She's got her hair in a wolfcut.",
     "mofu#guard description": "You see a tall woman in light armor, with a spear in her hand and two daggers on her belt. "
-            +"Her sharp fuzzy ears rotate every now and then towards any new sound, while her fluffy tail remains motionless. There's a scar across her face."
-            +" When she spots you, she looks at you as if you were prey, but then her expression softens a lot.",
+            +"Her sharp fuzzy ears rotate every now and then towards any new sound, while her fluffy tail remains motionless, giving her an appearance of a wild wolf. "
+            +"There's a scar across her face. She's got her hair in a wolfcut, which matches her wolfish appearance quite well on more than just lexical level. "
+            +"When she spots you, she looks at you as if you were prey, but then her expression softens a lot.",
     "guard hello": "Hello?",
     "guard hello answ": "Hello. I see you are finally leaving, huh?",
     
@@ -184,12 +185,13 @@ const dialogues = {
     "guard pats answ": "[She smiles and pats your head a few more times]",
     "guard try": "[Try to pat her head]",
     "guard try answ": '[Nuh uh. She pats your head instead~~~]',
+    "guard try answ too short": "[You're too short to reach, though she seems to find your attempts cute. She pats your head instead~~~]",
     "guard teach more": "Can you teach me something more?",
     "guard teach more answ": "I'm sorry, but no, that will have to be enough. Trust me, I'm generally a terrible teacher, I know that from experience. It will be better for you to not get any bad habits because of me.",
     
     //VILLAGE MILLERS
-    "millers description": "You see two teenagers with mischievous looks on their faces. It's only with a great deal of effort that you manage to recognize them both as males. One of them has red hair, the other gray.",
-    "mofu#millers description": "You see two teenagers with mischievous looks on their faces. One has cat ears and a fluffy tail, the other mouse ears and a tail with barely any hair on it. It's only with great deal of effort that you manage to recognize them both as males. The cat has red hair, the mouse gray.",
+    "millers description": "You see two teenagers with mischievous looks on their faces. It's only with a great deal of effort that you manage to recognize them both as men. One of them has red hair, the other gray.",
+    "mofu#millers description": "You see two teenagers with mischievous looks on their faces. It's only with great deal of effort that you manage to recognize them both as men. One has cat ears, red hair, and a fluffy tail, the other has mouse ears, gray hair, and a tail with barely any hair on it.",
 
     "millers hello": "Hello there",
     "millers hello answ": "[Red] Hi~! \n [Gray]: Hello",
@@ -201,7 +203,7 @@ const dialogues = {
             +" \n [Mouse] The big rats, like on the fields... \n [Cat] I would prefer mice, at least those are cute. \n [Mouse] Shut up. \n "
             +"[Cat] So if you could help us with them, it would be great!",
     "millers young": "Aren't you two a bit too young to have a job?",
-    "millers young answ": "Did elder call us kids again? But no, we are both adults, even if barely~",
+    "millers young answ": "Did elder call us kids again? He refers to half of the village this way. And no, we are both adults, even if barely~",
     "millers sure": "Sure, I can deal with them.",
     "millers sure answ": "[Red] Ehehe, thank you~ \n [Gray] We will get you some reward for it later. \n [Red] A bit of money, and maybe a kiss or two~",
     "mofu#millers sure answ": "[Cat] Ehehe, thank you~ \n [Mouse] We will get you some reward for it later. \n [Cat] A bit of money, and maybe a kiss or two~",
@@ -211,8 +213,8 @@ const dialogues = {
     "mofu#millers cleared answ": "[Cat] Nice job! \n[Mouse] Now where is that grain? \n [Cat] Oh right, it was supposed to be delivered by now. "
             +"\n[Mouse] Could you search the village for a cart loaded with bags of grain that's 'supposed' to be heading our way?",
     "millers delivered": "Your delivery has arrived.",
-    "millers delivered answ": "[Red] Thanks \n[Gray] Thank you! \n[Red] And here's your reward.",
-    "mofu#millers delivered answ": "[Cat] Thanks \n[Mouse] Thank you! \n[Cat] And here's your reward.",
+    "millers delivered answ": "[Red] Thanks \n[Gray] Thank you! \n[Red] And here's your reward, {%dynamic(gendered playful)%}.",
+    "mofu#millers delivered answ": "[Cat] Thanks \n[Mouse] Thank you! \n[Cat] And here's your reward, {%dynamic(gendered playful)%}.",
     "millers kiss": "So about that kiss you promised...",
     "millers kiss answ": "[Red] Yes? Which one of us do you want it from?",
     "mofu#millers kiss answ": "[Cat] Yes? Which one of us do you want it from?",
@@ -236,7 +238,7 @@ const dialogues = {
     "mofu#millers reject mean answ": "[Cat] Whatever you say~",
     "millers kiss more": "Can I get one more kiss?",
     "millers kiss more answ": "[Red] Hmmm... should we? \n[Gray] Maybe some other time. \n[Red] You heard him~",
-    "mofu#millers kiss more answ": "[Cat] Hmmm... should we? \n[Mouse] Maybe some other time. \n[Mouse] You heard him~",
+    "mofu#millers kiss more answ": "[Cat] Hmmm... should we? \n[Mouse] Maybe some other time. \n[Cat] You heard him~",
     "millers how2": "So, how's it going?",
     "millers how2 answ": "[Red] Kinda boring, but at least company is good. \n[Gray] What he said.",
     "mofu#millers how2 answ": "[Cat] Kinda boring, but at least company is good. \n[Mouse] What he said.",
@@ -315,7 +317,8 @@ const dialogues = {
     "sup bonemeal": "More bonemeal, you say?",
     "sup bonemeal answ": "Absolutely! I know the lower price might not be the most appealing, but at least it's stable, unlike the market, and at times might be a lot better than what any trader would pay you for it.",
     "sup animals": "Do you sell anything?",
-    "sup animals answ": "Sorry, I'm not allowed to. However if you were to help us produce something, I could let you take part of it. It just so happens our sheep need shearing, if you're interested in some free wool.",
+    "sup animals answ": "Sorry, I'm not allowed to. However if you were to help us produce something, I could let you take part of it. "+
+                        "For example our sheep need shearing, if you're interested in some free wool. There's also a lot of work with harvesting apples at the orchards during the season.",
     "sup fight0": "Do you have any task that requires some good old violence?",
     "sup fight0 answ": "I kinda do, but you don't seem strong enough for that. I'm sorry.",
     "sup fight": "Do you have any task that requires some good old violence?",
@@ -641,52 +644,95 @@ const dialogues = {
     "swampscout foraging answ": "Alright... Sit down on the bed, and I'll tell you... about what I've seen over the years.",
 };
 
+const misc_texts = {
+    "go back": "Go back",
+}
+
 const racial = {
     "human name": "Human",
-    "human desc": "A basic common race, unique by it's lack of unique characteristics. Average in almost every aspect, yet powerful as a whole.",
-    "human gameplay desc": "Default experience.",
+    "human desc": "The most basic and common race, unique by it's lack of unique characteristics. Average in almost every aspect, yet powerful as a whole.",
 
     "cat name": "Nekomimi",
     "cat alt name": "Cat person",
-    "cat desc": "Nekomimi are a perfect blend of human and cat, equipped with greatest strengths of both. They have amazing grace and precision, "
+    "cat desc": "Nekomimi are a perfect blend of human and cat, equipped with some strengths of both. They have amazing grace and precision, "
                 +"being able to always keep their balance, which is further enhanced by their tails, while their ears provide them with very good hearing. They are also incredibly "
-                +"good at climbing. They are individualistic and whimsical, but can still function in a group if there's a need for it. "
+                +"good at climbing. On the downside, they are not very resistant to physical attacks. Nekomimi are also slightly shorter and more slender than humans. "
+                +"They have stronger preference for meat and fish than humans, but can still enjoy vegetables and fruits. "
+                +"Nekomimi are individualistic and whimsical, but can still function in a group if there's a need for it. "
                 +"They tend to be very proud, fully aware that their beauty and grace fascinates other races, similarly to elves, but unlike those, they are much easier to please. "
                 +"They make some of best dancers, spies, assassins.",
 
     "dog name": "Inumimi",
     "dog alt name": "Dog person",
-    "dog desc": "Inumimi are a perfect blend of human and dog, equipped with greatest strengths of both. They are agile and don't tire easily, but are somewhat vulnerable physically, "
-                +"and their magical abilities are on average quite low. They are good fighters and great swimmers. They are very social, always easily managing to cooperate with others.",
+    "dog desc": "Inumimi are a perfect blend of human and dog, equipped with some strengths of both. They are agile and don't tire easily, "
+                +"but their magical abilities are on average quite low. They are good fighters and great swimmers. "
+                +"Inumimi have similar stature to humans and similar dietary preferences. "
+                +"They are very social, always easily managing to cooperate with others, "
+                +"and they easily form new bonds.",
+   
+    "mouse name": "Nezumimi",
+    "mouse alt name": "Mouse person",
+    "mouse desc": "Nezumimi are a perfect blend of human and mouse, equipped with some strengths of both. They are on the smaller side and are very vulnerable physically, "
+                +"but they make up for this with their mix of cleverness and cautiousness, while their fantastic sense of smell helps them with finding interesting things (cheese included). "
+                +"Their eating habits are almost the same as those of humans, except for almost comical love for cheese. "
+                +"They have a reputation of being mischievious. Nezumimi also tend to have decent magical abilities. They are social beings, working well in groups.",
 
     "fox name": "Kitsunemimi",
     "fox alt name": "Fox person",
-    "fox desc": "",
-    "fox": "",
+    "fox desc": "Kitsunemimi are a perfect blend of human and fox, equipped with some strengths of both. They are intelligent, cunning and agile, with some outstanding magical abilities, "
+                +"but are not very strong physically. They are of similar stature to humans, but are more slender. Their dietary preferences are very average, except for"
+                +"some strange fascination with fried tofu. Like nekomimi and elves, they have tendency to be very proud, making use of their beauty and grace.",
+
+    "rabbit name": "Usagimimi",
+    "rabbit alt name": "Rabbit person",
+    "rabbit desc": "Usamimi are a perfect blend of human and rabbit, equipped with some strengths of both. They are perceptive and fast, able to outrun most of the opponents, "
+                +"but somewhat vulnerable physically. They are shorter and more slender than humans. They are heavily herbivorous, but can occasionally eat meat if there's no other choice. "
+                +"They usually hang up in groups and are very cooperative, but are also rather easy to startle and don't have reputation for bravery.",
+
+    "lizard name": "Lizardkin",
+    "lizard desc": "Lizardkin are a blend of humans and lizards. They have large lizard tails and tend to have patches of scales on their bodies, usually on face and/or near their hands "
+                + "(unlike kemonomimi, who are limited to ears and tails). Heavy tails often affect their posture, causing a tendency to stand on slightly bent legs. "
+                + "They are rare in the mainland and cities, usually living in some far-off marshes and on coasts, where weather is warm and water is plentiful, in tight-knit communities. "
+                +" They are good swimmers and hunters, eating whatever they can catch or scavenge.",
 
     "elf name": "Elf",
-    "elf desc": "",
-    "elf gameplay desc": "",
+    "elf desc": "Old and proud race with long lifespans, slender figures, and love of nature. They have a strong tendency to perceive themselves as better than other races, "
+                +"and in many ways they are. Their physical strength is nothing special, but they balance it with good agility and fast reaction times, as well as high dexterity of "
+                +"movements. They are taller than humans, easily recognizable in crowd even from afar. Elven diet is centered on fruit and vegetables, with occasional fish, "
+                +"but they will eat regular meat if they need it to survive, though they might not enjoy the taste.",
 
     "half-elf name": "Half-elf",
-    "half-elf desc": "",
-    "half-elf gameplay desc": "",
+    "half-elf desc": "Beings born of unions between humans and elves, sharing strenghts of both their parents, though not as pronounced. They tend to be prideful, have long lives, "
+                    +"are stronger than elves and more agile than humans. They are not as tall as elves and their ears are not as sharp, making them harder to recognize at first glance. "
+                    +"Unlike elves, they view meat with much more favour, which sometimes earns them disappointment from their long-lived ancestors.",
 
     "dwarf name": "Dwarf",
-    "dwarf desc": "",
-    "dwarf gameplay desc": "",
+    "dwarf desc": "Old, proud, and jovial race with somewhat long lifespans, short stature, and great love for the underground. They are very short, very strong, and very resistant. " 
+                + "Not being very agile, they mainly rely on shields and armor in combat, with their hammers and axes famous for being masterfully smithed. "
+                + "Dwarves are omnivores, eating whatever they can hunt or grow in their caves with what little light can be provided, be it underground beasts, roots, or mushrooms, "
+                + "which is helped by their stomachs being as resilient as their entire bodies, allowing them to eat things that would cause a human to fall sick, as well as to drink "
+                + "questionable ammounts of alcohol.",
 
     "half-dwarf name": "Half-dwarf",
-    "half-dwarf desc": "",
-    "half-dwarf gameplay desc": "",
+    "half-dwarf desc": "Beings born of unions between humans and elves, sharing strengths of both their parents, though not as pronounced. They are strong and resistant, making great fighters and workers. "
+                    + "They are often ridiculed as neither parent race considers the other attractive, leading them to usually hide their heritage, "
+                    + "which is not especially hard, as they can easily pass for slightly shorter and slightly hairier pureblood humans. "
+                    + "Like dwarves, they are omnivorous, though they tend to have more human-like perception of what kinds of food are disgusting.",
 };
 
 const ui = {
     "ui create": "Create your hero",
-    "ui cosmetic": "Everything here is purely cosmetic",
+    "ui cosmetic": "Everything in this entire panel is purely cosmetic",
     "ui name selection": "Name (can be changed at any time):",
+    "ui gender selection": "Gender presentation (perception, not identity):",
     "ui age selection": "Age (relative to race's aging):",
     "ui height selection": "Height (relative to race average):",
+    "ui female": "Female",
+    "ui male": "Male",
+    "ui ambiguous": "ambiguous",
+    "ui female tooltip": "NPCs will assume you to be a woman",
+    "ui male tooltip": "NPCs will assume you to be a man",
+    "ui ambiguous tooltip": "Some NPCs will assume you to be a woman, some to be a man",
     "ui young": "Young adult",
     "ui adult": "Adult",
     "ui middle aged": "Middle aged",
@@ -695,8 +741,8 @@ const ui = {
     "ui tall": "Tall",
     "ui confirm": "Confirm",
     "ui race_default_label": "Default race",
-    "ui race_furless_label": "Furless races",
-    "ui race_kemonomimi_label": "Kemonomimi races",
+    "ui race_furless_label": "Humanoid races",
+    "ui race_kemonomimi_label": "Beastkin races",
     "ui sort name": "Sort by name",
     "ui sort value": "Sort by value",
     "ui sort type": "Sort by type",
@@ -708,6 +754,23 @@ const ui = {
     "ui show stats": "Stats",
     "ui show bio": "Bio",
     "ui show tools": "Tools",
+
+    "ui exit": "Exit",
+
+    "option textsize": "Increase textsize for dialogues and activities",
+    "option bar outline": "Text outline on xp/stamina/mana/health bars",
+    "option tooltip outline": "Text outline in item tooltips",
+    "option bed return": "Return to last bed upon defeat",
+    "option remember filters": "Remember message log filters",
+    "option dont autoswitch": "Don't autoswitch out from inventory when starting combat",
+    "option dynamic message": "Use a single dynamically updated message for loot",
+    "option scientific notation": "Use scientific notation for values over:",
+    "option fahrenheit": "Use Fahrenheit instead of Celsius",
+    "option animate background": "Enable rain/snow/stars animations",
+    "option background color": "Enable light-level based background color change",
+    "option combat animation": "Enable on-hit / on-appear animations for combat",
+    "option skip loading": "Automatically skip the loading screen",
+    "option kemonomimi": "Enable kemonomimi mode",
 };
 
 const bio = {
@@ -720,6 +783,10 @@ const bio = {
     "average": "Average",
     "tall": "Tall",
     "race": "Race",
+    "gender": "Gender presentation",
+    "female": "Female",
+    "male": "Male",
+    "ambiguous": "Ambiguous"
 }
 
 const stats = {
@@ -797,6 +864,18 @@ const skills = {
     "Haggling": "Haggling",
 };
 
-const english = {...dialogues, ...racial, ...ui, ...stats, ...skills, ...bio};
+const locations = {
+    "sleep text generic": "Take a nap",
+    "sleep text bedroll": "Take a nap on the bedroll",
+    "sleep text cot": "Take a nap on the cot",
+    "sleep text open cot": "Lie down on an open cot",
+}
+
+const english = {...dialogues, ...racial, ...ui, ...stats, ...skills, ...bio, ...misc_texts, ...locations};
+
+const translations_for_verifier = { dialogues, racial, ui, stats, skills, bio, misc_texts, locations };
+//kept separately so that it's also possible to check for accidental overwrites
 
 export default english;
+
+export { translations_for_verifier };

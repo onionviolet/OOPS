@@ -1,3 +1,5 @@
+Historical v0.5 baseline audit. The current foundation is v0.6; see [V06_MIGRATION.md](V06_MIGRATION.md) for adopted source and compatibility evidence.
+
 # YAIRPG baseline audit
 
 Historical prototype audit: Jade Hollow was retired from active content on 2026-10-01. Current preservation behavior is in PROJECT.md and `src/save_compatibility.js`; the cultivation descriptions below record the earlier slice.

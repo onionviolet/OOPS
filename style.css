@@ -71,6 +71,21 @@
     --race_choice_tooltip_top: 0px;
     --race_choice_tooltip_left: 0px;
 
+    --height_choice_tooltip_top: 0px;
+    --height_choice_tooltip_left: 0px;
+
+    --gender_choice_tooltip_top: 0px;
+    --gender_choice_tooltip_left: 0px;
+
+    --character_race_tooltip_top: 0px;
+    --character_race_tooltip_left: 0px;
+
+    --character_gender_tooltip_top: 0px;
+    --character_gender_tooltip_left: 0px;
+
+    --character_height_tooltip_top: 0px;
+    --character_height_tooltip_left: 0px;
+
 	--actions_div_height_default: 420px;
 	--actions_div_height_combat: 120px;
 	--actions_div_height: var(--actions_div_height_default);
@@ -140,6 +155,14 @@ input[type=checkbox], input[type=radio] {
 
 .italic {
 	font-style: italic;
+}
+
+#hits_counter {
+    height: 28px;
+    padding: 6px;
+    right: 80px;
+    bottom: 0px;
+	position: fixed;
 }
 
 #loading_screen {
@@ -270,37 +293,89 @@ input[type=checkbox], input[type=radio] {
         position: absolute;
         top: 50px;
         left: 10px;
-        font-style: italic;  
+        width: 350px;
+        font-style: italic;
+        font-size: 16px;
     }
     #hero_creation_panel_content {
         position: absolute;
         top: 150px;
         left: 100px;
         width: 1000px;
-        height: 400px;
+        height: 500px;
         border: 5px dashed gray;
         background-image: var(--background_gradient);
-        font-size: 18px;
-    }
-    #hero_creation_panel_first_row div {
-        position: absolute;
-        width: 360px;;
-        left: 10px;
+        font-size: 17px;
     }
 
     #hero_creation_panel_name {
         position: absolute;
         top: 100px;
+        left: 24px;
+    }
+    #hero_creation_name_field {
+        position: absolute;
+        left: 24px;
+        width: 156px;
+        text-align: center;
     }
 
     #hero_creation_panel_age_selection {
         position: absolute;
         top: 150px;
+        left: 12px;
     }
 
     #hero_creation_panel_height_selection {
         position: absolute;
-        top: 200px;
+        top: 390px;
+        left: 12px;
+    }
+
+    #hero_creation_panel_gender_selection {
+        position: absolute;
+        top: 270px;
+        left: 12px;
+        width: 350px;
+    }
+
+    #age_selection, #height_selection {
+        top: 20px;
+        left: 32px;
+        position: absolute;
+        z-index: 1;
+        text-wrap: wrap;
+    }
+    
+    #gender_selection {
+        top: 20px;
+        left: 32px;
+        position: absolute;
+        z-index: 1;
+        text-wrap: wrap;
+    }
+        .gender_selection_button:hover .gender_choice_tooltip {
+            display: block;
+        }
+            .gender_choice_tooltip {
+                top: var(--gender_choice_tooltip_top);
+                left: var(--gender_choice_tooltip_left);
+                max-width: 240px;
+            }
+        .height_selection_button:hover .height_choice_tooltip {
+            display: block;
+        }
+            .height_choice_tooltip {
+                top: var(--height_choice_tooltip_top);
+                left: var(--height_choice_tooltip_left);
+                max-width: max-content;
+            }
+    #age_selection > div, #height_selection > div, #gender_selection > div {
+        width: 160px;
+        text-align: center;
+        border: 1px solid gray;
+        margin: 5px;
+        padding: 1px;
     }
 
     #hero_creation_panel_race_selection {
@@ -308,11 +383,12 @@ input[type=checkbox], input[type=radio] {
         top: 20px;
         left: 360px;
         width: 600px;
-        height: 320px;
+        height: 400px;
         border: 1px solid gray;
     }
 
         .race_label {
+            padding-top: 5px;
             text-align: center;
         }
         
@@ -334,7 +410,7 @@ input[type=checkbox], input[type=radio] {
         }
 
             .race_selection_button {
-                width: 180px;
+                width: 170px;
                 border: 2px solid gray;
                 margin-left: 10px;
                 margin-top: 5px;
@@ -352,10 +428,15 @@ input[type=checkbox], input[type=radio] {
                 .race_choice_tooltip {
                     top: var(--race_choice_tooltip_top);
                     left: var(--race_choice_tooltip_left);
-                    max-width: 450px;
+                    max-width: 400px;
                     min-width: 150px;
                     width: max-content;
                 }
+            .race_selection_list {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                max-height: 400px;
+            }
 
     #hero_creation_panel_confirmation_wrapper {
         width: 100%;
@@ -377,7 +458,7 @@ input[type=checkbox], input[type=radio] {
     }
 
 #background_canvas {
-	position: absolute;
+	position: fixed;
 	pointer-events: none;
 	top: 0px;
 	left: 0px;
@@ -387,7 +468,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 #light_based_background_div {
-	position: absolute;
+	position: fixed;
 	pointer-events: none;
 	top: 0px;
 	left: 0px;
@@ -773,7 +854,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .equipped_item_control {
-	width: 383px;
+	width: 100%;
 	border-bottom: 1px dotted white;
 	font-size: 13px;
 	background-color: rgba(255, 236, 128, 0.15);
@@ -804,7 +885,7 @@ input[type=checkbox], input[type=radio] {
 
 .inventory_item_control {
 	border-bottom: 1px dotted white;
-	width: 383px;
+	width: 100%;
 }
 .inventory_item_control:hover {
 	background-color: var(--active_button_color);
@@ -814,7 +895,8 @@ input[type=checkbox], input[type=radio] {
 	width: fit-content;
 }
 
-.item_tooltip, .job_tooltip, .location_tooltip, .recipe_tooltip, #export_button_tooltip, .race_choice_tooltip {
+.item_tooltip, .job_tooltip, .location_tooltip, .recipe_tooltip, #export_button_tooltip, 
+.race_choice_tooltip, .height_choice_tooltip, .gender_choice_tooltip, .character_race_tooltip, .character_gender_tooltip, .character_height_tooltip  {
 	display: none;
 	text-align: left;
 	color: white;
@@ -933,6 +1015,29 @@ input[type=checkbox], input[type=radio] {
 	display: block;
 }
 
+.health_div:not(.enemy_health_div) {
+    height: 18px;
+    width: 100%;
+}
+
+    .healthbar_max:not(.enemy_healthbar_max) {
+        border: 2px solid rgb(199, 0, 0);
+        background-color: rgba(255, 46, 46, 0.3);
+        height: 16px;
+    }
+    .healthbar_current:not(.enemy_healthbar_current) {
+        background-color: red;
+        width: 100%;
+        height: 100%;
+        margin-right: auto;
+    }
+    .health_value:not(.enemy_health_value) {
+        position: relative;
+        top: -18px;
+        width: 100%;
+        text-align: center;
+    }
+
 .skill_tooltip {
 	display: none;
 	background-color: var(--tooltip_background_color);
@@ -998,6 +1103,7 @@ input[type=checkbox], input[type=radio] {
 
 #stance_list_div {
 	display: none;
+    overflow-y: scroll;
 }
 
 .skill_stance_control_button {
@@ -1172,7 +1278,7 @@ input[type=checkbox], input[type=radio] {
 .character_control_button {
 	float:left;
 	padding: 6px;
-	min-width: 119.3px;
+	min-width: 86px;
 	font-size: 14px;
 	text-align: center;
 	margin: 1px;
@@ -1259,12 +1365,22 @@ input[type=checkbox], input[type=radio] {
 		display: inline-block;
 		width: 63px;
 	}
+    .stat_value_long {
+		text-align: right;
+		display: inline-block;
+		width: 105px;
+	}
 
 	.stat_name {
 		display: inline-block;
 		width: 100px;
 		padding-left: 4px;
 	}
+    .stat_name_short {
+        display: inline-block;
+		width: 60px;
+		padding-left: 4px;
+    }
 	.loot_name {
 		display: inline-block;
 		width: 200px;
@@ -1606,8 +1722,8 @@ i {
 	cursor: pointer;
 }
 
-.activable_buttons {
-	display: flex;
+.flex_wrap {
+    display: flex;
 	flex-wrap: wrap;
 }
 
@@ -1626,7 +1742,8 @@ i {
 }
 
 .character_control_button:hover, .inventory_control_button:hover, 
-.trader_category_button:hover, .storage_category_button:hover, .trader_sorting_button:hover, .storage_sorting_button:hover, .active_selection_button, .race_selection_button_active, .character_sorting_button:hover {
+.trader_category_button:hover, .storage_category_button:hover, .trader_sorting_button:hover, .storage_sorting_button:hover, .active_selection_button, 
+.race_selection_button_active, .character_sorting_button:hover {
 	background-color: var(--active_button_color) !important;
 	background-image: none;
 }
@@ -1951,6 +2068,54 @@ i {
 	display: none;
 }
 
+#character_bio_div { 
+	margin: auto;
+	width: 350px;
+	position: relative;
+	top: 10px;
+    display: none;
+}
+
+.character_bio_entry { 
+	margin: 10px;
+    border: 2px solid gray;
+    padding: 4px;
+}
+    #character_race_div:hover .character_race_tooltip {
+        display: block;
+    }
+        .character_race_tooltip {
+            display: none;
+            top: var(--character_race_tooltip_top);
+            left: var(--character_race_tooltip_left);
+            max-width: 480px;
+            min-width: 150px;
+            width: max-content;
+        }
+    #character_gender_div:hover .character_gender_tooltip {
+        display: block;
+    }
+        .character_gender_tooltip {
+            display: none;
+            top: var(--character_gender_tooltip_top);
+            left: var(--character_gender_tooltip_left);
+            max-width: 480px;
+            min-width: 150px;
+            width: max-content;
+        }
+
+    #character_height_div:hover .character_height_tooltip {
+        display: block;
+    }
+    .character_height_tooltip {
+        display: none;
+        top: var(--character_height_tooltip_top);
+        left: var(--character_height_tooltip_left);
+        max-width: 480px;
+        min-width: 150px;
+        width: max-content;
+    }
+
 #character_tools_div {
 	display: none;
 }
@@ -2047,6 +2212,42 @@ i {
 	background-color: rgba(255, 241, 117, 0.4);
 }
 
+#combat_window {
+    height: 600px;
+    width: 1000px;
+    position: absolute;
+    z-index: 100;
+    background-image: var(--background_gradient);
+    border: 5px solid white;
+    outline: 5px solid gray;
+    padding: 5px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+#attacker_box {
+    height: 560px;
+    width: 400px;
+    float: left;
+    overflow-y: auto;
+    top: 20px;
+}
+#defender_box {
+    height: 560px;
+    width: 400px;
+    overflow-y: auto;
+    margin-right: 0px;
+    margin-left: auto;
+}
+#combat_window_exit {
+    border: 2px solid gray;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    font-size: 24px;
+    bottom: 0px;
+    left: 460px;
+    position: absolute;
+}
 
 #combat_div {
 	width: 400px;
@@ -2055,6 +2256,11 @@ i {
 	left: 410px;
 	top: 68px;
 }
+
+    #enemies_div {
+        overflow-y: scroll;
+        height: 540px;
+    }
 		.enemy_div {
 			color: white;
 			display: var(--enemy_div_display);
@@ -2064,20 +2270,19 @@ i {
 			width: 100%;
 		}
 				
-				.enemy_name, .enemy_stats, #attack_stats  {
+				.enemy_name, .enemy_stats, .attack_stats  {
 					height: 18px;
-					width: 400px;
+					width: 100%;
 					overflow: hidden;
 					white-space: nowrap;
 				}
 				.enemy_name {
 					text-align: right;
 					margin-top: 1px;
-					padding-right: 10px;
-					width: 390px;
+					width: 100%px;
 				}
 				.enemy_stats {
-					padding-right: 10px;
+                    width: 100%;
 				}
 					.enemy_stat, .attack_stat {
 						display: inline-block;
@@ -2095,7 +2300,6 @@ i {
 					.attack_stat_veryshort {
 						width: 52px;
 					}
-
 				.enemy_health_div {
 					margin-bottom: 0px;
 					height: 18px;
@@ -2136,7 +2340,7 @@ i {
 		top: 386px;
 		display: var(--character_combat_div_display);
 	}
-		#character_stance_name {
+		#character_stance_div {
 			padding: 3px;
 			margin-top: 2px;
 			margin-bottom: 2px;
@@ -2150,19 +2354,20 @@ i {
 				width: fit-content;
 				height: fit-content;
 				outline: 2px solid gray;
-				top: 45px;
+				top: 26px;
 				background-color:#232f47;
 				text-align: left;
 			}
-			#character_stance_name:hover #character_stance_selection, #character_stance_selection:hover {
+			#character_stance_div:hover #character_stance_selection, #character_stance_selection:hover {
 				display: block;
 			}
 
-		#character_attack_bar {
+		.attacker_attack_bar {
 			background-color: rgb(156, 0, 156);
 			height: 20px;
-		}			
-		#attack_stats {
+            top: 40px;
+		}
+		.attack_stats {
 			text-align: left;
 		}		
 
@@ -2325,7 +2530,7 @@ i {
 			}
 
 				.bestiary_entry_div, .data_entry, .anthology_entry_div {
-					width: 380px;
+					width: 100%;
 					display: flex;
 					box-shadow: 0 -1px 0 gray, 0 1px 0 gray;
 					margin-bottom: 1px;
@@ -2778,7 +2983,14 @@ i {
 ::-webkit-scrollbar-thumb:hover {
 	background: white; 
   }
-/* New field journal uses stable native buttons and keeps upstream layout. */
+
+.comparison_better {
+	color: rgb(51, 255, 0);
+}
+.comparison_worse {
+	color: red;
+}
+
 .expedition_panel { margin: 0.7rem; padding: 0.7rem; border: 1px solid #7778; border-radius: 6px; text-align: left; }
 .expedition_panel summary { cursor: pointer; font-weight: bold; padding: 0.3rem; }
 .expedition_panel p { margin: 0.4rem 0; line-height: 1.4; }

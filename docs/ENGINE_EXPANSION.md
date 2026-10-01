@@ -4,6 +4,10 @@ Date: 2026-10-01. First runtime increment implemented; larger architecture remai
 
 Current foundation reset, 2026-10-01: the user selected removal of added cultivation gameplay while retaining shared engine/build work. Prototype sources and tests moved to `prototypes/jade-hollow/`; the active build no longer calls the cultivation rules. `src/rules.js` is now used by the new expedition runtime. `src/save_compatibility.js` preserves retired content outside active registries. Earlier claims below about active cultivation integration describe the prior increment, not the current runtime.
 
+## v0.6 migration, 2026-10-01
+
+The runtime now uses the v0.6 development foundation. `main.js` reads `character.getFullStats()` / `getTotalSkillLevel()` and checks `current_combat` for expedition occupancy. `save_files.js` validates old and component save layouts; `save_migration.js` maps existing biographies without recreating the hero; the serializer keeps fork schema1, expansion state and retired content. Player storage is registered as `inventories.storage.player`. Saved parent XP is restored explicitly, and live inheritance reads the owner's progress rather than an absent template field. The [migration record](V06_MIGRATION.md) and [PLAYTEST.md](PLAYTEST.md) own exact evidence and limits. The older source table below is a historical v0.5 audit, not the current file layout.
+
 ## Decision
 
 Persistence follow-up, 2026-10-01: `src/save_files.js` validates file envelopes and UTF-8/legacy text; `src/import_probe.js` tests the actual loader in a disposable non-running frame before replacement. `src/reputation_state.js` preserves saved regional totals while permitting legacy omissions to reconstruct, and `src/clear_state.js` gates restored first-clear rewards on earned counts. Native file checks and seventeen active tests are recorded in PLAYTEST.md. This closes the generated-save file gate, not event transactions or general simulation/replay. [Next event proposal](NEXT_EVENT_PROPOSAL.md) remains provisional.

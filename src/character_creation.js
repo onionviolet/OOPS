@@ -1,10 +1,10 @@
 "use strict";
 
-import { character } from "./character.js";
-import { capitalize_first_letter, uncapitalize_first_letter } from "./display.js";
-import { global_flags, language, run } from "./main.js";
+import { character } from "./data/character.js";
+import { config } from "./config.js";
+import { create_gender_tooltip, create_height_tooltip, create_race_tooltip, uncapitalize_first_letter } from "./display.js";
+import { global_flags, run, translate } from "./main.js";
 import { playable_races } from "./races.js";
-import { translationManager } from "./translation.js";
 
 
 class CharacterCreator {
@@ -17,14 +17,23 @@ class CharacterCreator {
             this.create_race_button(race);
         });
 
-        document.getElementById("hero_creation_name_field").value = character.name;
+        document.getElementById("hero_creation_name_field").value = character.name || config.default_character_name;
         document.getElementById("hero_creation_panel_confirmation").addEventListener("click", () => this.confirm_hero_creation());
+
+        if(config.use_height_bonuses) {
+            document.getElementById("height_selection").querySelector('[data-height="short"]').appendChild(create_height_tooltip("short","height_choice_tooltip"));
+            document.getElementById("height_selection").querySelector('[data-height="tall"]').appendChild(create_height_tooltip("tall","height_choice_tooltip"));
+        }
+
+        document.getElementById("gender_selection").querySelector('[data-gender="female"]').appendChild(create_gender_tooltip("female","gender_choice_tooltip"));
+        document.getElementById("gender_selection").querySelector('[data-gender="male"]').appendChild(create_gender_tooltip("male","gender_choice_tooltip"));
+        document.getElementById("gender_selection").querySelector('[data-gender="ambiguous"]').appendChild(create_gender_tooltip("ambiguous","gender_choice_tooltip"));
     }
 
     create_race_button(race) {
         const race_button = document.createElement("div");
         race_button.classList.add("race_selection_button");
-        race_button.innerText = translationManager.getText(language, race.name);
+        race_button.innerText = translate(race.name);
         race_button.dataset.race_id = race.race_id;
 
         race_button.addEventListener("click", event => {
@@ -43,10 +52,10 @@ class CharacterCreator {
 
         
         if(race.alternative_name) {
-            race_button.innerText += `\n(${uncapitalize_first_letter(translationManager.getText(language, race.alternative_name))})`;
+            race_button.innerText += `\n(${uncapitalize_first_letter(translate(race.alternative_name))})`;
         }
 
-        race_button.appendChild(this.create_race_tooltip(race));
+        race_button.appendChild(create_race_tooltip(race, "race_choice_tooltip"));
 
         if(race.tags.default) {
             race_button.classList.add("race_selection_button_active");
@@ -58,57 +67,19 @@ class CharacterCreator {
         }
     }
 
-    create_race_tooltip(race) {
-        const tooltip = document.createElement("div");
-        tooltip.classList.add("race_choice_tooltip");
-
-        let tooltip_content = "";
-
-        tooltip_content += translationManager.getText(language, race.description);
-        if(race.gameplay_description) {
-            tooltip_content += "\n\n" + translationManager.getText(language, race.gameplay_description);
-        }
-
-        if(Object.keys(race.stats).length > 0) {
-            tooltip_content += `\n`;
-        }
-
-        Object.keys(race.stats).forEach(effect_key => {
-            if(race.stats[effect_key].multiplier != null) {
-                tooltip_content +=
-            `\n${capitalize_first_letter(translationManager.getText(language, effect_key+" long"))}: x${race.stats[effect_key].multiplier}`;
-            }
-        });
-
-        /*
-        //SKILLS ARE SKIPPED AS TO NOT SPOILER THEM, INSTEAD THE IMPACT IS VAGUELY IMPLIED IN DESCRIPTIONS
-
-        if(Object.keys(race.stats).length !== 0 && Object.keys(race.xp_multipliers).length !== 0) {
-            tooltip_content += "\n";
-        }
-
-        Object.keys(race.xp_multipliers).forEach(effect_key => {
-            if(race.xp_multipliers[effect_key] != null) {
-                tooltip_content +=
-            `\n${capitalize_first_letter(translationManager.getText(language, effect_key))}: x${race.xp_multipliers[effect_key]}`;
-            }
-        });
-        */
-        tooltip.innerText = tooltip_content;
-                
-
-        return tooltip;
-    }
-
     confirm_hero_creation() {
         let race = document.getElementsByClassName("race_selection_button_active")[0].dataset.race_id;
-        let age = document.getElementById("age_select").value;
-        let height = document.getElementById("height_select").value;
+        let age = document.getElementById("age_selection").getElementsByClassName("active_selection_button")[0].dataset.age;
+        let gender = document.getElementById("gender_selection").getElementsByClassName("active_selection_button")[0].dataset.gender;
+        let height = document.getElementById("height_selection").getElementsByClassName("active_selection_button")[0].dataset.height;
         let name = document.getElementById("hero_creation_name_field").value;
 
-        character.personal.race = race;
-        character.personal.age = age;
-        character.personal.height = height;
+        const bio = character.getBioComponent();
+
+        bio.race = race;
+        bio.age = age;
+        bio.gender = gender;
+        bio.height = height;
         character.name = name;
         document.getElementById("character_name_field").value = name;
         global_flags.is_hero_created = true;

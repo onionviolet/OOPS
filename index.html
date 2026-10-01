@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <HTML lang="en">
     <head>
-        <link rel = "stylesheet" href = "style.css?version=v0.5.5.30-00f190c6482f">
+        <link rel = "stylesheet" href = "style.css?version=v0.6-d8530437ea1b">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type='module' src="dist/bundle.js?version=v0.5.5.30-9e83f0107798"></script>
-        <!--script type="module" src="src/main.js"></script-->
+        <script type="module" src="dist/bundle.js?version=v0.6-839ede19aa9e"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--favicon-->
-        <link rel="icon" href="https://miktaew.github.io/yet-another-idle-rpg-dev/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="https://miktaew.github.io/yet-another-idle-rpg/favicon.ico" type="image/x-icon">
 
         <meta charset="UTF-8">
         
@@ -22,14 +21,16 @@
         <meta name="author" content="Miktaew">
         <meta property="og:title" content="Yet Another Idle RPG">
         <meta property="og:description" content="A text-based idle RPG game inspired by Proto23, with heavy focus on progression through skill leveling, created by Miktaew. Known as Nya-iRPG, yairpg, or sometimes just yair.">
-        <meta property="og:image" content="https://miktaew.github.io/yet-another-idle-rpg-dev/resources/img/bigger_icon.png">
+        <meta property="og:image" content="https://miktaew.github.io/yet-another-idle-rpg/resources/img/bigger_icon.png">
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "WebPage",
+            "@type": "WebSite",
             "headline": "Yet Another Idle RPG",
+            "name": "Yet Another Idle RPG",
+            "alternateName": "YAIRPG",
             "description": "A text-based idle RPG game inspired by Proto23, with heavy focus on progression through skill leveling, created by Miktaew. Known as Nya-iRPG, yairpg, or sometimes just yair.",
-            "image": "https://miktaew.github.io/yet-another-idle-rpg-dev/resources/img/bigger_icon.png",
+            "image": "https://miktaew.github.io/yet-another-idle-rpg/resources/img/bigger_icon.png",
             "author": {
                 "@type": "Person",
                 "name": "Miktaew"
@@ -76,34 +77,42 @@
                         <label for="hero_creation_name_field" data-translation="ui name selection"></label><br>
                         <input type = "text" id = "hero_creation_name_field" value="Hero"> 
                     </div>
+                    <div id = "hero_creation_panel_gender_selection">
+                        <div data-translation="ui gender selection"></div>
+                        <div id="gender_selection" class="activable_buttons">
+                            <div class="gender_selection_button" data-translation="ui female" data-gender="female"></div>
+                            <div class="gender_selection_button active_selection_button" data-translation="ui ambiguous" data-gender="ambiguous" class="active_selection_button"></div>
+                            <div class="gender_selection_button" data-translation="ui male" data-gender="male"></div>
+                        </div> 
+                    </div>
                     <div id = "hero_creation_panel_height_selection">
-                        <label for="height_select" data-translation="ui height selection"></label><br>
-                        <select id="height_select">
-                            <option data-translation="ui short" value="short"></option>
-                            <option data-translation="ui average height" selected="selected" value="average"></option>
-                            <option data-translation="ui tall" value="tall"></option>
-                        </select>  
+                        <div data-translation="ui height selection"></div>
+                        <div id="height_selection" class="activable_buttons">
+                            <div class="height_selection_button" data-translation="ui short" data-height="short"></div>
+                            <div class="height_selection_button active_selection_button" data-translation="ui average height" data-height="average" class="active_selection_button"></div>
+                            <div class="height_selection_button" data-translation="ui tall" data-height="tall"></div>
+                        </div> 
                     </div>
                     <div id = "hero_creation_panel_age_selection">
-                        <label for="age_select" data-translation="ui age selection"></label><br>
-                        <select id="age_select">
-                            <option data-translation="ui young" value="young"></option>
-                            <option data-translation="ui adult" value="adult"></option>
-                            <option data-translation="ui middle aged" value="middle_aged"></option>
-                        </select>
+                        <div data-translation="ui age selection"></div>
+                        <div id="age_selection" class="activable_buttons">
+                            <div data-translation="ui young" data-age="young"></div>
+                            <div data-translation="ui adult" data-age="adult" class="active_selection_button"></div>
+                            <div data-translation="ui middle aged" data-age="middle aged"></div>
+                        </div>
                     </div>
                 </div>
                 <div id = "hero_creation_panel_race_selection">
                     <div id = "hero_creation_panel_race_default"> 
                         <div id = "race_default_label" class="race_label" data-translation="ui race_default_label"></div>
                     </div>
-                    <div id = "hero_creation_panel_race_furless"> 
+                    <div id = "hero_creation_panel_race_furless" class="race_selection_list"> 
                         <div id = "race_furless_label" class="race_label" data-translation="ui race_furless_label"></div>
                     </div>
-                    <div id = "hero_creation_panel_race_kemonomimi">
+                    <div id = "hero_creation_panel_race_kemonomimi" class="race_selection_list">
                         <div id = "race_kemonomimi_label" class="race_label" data-translation="ui race_kemonomimi_label"></div> </div>
                 </div>
-                <div id = "hero_creation_panel_confirmation_wrapper">
+                <div id = "hero_creation_panel_confirmation_wrapper" class="race_selection_list">
                     <div id = "hero_creation_panel_confirmation" data-translation="ui confirm">
                         
                     </div>
@@ -180,12 +189,12 @@
                     <div id = "money_div">  </div>
                     <div id = "inventory_content_div"> </div>
 
-                    <div id = "inventory_sorting_div" class="activable_buttons">
+                    <div id = "inventory_sorting_div" class="activable_buttons flex_wrap">
                         <div id = "inventory_sort_by_name" class = "character_sorting_button active_selection_button" onclick='sortCharacterInventory("name")' data-translation="ui sort name"></div>
                         <div id = "inventory_sort_by_price" class = "character_sorting_button" onclick='sortCharacterInventory("price")' data-translation="ui sort value"></div>
                         <div id = "inventory_sort_by_type" class = "character_sorting_button" onclick='sortCharacterInventory("type")' data-translation="ui sort type"></div>
                     </div>
-                    <div id = "inventory_control_div" class="activable_buttons">
+                    <div id = "inventory_control_div" class="activable_buttons flex_wrap">
                         <div id = "inventory_show_all" class = "inventory_control_button active_selection_button" onclick = "showAllItems()" data-translation="ui show all"></div>
                         <div id = "inventory_show_equipment" class = "inventory_control_button" onclick = "showOnlyEquipment()" data-translation="ui show equipment"></div>
                         <div id = "inventory_show_consumable" class = "inventory_control_button" onclick = "showOnlyConsumables()" data-translation="ui show usable"></div>
@@ -194,40 +203,9 @@
                     </div>
                 </div>
 
-                <div id = "character_combat_management" class = "box_div">            
-                    <div id = "attack_stats">
-                        <div class = "attack_stat attack_stat_short">
+                <div id = "character_combat_management" class = "box_div"></div>
 
-                        </div>
-                        |
-                        <div class = "attack_stat attack_stat_veryshort">
-                            
-                        </div>
-                        |
-                        <div class = "attack_stat attack_stat_long">
-                            
-                        </div>
-                        |
-                        <div class = "attack_stat attack_stat_long">
-                            
-                        </div>
-                        |
-                        <div class = "attack_stat attack_stat_short">
-                            
-                        </div>
-                    </div>
-                    <div id = "character_stance_name">
-                        <span>Normal stance</span>
-                        <div id = "character_stance_selection">
-                        
-                        </div>
-                    </div>
-                    <div id = "character_attack_bar">
-
-                    </div>
-                </div>
-
-                <div id = "inventory_combat_switch_selection" class="activable_buttons box_div">
+                <div id = "inventory_combat_switch_selection" class="activable_buttons box_div flex_wrap">
                     <div id="switch_to_inventory" class="active_selection_button" onclick="switchToInventory()">Inventory
                     </div>
                     <div id="switch_to_combat" onclick="switchToCombat()">Combat</div>
@@ -250,352 +228,7 @@
 
                 <div id = "combat_div" class = "box_div" data-nosnippet>
                     <div id = "enemies_div">
-                        <div id = "enemy_0_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-                                    
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                    
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                            
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_1_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_2_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_3_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_4_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_5_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_6_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div id = "enemy_7_div" class = "enemy_div">
-                            <div>
-                                <div class = "enemy_name">
-
-                                </div>
-                                <div class = "enemy_stats">
-                                    <div class = "enemy_stat enemy_stat_long">
-
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                    |
-                                    <div class = "enemy_stat enemy_stat_short">
-                                        
-                                    </div>
-                                </div>
-                                <div class = "enemy_health_div">
-                                    <div class = "enemy_healthbar_max">
-                                        <div class = "enemy_healthbar_current">
-
-                                        </div>
-                                    </div>
-                                    <div class = "enemy_health_value">
-                                        
-                                    </div>
-
-                                </div>
-                                
-                                <div class = "enemy_attack_bar">
-
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div id = "clear_count_div">
                         <div id = "clear_count_content">
@@ -623,12 +256,12 @@
                     </div>
 
                     <div id = "trade_div">
-                        <div id = "trader_sorting_buttons" class="activable_buttons"> 
+                        <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
                             <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
                             <div id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type"></div>
                         </div>
-                        <div id = "trader_category_buttons" class="activable_buttons">
+                        <div id = "trader_category_buttons" class="activable_buttons flex_wrap">
                             <div id = "trader_category_all" class = "trader_category_button active_selection_button" onclick='showAllTraderItems()'>
                                 all
                             </div>
@@ -672,22 +305,22 @@
                     </div>
 
                     <div id = "storage_div">
-                        <div id = "storage_sorting_buttons" class="activable_buttons"> 
+                        <div id = "storage_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <div id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></div>
                             <div id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></div>
                             <div id = "storage_sort_by_type" class = "storage_sorting_button" onclick='sortStorageInventory("type")' data-translation="ui sort type"></div>
                         </div>
-                        <div id = "storage_category_buttons" class="activable_buttons">
-                            <div id = "storage_category_all" class = "storage_category_button active_selection_button" onclick='showAllStorageItems()'>
+                        <div id = "storage_category_buttons" class="activable_buttons flex_wrap">
+                            <div id = "storage_category_all" class = "storage_category_button active_selection_button" onclick='switchStorageItemVisibility()'>
                                 all
                             </div>
-                            <div id = "storage_category_equipment" class = "storage_category_button" onclick="showOnlyStorageEquipment()">
+                            <div id = "storage_category_equipment" class = "storage_category_button" onclick="switchStorageItemVisibility('equipment')">
                                 equipment
                             </div>
-                            <div id = "storage_category_usable" class = "storage_category_button" onclick="showOnlyStorageConsumables()">
+                            <div id = "storage_category_usable" class = "storage_category_button" onclick="switchStorageItemVisibility('consumables')">
                                 usable
                             </div>
-                            <div id = "storage_category_other" class = "storage_category_button" onclick="showOnlyStorageOther()">
+                            <div id = "storage_category_other" class = "storage_category_button" onclick="switchStorageItemVisibility('other')">
                                 other
                             </div>
                         </div>
@@ -704,7 +337,7 @@
                     </div>
 
                     <div id = "crafting_window" class="crafting_window">
-                        <div id="crafting_mainpage_buttons" class="activable_buttons crafting_mainpage_buttons">
+                        <div id="crafting_mainpage_buttons" class="activable_buttons crafting_mainpage_buttons flex_wrap">
                             <div class="crafting_mainpage_button" data-crafting_category="crafting" onclick="switchCraftingRecipesPage('crafting')">Tinkering</div>
                             <div class="crafting_mainpage_button" data-crafting_category="butchering" onclick="switchCraftingRecipesPage('butchering')">Butchering</div>
                             <div class="crafting_mainpage_button" data-crafting_category="cooking" onclick="switchCraftingRecipesPage('cooking')">Cooking</div>
@@ -713,7 +346,7 @@
                             <div class="crafting_mainpage_button" data-crafting_category="forging" onclick="switchCraftingRecipesPage('forging')">Forging</div>
                             <div class="crafting_mainpage_button" data-crafting_category="alchemy" onclick="switchCraftingRecipesPage('alchemy')">Alchemy</div>
                         </div>
-                        <div id="crafting_subpage_buttons" class="crafting_subpage_buttons activable_buttons">
+                        <div id="crafting_subpage_buttons" class="crafting_subpage_buttons activable_buttons flex_wrap">
                             <div class="crafting_subpage_button active_selection_button" data-crafting_subcategory="items" onclick="switchCraftingRecipesSubpage('items')">Items/trinkets</div>
                             <div class="crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</div>
                             <div class="crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</div>
@@ -734,7 +367,7 @@
                                 <input type="checkbox" id="options_hide_max_level_skills" name="options_hide_max_level_skills" onclick = "option_hide_max_level_skills()">
                                 <label for="options_hide_max_level_skills">Hide max level skills</label>
                             </div>
-                            <div id="skill_sorting_buttons" class="activable_buttons">
+                            <div id="skill_sorting_buttons" class="activable_buttons flex_wrap">
                                 <div id="skill_sort_by_name" class="skill_sorting_button active_selection_button" onclick='sortSkills({sort_by:"name"})' .>
                                     Sort by name
                                 </div>
@@ -755,7 +388,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id = "skill_and_stance_control_div" class="activable_buttons">
+                    <div id = "skill_and_stance_control_div" class="activable_buttons flex_wrap">
                         <div id="show_skills" class="skill_stance_control_button active_selection_button" onclick="showSkills()">
                             Skills
                         </div>
@@ -769,7 +402,7 @@
                 </div>
 
                 <div id = "journal_div" class = "box_div">
-                    <div id = "journal_control_div" class="activable_buttons">
+                    <div id = "journal_control_div" class="activable_buttons flex_wrap">
                         <div id = "journal_show_quests" class = "journal_control_button active_selection_button" onclick = "showQuests()"> Quests </div>
                         <div id = "journal_show_bestiary" class = "journal_control_button" onclick = "showBestiary()"> Bestiary </div>
                         <div id = "journal_show_books" class = "journal_control_button" onclick = "showReadBooks()"> Anthology </div>
@@ -946,7 +579,18 @@
                         </div>
 
                         <div id = "character_bio_div">
-                            
+                            <div id="character_age_div" class="character_bio_entry">
+
+                            </div>
+                            <div id="character_gender_div" class="character_bio_entry">
+
+                            </div>
+                            <div id = "character_height_div" class="character_bio_entry">
+
+                            </div>
+                            <div id = "character_race_div" class = "character_bio_entry">
+
+                            </div>
                         </div>
                         
                         <div id = "character_equipment_div"> 
@@ -981,9 +625,9 @@
                             <div class = "equipment_slot_div" id = "fishing_slot"> fishing rod </div>
                         </div>
                     </div>
-                    <div id = "character_control_div" class="activable_buttons">
+                    <div id = "character_control_div" class="activable_buttons flex_wrap">
                         <div id = "character_show_stats" class = "character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats"></div>
-                        <!--div id = "character_show_stats" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div-->
+                        <div id = "character_show_stats" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div>
                         <div id = "character_show_equipment" class = "character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment"></div>
                         <div id = "character_show_tools" class = "character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools"></div>
                     </div>
@@ -1028,6 +672,7 @@
             <div id = "options_button" class = "game_info" onclick="openOptions()"><span><i class="material-icons">settings</i></span></div>
             <div id = "changelog_button" class = "game_info"><a href="changelog.html" target="_blank"></a></div>
             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
+
             <div id = "repo_link" class = "repo_link" title="Check out the repository!"><a href="https://github.com/miktaew/yet-another-idle-rpg" target="_blank"><img src="resources\img\github-mark-white.png" style="height:32px" alt="GitHub icon"></a></div>
             <div id = "ko_fi_link" class = "financial_link" title="Support me on Ko-fi!"><a href="https://ko-fi.com/miktaew" target="_blank"><img src="resources/img/ko-fi_icon.png" style="height:40px" alt="Ko-fi icon"></a></div>
         </div>
@@ -1036,60 +681,60 @@
             <div id="options_choices">
                 <div class="options_choice">
                     <input type="checkbox" id="options_textsize" name="options_textsize" onclick = "option_uniform_textsize()" >
-                    <label for="options_textsize">Increase size of text in dialogues</label>
+                    <label for="options_textsize" data-translation="option textsize"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_bar_outline" name="options_bar_outline" onclick = "option_use_text_outlines_for_bars()" checked>
-                    <label for="options_bar_outline">Text outline on xp/stamina/mana/health bars</label>
+                    <label for="options_bar_outline" data-translation="option bar outline"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_tooltip_outline" name="options_tooltip_outline" onclick = "option_use_text_outlines_for_tooltips()" checked>
-                    <label for="options_tooltip_outline">Text outline in item tooltips</label>
+                    <label for="options_tooltip_outline" data-translation="option tooltip outline"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_bed_return" name="options_bed_return" onclick = "option_bed_return()" checked>
-                    <label for="options_bed_return">Return to last bed upon defeat</label>
+                    <label for="options_bed_return" data-translation="option bed return"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_save_messagelog_settings" name="options_save_messagelog_settings" onclick = "option_remember_filters()">
-                    <label for="options_save_messagelog_settings">Remember message log filters</label>
+                    <label for="options_save_messagelog_settings" data-translation="option remember filters"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_dont_autoswitch_to_combat" name="options_dont_autoswitch_to_combat" onclick = "option_combat_autoswitch()">
-                    <label for="options_dont_autoswitch_to_combat">Don't autoswitch out from inventory when starting combat</label>
+                    <label for="options_dont_autoswitch_to_combat" data-translation="option dont autoswitch"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_dynamic_message" name="options_dynamic_message" onclick = "option_do_dynamic_loot_message()">
-                    <label for="options_dynamic_message">Use a single dynamically updated message for loot</label>
+                    <label for="options_dynamic_message" data-translation="option dynamic message"></label>
                 </div>
                 <div class="options_choice options_choice_range">
-                    <label for="options_expo_threshold">Use scientific notation for values over:</label>
+                    <label for="options_expo_threshold" data-translation="option scientific notation"></label>
                     <input type="range" id="options_expo_threshold" name="options_expo_threshold" min="3" max="18" onchange="option_expo_threshold()" value="9" oninput="this.nextElementSibling.value = '1e'+this.value">
                     <output>1e9</output>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_use_uncivilised_temperature_scale" name="options_use_uncivilised_temperature_scale" onclick = "option_use_uncivilised_temperature_scale()">
-                    <label for="options_use_uncivilised_temperature_scale">Use Fahrenheit instead of Celsius</label>
+                    <label for="options_use_uncivilised_temperature_scale" data-translation="option fahrenheit"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_do_background_animations" name="options_do_background_animations" onclick = "option_do_background_animations()">
-                    <label for="options_do_background_animations">Enable rain/snow/stars animations</label>
+                    <label for="options_do_background_animations" data-translation="option animate background"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_change_background_color" name="options_change_background_color" onclick = "option_change_background_color()">
-                    <label for="options_change_background_color">Enable light-level based background color change</label>
+                    <label for="options_change_background_color" data-translation="option background color"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_do_enemy_onhit_animations" name="options_do_enemy_onhit_animations" onclick = "option_do_enemy_onhit_animations()" checked>
-                    <label for="options_do_enemy_onhit_animations">Enable on-hit / on-appear animations for enemies</label>
+                    <label for="options_do_enemy_onhit_animations" data-translation="option combat animation"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_skip_play_button" name="options_skip_play_button" onclick = "option_skip_play_button()">
-                    <label for="options_skip_play_button">Automatically skip the loading screen</label>
+                    <label for="options_skip_play_button" data-translation="option skip loading"></label>
                 </div>
                 <div class="options_choice">
                     <input type="checkbox" id="options_mofu_mofu_mode" name="options_mofu_mofu_mode" onclick = "option_mofu_mofu_mode()" checked>
-                    <label for="options_mofu_mofu_mode">Enable kemonomimi mode</label>
+                    <label for="options_mofu_mofu_mode" data-translation="option kemonomimi"></label>
                 </div>
 
             </div>
@@ -1192,27 +837,21 @@
                 document.documentElement.style.setProperty('--trader_other_display', 'inline-block');
             }
 
-            function showAllStorageItems() {
-                document.documentElement.style.setProperty('--storage_equipment_display', 'inline-block');
-                document.documentElement.style.setProperty('--storage_consumable_display', 'inline-block');
-                document.documentElement.style.setProperty('--storage_other_display', 'inline-block');
-            }
-            function showOnlyStorageEquipment() {
-                document.documentElement.style.setProperty('--storage_equipment_display', 'inline-block');
-                document.documentElement.style.setProperty('--storage_consumable_display', 'none');
-                document.documentElement.style.setProperty('--storage_other_display', 'none');
-            }
-            function showOnlyStorageConsumables() {
-                document.documentElement.style.setProperty('--storage_equipment_display', 'none');
-                document.documentElement.style.setProperty('--storage_consumable_display', 'inline-block');
-                document.documentElement.style.setProperty('--storage_other_display', 'none');
-            }
-            function showOnlyStorageOther() {
-                document.documentElement.style.setProperty('--storage_equipment_display', 'none');
-                document.documentElement.style.setProperty('--storage_consumable_display', 'none');
-                document.documentElement.style.setProperty('--storage_other_display', 'inline-block');
-            }
+            const storage_variables = {
+                equipment: "--storage_equipment_display", 
+                consumables: "--storage_consumable_display",
+                other: "--storage_other_display"
+            };
 
+            function switchStorageItemVisibility(target_group) {
+                Object.keys(storage_variables).forEach(key => {
+                    if(!target_group || key === target_group) {
+                        document.documentElement.style.setProperty(storage_variables[key], 'inline-block');
+                    } else {
+                        document.documentElement.style.setProperty(storage_variables[key], 'none');
+                    }
+                });
+            }
 
             function showCombatMessages() {
                 if(document.documentElement.style.getPropertyValue('--message_combat_display') !== "none") {
@@ -1283,10 +922,10 @@
             }
 
             function showCharacterStats() {
-                changeTab(document.getElementById("character_stats_div"), "");
+                changeTab(document.getElementById("character_stats_div"));
             }
             function showCharacterBio() {
-                changeTab(document.getElementById("character_bio_div"), "");
+                changeTab(document.getElementById("character_bio_div"));
             }
             function showCharacterEquipment() {
                 changeTab(document.getElementById("character_equipment_div"), "grid");
@@ -1443,8 +1082,8 @@
                     if(!file) return;
                     var reader = new FileReader();
 
-                    reader.onload = function() {
-                        load_progress(reader.result);
+                    reader.onload = async function() {
+                        await load_progress(reader.result);
                     };
 
                     reader.readAsText(file);
@@ -1673,6 +1312,7 @@
                         if(!tooltip) {
                             return;
                         }
+
                         const tooltip_height = tooltip.scrollHeight;
                         const tooltip_width = tooltip.scrollWidth;
 
@@ -1690,7 +1330,6 @@
                         } else {
                             document.documentElement.style.setProperty(left_variable, `${event.clientX + (left_side?-(tooltip.scrollWidth+tooltip_shift):tooltip_shift)}px`);
                         }
-
                         tooltip_wait = Date.now() + 1000 / tooltip_move_ticks;
                     }
                 }
@@ -1731,6 +1370,13 @@
                 const location_types_div = document.getElementById("location_types_div");
                 const bestiary_box_div = document.getElementById("bestiary_box_div");
                 const books_box_div = document.getElementById("books_box_div");
+                const character_bio_div = document.getElementById("character_bio_div");
+                const hero_race_selection = document.getElementById("hero_creation_panel_race_selection");
+                const hero_height_selection = document.getElementById("height_selection");
+                const hero_gender_selection = document.getElementById("gender_selection");
+                const hero_race_div = document.getElementById("character_race_div");
+                const hero_gender_div = document.getElementById("character_gender_div");
+                const hero_height_div = document.getElementById("character_height_div");
 
                 const stats_div = document.getElementById("character_stats_div");
                 const bar_divs = document.getElementsByClassName("character_bar_tooltip");
@@ -1779,7 +1425,30 @@
                         left_variable: "--bestiary_entry_tooltip_left",
                         target_classes: ["anthology_entry_div"],
                         left_side: true,
-                    }
+                    },
+                    {
+                        element: hero_race_div,
+                        top_variable: "--character_race_tooltip_top",
+                        left_variable: "--character_race_tooltip_left",
+                        target_classes: ["character_bio_entry"],
+                    },
+                    {
+                        element: hero_gender_div,
+                        top_variable: "--character_gender_tooltip_top",
+                        left_variable: "--character_gender_tooltip_left",
+                        target_classes: ["character_bio_entry"],
+                    },
+                    {
+                        element: hero_height_div,
+                        top_variable: "--character_height_tooltip_top",
+                        left_variable: "--character_height_tooltip_left",
+                        target_classes: ["character_bio_entry"],
+                    },
+                    {
+                        element: hero_race_selection,
+                        top_variable: "--race_choice_tooltip_top",
+                        left_variable: "--race_choice_tooltip_left",
+                    },
                 ];
 
                 const elements_with_unrestricted_tooltips = [
@@ -1808,6 +1477,16 @@
                         top_variable: '--location_desc_tooltip_top',
                         left_variable: '--location_desc_tooltip_left',
                     },
+                    {
+                        element: hero_height_selection,
+                        top_variable: "--height_choice_tooltip_top",
+                        left_variable: "--height_choice_tooltip_left",
+                    },
+                    {
+                        element: hero_gender_selection,
+                        top_variable: "--gender_choice_tooltip_top",
+                        left_variable: "--gender_choice_tooltip_left",
+                    },
                     
                 ];
 
@@ -1835,19 +1514,23 @@
                 });
                 
                 elements_with_restricted_tooltips.forEach(entry => {
-                    entry.element.addEventListener('mousemove', (event) => move_restricted_tooltip({
-                            event, 
-                            ...entry,
-                        }
-                    ));
+                    if(entry.element) {
+                        entry.element.addEventListener('mousemove', (event) => move_restricted_tooltip({
+                                event, 
+                                ...entry,
+                            }
+                        ));
+                    }
                 });
 
                 elements_with_unrestricted_tooltips.forEach(entry => {
-                    entry.element.addEventListener('mousemove', (event) => move_unrestricted_tooltip({
-                            event, 
-                            ...entry,
-                        }
-                    ));
+                    if(entry.element) {
+                        entry.element.addEventListener('mousemove', (event) => move_unrestricted_tooltip({
+                                event, 
+                                ...entry,
+                            }
+                        ));
+                    }
                 });
 
                 //active effects tooltip, a bit more complicated so can't be handled by main tooltip function yet
@@ -2015,10 +1698,9 @@
                 //for stuff where only 1 can be active
                 Array.from(document.getElementsByClassName("activable_buttons")).forEach(element => element.addEventListener("click", set_active_button));
                 function set_active_button(event) {
-                    //based on assumption none of them has child elements
-                    //alternatively just give all control buttons some attribute that could be then checked for?
                     const clicked_element = event.target;
-                    if(clicked_element.children.length == 0) {
+                    if(clicked_element.parentNode.classList.contains("activable_buttons")) {
+                        //additional verification that it's an element that's meant to be activated and not some child of it
                         for(let i = 0; i < clicked_element.parentNode.children.length; i++) {
                             clicked_element.parentNode.children[i].classList.remove("active_selection_button");
                         }

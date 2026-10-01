@@ -6,7 +6,7 @@ Checked 2026-10-01. Requested research: consider the original developer's curren
 
 Miktaew is developing a substantially different v0.6 foundation in the **development repository**, while both hosted releases remain on v0.5.5.30. The new foundation overlaps with our interests in branching stories, individual NPCs and fights involving several actors. Our current fork starts from the older foundation. Future engine work should compare the newer implementation before recreating it.
 
-Current foundation choice: the user's follow-up selects beginning from v0.6. [PROJECT.md](../PROJECT.md) owns that direction and [v0.6 migration](V06_MIGRATION.md) records the runnable isolated candidate and remaining expedition/save port. We can follow useful upstream engineering while keeping our own worlds, progression and stories.
+Current foundation choice: the user's follow-up selects beginning from v0.6. [PROJECT.md](../PROJECT.md) owns that direction and [v0.6 migration](V06_MIGRATION.md) records the adopted foundation, completed expedition/save port and evidence. We can follow useful upstream engineering while keeping our own worlds, progression and stories.
 
 ## Verified snapshot
 
@@ -54,7 +54,7 @@ Three development approaches remain available:
 | Approach | Appropriate point | Main tradeoff |
 |---|---|---|
 | Selective ports on our current base, an alternative | Small quality-of-life fixes or an ordinary event | Fast playable delivery; later changes to the same areas require reconciliation |
-| Coordinated v0.6 foundation migration, now selected | Start the candidate now and port current fork behavior before further actor/combat expansion | Reuses shared actor/combat work; requires a broader content, API and save migration |
+| Coordinated v0.6 foundation migration, now selected | Adopted with current fork behavior ported before further actor/combat expansion | Reuses shared actor/combat work; requires a broader content, API and save migration |
 | Independent engine evolution with occasional upstream ideas | If campaigns, rewinds or world rules cause substantial divergence | More design freedom; our fork owns ongoing maintenance and compatibility |
 
 Keep new story/world state independently versioned, definitions separate from progress, and legacy access behind small adapters. Do not write new content directly against every v0.5 global or every v0.6 component. Preserve stable IDs and isolate our content registrations so a later port has a bounded surface. This also allows upstream's town/magic arc to become one campaign path while original or book-inspired worlds use different rules. There is no need to wait for upstream magic before prototyping a separate, explicitly identified power path.

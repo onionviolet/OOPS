@@ -1,5 +1,16 @@
 "use strict";
 
+/*
+
+
+
+    RACES ARE CURRENTLY COSMETIC ONLY, BUT BONUSES ARE FUNCTIONAL IF UNCOMMENTED
+    JUST REMEMBER TO REMOVE THE NOTE ON HERO CREATION PANEL ABOUT HOW NOTHING THERE IMPACTS GAMEPLAY
+
+
+
+*/
+
 class Race {
     /**
      * 
@@ -25,39 +36,43 @@ class Race {
 const race_tags = {
     COMMON: "common",
     RARE: "rare",
+    EXOTIC: "exotic", //not another stage of rarity, rather something that would be uncommon in an average place
     KEMONOMIMI: "kemonomimi",
     DEFAULT: "default", //only use it for one race
 }
 
-
-
-/*
-
-    RACES ARE CURRENTLY COSMETIC ONLY, BUT BONUSES ARE FUNCTIONAL IF UNCOMMENTED
-    JUST REMEMBER TO REMOVE THE NOTE ON HERO CREATION PANEL ABOUT HOW NOTHING THERE IMPACTS GAMEPLAY
-
-*/
+const racial_height_modifiers = {
+    human: 0,
+    nekomimi: -5,
+    nezumimi: -10,
+    usagimimi: -10,
+    inumimi: 0,
+    kitsunemimi: -5,
+    elf: +10,
+    "half-elf": +5,
+    dwarf: -30,
+    "half-dwarf": -15,
+    lizardkin: 0,
+};
 
 const playable_races = {
     "human": new Race({
         name: "human name",
         description: "human desc",
-        //gameplay_description: "human gameplay desc",
         tags: [race_tags.COMMON, race_tags.DEFAULT],
     }),
     "nekomimi": new Race({
         name: "cat name",
         alternative_name: "cat alt name",
         description: "cat desc",
-        //gameplay_description: "cat gameplay desc",
         tags: [race_tags.COMMON, race_tags.KEMONOMIMI],
-        /*
         stats: {
             agility: {multiplier: 1.2},
             dexterity: {multiplier: 1.2},
             strength: {multiplier: 0.7},
             max_health: {multiplier: 0.7},
         },
+        /*
         xp_multipliers: {
             Evasion: 1.5,
             Equilibrium: 1.5,
@@ -66,13 +81,24 @@ const playable_races = {
             "Shield blocking": 0.5,
         }*/
     }),
+    "nezumimi": new Race({
+        name: "mouse name",
+        alternative_name: "mouse alt name",
+        description: "mouse desc",
+        tags: [race_tags.COMMON, race_tags.KEMONOMIMI],
+        stats: {
+            agility: {multiplier: 1.2},
+            dexterity: {multiplier: 1.2},
+            strength: {multiplier: 0.6},
+            max_health: {multiplier: 0.6},
+            magic: {multiplier: 1.1},
+        },
+    }),
     "inumimi": new Race({
         name: "dog name",
         alternative_name: "dog alt name",
         description: "dog desc",
-        //gameplay_description: "dog gameplay desc",
         tags: [race_tags.COMMON, race_tags.KEMONOMIMI],
-        /*
         stats: {
             agility: {multiplier: 1.1},
             max_health: {multiplier: 0.9},
@@ -80,6 +106,7 @@ const playable_races = {
             magic: {multiplier: 0.8},
             max_mana: {multiplier: 0.7},
         },
+        /*
         xp_multipliers: {
             Evasion: 1.2,
             Combat: 1.2,
@@ -93,17 +120,16 @@ const playable_races = {
         name: "fox name",
         alternative_name: "fox alt name",
         description: "fox desc",
-        //gameplay_description: "fox gameplay desc",
         tags: [race_tags.COMMON, race_tags.KEMONOMIMI],
-        /*
         stats: {
             agility: {multiplier: 1.1},
             dexterity: {multiplier: 1.1},
             strength: {multiplier: 0.8},
             max_health: {multiplier: 0.8},
             magic: {multiplier: 1.1},
-            max_mana: {multiplier: 1.1},
+            max_mana: {multiplier: 1.2},
         },
+        /*
         xp_multipliers: {
             Evasion: 1.2,
             Equilibrium: 1.2,
@@ -112,12 +138,31 @@ const playable_races = {
             "Shield blocking": 0.7,
         }*/
     }),
+    "usagimimi": new Race({
+        name: "rabbit name",
+        alternative_name: "rabbit alt name",
+        description: "rabbit desc",
+        tags: [race_tags.COMMON, race_tags.KEMONOMIMI],
+        stats: {
+            agility: {multiplier: 1.2},
+            strength: {multiplier: 1.1},
+            max_health: {multiplier: 0.7},
+        },
+    }),
+    "lizardkin": new Race({
+        name: "lizard name",
+        description: "lizard desc",
+        tags: [race_tags.EXOTIC, race_tags.KEMONOMIMI],
+        stats: {
+            agility: {multiplier: 1.1},
+            dexterity: {multiplier: 0.9},
+            max_health: {multiplier: 1.1},
+        },
+    }),
     "elf": new Race({
         name: "elf name",
         description: "elf desc",
-        //gameplay_description: "elf gameplay desc",
         tags: [race_tags.RARE],
-        /*
         stats: {
             agility: {multiplier: 1.1},
             dexterity: {multiplier: 1.1},
@@ -126,6 +171,7 @@ const playable_races = {
             magic: {multiplier: 1.1},
             max_mana: {multiplier: 1.1},
         },
+        /*
         xp_multipliers: {
             Evasion: 1.2,
             Combat: 1.2,
@@ -138,14 +184,12 @@ const playable_races = {
     "half-elf": new Race({
         name: "half-elf name",
         description: "half-elf desc",
-        //gameplay_description: "half-elf gameplay desc",
         tags: [race_tags.RARE],
-        /*
         stats: {
             agility: {multiplier: 1.1},
             max_health: {multiplier: 0.8},
             max_mana: {multiplier: 1.1},
-        },
+        },/*
         xp_multipliers: {
             Evasion: 1.2,
             Combat: 1.2,
@@ -158,9 +202,7 @@ const playable_races = {
     "dwarf": new Race({
         name: "dwarf name",
         description: "dwarf desc",
-        //gameplay_description: "dwarf gameplay desc",
         tags: [race_tags.RARE],
-        /*
         stats: {
             dexterity: {multiplier: 1.1},
             agility: {multiplier: 0.7},
@@ -169,6 +211,7 @@ const playable_races = {
             magic: {multiplier: 0.7},
             max_mana: {multiplier: 0.7},
         },
+        /*
         xp_multipliers: {
             Evasion: 0.5,
             Combat: 1.2,
@@ -179,13 +222,13 @@ const playable_races = {
     "half-dwarf": new Race({
         name: "half-dwarf name",
         description: "half-dwarf desc",
-        //gameplay_description: "half-dwarf gameplay desc",
         tags: [race_tags.RARE],
-        /*
         stats: {
             agility: {multiplier: 0.8},
             max_health: {multiplier: 1.1},
+            strength: {multiplier: 1.1},
         },
+        /*
         xp_multipliers: {
             Evasion: 0.7,
             Combat: 1.1,
@@ -200,4 +243,4 @@ Object.keys(playable_races).forEach(race_key => {
 })
 
 
-export { playable_races };
+export { playable_races, racial_height_modifiers };

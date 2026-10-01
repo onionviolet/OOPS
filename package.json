@@ -1,12 +1,16 @@
 {
-  "name": "yairpg-cultivation-fork",
+  "name": "yairpg-expansion-fork",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node build.js",
-    "test": "node --test tests/*.test.js",
-    "serve": "python3 -m http.server 8123 --bind 127.0.0.1"
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
+    "test": "node --test tests/*.test.js"
   },
-  "engines": { "node": ">=22.13.0" },
-  "devDependencies": { "esbuild": "0.25.10" }
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
 }

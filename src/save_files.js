@@ -29,17 +29,46 @@ export function validateSaveEnvelope(original, currentVersion) {
         if(!Array.isArray(entry.path) || !entry.path.length || !entry.path.every(key => typeof key === "string") ||
             !Object.hasOwn(entry, "value")) throw new Error("Invalid retired-content entry.");
     }
-    for(const key of ["character", "skills", "locations", "activities", "dialogues", "traders", "current time"]) {
+    if(save.fork_schema != null && save.fork_schema !== 1) throw new Error("Unsupported fork save schema.");
+    const componentSave = incoming[0] > 0 || incoming[1] >= 6;
+    for(const key of ["character", "locations", "current time", ...(componentSave
+        ? ["levels", "inventories", "availabilities", "npcs"] : ["skills", "activities", "dialogues", "traders"])]) {
         object(save[key], key);
     }
     const c = save.character;
-    for(const key of ["xp", "inventory", "equipment"]) object(c[key], `character.${key}`);
+    if(c.titles != null) object(c.titles, "Character titles");
+    for(const key of ["xp", "equipment", ...(!componentSave ? ["inventory"] : [])]) object(c[key], `character.${key}`);
     if(typeof c.name !== "string") throw new Error("Character name is missing.");
     number(c.money ?? 0, "Money"); number(c.xp.total_xp, "Character XP");
-    for(const skill of Object.values(save.skills)) {
-        object(skill, "Skill record"); number(skill.total_xp, "Skill XP");
+    if(componentSave) {
+        for(const owners of Object.values(save.levels)) {
+            object(owners, "Level owners");
+            for(const owner of Object.values(owners)) {
+                object(owner, "Level record"); number(owner.total_xp, "Owner XP"); object(owner.skill_xp, "Skill XP");
+                for(const xp of Object.values(owner.skill_xp)) number(xp, "Skill XP");
+            }
+        }
+        const hero = save.levels.person?.main_character;
+        if(!hero || hero.total_xp !== c.xp.total_xp) throw new Error("Missing or inconsistent hero XP.");
+        for(const owners of Object.values(save.inventories)) {
+            object(owners, "Inventory owners");
+            for(const inventory of Object.values(owners)) {
+                object(inventory, "Inventory");
+                for(const entry of Object.values(inventory)) {object(entry, "Item"); number(entry.count, "Item count");}
+            }
+        }
+        object(save.inventories.person?.main_character, "Hero inventory");
+        for(const entries of Object.values(save.availabilities)) {
+            object(entries, "Availability records");
+            for(const flag of Object.values(entries)) {
+                if(!Number.isInteger(flag) || flag < 0 || flag > 7) throw new Error("Invalid availability status.");
+            }
+        }
+        if(save.books && !Object.hasOwn(hero.skill_xp, "Literacy")) throw new Error("Book progress needs Literacy XP.");
+    } else {
+        for(const skill of Object.values(save.skills)) {object(skill, "Skill record"); number(skill.total_xp, "Skill XP");}
+        if(save.books && !save.skills.Literacy) throw new Error("Book progress needs Literacy XP.");
     }
-    if(save.books && !save.skills.Literacy) throw new Error("Book progress needs Literacy XP.");
     for(const key of ["year", "month", "day", "hour", "minute"]) {
         number(save["current time"][key], `Time ${key}`);
     }
@@ -63,8 +92,11 @@ export function decodeSaveFile(encoded, currentVersion) {
         const prefix = "YAIR-UTF8-1:";
         const decoded = text.startsWith(prefix)
             ? new TextDecoder("utf-8", {fatal: true}).decode(Uint8Array.from(atob(text.slice(prefix.length)), c => c.charCodeAt(0)))
-            : atob(text); // Preserve existing Latin-1 exports exactly, including accented names.
+            : atob(text); // Older unmarked files used Latin-1. v0.6 upstream uses UTF-8.
         parsed = JSON.parse(decoded);
+        if(!text.startsWith(prefix) && /^v0\.([6-9]|[1-9]\d)/.test(parsed?.["game version"])) {
+            parsed = JSON.parse(new TextDecoder("utf-8", {fatal: true}).decode(Uint8Array.from(decoded, c => c.charCodeAt(0))));
+        }
     }
     catch { throw new Error("The file is not a valid base64 JSON save."); }
     return validateSaveEnvelope(parsed, currentVersion);
