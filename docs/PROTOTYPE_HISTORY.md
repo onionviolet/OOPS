@@ -2,6 +2,28 @@
 
 Archived 2026-10-01 after the user requested a return to the YAIRPG foundation. The following records prior planning and verification; it is not the current build status.
 
+## Superseded blanket player-choice rule for rival events, 2026-10-02
+
+RIVALS_IDENTITIES_AND_FATE.md now permits authored outside actions and information discovery, consistent with the user's life-event direction. Player commitments and responses remain explicit. Its original summary is preserved verbatim:
+
+The desired loop is **discover a person and their leverage → prepare or scheme → contest something specific → resolve it → encounter the consequences**. Idle preparation can support the loop, but meaningful decisions and surprise identity changes need an explicit player choice.
+
+## Superseded engine-readiness assessment, 2026-10-02
+
+DIRECTION_SYNTHESIS.md now points to the current v0.6 source/test audit in ENGINE_EXPANSION.md. Its earlier assessment below is preserved verbatim; references to active cultivation and a future v0.6 audit describe the prior prototype stage.
+
+The source-grounded [Engine expansion proposal](ENGINE_EXPANSION.md) owns the detailed architecture and delivery boundaries. It explicitly recognizes existing action probabilities and proposes incremental saved events, simulation and world/origin interfaces rather than a full rewrite.
+
+**Design assessment: yes for an incremental proof of the idea; the full architecture remains unproven.** Local source contains staged quests, dialogue conditions/locks, book reading, skill milestones, equipment, recipes, reputation, travel and stance tradeoffs. The cultivation module demonstrates a small independently versioned state machine. Those are useful attachment points for a discovery chapter.
+
+The main loop also owns substantial progression, reward, save and UI integration. Existing quest fields do not constitute a general reversible story graph. Current cultivation trials are timers, not new enemy AI. Closed-browser catch-up is absent from the inspected load path and the documented prototype. Existing browser evidence covers the first slice, not branching campaigns or temporal resets.
+
+Add a small story layer before a whole-engine rewrite: stable chapter/choice IDs, current scenario state, remembered knowledge, transition requirements and once-only reward receipts. Keep definitions separate from saved progress, derived effects separate from their owners, and scenario resets restricted to explicit namespaces. Do not duplicate ordinary inventory or reputation in a competing story store.
+
+New transitions must commit costs, decisions and rewards together. Save/reload and export/import need to preserve pending choices and partial tasks without paying twice. For replay, test reset boundaries, repeated completion, reward replacement and attempted temporary-item export. Preserve historical saves and grandfather valid prototype cultivation progress if entry gates change.
+
+Audit upstream v0.6's availability and quest work before choosing reuse. This is an integration checkpoint, not a recommendation to merge immediately. Stay on the current base for a bounded chapter unless source evidence identifies a concrete blocker or worthwhile migration. A major engine decision can wait until the first chapter exposes actual costs.
+
 ## Superseded copying, loadout and trade summaries, 2026-10-02
 
 The current journey proposal in DIRECTION_SYNTHESIS.md permits deliberately exceptional copying/stacking with explicit authored rules. Its earlier blanket copying warning and fixed preparation recommendation are preserved verbatim below. Replay now refers to the optional first-milestone prestige policy because cultivation rebirth is archived. PROJECT.md's sequential-trade summary is superseded by implemented atomic native acquisition; its original paragraph is retained here.

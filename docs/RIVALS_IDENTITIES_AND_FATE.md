@@ -12,7 +12,7 @@ Treat a recurring opponent as a person with capabilities, claims, relationships 
 
 Five reusable parts can support much of the catalogue: a persistent actor, layered identity claims, relationships with evidence, opportunities with ownership rules, and committed aftermath. A trope supplies initial circumstances and likely behavior. It does not dictate permanent hostility or a single ending. Enemies, peers, allies, mentors and the player can use the same identity rules.
 
-The desired loop is **discover a person and their leverage → prepare or scheme → contest something specific → resolve it → encounter the consequences**. Idle preparation can support the loop, but meaningful decisions and surprise identity changes need an explicit player choice.
+The desired loop is **discover a person and their leverage → prepare or scheme → contest something specific → resolve it → encounter the consequences**. Idle preparation supports the loop. Rivals can act and discover information through authored outside events; the player chooses their own new commitments and responses. Disclosure, consequences and automatic actions need declared rules. The earlier blanket player-choice requirement is preserved in PROTOTYPE_HISTORY.md.
 
 ## Evidence and interpretation boundaries
 
@@ -34,7 +34,7 @@ Subsequent evidence in [Enemy protagonists](ENEMY_PROTAGONISTS.md#five-books-to-
 
 ## What the current YAIRPG source can actually support
 
-This is source inspection, not a new browser playtest or a full engine audit.
+The table below is the historical v0.5 source inspection, not the current v0.6 file layout or a new browser playtest. [Engine readiness, 2026-10-02](ENGINE_EXPANSION.md#engine-readiness-audit-2026-10-02) owns the refreshed source/test assessment. Native NPC dialogue/action/trader state exists in v0.6; durable story life, rival memories/goals and an encounter-result bridge remain future work.
 
 | Inspected source | Present behavior | Reuse and missing work |
 |---|---|---|
@@ -249,6 +249,26 @@ Personal adaptation should have costs and tradeoffs. A rival who hires poison pr
 Resolve arcs through settlement, alliance, conversion, retreat, incarceration, loss of office, death or an explicit unresolved feud. Do not preserve hostility just to keep the mechanic running. New conflicts can concern a shared resource even after personal reconciliation.
 
 Author major turning points; use procedural variation for compatible names, temperaments, evidence and preparation. Begin with a few important people and a bounded set of scenes. Check combinations at meaningful interfaces rather than writing every archetype × origin × world × outcome combination. Rare memorable encounters are more useful than endless revenge interruptions.
+
+### Nemesis-style progression refinement, 2026-10-02
+
+The user requested a further Nemesis-style system review and saved findings. Refreshed primary evidence: Chris Hoge/Monolith's [GDC session overview](https://www.gdcvault.com/play/1025150/Helping-Players-Hate-%28or-Love%29) describes memorable long-term positive and negative relationships with generated Orcs. [Star Renegades' developer description](https://store.steampowered.com/app/651670/Star_Renegades/) describes evolving enemy officers and rank progression in a mission-based campaign. Only the published overview/descriptions were examined, not full talks or implementation code. The shared lesson is recognizable personal continuity and changed encounters; the following rules are our own proposals.
+
+| Proposed ingredient | Saved cause/state | Meaningful next encounter |
+|---|---|---|
+| Recognition and memory | Stable actor/body identity, selected meeting/outcome receipt and known facts | The person recognizes the actual earlier contest, rescue or betrayal; chronicle text comes from committed history |
+| Evidence and relationships | Directed grievance/debt/respect, informed observers, report route and jurisdiction | A witnessed event changes the right relationship; hidden powers or private events are not automatically known to every faction |
+| Growth and adaptation | Authored practice/equipment/mentor project, input budget, time boundary and evidence of the relevant tactic | The rival can buy a protection or change a tactic at a real opportunity cost; they can also fall behind the player's growth |
+| Goals and local opportunity | A bounded intention/assignment, target claim, available resources and deadlines | The rival may take another route, compete for instruction or gain a position independently of whether the player challenges them |
+| Closure and aftermath | Settlement, alliance, custody, departure, durable death or unresolved status | The arc can end or become cooperation. A successor is a different person; repeated battle cleanup cannot silently revive this actor |
+
+Scale personal advancement through that actor's events/resources/time, not continuous comparison to the player. A spared rival can remain weak, become a useful contact or deliberately prepare; an old enemy does not need to acquire new immunity every time the traveler gains power. A powerful adversary can focus on institutions or a contested objective instead of endlessly raising damage. Injury, loss of equipment or a scar should matter only if the authored aftermath makes it meaningful. Rare survival/return needs an explicit outcome, not a universal immortality policy. The actor can stay local after the player travels; pursuit into another world requires a route and motive.
+
+Current v0.6 source adds an important boundary: Combat.reset() restores temporary battle fighters' is_alive flags. Keep durable life/custody/body state outside that cleanup and stage the encounter result back to the native NPC/actor binding once. Ordinary generated monster templates can remain disposable. Persistent NPC skill/growth plans also need declared advancement because native NPC constructors disable ordinary XP multipliers. The expansion journal keeps at most 100 history entries, so lasting memories/claims need their own retained cause record rather than disappearing when display history is pruned. Existing trader/dialogue saves are useful reuse, not proof of autonomous life simulation.
+
+First proposed proof: one persistent Village-region peer, one nonlethal technique contest and one information/craft alternative, followed by a remembered response. The peer either undertakes one paid/timed preparation or settles the dispute, depending on committed evidence and goals. Reload between scenes; show changed access, tactic or claim; preserve closure and verify no duplicate reward or durable resurrection. Extend to a few authored actors before adding population-wide hierarchies, inherited feuds or cross-world pursuit. This is package C with B's combat/knowledge and D's clock dependency, not implemented Nemesis gameplay.
+
+The earlier source table and identity catalogue remain discovery/history context. [Scaling and starting-world design](DIRECTION_SYNTHESIS.md#scale-starting-worlds-and-technologicalmagical-development-saved-2026-10-02) owns broader power/world progression; [engine readiness](ENGINE_EXPANSION.md#engine-readiness-audit-2026-10-02) owns current missing adapters and the proposed proof sequence. No specific roster, generated hierarchy, compulsory feud or final narrative has been selected.
 
 ### Nemesis reference implementation boundary
 

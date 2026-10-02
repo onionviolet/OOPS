@@ -1,3 +1,9 @@
+## Engine readiness source audit, 2026-10-02
+
+`npm test`: **54 pass, 0 fail**. This reruns the current acquisition, technique, RNG, migration, import and save contracts against the unchanged runtime. Source inspection found a base-world-fixed expedition binding, home-world-only technique readiness, combat cleanup that resets temporary fighter life flags, unsupported native content-unlock milestones and separate native/expansion clocks. [Engine readiness](ENGINE_EXPANSION.md#engine-readiness-audit-2026-10-02) owns the detailed assessment and proposed next proofs.
+
+This is a source/test readiness audit with documentation changes only. No new build or browser run was needed or performed; the latest gameplay browser evidence remains the 2026-10-01 technique proof below. Passing existing contracts does not validate Nemesis-style actors, cross-world travel, alternate starts, combat ability execution or offline simulation. Personal saves were not used.
+
 ## Saved technique loop, 2026-10-01
 
 **54 tests pass; rebuilt browser behavior passes.** New contracts cover separate progression gates, native enemy evidence without donor removal, active/idle practice, stale/invalid response rejection, occupancy/cancellation, schema1/2 migration, changed-definition frozen exercises, failed writes, capped practice and mastered route odds. The one-world scope remains; all lore and balance are provisional.
