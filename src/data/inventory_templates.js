@@ -30,6 +30,12 @@ const inventory_templates = {};
 
 inventory_templates["Basic"] = 
 [
+    // Ordinary preparation stays reliable. Rare stock must not gate the first
+    // expedition; existing saves gain these offers at their next normal refresh.
+    new TradeItemGroup({items: [
+        new TradeItem({item_name: "Prepared survey kit", count: [3], chance: 1}),
+        new TradeItem({item_name: "Survey rope", count: [1], chance: 1}),
+    ]}),
     new TradeItemGroup({
         items: [
             new TradeItem({item_name: "Cheap iron spear", count: [1], quality: [40, 90], chance: 0.8}),

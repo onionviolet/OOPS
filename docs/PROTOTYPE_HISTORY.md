@@ -44,7 +44,7 @@ Replaced by the engine increment requested in the next user message. Content nam
 
 Current implementation: base YAIRPG content with pinned build dependencies, fingerprinted assets, the standalone `src/rules.js` primitives, the Meditation reload-order repair and safe failed-save handling. Jade Hollow's source, styling, tests and former integration patch are preserved under `prototypes/jade-hollow/` but are not loaded or registered. Shared rules remain available for new content; they are no longer exercised by live cultivation content.
 
-Next proposed playable increment: one ordinary expedition/event using explicit facts, explainable requirements and a recorded outcome. [The broken crossing](docs/NEXT_EVENT_PROPOSAL.md) supplies one minimal peer-rescue premise, two approaches and later aftermath for review; premise and consequence severity remain the creative decision. Add simulated deadlines and reset ownership only as needed by that event. `docs/ENGINE_EXPANSION.md` owns the architecture proposal, `docs/DIRECTION_SYNTHESIS.md` the broader creative proposal, and `docs/RUN_DEFINING_ADVANTAGES.md` the origin comparison. No event plot, book world, origin roster or exact balance has been accepted.
+Next proposed playable increment: one ordinary expedition/event using explicit facts, explainable requirements and a recorded outcome. [The broken crossing](NEXT_EVENT_PROPOSAL.md) supplies one minimal peer-rescue premise, two approaches and later aftermath for review; premise and consequence severity remain the creative decision. Add simulated deadlines and reset ownership only as needed by that event. `docs/ENGINE_EXPANSION.md` owns the architecture proposal, `docs/DIRECTION_SYNTHESIS.md` the broader creative proposal, and `docs/RUN_DEFINING_ADVANTAGES.md` the origin comparison. No event plot, book world, origin roster or exact balance has been accepted.
 
 
 ### Superseded standalone-rules architecture status
@@ -54,3 +54,21 @@ Date: 2026-10-01. Source-grounded architecture proposal, not implemented engine 
 Shared rules status, 2026-10-01: `src/rules.js` provides three pure primitives: explicit fact rules with all/any/not and requirement explanations; validated graded outcome selection from a caller-supplied draw; and a serializable resolve-once receipt. The earlier cultivation integration is now archived in `prototypes/jade-hollow/cultivation.js`; no active gameplay imports that prototype. Unknown facts are distinct from false facts, including negation. Outcome/receipt primitives are tested but not connected to story events or the game save envelope; they do not implement resource transactions, a persisted RNG stream or replay. Seven active rules/compatibility tests and six archived reference tests pass; browser retirement evidence is in PLAYTEST.md. The broader architecture below remains a proposal.
 
 Only design documents changed in this architecture pass. No new engine, migration, browser behavior or offline progress is claimed.
+
+## Initial engine delivery order, superseded 2026-10-01
+
+The audit-derived work packages in ENGINE_EXPANSION.md now own the recommended order. The initial proposed stage order is preserved verbatim below; it was not an accepted full campaign or implementation claim.
+
+## Five delivery stages
+
+Each engine increment must arrive with observable play. Do not treat module creation as completed gameplay. Preserve one realm and one prestige layer until later scope is deliberately selected.
+
+| Stage | Engine work plus playable result | Required evidence |
+|---|---|---|
+| 1. Conditional event | Extension save schema, pure preview, committed graded event and NPC fact; one expedition rescue with two preparation routes and later aftermath | Old-shaped saves and dormant retired-prototype data preserved; fixture odds/requirements match browser preview; reload mid-action and after resolution cannot double-charge, reroll or duplicate rewards; fresh export/import |
+| 2. Time and preparation | Scheduler for the new event, one timed opportunity, one conditional encounter and a supply target | Same simulated duration through normal ticks and allowed time jumps produces consistent new-system results; pause at choice, supply stop and event cooldown survive reload |
+| 3. Contrasting origins | Scoped origin policy; vessel batch and one isolated ring checkpoint | Two fresh origins change plans; batch input/output preserved; rewind cannot export temporary goods, duplicate rewards or lose unrelated progress; unrelated dormant prototype state remains intact |
+| 4. World identity | World registry and compatibility; second world's small chapter, one distinct rule and useful return interaction | Existing progress loads; imported technique eligibility explained; travel preserves proper state; returning changes a meaningful solution in the first world |
+| 5. Advanced execution | Port additional action/combat timing, safe offline work, authored helper and eventually an additional actor | Resume supported combat/action state; active versus catch-up accounting agrees; ownership/stop rules hold; helper/actor adds a decision rather than free duplicated production |
+
+Broader skill/equipment depth develops alongside these stages through the actual expedition. Branches, origin variants and ending combinations need content tests as well as accounting tests. First-stage rescue is a candidate implementation packet, not an accepted specific plot. Historical personal saves remain untouched; use dedicated preview origins and generated test fixtures. Rebuild and exercise changed behavior in a browser for every runtime delivery.

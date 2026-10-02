@@ -1,5 +1,15 @@
 # Playtest evidence
 
+## Village shop preparations and audit scope, 2026-10-01
+
+Added guaranteed Basic stock for three Prepared survey kits and one lightweight Survey rope. Base values2/4 give starting Village buy prices8/16; native pricing still includes Haggling/reputation. The journal service retains fixed8/16 purchases. Coil of rope remains a separate older item with unchanged ID/value. Item keys and save schema are unchanged; old saved stock receives additions at its next ordinary refresh, without a forced refill.
+
+`npm test`: **43 pass**. `npm run build`: successful, fingerprint `v0.6-ce07b4126332`. Browser proof used fresh origin8201 with a generated fixture derived only from the previously recorded agent-created export. The market was already unlocked, money102, Haggling XP0, reputation0 and an unrefreshed empty trader inventory. This isolates acquisition and does not prove the natural story unlock route. The temporary installer refused to overwrite an existing save and was removed after testing; personal saves were untouched.
+
+Native Village market displayed kit stock3 at8 coins and rope stock1 at16. Buying one of each quoted24 coins, then left money78, player kit1/rope1, vendor kit2 and no remaining rope. Native Save/reload retained those items and balance. Reopening retained the same40 complete stock item keys, including equipment quality; the visible kit count remained2 and the rope did not refill. An initial comparison used the native row's stale data-item_count attribute instead of its visible quantity; the observed quantity and restored stock agree. The first purchase path updates the existing native acquisition log through Hero.addToInventory; the new expansion publication still needs its own acquisition-log adapter.
+
+The field journal recognized both shop-bought items, credited the carried rope capability and kept its knowledge requirement distinct. Inspection then enabled the prepared routes. Final browser warning/error logs were empty. Screenshot: `docs/evidence/village-shop-preparations.png`. New shop content is implemented; the five broader work packages in ENGINE_EXPANSION.md remain proposed. Native trade is still sequential and was not converted to the new staged event adapter. This check does not prove atomic native trade failure recovery, a preparation recipe, saved shop refresh RNG, rare affixes or bloodline gameplay. Human acceptance still needs to judge prices, shop-versus-service use and the supply-chain loop.
+
 ## Gameplay transaction and capability foundations, 2026-10-01
 
 Implemented foundations 1 and 2 from the selected order. `npm test`: **43 pass**. `npm run build`: successful, fingerprint `v0.6-9311c05fd9e2`. New tests cover native item/XP/signed-reputation snapshots and publication, storage-failure isolation, parent XP, quality-specific item keys, source stacking/expiry/removal, weighted discovery and chance changes, frozen rolls after table edits, cancellation without RNG rewind, additive schema1 migration, fuzzy native eligibility, and unsupported unlock/reference rejection.
