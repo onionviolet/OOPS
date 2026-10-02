@@ -2,6 +2,12 @@
 
 Archived 2026-10-01 after the user requested a return to the YAIRPG foundation. The following records prior planning and verification; it is not the current build status.
 
+## Superseded technology-world scaling illustration, 2026-10-02
+
+DIRECTION_SYNTHESIS.md now explicitly includes powerful technological individuals such as gene warriors, implants and synthetic bodies. The earlier paragraph below illustrated fragile inhabitants plus infrastructure; that illustration was not intended to cap technology-world personal power and has been replaced with the broader user clarification.
+
+Use a world danger profile with overlapping ranges and typed capabilities. Ordinary inhabitants, trained specialists, rare apex actors and deployed institutional assets can have very different strength. A world with fragile ordinary people can possess strong sensors, vehicles or industry; a high-energy world can contain weak civilians alongside exceptional practitioners. A stronger traveler can legitimately overpower a lower-band threat. Preserve that achievement, while an unfamiliar rule or differently scoped objective can still matter. A world label should not grant every inhabitant the same strength multiplier.
+
 ## Superseded blanket player-choice rule for rival events, 2026-10-02
 
 RIVALS_IDENTITIES_AND_FATE.md now permits authored outside actions and information discovery, consistent with the user's life-event direction. Player commitments and responses remain explicit. Its original summary is preserved verbatim:
