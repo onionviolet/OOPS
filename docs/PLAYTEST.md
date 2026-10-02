@@ -1,3 +1,24 @@
+## Saved technique loop, 2026-10-01
+
+**54 tests pass; rebuilt browser behavior passes.** New contracts cover separate progression gates, native enemy evidence without donor removal, active/idle practice, stale/invalid response rejection, occupancy/cancellation, schema1/2 migration, changed-definition frozen exercises, failed writes, capped practice and mastered route odds. The one-world scope remains; all lore and balance are provisional.
+
+Fresh origins18211 (technique journey) and18212 (native combat) served this checkout's rebuilt bundle. Only newly generated saves were used. The journey ran the real notebook/Field journal controls: observe→study→active practice→internalize→idle practice→active mistakes→inspect→execute. Browser fixtures and the temporary quota injection changed only disposable origins; the quota override was removed by reload. Personal saves and remote repositories were untouched.
+
+| Gate | Browser evidence |
+|---|---|
+| Timed enemy observation/study | Immediate reload preserved the observation job, then its enemy/world/receipt evidence and Perception4. Study reserved two coins once and resumed; observation alone did not enable practice |
+| Partial active drill | Recovery-first draw0.6176228595431894, RNG2652669983, fee1, first responseAdvance and the remaining cue survived reload. Three correct responses produced proficiency3 and Equilibrium30 once |
+| Ownership and idle fallback | Internalization resumed after reload and owned the technique at proficiency3 while execution remained blocked. Six-minute idle work resumed after reload, raised proficiency3→5 and Equilibrium30→50, including its native Agility milestone |
+| Storage failure | Injected quota error during the next active response. Exact durable bytes stayed unchanged and live UI remained on Decision1/3. Saving paused; reload removed the test override and resumed the same saved pattern/cost |
+| Mistakes and actual execution | Three wrong answers granted proficiency1 and Equilibrium10, reaching proficiency6/Equilibrium60. Execution remained blocked until crossing inspection. Rat-step route then ran without kit/rope, resumed its three-minute job after reload and recorded draw0.9609419864136726: tired guide, money98→104, Climbing20 and executions1. Save/reload retained all of these without another payout |
+| Native combat route | Generated stronger hero in the actual Infested field defeated several Starving wolf rats. The first victory saved `enemy:1` evidence; later victories kept one observation receipt. Retreat, native Save and reload retained native-victory provenance, hid the field observation action and left understanding/ownership/proficiency unset |
+| Final two-way native trade | Final fingerprint `v0.6-4ad406701929` also accepted Survey rope16 against one Stale bread20. Native Save/reload retained money102→106, player rope1/bread5→4, vendor rope absent, Haggling3.6, rope acquisition1 and one receipt. Stale-quote rejection also refreshes the displayed total before review |
+| Migration and final UI | Old generated schema2 loaded as schema3 with empty techniques and retained ordinary progress. Final reload retained a pending untimed drill, first cue and paid cost. Final technique/combat origins captured no warnings/errors |
+
+Review tab: `http://127.0.0.1:18211/`, a disposable completed journey with an optional untimed practice drill open. Proof screenshots: `/Users/weiwei/.codex/visualizations/2026/10/02/01a0fa95-3997-7fe1-a8d3-7d8c8615279a/gameplay-proof/practice.jpg` and `technique-used.jpg` in the same directory. Unit tests establish mastery12's guaranteed ready-guide route; browser execution used proficiency6 and its authored85/15 distribution.
+
+Limits: no new native file-download roundtrip was performed for schema3; this increment verifies generated Save/reload and preserves the existing importer tests. No persistent technique theft/donor claim, general combat technique handler, whole-native-crafting conversion, offline replay, second world or prestige is claimed. Remaining acceptance is Weibao's review of progression steps, exercise value, service/route balance and pacing. Broader packages C/D/E remain scoped future work.
+
 ## Atomic acquisition and Village packing, 2026-10-01
 
 47 tests pass and the rebuilt bundle was exercised on fresh origin `http://127.0.0.1:18210/`. Generated fixtures only; no personal saves. Four new contract tests cover multi-owner trade, full quality keys, boosted XP inputs, market changes, stale price/quantity rejection, insufficient money, overflow, a failed durable write, one successful write and exactly-once paid packing after reload.

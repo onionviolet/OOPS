@@ -1,3 +1,4 @@
+import {techniqueDefinitions, techniqueActions, ratStepRoute} from "./technique_content.js";
 import {createContentRegistry} from "./expansion_engine.js";
 
 const fact = (scope, key, value) => ({type: "fact", scope, key, value});
@@ -16,6 +17,7 @@ const surveyed = [fact("actor", "surveyed", true), aftermath];
 // Original review content, not an accepted campaign or a direct book adaptation.
 export const expeditionRegistry = createContentRegistry({
     worlds: [{id: "base.frontier", label: "Mortal frontier", provenance: "Original Village prototype"}],
+    techniques: techniqueDefinitions,
     capabilities: [
         {id: "frontier.carry", label: "Carry route markers", stacking: "max", providers: [
             {id: "strength.basic", kind: "skill", label: "Strength 10", amount: 1,
@@ -39,7 +41,7 @@ export const expeditionRegistry = createContentRegistry({
             {id: "field_eye", label: "Discovered Field eye: +1 route preparation", weight: 1,
                 effects: [{type: "source", sourceId: "frontier.field_eye", operation: "grant"}]}]}],
     opportunities: [{id: "frontier.departure", label: "The guide's next departure"}],
-    actions: [
+    actions: [...techniqueActions, ratStepRoute,
         {id: "frontier.inspect", worldId: "base.frontier", revision: 2, label: "Inspect the crossing",
             description: "Find anchor points and earn 12 Perception XP. A 20% discovery can earn Field eye, improving later survey odds.", completionScope: "actor",
             duration: 3, repeatable: false, requires: village, costs: [],

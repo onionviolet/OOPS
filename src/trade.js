@@ -1,7 +1,7 @@
 "use strict";
 
 import { update_displayed_trader, update_displayed_trader_inventory, 
-         update_displayed_character_inventory, exit_displayed_trade, update_displayed_money } from "./display.js";
+         update_displayed_character_inventory, exit_displayed_trade, update_displayed_money, update_displayed_total_price } from "./display.js";
 import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
 import { getItemFromKey } from "./items.js";
@@ -92,6 +92,7 @@ function accept_trade() {
     // Repricing is read-only. Keep selections and the new quote on a stale or
     // failed command so the player can review and retry it.
     if(!quoted || tradeQuoteFingerprint(quoted) !== tradeQuoteFingerprint(current_quote)) {
+        update_displayed_total_price(to_sell.value - to_buy.value);
         throw new Error("Trade quote changed. Review the refreshed price before accepting again.");
     }
     commitNativeTrade(quoted, current_quote);

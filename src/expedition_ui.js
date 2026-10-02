@@ -25,17 +25,18 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     body.append(element("p", "Survey by kit, reusable anchors or strength. Inventory supplies, practiced skills and earned traits change your options. Provisional content for review."));
     const stateText = element("p", "", "expedition_state"); body.append(stateText, status);
     const capabilityText = element("p", "", "expedition_preview"); body.append(capabilityText);
-    const cancelButton = element("button", "Cancel expedition · spent supplies are lost");
+    const cancelButton = element("button", "Cancel timed work · spent inputs are lost");
     cancelButton.type = "button";
     cancelButton.addEventListener("click", () => {
         const {state} = read();
         const job = state.pending.find(job => job.context.actorId === "player");
-        try {cancel(job.id, state.sequence); notice = "Cancellation saved. Spent supplies were forfeited.";}
+        try {cancel(job.id, state.sequence); notice = "Cancellation saved. Spent inputs were forfeited.";}
         catch(error) {notice = error.message;}
         render(true);
     });
     body.append(cancelButton);
     for(const action of registry.actions.values()) {
+        if(action.group === "technique") continue;
         const card = element("div", "", "expedition_card");
         const button = element("button", action.label);
         button.type = "button";
@@ -80,6 +81,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
         cancelButton.hidden = !cancellable;
         cancelButton.disabled = !!error;
         for(const action of registry.actions.values()) {
+        if(action.group === "technique") continue;
             const preview = evaluateAction(state, registry, action.id, context);
             const {card, button, previewText, requirements} = cards.get(action.id);
             card.hidden = !preview.visible;

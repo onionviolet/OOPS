@@ -3002,3 +3002,6 @@ i {
 .expedition_preview, .expedition_state { font-size: 0.9em; }
 .expedition_notice { min-height: 1.4em; }
 .expedition_history { padding-left: 1.5rem; }
+
+.technique_cue { font-weight: bold; padding: 0.5rem; background: #80bde91a; border-left: 3px solid #80bde9; }
+.technique_responses { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0; }

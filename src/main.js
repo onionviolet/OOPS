@@ -125,7 +125,7 @@ import {encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files
 import {preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
-import {createExpansionState, loadExpansionState, commitAction, advanceSimulation, cancelAction} from "./expansion_engine.js";
+import {createExpansionState, loadExpansionState, commitAction, advanceSimulation, cancelAction, validateExpansionState} from "./expansion_engine.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
 import "./data/expedition_items.js";
 import {createExpeditionPanel} from "./expedition_ui.js";
@@ -134,6 +134,10 @@ import {prepareGameplayPublication, readGameplayActor} from "./gameplay_publicat
 
 import {readInventoryOwner, prepareOwnershipPublication, recordAcquisitions} from "./acquisition.js";
 import {stageNativeTrade} from "./native_trade_transaction.js";
+
+import {activePractice, answerTechniquePractice, cancelTechniquePractice, observeNativeTechnique} from "./techniques.js";
+import {createTechniquePanel} from "./technique_ui.js";
+import {applyGameplayEffect} from "./gameplay_transactions.js";
 
 const gameplayBindings = {player: {category: "person", id: "main_character"}};
 
@@ -153,6 +157,7 @@ const dev_backup_key = "dev backup save";
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
 let expansionError = "";
 let expeditionPanel;
+let techniquePanel;
 // One writer owns the entire envelope, including legacy autosave. Import probes
 // never acquire a lock or write. A second tab remains a read-only preview.
 let ownsSave = !!importProbeToken;
@@ -172,6 +177,7 @@ function validateNativeGameplayReferences(definitions) {
     for(const definition of definitions) for(const effect of definition) {
         if(effect.type === "item" && !getItemFromKey(effect.key)) throw new Error("Unsupported expedition item.");
         if(effect.type === "xp" && !Object.hasOwn(skills, effect.skill)) throw new Error(`Unsupported expedition skill ${effect.skill}.`);
+        if(effect.type === "technique" && effect.operation === "observe" && !Object.hasOwn(enemy_templates, effect.enemyId)) throw new Error("Unsupported technique enemy.");
         if(effect.type === "reputation" && !Object.hasOwn(character.reputation, effect.region)) throw new Error("Unsupported expedition reputation region.");
     }
 }
@@ -179,13 +185,17 @@ function validateNativeGameplayReferences(definitions) {
 function expeditionContext() {
     const gameplay = gameplaySnapshot();
     return {actorId: "player", worldId: "base.frontier", external: {money: character.money}, gameplay,
-        facts: {location: current_location?.id, strength: character.getFullStats().strength,
+        facts: {location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
             climbing: skills.Climbing ? character.getTotalSkillLevel("Climbing") : 0,
             kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}};
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
+    for(const actor of Object.values(plan.state.actors)) {
+        const active = activePractice(actor);
+        if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
+    }
     const publication = prepareGameplayPublication(plan.gameplay, {actors: {player: character}, skills, getItemFromKey});
     const ownershipPublication = plan.ownership && prepareOwnershipPublication(plan.ownership, {itemsByOwner, getItem: getItemFromKey});
     plan.itemLog ??= recordAcquisitions(item_log.items, (plan.acquisitions || []).filter(e => e.owner === "player"), getItemFromKey);
@@ -195,6 +205,12 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         const future = advanceSimulation(plan.state, expeditionRegistry, Math.max(0, plan.commitment.due - plan.state.clock),
             plan.external, plan.gameplay);
         prepareGameplayPublication(future.gameplay, {actors: {player: character}, skills, getItemFromKey});
+    }
+    const practice = activePractice(plan.state.actors.player);
+    if(practice) {
+        const future = structuredClone(plan.gameplay), p = practice[1].practice;
+        applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
+        prepareGameplayPublication(future, {actors: {player: character}, skills, getItemFromKey});
     }
     try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
@@ -230,7 +246,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
 }
 
 function commitNativeTrade(quote, currentQuote) {
-    if(expansionState.pending.some(job => job.context.actorId === "player")) throw new Error("Finish your expedition before trading.");
+    if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) throw new Error("Finish your expedition or technique drill before trading.");
     const vendor = NPCRegistry.get(quote.vendorId).getTraderInventory();
     // Preserve the native uncapped Haggling award and its current XP bonuses.
     const skill = skills.Haggling;
@@ -250,12 +266,27 @@ function startExpedition(actionId, sequence) {
 }
 
 function cancelExpedition(jobId, sequence) {
+    const practice = activePractice(expansionState.actors.player);
+    if(practice?.[1].practice.id === jobId) {
+        persistExpansion({state: cancelTechniquePractice(expansionState, "player", jobId, sequence),
+            external: {money: character.money}, gameplay: gameplaySnapshot()});
+        return;
+    }
     persistExpansion(cancelAction(expansionState, expeditionRegistry, jobId, expeditionContext(), sequence));
 }
 
+function answerPractice(practiceId, response, sequence) {
+    const result = answerTechniquePractice(expansionState, "player", practiceId, response, sequence);
+    const gameplay = gameplaySnapshot();
+    if(result.reward) applyGameplayEffect(gameplay, result.reward, "player");
+    validateExpansionState(result.state, expeditionRegistry);
+    persistExpansion({state: result.state, external: {money: character.money}, gameplay});
+    return {correct: result.correct};
+}
+
 function expeditionOccupiesPlayer() {
-    if(!expansionState.pending.some(job => job.context.actorId === "player")) return false;
-    log_message("Finish the current field expedition before starting another activity.", "notification");
+    if(!expansionState.pending.some(job => job.context.actorId === "player") && !activePractice(expansionState.actors.player)) return false;
+    log_message("Finish or cancel your current expedition or technique drill before starting another activity.", "notification");
     return true;
 }
 
@@ -271,6 +302,7 @@ function advanceExpeditions(minutes) {
         catch(error) {expansionError ||= error.message;}
     }
     expeditionPanel?.render();
+    techniquePanel?.render();
 }
 
 const global_flags = {
@@ -2130,6 +2162,16 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
             });
         })
     }
+    if(fighter.tags.main_character && !is_special_combat && target.get_loot && ownsSave && !expansionError && !foundationSaveBlocked) {
+        const observed = observeNativeTechnique(expansionState, expeditionRegistry, "player", target.name);
+        if(observed) {
+            try {
+                persistExpansion({state: observed, external: {money: character.money}, gameplay: gameplaySnapshot()});
+                log_message(`Observed ${target.name}'s footwork. Read the Technique notebook in Village.`, "notification");
+            } catch(error) {log_message("Technique observation could not be saved: " + error.message, "message_critical");}
+        }
+    }
+
 }
 
 function kill_player({is_combat = true}) {
@@ -3585,6 +3627,11 @@ function load(save_data) {
             retiredContent = prepared.retired;
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
+            for(const actor of Object.values(expansionState.actors)) {
+                const active = activePractice(actor);
+                if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
+            }
+
         } catch(error) {
             foundationSaveBlocked = true;
             throw error;
@@ -5986,6 +6033,7 @@ acquireSaveOwnership().then(owned => {
     ownsSave = owned;
     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
     expeditionPanel?.render(true);
+    techniquePanel?.render(true);
 });
 
 //Verify_Game_Objects();
@@ -6277,10 +6325,12 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     validateNativeGameplayReferences([...expeditionRegistry.actions.values()].flatMap(action =>
         [action.costs, action.effects || [], ...action.outcomes.map(outcome => outcome.effects || [])])
         .concat([...expeditionRegistry.rollTables.values()].flatMap(table => table.outcomes.map(outcome => outcome.effects || []))));
-    expeditionPanel = createExpeditionPanel({registry: expeditionRegistry,
-        read: () => ({state: expansionState, context: expeditionContext(), error: expansionError,
-            enabled: ownsSave && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade()}),
+    const readProgression = () => ({state: expansionState, context: expeditionContext(), error: expansionError,
+        enabled: ownsSave && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade()});
+    expeditionPanel = createExpeditionPanel({registry: expeditionRegistry, read: readProgression,
         command: startExpedition, cancel: cancelExpedition});
+    techniquePanel = createTechniquePanel({registry: expeditionRegistry, read: readProgression,
+        command: startExpedition, cancel: cancelExpedition, answer: answerPractice});
 }
 
 if(game_options.skip_play_button && !importProbeToken) {

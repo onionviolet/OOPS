@@ -29,7 +29,7 @@ export function stageNativeTrade({state, gameplay, owners, money, market, itemLo
         const tier = region[group_key][group_tier];
         tier.sold = selling ? tier.sold + entry.count : Math.max(0, tier.sold - entry.count);
         tier.recovered = Math.min(tier.recovered, tier.sold);
-        if(!Number.isSafeInteger(tier.sold) || tier.sold < 0) throw new Error("Market quantity overflow.");
+        if(!Number.isSafeInteger(tier.sold) || tier.sold < 0 || tier.sold >= 1e13) throw new Error("Market quantity overflow.");
     }
     const nextGameplay = structuredClone(gameplay);
     nextGameplay.player.inventory = ownership.player;

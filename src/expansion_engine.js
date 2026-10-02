@@ -1,9 +1,10 @@
+import {validateTechniqueDefinitions, validateTechniqueEffect, validateTechniqueRecords, applyTechniqueEffect, techniqueFacts, activePractice} from "./techniques.js";
 import {evaluateRule, chooseOutcome} from "./rules.js";
 import {validateCapabilityDefinitions, queryCapabilities} from "./capabilities.js";
 import {validateGameplaySnapshot, validateGameplayEffect, applyGameplayEffect} from "./gameplay_transactions.js";
 
 // Definitions are immutable content; only this JSON namespace is persisted.
-export const ENGINE_SCHEMA = 2;
+export const ENGINE_SCHEMA = 3;
 const scopes = ["campaign", "journey", "world", "actor", "scenario", "external"];
 const clone = value => structuredClone(value);
 const object = value => value && typeof value === "object" && !Array.isArray(value);
@@ -18,7 +19,7 @@ export function createExpansionState(seed = 1) {
     return {schema: ENGINE_SCHEMA, sequence: 0, clock: 0, rng: seed || 1,
         campaign: domain(), journey: {...domain(), id: "journey-1"},
         worlds: {"base.frontier": domain()},
-        actors: {player: {...domain(), worldId: "base.frontier", sources: {}}}, scenarios: {},
+        actors: {player: {...domain(), worldId: "base.frontier", sources: {}, techniques: {}}}, scenarios: {},
         pending: [], opportunities: {}, history: [], checkpoints: {}};
 }
 
@@ -53,6 +54,7 @@ function validateEffects(effects, registry) {
                 typeof effect.blocking === "boolean", "Invalid opportunity effect.");
             if(registry) check(registry.opportunities.has(effect.id), `Unknown opportunity: ${effect.id}`);
         } else if(["item", "xp", "reputation"].includes(effect.type)) validateGameplayEffect(effect);
+        else if(effect.type === "technique") validateTechniqueEffect(effect, registry);
         else if(effect.type === "source") {
             check(id(effect.sourceId) && ["grant", "remove"].includes(effect.operation) &&
                 (effect.duration == null || integer(effect.duration) && effect.duration > 0), "Invalid capability source effect.");
@@ -73,7 +75,7 @@ function validateBudget(value) {
 }
 
 export function validateExpansionState(state, registry) {
-    if(state?.schema === 1) return validateExpansionState(migrateExpansionState(state), registry);
+    if(state?.schema === 1 || state?.schema === 2) return validateExpansionState(migrateExpansionState(state), registry);
     check(object(state) && state.schema === ENGINE_SCHEMA, "This expansion save needs a compatible engine schema.");
     check(integer(state.sequence) && integer(state.clock) && integer(state.rng) && state.rng > 0 && state.rng <= 0xffffffff,
         "Invalid expansion clock or random state.");
@@ -84,6 +86,7 @@ export function validateExpansionState(state, registry) {
         for(const [keyId, value] of Object.entries(state[key])) {check(id(keyId), "Invalid domain ID."); validateDomain(value);}
     }
     for(const actor of Object.values(state.actors)) {
+        validateTechniqueRecords(actor.techniques, state.clock, registry);
         check(id(actor.worldId) && Object.hasOwn(state.worlds, actor.worldId), "Unknown actor world.");
         check(object(actor.sources || {}), "Invalid actor sources.");
         for(const [sourceId, source] of Object.entries(actor.sources || {})) {
@@ -107,6 +110,7 @@ export function validateExpansionState(state, registry) {
             id(job.outcome) && Number.isFinite(job.draw) && job.draw >= 0 && job.draw < 1 &&
             ["actor", "scenario", "world", "journey", "campaign"].includes(job.completionScope), "Invalid pending commitment.");
         check(!busyActors.has(job.context.actorId), "An actor has overlapping assignments.");
+        check(!activePractice(state.actors[job.context.actorId]), "An actor has overlapping practice and assignments.");
         busyActors.add(job.context.actorId); instances.add(job.id);
         getDomain(state, "actor", job.context); getDomain(state, "world", job.context);
         if(job.context.scenarioId) getDomain(state, "scenario", job.context);
@@ -141,18 +145,18 @@ export function validateExpansionState(state, registry) {
     return state;
 }
 
-// An absent namespace is the only automatic migration. Unsupported versions fail
+// Absent state and schemas1/2 migrate additively. Unsupported versions fail
 // before the legacy loader mutates anything or autosave can replace the source.
 function migrateExpansionState(saved) {
     const state = clone(saved);
     state.schema = ENGINE_SCHEMA;
-    for(const actor of Object.values(state.actors || {})) actor.sources ??= {};
+    for(const actor of Object.values(state.actors || {})) {actor.sources ??= {}; actor.techniques ??= {};}
     return state;
 }
 
 export function loadExpansionState(saved, registry, seed = 1) {
     return validateExpansionState(saved == null ? createExpansionState(seed)
-        : saved.schema === 1 ? migrateExpansionState(saved) : clone(saved), registry);
+        : [1, 2].includes(saved.schema) ? migrateExpansionState(saved) : clone(saved), registry);
 }
 
 function validateCost(cost) {
@@ -185,7 +189,7 @@ function validateRule(rule) {
     }
 }
 
-export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = []}) {
+export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = [], techniques = []}) {
     const register = definitions => {
         const map = new Map();
         for(const definition of definitions) {
@@ -197,8 +201,9 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
         return map;
     };
     const registry = {worlds: register(worlds), actions: register(actions), opportunities: register(opportunities),
-        capabilities: register(capabilities), sources: register(sources), rollTables: register(rollTables)};
+        capabilities: register(capabilities), sources: register(sources), rollTables: register(rollTables), techniques: register(techniques)};
     validateCapabilityDefinitions(registry, validateRule);
+    validateTechniqueDefinitions(registry);
     for(const table of registry.rollTables.values()) {
         check(integer(table.revision) && table.revision > 0 && typeof table.label === "string", "Invalid roll table.");
         distribution(table);
@@ -287,7 +292,7 @@ function factsFor(state, context) {
 }
 
 export function inspectCapabilities(state, registry, context) {
-    return queryCapabilities(state, registry, context, factsFor(state, context));
+    return queryCapabilities(state, registry, context, {...factsFor(state, context), ...techniqueFacts(getDomain(state, "actor", context), registry, context)});
 }
 
 function resourcesFor(state, external, scope, context) {
@@ -303,7 +308,7 @@ export function evaluateAction(state, registry, actionId, context) {
     const action = registry.actions.get(actionId);
     check(action, `Unknown action: ${actionId}`);
     const actor = getDomain(state, "actor", context);
-    const facts = factsFor(state, context);
+    const facts = {...factsFor(state, context), ...techniqueFacts(getDomain(state, "actor", context), registry, context)};
     const capabilities = queryCapabilities(state, registry, context, facts);
     for(const [id, capability] of Object.entries(capabilities)) facts[`capability.${id}`] = capability.value;
     const visibility = action.visibleWhen ? evaluateRule(action.visibleWhen, facts) : {met: true};
@@ -316,6 +321,7 @@ export function evaluateAction(state, registry, actionId, context) {
             action.completionScope === "world" && job.context.worldId === context.worldId ||
             action.completionScope === "scenario" && job.context.scenarioId === context.scenarioId ||
             action.completionScope === "actor" && job.context.actorId === context.actorId)))) reasons.push("Already committed or completed.");
+    if(activePractice(actor)) reasons.push("Finish or cancel your active technique drill first.");
     if(state.pending.some(job => job.context.actorId === context.actorId)) reasons.push("Finish your current expedition first.");
     const blocking = Object.values(state.opportunities).filter(o => o.status === "available" && o.blocking);
     if(blocking.length && !blocking.some(o => o.definitionId === action.opportunityId &&
@@ -356,7 +362,7 @@ export function evaluateAction(state, registry, actionId, context) {
         reasons, costs, duration, outcomes, contributors, capabilities, rolls};
 }
 
-function applyEffects(state, external, effects, context, registry, gameplay = {}, receiptId = "validation") {
+function applyEffects(state, external, effects, context, registry, gameplay = {}, receiptId = "validation", draw = 0) {
     validateEffects(effects, registry);
     for(const effect of effects) {
         if(effect.type === "fact") getDomain(state, effect.scope, context).facts[effect.key] = effect.value;
@@ -366,6 +372,8 @@ function applyEffects(state, external, effects, context, registry, gameplay = {}
             check(Number.isFinite(next) && next >= 0 && next <= Number.MAX_SAFE_INTEGER, `Insufficient or invalid ${effect.key}.`);
             resources[effect.key] = next;
         } else if(["item", "xp", "reputation"].includes(effect.type)) applyGameplayEffect(gameplay, effect, context.actorId);
+        else if(effect.type === "technique") applyTechniqueEffect(getDomain(state, "actor", context), effect,
+            {registry, clock: state.clock, worldId: context.worldId, receiptId, draw});
         else if(effect.type === "source") {
             const sources = getDomain(state, "actor", context).sources ??= {};
             if(effect.operation === "remove") delete sources[effect.sourceId];
@@ -390,7 +398,7 @@ function draw(state) {
 }
 
 function finish(state, external, job, registry, gameplay, acquisitions) {
-    applyEffects(state, external, job.effects, job.context, registry, gameplay, job.id);
+    applyEffects(state, external, job.effects, job.context, registry, gameplay, job.id, job.draw);
     for(const effect of job.effects) if(effect.type === "item") acquisitions.push({owner: job.context.actorId, key: effect.key, count: effect.amount});
     const completed = getDomain(state, job.completionScope, job.context).completed;
     completed[job.actionId] = (completed[job.actionId] || 0) + 1;
