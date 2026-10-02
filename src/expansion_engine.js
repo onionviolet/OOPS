@@ -389,8 +389,9 @@ function draw(state) {
     return state.rng / 0x100000000;
 }
 
-function finish(state, external, job, registry, gameplay) {
+function finish(state, external, job, registry, gameplay, acquisitions) {
     applyEffects(state, external, job.effects, job.context, registry, gameplay, job.id);
+    for(const effect of job.effects) if(effect.type === "item") acquisitions.push({owner: job.context.actorId, key: effect.key, count: effect.amount});
     const completed = getDomain(state, job.completionScope, job.context).completed;
     completed[job.actionId] = (completed[job.actionId] || 0) + 1;
     state.history.push({id: job.id, sequence: job.sequence, actionId: job.actionId, revision: job.revision,
@@ -442,10 +443,11 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
         job.effects.push(...(chosen.effects || []));
         job.rolls.push({id: roll.id, tableId: roll.tableId, revision: roll.revision, outcome: chosen.id, label: chosen.label || chosen.id, draw: drawValue});
     }
-    if(preview.duration === 0) finish(next, external, job, registry, gameplay);
+    const acquisitions = [];
+    if(preview.duration === 0) finish(next, external, job, registry, gameplay, acquisitions);
     else next.pending.push(job);
     validateExpansionState(next, registry);
-    return {state: next, external, gameplay, gameplayBefore: clone(context.gameplay || {}), preview, commitment: clone(job)};
+    return {state: next, external, gameplay, acquisitions, gameplayBefore: clone(context.gameplay || {}), preview, commitment: clone(job)};
 }
 
 export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}) {
@@ -453,6 +455,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
     validateBudget(external);
     validateGameplaySnapshot(gameplay);
     const next = clone(state), budgets = clone(external), owned = clone(gameplay);
+    const acquisitions = [];
     const target = next.clock + minutes;
     let stoppedAtChoice = false;
     while(true) {
@@ -464,7 +467,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         if(boundary > target) {next.clock = target; break;}
         next.clock = Math.max(next.clock, boundary);
         const due = next.pending.filter(job => job.due <= next.clock).sort((a, b) => a.due - b.due || a.sequence - b.sequence);
-        for(const job of due) finish(next, budgets, job, registry, owned);
+        for(const job of due) finish(next, budgets, job, registry, owned, acquisitions);
         next.pending = next.pending.filter(job => job.due > next.clock);
         for(const o of Object.values(next.opportunities)) {
             if(o.status === "scheduled" && o.due <= next.clock) o.status = "available";
@@ -472,7 +475,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
         }
     }
     validateExpansionState(next, registry);
-    return {state: next, external: budgets, gameplay: owned, gameplayBefore: clone(gameplay), stoppedAtChoice, remaining: target - next.clock};
+    return {state: next, external: budgets, gameplay: owned, acquisitions, gameplayBefore: clone(gameplay), stoppedAtChoice, remaining: target - next.clock};
 }
 
 export function cancelAction(state, registry, jobId, context, expectedSequence = state.sequence) {

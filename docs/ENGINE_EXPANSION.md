@@ -49,6 +49,12 @@ New jobs freeze requirements, probabilities, selected result, effects and durati
 
 The bridge advances only while new jobs/opportunities exist; its clock measures supported simulation exposure rather than mirroring the entire upstream calendar. Normal ticks, sleep and travel jumps use the same scheduler. During a pending expedition, native travel/training/actions/reading/sleep/trade cannot start; after completion, native play resumes. Rendering is independent of effect application. This does not port native combat to deterministic simulation.
 
+## Package A playable increment, 2026-10-01
+
+`acquisition.js` stages owned transfers/consumption/grants with complete keys and validates all initial debits before any grants. Traders and storage can bind inventories without a fake levelable actor. `native_trade_transaction.js` stages the complete native quote, both owners, money, market saturation, boosted uncapped Haggling XP, the item log and a saved receipt. Native accept persists once before publication; stale quotes reject for review and write failures preserve live ownership. Existing native quote pricing remains authoritative. Expedition items also use the shared service and report completed acquisitions separately from reserved costs/refunds.
+
+The Village supplier's provisional packing service uses inspection knowledge, six coins and four minutes to provide one survey kit and four Climbing XP. It exercises reservation, reload and exactly-once acquisition. This service requires no native recipe unlock; the existing guard on unsupported native milestone rewards remains. Neither all native crafting nor storage transfers have been converted to transactions. The earlier package table describes the broader remaining contracts, not a claim of their completion.
+
 ## Audit coverage and remaining engine work
 
 This map covers every PF family in [Genre sweep](RESEARCH_GENRE_SWEEP.md) plus the cross-cutting rival, origin and idle-game audits. **Foundation** means the new primitives can hold and execute a bounded authored example. It never means that family's complete gameplay already exists.

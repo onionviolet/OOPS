@@ -132,6 +132,9 @@ import {createExpeditionPanel} from "./expedition_ui.js";
 import {persistExpansionPlan} from "./expansion_persistence.js";
 import {prepareGameplayPublication, readGameplayActor} from "./gameplay_publication.js";
 
+import {readInventoryOwner, prepareOwnershipPublication, recordAcquisitions} from "./acquisition.js";
+import {stageNativeTrade} from "./native_trade_transaction.js";
+
 const gameplayBindings = {player: {category: "person", id: "main_character"}};
 
 let retiredContent = {schema: 1, entries: []};
@@ -181,9 +184,11 @@ function expeditionContext() {
             kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}};
 }
 
-function persistExpansion(plan) {
-    if(!ownsSave || importProbeToken || expansionError) throw new Error(expansionError || "This tab cannot commit expeditions.");
+function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
     const publication = prepareGameplayPublication(plan.gameplay, {actors: {player: character}, skills, getItemFromKey});
+    const ownershipPublication = plan.ownership && prepareOwnershipPublication(plan.ownership, {itemsByOwner, getItem: getItemFromKey});
+    plan.itemLog ??= recordAcquisitions(item_log.items, (plan.acquisitions || []).filter(e => e.owner === "player"), getItemFromKey);
     // Check pending native rewards before accepting reserved costs, not only at
     // completion. Unsupported milestone unlocks reject this command safely.
     if(plan.commitment) {
@@ -191,10 +196,11 @@ function persistExpansion(plan) {
             plan.external, plan.gameplay);
         prepareGameplayPublication(future.gameplay, {actors: {player: character}, skills, getItemFromKey});
     }
-    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings,
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
-        expansionError = "Expedition paused because saving failed. Free storage and reload before continuing.";
+        expansionError = "Progress paused because saving failed. Free storage and reload before continuing.";
+        foundationSaveBlocked = true;
         throw error;
     }
     // Every owned domain is durable before native state is published. Rendering
@@ -202,6 +208,9 @@ function persistExpansion(plan) {
     expansionState = plan.state;
     character.money = plan.external.money;
     publication.publish();
+    ownershipPublication?.publish();
+    if(plan.market) set_loot_sold_count(plan.market);
+    item_log.items = plan.itemLog;
     for(const {id, target} of publication.dependencies) {
         which_skills_affect_skill[target] ||= [];
         if(!which_skills_affect_skill[target].includes(id)) which_skills_affect_skill[target].push(id);
@@ -209,6 +218,7 @@ function persistExpansion(plan) {
     try {
         update_displayed_money();
         update_displayed_character_inventory();
+        update_displayed_item_log();
         for(const id of publication.changes) {
             if(skills[id].visibility_treshold <= skills[id].getTotalXP()) {
                 create_new_skill_bar(skills[id]);
@@ -217,6 +227,19 @@ function persistExpansion(plan) {
         }
         if(publication.changes.length) character.updateStatsAndDisplay();
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
+}
+
+function commitNativeTrade(quote, currentQuote) {
+    if(expansionState.pending.some(job => job.context.actorId === "player")) throw new Error("Finish your expedition before trading.");
+    const vendor = NPCRegistry.get(quote.vendorId).getTraderInventory();
+    // Preserve the native uncapped Haggling award and its current XP bonuses.
+    const skill = skills.Haggling;
+    const xp = skill.canGainXP(get_context()) ? Math.round((quote.buyValue + quote.sellValue) / 10 *
+        config.global_xp_multiplier * character.getSkillXPGain("Haggling") * (character.xp_multiplier ?? 1) * 100) / 100 : 0;
+    const plan = stageNativeTrade({state: expansionState, gameplay: gameplaySnapshot(),
+        owners: {player: readInventoryOwner(character.getItems()), vendor: readInventoryOwner(vendor)},
+        money: character.money, market: loot_sold_count, itemLog: item_log.items, quote, currentQuote, xp, getItem: getItemFromKey});
+    persistExpansion(plan, {vendor: {category: "trader", id: quote.vendorId}}, {vendor});
 }
 
 function startExpedition(actionId, sequence) {
@@ -5880,7 +5903,14 @@ window.remove_from_buying_list = remove_from_buying_list;
 window.add_to_selling_list = add_to_selling_list;
 window.remove_from_selling_list = remove_from_selling_list;
 window.cancel_trade = cancel_trade;
-window.accept_trade = accept_trade;
+window.accept_trade = () => {
+    try {accept_trade();}
+    catch(error) {
+        log_message("Trade cancelled: " + error.message, "message_critical");
+        update_displayed_trader_inventory();
+        update_displayed_character_inventory({is_trade: true});
+    }
+};
 window.is_in_trade = is_in_trade;
 window.update_displayed_total_price = update_displayed_total_price;
 
@@ -6322,7 +6352,7 @@ export {
     current_combat,
     current_location,
     can_work, active_effects,
-    enough_time_for_earnings, add_xp_to_skill,
+    enough_time_for_earnings, add_xp_to_skill, commitNativeTrade,
     get_current_book,
     last_location_with_bed, last_combat_location,
     current_stance, selected_stance, change_stance, faved_stances, 

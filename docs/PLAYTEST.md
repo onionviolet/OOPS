@@ -1,3 +1,11 @@
+## Atomic acquisition and Village packing, 2026-10-01
+
+47 tests pass and the rebuilt bundle was exercised on fresh origin `http://127.0.0.1:18210/`. Generated fixtures only; no personal saves. Four new contract tests cover multi-owner trade, full quality keys, boosted XP inputs, market changes, stale price/quantity rejection, insufficient money, overflow, a failed durable write, one successful write and exactly-once paid packing after reload.
+
+Native Village purchase: accepted one kit at eight coins, persisted money102→94, player kit1, vendor kit3→2, Haggling0→0.8 and acquisition number1 in the same envelope. Native Save/reload retained all five values and the trade receipt. Browser checking caught and repaired use of the NPC rather than its trader component for price-margin lookup; the corrected rebuilt flow passed.
+
+Packing: generated inspected/no-kit fixture began the native journal service at money102→96. Immediate reload retained the four-minute job. Completion produced kit1, Climbing4 and acquisition number1. Native Save/reload retained money96 and one completion receipt without extra output. Contract tests prove failed persistence leaves live/durable resources unchanged; browser storage failure was not injected in this increment. No new schema or whole-crafting transaction coverage is claimed. Human service pricing and usefulness remain pending.
+
 # Playtest evidence
 
 ## Village shop preparations and audit scope, 2026-10-01

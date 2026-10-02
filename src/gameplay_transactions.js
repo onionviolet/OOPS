@@ -1,3 +1,4 @@
+import {stageAcquisition} from "./acquisition.js";
 // Plain snapshots of owned v0.6 state. No component, DOM or storage mutation.
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const check = (condition, message) => {if(!condition) throw new Error(message);};
@@ -49,10 +50,9 @@ export function applyGameplayEffect(snapshot, effect, actorId, spending = false)
     const actor = snapshot[actorId];
     check(actor, `No gameplay adapter for actor ${actorId}.`);
     if(effect.type === "item") {
-        const next = (actor.inventory[effect.key] || 0) + effect.amount * (spending ? -1 : 1);
-        check(Number.isSafeInteger(next) && next >= 0, `Insufficient or invalid ${effect.label || "inventory items"}.`);
-        if(next) actor.inventory[effect.key] = next;
-        else delete actor.inventory[effect.key];
+        actor.inventory = stageAcquisition({owner: actor.inventory}, spending
+            ? {consumes: [{owner: "owner", key: effect.key, count: effect.amount}]}
+            : {grants: [{owner: "owner", key: effect.key, count: effect.amount}]}).owner;
     } else if(effect.type === "xp") {
         const seen = new Set();
         const grant = (key, delta) => {

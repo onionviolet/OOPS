@@ -1,6 +1,6 @@
 # YAIRPG expansion project
 
-Status: v0.6 foundation with native gameplay transactions, shared capabilities, saved weighted discoveries and Village preparation stock implemented, 2026-10-01. Further groundwork is scoped from prior audits. Build, 43 tests and generated-save browser checks pass; human gameplay acceptance remains pending. Evidence and limits are in `docs/PLAYTEST.md`.
+Status: v0.6 foundation with native gameplay transactions, shared capabilities, saved weighted discoveries and Village preparation stock implemented, 2026-10-01. Atomic native trade and a preparation service are implemented. Build, 47 tests and generated-save browser checks pass; human gameplay acceptance remains pending. Evidence and limits are in `docs/PLAYTEST.md`.
 
 ## Intent
 
@@ -18,6 +18,8 @@ Original user messages, interpretation boundaries and complete research-loop cov
 - First playable milestone: one realm and one prestige layer. This is a delivery milestone, not the limit of the game's intended scope.
 
 Realm names, story, skill roster, reset rules, retained progress and balance are still undecided. The broad expansion direction is requested; the concrete designs below are proposals. Agents can make reversible prototype choices within the authorized direction, label them, and present playable results for review.
+
+Requested exploration, 2026-10-01: extend existing features with technique practice minigames and routes for learning, copying or stealing techniques from enemies. Implement small integrated examples with an idle fallback. Observing, understanding, ownership and execution must remain distinct; copying does not remove a donor's ability. Concrete lore, challenges and balance are provisional. Persistent theft needs a durable donor/claim consequence before it can be labelled stealing.
 
 ## Game reference direction
 
@@ -137,3 +139,9 @@ Requested broader sweep and trope follow-up, 2026-10-01: [Genre sweep and implem
 Requested upstream comparison, 2026-10-01: [Upstream direction and future adaptation](docs/UPSTREAM_DIRECTION.md) separates Miktaew's hosted v0.5.5.30 releases from the newer v0.6 development source, compares shared NPC/availability/combat work with our plans, and records selective-port versus coordinated-migration options. Town access followed by magic is an explicit future sequence, without a verified delivery date. Use the development source as a comparison before expanding those engine areas; no upstream merge, migration or gameplay selection is accepted by this research request.
 
 Verification and limits are recorded in `docs/PLAYTEST.md`. Previous prototype rules, review status and superseded planning are preserved in `docs/PROTOTYPE_HISTORY.md`. Historical save exports in `/Users/weiwei/Downloads/Games/` remain private and untouched.
+
+## Acquisition increment, 2026-10-01
+
+Native trade now stages player/vendor ownership, the current quote, money, market saturation, Haggling XP and the item acquisition log in one envelope before publication. Quotes include current prices and quantities; changes reject for review. Inventory owners are separate from levelable actors. Storage failure leaves staged resources unpublished and pauses saving until reload. The shared acquisition service also handles expedition item costs/grants and acquisition records. No new save schema is needed for these existing domains.
+
+Provisional preparation service: after learning anchor points, the Village supplier packs one kit in four game minutes for six coins and awards four Climbing XP. The fee is reserved once; cancellation forfeits it. This is an authored paid service, not a conversion of every native crafting recipe. Generated browser checks verified native purchase and the paid service across Save/reload; human pricing/pacing acceptance is pending.

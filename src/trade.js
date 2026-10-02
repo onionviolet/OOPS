@@ -6,11 +6,15 @@ import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
 import { getItemFromKey } from "./items.js";
 import { add_to_sold, calculate_total_saturation, capped_at, equipment_capped_at, group_key_prefix, remove_from_sold } from "./market_saturation.js";
-import { add_xp_to_skill, current_location, get_context } from "./main.js";
+import { commitNativeTrade, current_location, get_context } from "./main.js";
 import { round_item_price } from "./misc.js";
+import {readInventoryOwner} from "./acquisition.js";
+import {loot_sold_count} from "./market_saturation.js";
+import {tradeQuoteFingerprint} from "./native_trade_transaction.js";
 import NPCRegistry from "./data/npcs.js";
 
 let current_trader = null;
+let current_quote = null;
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
 
@@ -57,6 +61,7 @@ function start_trade(trader_key) {
 }
 
 function cancel_trade() {
+    current_quote = null;
 
     to_buy.items = [];
     to_buy.groups = {};
@@ -69,99 +74,33 @@ function cancel_trade() {
     update_displayed_trader_inventory();
 }
 
+function readTradeQuote() {
+    return {vendorId: current_trader, region: current_location.market_region,
+        buy: to_buy.items.map(({item_key, count}) => ({item_key, count})),
+        sell: to_sell.items.map(({item_key, count}) => ({item_key, count})),
+        buyValue: to_buy.value, sellValue: to_sell.value, money: character.money,
+        margin: NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region),
+        player: readInventoryOwner(character.getItems()),
+        vendor: readInventoryOwner(NPCRegistry.get(current_trader).getTraderInventory()),
+        market: structuredClone(loot_sold_count)};
+}
+
 function accept_trade() {
-
-    let new_balance;
-    
-    if(to_sell.items.length == 0 && to_buy.items.length == 0) {
-        new_balance = character.money;
-    } else {
-        new_balance = character.money + to_sell.value - to_buy.value;
+    if(!current_trader || !to_buy.items.length && !to_sell.items.length) return;
+    const quoted = current_quote;
+    calculate_total_values();
+    // Repricing is read-only. Keep selections and the new quote on a stale or
+    // failed command so the player can review and retry it.
+    if(!quoted || tradeQuoteFingerprint(quoted) !== tradeQuoteFingerprint(current_quote)) {
+        throw new Error("Trade quote changed. Review the refreshed price before accepting again.");
     }
-
-    if(new_balance < 0) { //button shouldn't be clickable if trade is not affordable, so this is just in case
-        throw new Error("Trying to make a trade that can't be afforded");
-    } else {
-
-        character.money = new_balance;
-
-        let item_list = [];
-        let to_remove = [];
-        while(to_buy.items.length > 0) {
-            //add to character inventory
-            //remove from trader inventory
-
-            const trade_item = to_buy.items.pop();
-            
-            trade_item.item_count = trade_item.count;
-            to_remove.push(trade_item);
-
-            item_list.push({item_key: trade_item.item_key, count: trade_item.count});
-
-            const item = getItemFromKey(trade_item.item_key);
-            const {group_key, group_tier} = item.getMarketSaturationGroup();
-            if(item.saturates_market) {
-                remove_from_sold({group_key, group_tier, count: trade_item.count, region: current_location.market_region});
-            }
-        }
-        
-        if(to_remove.length > 0) {
-            character.addToInventory(item_list);
-            remove_from_trader_inventory(current_trader, to_remove);
-
-            for(let i = 0; i < item_list.length; i++) {
-                //update (remove) single item from display
-                update_displayed_character_inventory({item_key: item_list[i].item_key});
-            }
-        }
-        
-
-        item_list = []; //totally could reduce it to 1 array instead of 2 if I made param naming more consistent, maybe one day
-        to_remove = [];
-
-        while(to_sell.items.length > 0) {
-            //remove from character inventory
-            //add to trader inventory
-            
-            const trade_item = to_sell.items.pop();
-            
-            trade_item.item_count = trade_item.count;
-            to_remove.push(trade_item);
-
-            item_list.push({item_key: trade_item.item_key, count: trade_item.count});
-        
-            const item = getItemFromKey(trade_item.item_key);
-            const {group_key, group_tier} = item.getMarketSaturationGroup();
-            if(item.saturates_market) {
-                add_to_sold({group_key, group_tier, count: trade_item.count, region: current_location.market_region});
-            }
-        }
-        
-        if(to_remove.length > 0) {
-            add_to_trader_inventory(current_trader,item_list);
-            character.removeFromInventory(to_remove);
-
-            for(let i = 0; i < item_list.length; i++) {
-                update_displayed_trader_inventory({item_key: item_list[i].item_key});
-            }
-        }
-    }
-
-    add_xp_to_skill({skill: skills["Haggling"], xp_to_add: (to_sell.value + to_buy.value)/10, cap_gained_xp: false});
-    //xp not capped for this one
-
-    to_buy.value = 0;
-    to_buy.groups = {};
-    to_sell.value = 0;
-    to_sell.groups = {};
-
-
-    update_displayed_character_inventory({is_trade: true});
-    update_displayed_trader_inventory();
+    commitNativeTrade(quoted, current_quote);
+    cancel_trade();
     update_displayed_money();
 }
 
 function exit_trade() {
+    current_quote = null;
     current_trader = null;
     to_buy.items = [];
     to_buy.groups = {};
@@ -526,6 +465,7 @@ function calculate_total_values() {
         to_buy.value += to_buy.groups[traded_group_key].group_value;
     });
 
+    current_quote = readTradeQuote();
     return  to_sell.value - to_buy.value;
 }
 
@@ -536,7 +476,7 @@ function calculate_total_values() {
  * @returns total value of items, including character haggling skill and trader profit margin
  */
 function get_item_value(selected_item) {
-    const profit_margin = NPCRegistry.get(current_trader).getProfitMargin(current_location.market_region);
+    const profit_margin = NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region);
 
     const item = getItemFromKey(selected_item.item_key);
 
