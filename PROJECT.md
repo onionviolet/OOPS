@@ -41,6 +41,8 @@ Use Weibao's saved Chinese and English fiction lists as discovery sources, and n
 
 Worlds may be wholly original, inspired by selected books, or direct fan settings when explicitly wanted. Referencing a book does not by itself select a direct adaptation. Keep the shared progression framework flexible enough to support different world rules and cross-world interactions. A first discovery audit and source-backed inspiration proposal are recorded in `docs/EXPANSION_DESIGN.md`. This is not an exhaustive book audit or a confirmed favorite list.
 
+Clarified direction, 2026-10-02: existing fictional worlds from references are requested options, including recognizable settings from novels, anime/manga and games. Develop them as connected world campaigns alongside the base YAIRPG adventure. A particular source roster, entry era/location, player role and canonical-versus-divergent history remain open; the general option of direct reference settings is authorized. [Reference worlds and base-game connections](docs/ENGINE_EXPANSION.md#reference-worlds-and-base-game-connections-requested-2026-10-02) owns the proposed integration. Base skills, crafting, inventory, shops, encounters and discoveries should support entry, local play and useful return journeys. No reference world or travel system is implemented by this clarification.
+
 ## Expansion design proposal
 
 ### 1. Deepen the existing game
