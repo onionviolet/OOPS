@@ -2,6 +2,18 @@
 
 Archived 2026-10-01 after the user requested a return to the YAIRPG foundation. The following records prior planning and verification; it is not the current build status.
 
+## Superseded copying, loadout and trade summaries, 2026-10-02
+
+The current journey proposal in DIRECTION_SYNTHESIS.md permits deliberately exceptional copying/stacking with explicit authored rules. Its earlier blanket copying warning and fixed preparation recommendation are preserved verbatim below. Replay now refers to the optional first-milestone prestige policy because cultivation rebirth is archived. PROJECT.md's sequential-trade summary is superseded by implemented atomic native acquisition; its original paragraph is retained here.
+
+| [Progression and learned magic](RESEARCH_PROGRESSION_MAGIC.md) | Understanding, capacity, control and field execution differ; tools and environment can substitute for personal abilities | Useful techniques with requirements, costs, limits and practical tests | Unlimited spell copying; stacking every protagonist exception; another passive bonus shop |
+
+Know many methods, prepare a few. Start by reusing stance tradeoffs and one expedition utility choice before designing a general slot engine. Techniques should sometimes complement each other, but require a budget, compatibility condition or meaningful cost. Imported knowledge can remain useful while an imported power requires local fuel or an adapter. Later worlds earn their place by changing decisions, not by renaming the same resource loop.
+
+Keep replay distinct from the existing optional cultivation rebirth. It is not a second multiplier-producing prestige layer. Campaign-wide regression, imported future gear and a fully rewritten historical world remain separate, much larger designs.
+
+Playable shop increment: Village Basic stock now includes three Prepared survey kits and one lightweight Survey rope per ordinary refresh. Native purchase prices start at 8/16 coins, with native Haggling/reputation rules; journal preparation remains fixed at 8/16. Base/resale values are 2/4. The older Coil of rope retains its ID, value and separate role. Existing saved stocks receive new offers at the next scheduled refresh; loading never forcibly refills them. New shops still use native sequential trading, while the expansion event adapter remains separate. The next acquisition work must stage merchant/player transfers and acquisition records together. Item labels, prices and stock limits remain review proposals; saves retain the same item keys/schema.
+
 ## Next work
 
 First shared rules increment, 2026-10-01: implemented `src/rules.js` with explainable fact requirements, validated weighted outcomes and a JSON-safe resolution receipt. Cultivation trial eligibility uses its requirement evaluator with unchanged valid-save costs/thresholds. Ten tests and source rebuild pass. The probability/receipt helpers remain unconnected to story state and saves; no new event, rewind, world or offline feature is claimed. See ENGINE_EXPANSION.md for boundaries and PLAYTEST.md for browser verification. The next simple primitives should be a simulated-time deadline and an explicit reset-ownership policy, added with the first real event rather than empty framework modules.
