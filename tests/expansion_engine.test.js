@@ -1,15 +1,18 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {createExpansionState, loadExpansionState, validateExpansionState, createContentRegistry,
-    evaluateAction, commitAction, advanceSimulation, checkpointScenario, rewindScenario,
+    evaluateAction, commitAction, advanceSimulation as advance, checkpointScenario, rewindScenario,
     previewScenarioRewind} from "../src/expansion_engine.js";
-import {expeditionRegistry as registry, initializeExpedition} from "../src/expedition_content.js";
+import {expeditionRegistry as registry, initializeExpedition, SURVEY_KIT_KEY} from "../src/expedition_content.js";
 import {persistExpansionPlan} from "../src/expansion_persistence.js";
 import {encodeSaveFile, decodeSaveFile} from "../src/save_files.js";
 
 const fresh = seed => initializeExpedition(createExpansionState(seed));
+const gameplay = (kits = 0) => ({player: {inventory: kits ? {[SURVEY_KIT_KEY]: kits} : {},
+    skills: {Climbing: {xp: 0, parent: null, enabled: true}, Perception: {xp: 0, parent: null, enabled: true}}, reputation: {Village: 0}}});
+const advanceSimulation = (state, registry, minutes, external, owned = gameplay()) => advance(state, registry, minutes, external, owned);
 const context = (money = 102, facts = {}) => ({actorId: "player", worldId: "base.frontier",
-    external: {money}, facts: {location: "Village", strength: 12, climbing: 0, kits: 0, ...facts}});
+    external: {money}, gameplay: gameplay(facts.kits || 0), facts: {location: "Village", strength: 12, climbing: 0, kits: 0, rope: 0, ...facts}});
 const domain = () => ({facts: {}, resources: {}, completed: {}});
 const inspect = () => {
     const started = commitAction(fresh(1), registry, "frontier.inspect", context());
@@ -36,9 +39,9 @@ test("preview is pure and explains knowledge, context, combined costs and actual
 test("kit costs reserve once; frozen result survives reload, content revision and changed stats", () => {
     const state = inspect();
     const supplied = commitAction(state, registry, "frontier.kit", context());
-    assert.equal(supplied.external.money, 94); assert.equal(supplied.state.actors.player.resources.kits, 1);
+    assert.equal(supplied.external.money, 94); assert.equal(supplied.gameplay.player.inventory[SURVEY_KIT_KEY], 1);
     const begun = commitAction(supplied.state, registry, "frontier.secure", context(94, {kits: 1}));
-    assert.equal(begun.state.actors.player.resources.kits, 0); assert.equal(begun.external.money, 94);
+    assert.equal(begun.gameplay.player.inventory[SURVEY_KIT_KEY], undefined); assert.equal(begun.external.money, 94);
     const pending = begun.state.pending[0];
     const saved = loadExpansionState(JSON.parse(JSON.stringify(begun.state)), registry);
     assert.deepEqual(saved.pending[0], pending);
@@ -78,8 +81,8 @@ test("both survey routes are viable and recorded guide condition changes departu
 test("equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry", () => {
     const start = commitAction(inspect(), registry, "frontier.extract", context());
     const jumped = advanceSimulation(start.state, registry, 150, start.external);
-    let ticks = {state: start.state, external: start.external};
-    for(let i = 0; i < 150; i++) ticks = advanceSimulation(ticks.state, registry, 1, ticks.external);
+    let ticks = {state: start.state, external: start.external, gameplay: start.gameplay};
+    for(let i = 0; i < 150; i++) ticks = advanceSimulation(ticks.state, registry, 1, ticks.external, ticks.gameplay);
     assert.deepEqual(jumped.state, ticks.state); assert.deepEqual(jumped.external, ticks.external);
     assert.equal(Object.values(jumped.state.opportunities)[0].status, "expired");
     assert.equal(evaluateAction(jumped.state, registry, "frontier.depart", context()).eligible, false);
@@ -87,7 +90,7 @@ test("equal simulation duration in ticks or a travel jump crosses the same deadl
 
 test("repairing the crossing enables a more valuable delivery even if the guide needs rest", () => {
     const state = inspect(); state.actors.player.resources.kits = 1; state.rng = 999999;
-    const begun = commitAction(state, registry, "frontier.secure", context());
+    const begun = commitAction(state, registry, "frontier.secure", context(102, {kits: 1}));
     const done = advanceSimulation(begun.state, registry, 20, begun.external);
     assert.equal(done.state.worlds["base.frontier"].facts["guide.condition"], "tired");
     const preview = evaluateAction(done.state, registry, "frontier.depart", context(done.external.money));
@@ -156,7 +159,7 @@ test("isolated rewind previews losses, retains memory and cannot export temporar
 });
 
 test("legacy migration, dormant payload and Unicode file roundtrip retain new commitments", () => {
-    assert.equal(loadExpansionState(undefined, registry).schema, 1);
+    assert.equal(loadExpansionState(undefined, registry).schema, 2);
     const begun = commitAction(fresh(1), registry, "frontier.inspect", context());
     const envelope = {"game version": "v0.5.5.30", "current time": {year: 999, month: 4, day: 1, hour: 8, minute: 0},
         "current location": "Village", character: {name: "魏宝", money: 102, xp: {total_xp: 0}, inventory: {}, equipment: {}},
@@ -164,7 +167,7 @@ test("legacy migration, dormant payload and Unicode file roundtrip retain new co
         expansion: begun.state, retired_content: {schema: 1, entries: [{path: ["cultivation"], value: {qi: 78}}]}};
     const decoded = decodeSaveFile(encodeSaveFile(JSON.stringify(envelope)), "v0.5.5.30");
     assert.deepEqual(decoded.expansion, begun.state); assert.deepEqual(decoded.retired_content, envelope.retired_content);
-    for(const mutate of [s => s.schema = 2, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
+    for(const mutate of [s => s.schema = 3, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
         s => s.pending[0].draw = 1, s => s.pending[0].effects = [{type: "bad"}], s => s.pending[0].actionId = "missing.action"]) {
         const bad = structuredClone(begun.state); mutate(bad);
         assert.throws(() => loadExpansionState(bad, registry));
@@ -172,15 +175,17 @@ test("legacy migration, dormant payload and Unicode file roundtrip retain new co
 });
 
 test("durable envelope write is atomic on failure, includes costs, and preserves unrelated fields", () => {
-    const original = {character: {money: 102}, quests: {kept: true}, retired_content: {schema: 1, entries: []}};
+    const original = {character: {money: 102}, inventories: {person: {main_character: {}}},
+        levels: {person: {main_character: {total_xp: 0, skill_xp: {}}}}, quests: {kept: true}, retired_content: {schema: 1, entries: []}};
+    const bindings = {player: {category: "person", id: "main_character"}};
     const plan = commitAction(fresh(1), registry, "frontier.kit", context());
     let disk = JSON.stringify(original), writes = 0;
-    assert.throws(() => persistExpansionPlan(plan, {createSave: () => disk, key: "test",
+    assert.throws(() => persistExpansionPlan(plan, {createSave: () => disk, key: "test", bindings,
         storage: {setItem() {throw new Error("quota");}}}), /quota/);
     assert.equal(disk, JSON.stringify(original)); assert.equal(original.character.money, 102);
-    persistExpansionPlan(plan, {createSave: () => disk, key: "test", storage: {setItem(key, value) {disk = value; writes++;}}});
+    persistExpansionPlan(plan, {createSave: () => disk, key: "test", bindings, storage: {setItem(key, value) {disk = value; writes++;}}});
     const saved = JSON.parse(disk);
-    assert.equal(writes, 1); assert.equal(saved.character.money, 94); assert.equal(saved.expansion.actors.player.resources.kits, 1);
+    assert.equal(writes, 1); assert.equal(saved.character.money, 94); assert.equal(saved.inventories.person.main_character[SURVEY_KIT_KEY].count, 1);
     assert.deepEqual(saved.quests, original.quests); assert.deepEqual(saved.retired_content, original.retired_content);
     assert.throws(() => persistExpansionPlan(plan, {createSave: () => undefined, storage: {}, key: "test"}), /No valid save/);
 });

@@ -1,5 +1,27 @@
 # Playtest evidence
 
+## Gameplay transaction and capability foundations, 2026-10-01
+
+Implemented foundations 1 and 2 from the selected order. `npm test`: **43 pass**. `npm run build`: successful, fingerprint `v0.6-9311c05fd9e2`. New tests cover native item/XP/signed-reputation snapshots and publication, storage-failure isolation, parent XP, quality-specific item keys, source stacking/expiry/removal, weighted discovery and chance changes, frozen rolls after table edits, cancellation without RNG rewind, additive schema1 migration, fuzzy native eligibility, and unsupported unlock/reference rejection.
+
+Browser testing used the rebuilt bundle on fresh origins `http://127.0.0.1:8197/` and `http://localhost:8197/index.html`. The first began through native hero creation. The second used only a generated fixture derived from the previously recorded agent-created export, seeded at51 for the uncommon discovery (draw0.8027996397577226). Its installer refused to replace an existing save and was removed afterward. No personal save was read or changed.
+
+| Gate | Observed native/browser result |
+|---|---|
+| Kit reservation and cancellation | Purchase changed102 to94 coins and created a native Prepared survey kit. Starting the route removed it before any reward. Cancellation kept it spent and granted zero Climbing XP. A second purchase/start was reloaded while pending: zero kits, zero early XP, same active route |
+| Kit completion | Completed with60 Climbing XP,12 Perception XP from inspection, repaired crossing and ready guide. Native stats changed through skill progression |
+| Legacy kits | Generated schema1 fixture's two extension kits became two real inventory kits; repeated native save/reload retained exactly two |
+| Saved weighted discovery | Inspection was committed, reloaded and resumed before completion. Field eye remained after another reload; journal credited the trait and preparation1. Kit odds became95/5, rope75/25 and strong footpath90/10 |
+| Reusable capability route | Rope purchase changed102 to86 coins and added a native Survey rope. The equipment source enabled reusable anchors. Reload during work kept rope1 and kits2. Completion/reload retained those items, Climbing XP50, Perception XP12, money98 and native milestone stats |
+| Reputation consequence | Final rebuilt departure completed at money116 and Village reputation23 to24. Native Save and reload retained24, both XP totals, rope/kit counts, Field eye and the completed receipt, without another payout |
+| Final errors | Final reload reported no loading issues; captured warning/error logs were empty |
+
+The browser exposed upstream eligibility returning fuzzy numbers rather than booleans. The bridge normalizes those values, with a regression test. Native values are staged and saved before publication; rendering does not award effects. Screenshot: `docs/evidence/gameplay-foundations.png`. The live test tab remains open for review.
+
+Compatibility: schema2 accepts additive schema1 migration, preserves frozen old effects/RNG/results without new retroactive rewards, and transfers old kit stock once. New saves require the updated fork. Unknown sources/native effect references reject loading. Existing save-file encoding and retirement handling remain; automated file tests passed. Native Save/reload was verified here; another full native export/import chooser roundtrip was not repeated.
+
+Limits: the player is the live native binding. Fixed XP/stat milestones work; milestones unlocking native skills/recipes/quests reject before costs until a corresponding transaction handler exists. Arbitrary reward callbacks, health/equipment mutation, native quest-event dispatch and acquisition-log callbacks are outside this adapter. Fictional bloodlines and transient effects have unit-tested source contracts; inheritance, awakening, actual bloodline powers, general combat effects, luck/pity policies, offline replay, a second world and prestige gameplay remain future work. Human review still needs to judge the three routes and random trait opportunity.
+
 ## v0.6 adoption, 2026-10-01
 
 Pinned development source `25afe1a879459d85af609088a046ac4f1d3893e1` plus the ported fork runtime. Pre-migration source is preserved at `codex/pre-v06-checkpoint` (`62f100f9975e856517b623c9ba6c568b6d143aac`). The final main-module SHA256 is `54fabcb43ef435d2969bb267ceffef938e5dce22979d3a0c6a1cf8d35fb61eb2`. `npm test`: **32 passing**. `npm run build`: successful, with no warnings after correcting an ineffective tooltip fallback. Rebuilt assets were exercised in Chrome at fresh origin8148, using generated fixtures only.

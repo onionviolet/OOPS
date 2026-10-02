@@ -1,7 +1,9 @@
 import {evaluateRule, chooseOutcome} from "./rules.js";
+import {validateCapabilityDefinitions, queryCapabilities} from "./capabilities.js";
+import {validateGameplaySnapshot, validateGameplayEffect, applyGameplayEffect} from "./gameplay_transactions.js";
 
 // Definitions are immutable content; only this JSON namespace is persisted.
-export const ENGINE_SCHEMA = 1;
+export const ENGINE_SCHEMA = 2;
 const scopes = ["campaign", "journey", "world", "actor", "scenario", "external"];
 const clone = value => structuredClone(value);
 const object = value => value && typeof value === "object" && !Array.isArray(value);
@@ -16,7 +18,7 @@ export function createExpansionState(seed = 1) {
     return {schema: ENGINE_SCHEMA, sequence: 0, clock: 0, rng: seed || 1,
         campaign: domain(), journey: {...domain(), id: "journey-1"},
         worlds: {"base.frontier": domain()},
-        actors: {player: {...domain(), worldId: "base.frontier"}}, scenarios: {},
+        actors: {player: {...domain(), worldId: "base.frontier", sources: {}}}, scenarios: {},
         pending: [], opportunities: {}, history: [], checkpoints: {}};
 }
 
@@ -50,6 +52,11 @@ function validateEffects(effects, registry) {
             check(id(effect.id) && integer(effect.delay) && integer(effect.lifetime) && effect.lifetime > 0 &&
                 typeof effect.blocking === "boolean", "Invalid opportunity effect.");
             if(registry) check(registry.opportunities.has(effect.id), `Unknown opportunity: ${effect.id}`);
+        } else if(["item", "xp", "reputation"].includes(effect.type)) validateGameplayEffect(effect);
+        else if(effect.type === "source") {
+            check(id(effect.sourceId) && ["grant", "remove"].includes(effect.operation) &&
+                (effect.duration == null || integer(effect.duration) && effect.duration > 0), "Invalid capability source effect.");
+            if(registry) check(registry.sources.has(effect.sourceId), `Unknown source: ${effect.sourceId}`);
         } else throw new Error(`Unsupported effect: ${effect.type}`);
     }
 }
@@ -66,6 +73,7 @@ function validateBudget(value) {
 }
 
 export function validateExpansionState(state, registry) {
+    if(state?.schema === 1) return validateExpansionState(migrateExpansionState(state), registry);
     check(object(state) && state.schema === ENGINE_SCHEMA, "This expansion save needs a compatible engine schema.");
     check(integer(state.sequence) && integer(state.clock) && integer(state.rng) && state.rng > 0 && state.rng <= 0xffffffff,
         "Invalid expansion clock or random state.");
@@ -75,7 +83,18 @@ export function validateExpansionState(state, registry) {
         check(object(state[key]), `Invalid ${key}.`);
         for(const [keyId, value] of Object.entries(state[key])) {check(id(keyId), "Invalid domain ID."); validateDomain(value);}
     }
-    for(const actor of Object.values(state.actors)) check(id(actor.worldId) && Object.hasOwn(state.worlds, actor.worldId), "Unknown actor world.");
+    for(const actor of Object.values(state.actors)) {
+        check(id(actor.worldId) && Object.hasOwn(state.worlds, actor.worldId), "Unknown actor world.");
+        check(object(actor.sources || {}), "Invalid actor sources.");
+        for(const [sourceId, source] of Object.entries(actor.sources || {})) {
+            check(id(sourceId) && object(source) && integer(source.acquiredAt) && source.acquiredAt <= state.clock &&
+                (source.expiresAt == null || integer(source.expiresAt) && source.expiresAt > source.acquiredAt) &&
+                id(source.receiptId), "Invalid saved capability source.");
+            if(source.worldId != null) check(id(source.worldId) && Object.hasOwn(state.worlds, source.worldId), "Unknown source acquisition world.");
+            if(source.revision != null) check(integer(source.revision) && source.revision > 0, "Invalid acquired source revision.");
+            if(registry) check(registry.sources.has(sourceId), `Unsupported saved source: ${sourceId}`);
+        }
+    }
     if(registry) for(const worldId of Object.keys(state.worlds)) check(registry.worlds.has(worldId), `Unsupported saved world: ${worldId}`);
     check(Array.isArray(state.pending) && object(state.opportunities) && Array.isArray(state.history) &&
         state.history.length <= 100 && object(state.checkpoints), "Invalid expansion ledgers.");
@@ -95,6 +114,9 @@ export function validateExpansionState(state, registry) {
         if(registry) check(registry.actions.has(job.actionId), `Unsupported saved action: ${job.actionId}`);
         validateEffects(job.effects, registry);
         check(job.effects.every(e => e.type !== "resource" || e.amount >= 0), "Outcome debits must be reserved as commitment costs.");
+        validateRollReceipts(job.rolls || []);
+        if(job.costs) job.costs.forEach(validateCost);
+        check(job.cancellation == null || ["none", "refund", "forfeit"].includes(job.cancellation), "Invalid cancellation policy.");
     }
     for(const [key, opportunity] of Object.entries(state.opportunities)) {
         check(id(key) && id(opportunity.definitionId) && integer(opportunity.due) && integer(opportunity.expires) &&
@@ -109,6 +131,7 @@ export function validateExpansionState(state, registry) {
         check(object(receipt) && id(receipt.id) && integer(receipt.sequence) && receipt.sequence <= state.sequence &&
             integer(receipt.at) && receipt.at <= state.clock && id(receipt.actionId) && id(receipt.outcome) &&
             Number.isFinite(receipt.draw) && receipt.draw >= 0 && receipt.draw < 1, "Invalid event receipt.");
+        validateRollReceipts(receipt.rolls || []);
     }
     for(const [key, checkpoint] of Object.entries(state.checkpoints)) {
         check(id(key) && object(checkpoint) && id(checkpoint.scenarioId) &&
@@ -120,8 +143,31 @@ export function validateExpansionState(state, registry) {
 
 // An absent namespace is the only automatic migration. Unsupported versions fail
 // before the legacy loader mutates anything or autosave can replace the source.
+function migrateExpansionState(saved) {
+    const state = clone(saved);
+    state.schema = ENGINE_SCHEMA;
+    for(const actor of Object.values(state.actors || {})) actor.sources ??= {};
+    return state;
+}
+
 export function loadExpansionState(saved, registry, seed = 1) {
-    return validateExpansionState(saved == null ? createExpansionState(seed) : clone(saved), registry);
+    return validateExpansionState(saved == null ? createExpansionState(seed)
+        : saved.schema === 1 ? migrateExpansionState(saved) : clone(saved), registry);
+}
+
+function validateCost(cost) {
+    if(cost.type === "item") validateGameplayEffect(cost, true);
+    else {check(cost.type == null || cost.type === "resource", "Unsupported commitment cost."); validateResource(cost, true);}
+}
+
+function validateRollReceipts(rolls) {
+    check(Array.isArray(rolls), "Invalid saved rolls.");
+    const ids = new Set();
+    for(const roll of rolls) {
+        check(id(roll.id) && !ids.has(roll.id) && id(roll.tableId) && integer(roll.revision) && roll.revision > 0 &&
+            id(roll.outcome) && Number.isFinite(roll.draw) && roll.draw >= 0 && roll.draw < 1, "Invalid saved roll receipt.");
+        ids.add(roll.id);
+    }
 }
 
 function validateRule(rule) {
@@ -139,7 +185,7 @@ function validateRule(rule) {
     }
 }
 
-export function createContentRegistry({worlds = [], actions = [], opportunities = []}) {
+export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = []}) {
     const register = definitions => {
         const map = new Map();
         for(const definition of definitions) {
@@ -150,14 +196,31 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
         }
         return map;
     };
-    const registry = {worlds: register(worlds), actions: register(actions), opportunities: register(opportunities)};
+    const registry = {worlds: register(worlds), actions: register(actions), opportunities: register(opportunities),
+        capabilities: register(capabilities), sources: register(sources), rollTables: register(rollTables)};
+    validateCapabilityDefinitions(registry, validateRule);
+    for(const table of registry.rollTables.values()) {
+        check(integer(table.revision) && table.revision > 0 && typeof table.label === "string", "Invalid roll table.");
+        distribution(table);
+        for(const outcome of table.outcomes) {
+            validateEffects(outcome.effects || [], registry);
+            check((outcome.effects || []).every(e => e.type !== "resource" || e.amount >= 0), "Roll debits must be reserved as commitment costs.");
+        }
+        for(const modifier of table.modifiers || []) {validateRule(modifier.when); validateTransfers(modifier, table.outcomes);}
+    }
     for(const action of registry.actions.values()) {
         check(registry.worlds.has(action.worldId) && integer(action.revision) && action.revision > 0 &&
             integer(action.duration) && typeof action.repeatable === "boolean" &&
             ["actor", "scenario", "world", "journey", "campaign"].includes(action.completionScope), "Invalid action definition.");
         validateRule(action.requires); validateRule(action.visibleWhen);
         check(Array.isArray(action.costs), "Costs must be an array.");
-        action.costs.forEach(cost => validateResource(cost, true));
+        action.costs.forEach(validateCost);
+        check(action.cancellation == null || ["none", "refund", "forfeit"].includes(action.cancellation), "Invalid cancellation policy.");
+        const rollIds = new Set();
+        for(const roll of action.rolls || []) {
+            check(id(roll.id) && !rollIds.has(roll.id) && registry.rollTables.has(roll.tableId), "Invalid action roll reference.");
+            rollIds.add(roll.id);
+        }
         chooseOutcome(action.outcomes, 0);
         validateEffects(action.effects || [], registry);
         action.outcomes.forEach(outcome => validateEffects(outcome.effects || [], registry));
@@ -169,15 +232,41 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
         }
         for(const modifier of action.modifiers || []) {
             validateRule(modifier.when);
-            check(typeof modifier.label === "string" && Array.isArray(modifier.transfers), "Invalid odds modifier.");
-            for(const transfer of modifier.transfers) check(transfer.from !== transfer.to &&
-                action.outcomes.some(o => o.id === transfer.from) && action.outcomes.some(o => o.id === transfer.to) &&
-                Number.isFinite(transfer.amount) && transfer.amount >= 0 && transfer.amount <= 1, "Invalid probability transfer.");
+            validateTransfers(modifier, action.outcomes);
         }
         if(action.opportunityId) check(registry.opportunities.has(action.opportunityId), "Unknown required opportunity.");
     }
     // Maps stay private to content authoring callers; game state never stores them.
     return registry;
+}
+
+function validateTransfers(modifier, outcomes) {
+    check(typeof modifier.label === "string" && Array.isArray(modifier.transfers), "Invalid odds modifier.");
+    for(const transfer of modifier.transfers) check(transfer.from !== transfer.to &&
+        outcomes.some(o => o.id === transfer.from) && outcomes.some(o => o.id === transfer.to) &&
+        Number.isFinite(transfer.amount) && transfer.amount >= 0 && transfer.amount <= 1, "Invalid probability transfer.");
+}
+
+function distribution(table) {
+    check(Array.isArray(table.outcomes) && table.outcomes.length > 0 &&
+        table.outcomes.every(o => Number.isFinite(o.weight) && o.weight >= 0), "Invalid roll weights.");
+    const total = table.outcomes.reduce((sum, o) => sum + o.weight, 0);
+    check(Number.isFinite(total) && total > 0, "Roll table needs positive total weight.");
+    const outcomes = table.outcomes.map(o => ({...clone(o), chance: o.weight / total}));
+    chooseOutcome(outcomes, 0);
+    return outcomes;
+}
+
+function modifyOdds(outcomes, modifiers, facts, contributors) {
+    for(const modifier of modifiers || []) if(evaluateRule(modifier.when, facts).met) {
+        for(const transfer of modifier.transfers) {
+            const from = outcomes.find(o => o.id === transfer.from), to = outcomes.find(o => o.id === transfer.to);
+            const amount = Math.min(from.chance, transfer.amount);
+            from.chance -= amount; to.chance += amount;
+        }
+        contributors.push(modifier.label);
+    }
+    chooseOutcome(outcomes, 0);
 }
 
 function getDomain(state, scope, context) {
@@ -197,6 +286,10 @@ function factsFor(state, context) {
     return facts;
 }
 
+export function inspectCapabilities(state, registry, context) {
+    return queryCapabilities(state, registry, context, factsFor(state, context));
+}
+
 function resourcesFor(state, external, scope, context) {
     return scope === "external" ? external : getDomain(state, scope, context).resources;
 }
@@ -206,10 +299,13 @@ const opportunityKey = (definitionId, context) => `${context.actorId}:${context.
 export function evaluateAction(state, registry, actionId, context) {
     validateContext(context);
     validateBudget(context.external || {});
+    validateGameplaySnapshot(context.gameplay || {});
     const action = registry.actions.get(actionId);
     check(action, `Unknown action: ${actionId}`);
     const actor = getDomain(state, "actor", context);
     const facts = factsFor(state, context);
+    const capabilities = queryCapabilities(state, registry, context, facts);
+    for(const [id, capability] of Object.entries(capabilities)) facts[`capability.${id}`] = capability.value;
     const visibility = action.visibleWhen ? evaluateRule(action.visibleWhen, facts) : {met: true};
     const requirements = action.requires ? evaluateRule(action.requires, facts) : {met: true, reasons: []};
     const reasons = [...requirements.reasons];
@@ -231,12 +327,13 @@ export function evaluateAction(state, registry, actionId, context) {
     }
     const totals = new Map();
     for(const cost of action.costs) {
-        const key = `${cost.scope}:${cost.key}`;
+        const key = cost.type === "item" ? `item:${cost.key}` : `${cost.scope}:${cost.key}`;
         totals.set(key, {...cost, amount: (totals.get(key)?.amount || 0) + cost.amount});
     }
     const costs = [...totals.values()];
     for(const cost of costs) {
-        const available = resourcesFor(state, context.external || {}, cost.scope, context)[cost.key] || 0;
+        const available = cost.type === "item" ? context.gameplay?.[context.actorId]?.inventory[cost.key] || 0
+            : resourcesFor(state, context.external || {}, cost.scope, context)[cost.key] || 0;
         if(available < cost.amount) reasons.push(`Needs ${cost.amount} ${cost.label || cost.key}; you have ${available}.`);
     }
     const outcomes = clone(action.outcomes);
@@ -249,20 +346,17 @@ export function evaluateAction(state, registry, actionId, context) {
         o.context.actorId === context.actorId && o.due < state.clock + duration)) {
         reasons.push("This work would cross a waiting choice. Choose shorter work or wait for it first.");
     }
-    for(const modifier of action.modifiers || []) if(evaluateRule(modifier.when, facts).met) {
-        for(const transfer of modifier.transfers) {
-            const from = outcomes.find(o => o.id === transfer.from), to = outcomes.find(o => o.id === transfer.to);
-            const amount = Math.min(from.chance, transfer.amount);
-            from.chance -= amount; to.chance += amount;
-        }
-        contributors.push(modifier.label);
-    }
-    chooseOutcome(outcomes, 0);
+    modifyOdds(outcomes, action.modifiers, facts, contributors);
+    const rolls = (action.rolls || []).map(ref => {
+        const table = registry.rollTables.get(ref.tableId), odds = distribution(table), contributors = [];
+        modifyOdds(odds, table.modifiers, facts, contributors);
+        return {id: ref.id, tableId: table.id, revision: table.revision, label: table.label, outcomes: odds, contributors};
+    });
     return {actionId, visible: visibility.met, eligible: visibility.met && reasons.length === 0,
-        reasons, costs, duration, outcomes, contributors};
+        reasons, costs, duration, outcomes, contributors, capabilities, rolls};
 }
 
-function applyEffects(state, external, effects, context, registry) {
+function applyEffects(state, external, effects, context, registry, gameplay = {}, receiptId = "validation") {
     validateEffects(effects, registry);
     for(const effect of effects) {
         if(effect.type === "fact") getDomain(state, effect.scope, context).facts[effect.key] = effect.value;
@@ -271,6 +365,14 @@ function applyEffects(state, external, effects, context, registry) {
             const next = (resources[effect.key] || 0) + effect.amount;
             check(Number.isFinite(next) && next >= 0 && next <= Number.MAX_SAFE_INTEGER, `Insufficient or invalid ${effect.key}.`);
             resources[effect.key] = next;
+        } else if(["item", "xp", "reputation"].includes(effect.type)) applyGameplayEffect(gameplay, effect, context.actorId);
+        else if(effect.type === "source") {
+            const sources = getDomain(state, "actor", context).sources ??= {};
+            if(effect.operation === "remove") delete sources[effect.sourceId];
+            else if(!sources[effect.sourceId] || sources[effect.sourceId].expiresAt != null && sources[effect.sourceId].expiresAt <= state.clock) {
+                sources[effect.sourceId] = {acquiredAt: state.clock, expiresAt: effect.duration == null ? null : state.clock + effect.duration,
+                    receiptId, worldId: context.worldId, revision: registry.sources.get(effect.sourceId).revision};
+            }
         } else {
             const key = opportunityKey(effect.id, context);
             check(!Object.hasOwn(state.opportunities, key), "Opportunity already scheduled.");
@@ -287,12 +389,12 @@ function draw(state) {
     return state.rng / 0x100000000;
 }
 
-function finish(state, external, job, registry) {
-    applyEffects(state, external, job.effects, job.context, registry);
+function finish(state, external, job, registry, gameplay) {
+    applyEffects(state, external, job.effects, job.context, registry, gameplay, job.id);
     const completed = getDomain(state, job.completionScope, job.context).completed;
     completed[job.actionId] = (completed[job.actionId] || 0) + 1;
     state.history.push({id: job.id, sequence: job.sequence, actionId: job.actionId, revision: job.revision,
-        actorId: job.context.actorId, outcome: job.outcome, label: job.label, draw: job.draw, at: state.clock});
+        actorId: job.context.actorId, outcome: job.outcome, label: job.label, draw: job.draw, at: state.clock, rolls: clone(job.rolls || [])});
     state.history = state.history.slice(-100);
 }
 
@@ -303,7 +405,7 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
     const preview = evaluateAction(state, registry, actionId, context);
     check(preview.eligible, preview.reasons.join(" ") || "This action is hidden.");
     const action = registry.actions.get(actionId);
-    const next = clone(state), external = clone(context.external || {});
+    const next = clone(state), external = clone(context.external || {}), gameplay = clone(context.gameplay || {});
     const savedContext = {actorId: context.actorId, worldId: context.worldId, scenarioId: context.scenarioId || null};
     const effects = [...(action.effects || [])];
     if(context.scenarioId && Object.values(next.checkpoints).some(cp => cp.scenarioId === context.scenarioId)) {
@@ -311,29 +413,46 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
         check(preview.costs.every(cost => cost.scope === "scenario") && effects.every(safe) &&
             preview.outcomes.every(outcome => (outcome.effects || []).every(safe)), "Checkpoint scenarios cannot export resources or unrelated consequences.");
     }
-    applyEffects(next, external, preview.costs.map(cost => ({...cost, type: "resource", amount: -cost.amount})), savedContext, registry);
+    for(const cost of preview.costs) {
+        if(cost.type === "item") applyGameplayEffect(gameplay, cost, context.actorId, true);
+        else applyEffects(next, external, [{...cost, type: "resource", amount: -cost.amount}], savedContext, registry);
+    }
     if(action.opportunityId) next.opportunities[opportunityKey(action.opportunityId, context)].status = "claimed";
     const roll = draw(next), outcome = preview.outcomes.find(o => o.id === chooseOutcome(preview.outcomes, roll));
     const sequence = ++next.sequence;
     const job = {id: `event:${sequence}`, sequence, actionId, revision: action.revision, context: savedContext,
         completionScope: action.completionScope, due: next.clock + preview.duration, draw: roll, outcome: outcome.id,
-        label: outcome.label || outcome.id, effects: [...effects, ...(outcome.effects || [])]};
+        label: outcome.label || outcome.id, effects: [...effects, ...(outcome.effects || [])], costs: clone(preview.costs),
+        cancellation: action.cancellation || "none", rolls: []};
     // Validate every possible result now. A missing domain or unknown effect must
     // not strand paid inputs in a pending job. The selected effects are frozen.
     for(const possible of preview.outcomes) {
         const candidate = clone(next), budgets = clone(external);
-        applyEffects(candidate, budgets, [...effects, ...(possible.effects || [])], savedContext, registry);
+        applyEffects(candidate, budgets, [...effects, ...(possible.effects || [])], savedContext, registry, clone(gameplay));
     }
-    if(preview.duration === 0) finish(next, external, job, registry);
+    for(const roll of preview.rolls) {
+        for(const possible of roll.outcomes) {
+            const candidate = clone(next);
+            if(context.scenarioId && Object.values(next.checkpoints).some(cp => cp.scenarioId === context.scenarioId)) {
+                check((possible.effects || []).every(e => e.scope === "scenario" || e.type === "fact" && e.scope === "campaign"), "Checkpoint scenarios cannot export roll rewards.");
+            }
+            applyEffects(candidate, clone(external), [...job.effects, ...(possible.effects || [])], savedContext, registry, clone(gameplay));
+        }
+        const drawValue = draw(next), chosen = roll.outcomes.find(o => o.id === chooseOutcome(roll.outcomes, drawValue));
+        job.effects.push(...(chosen.effects || []));
+        job.rolls.push({id: roll.id, tableId: roll.tableId, revision: roll.revision, outcome: chosen.id, label: chosen.label || chosen.id, draw: drawValue});
+    }
+    if(preview.duration === 0) finish(next, external, job, registry, gameplay);
     else next.pending.push(job);
     validateExpansionState(next, registry);
-    return {state: next, external, preview, commitment: clone(job)};
+    return {state: next, external, gameplay, gameplayBefore: clone(context.gameplay || {}), preview, commitment: clone(job)};
 }
 
-export function advanceSimulation(state, registry, minutes, external = {}) {
+export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}) {
     check(integer(minutes) && Number.isSafeInteger(state.clock + minutes), "Invalid simulation duration.");
     validateBudget(external);
-    const next = clone(state), budgets = clone(external);
+    validateGameplaySnapshot(gameplay);
+    const next = clone(state), budgets = clone(external), owned = clone(gameplay);
     const target = next.clock + minutes;
     let stoppedAtChoice = false;
     while(true) {
@@ -345,7 +464,7 @@ export function advanceSimulation(state, registry, minutes, external = {}) {
         if(boundary > target) {next.clock = target; break;}
         next.clock = Math.max(next.clock, boundary);
         const due = next.pending.filter(job => job.due <= next.clock).sort((a, b) => a.due - b.due || a.sequence - b.sequence);
-        for(const job of due) finish(next, budgets, job, registry);
+        for(const job of due) finish(next, budgets, job, registry, owned);
         next.pending = next.pending.filter(job => job.due > next.clock);
         for(const o of Object.values(next.opportunities)) {
             if(o.status === "scheduled" && o.due <= next.clock) o.status = "available";
@@ -353,7 +472,26 @@ export function advanceSimulation(state, registry, minutes, external = {}) {
         }
     }
     validateExpansionState(next, registry);
-    return {state: next, external: budgets, stoppedAtChoice, remaining: target - next.clock};
+    return {state: next, external: budgets, gameplay: owned, gameplayBefore: clone(gameplay), stoppedAtChoice, remaining: target - next.clock};
+}
+
+export function cancelAction(state, registry, jobId, context, expectedSequence = state.sequence) {
+    validateContext(context); validateBudget(context.external || {}); validateGameplaySnapshot(context.gameplay || {});
+    check(expectedSequence === state.sequence, "This cancellation is stale.");
+    const job = state.pending.find(job => job.id === jobId && job.context.actorId === context.actorId);
+    check(job && job.cancellation && job.cancellation !== "none", "This commitment cannot be cancelled.");
+    const next = clone(state), external = clone(context.external || {}), gameplay = clone(context.gameplay || {});
+    if(job.cancellation === "refund") for(const cost of job.costs) {
+        if(cost.type === "item") applyGameplayEffect(gameplay, cost, context.actorId);
+        else applyEffects(next, external, [{...cost, type: "resource"}], job.context, registry);
+    }
+    next.pending = next.pending.filter(p => p.id !== jobId);
+    next.history.push({id: `cancel:${++next.sequence}`, sequence: next.sequence, actionId: job.actionId,
+        outcome: "cancelled", label: `Cancelled: ${job.cancellation === "refund" ? "reserved inputs returned" : "spent inputs forfeited"}`,
+        draw: job.draw, at: next.clock, actorId: context.actorId, rolls: clone(job.rolls || [])});
+    next.history = next.history.slice(-100);
+    validateExpansionState(next, registry);
+    return {state: next, external, gameplay, gameplayBefore: clone(context.gameplay || {})};
 }
 
 export function checkpointScenario(state, scenarioId, checkpointId) {

@@ -1,7 +1,7 @@
-import {evaluateAction} from "./expansion_engine.js";
+import {evaluateAction, inspectCapabilities} from "./expansion_engine.js";
 
 // Rendering reads snapshots. Clicks submit IDs to the host; they never mutate state.
-export function createExpeditionPanel({registry, read, command}) {
+export function createExpeditionPanel({registry, read, command, cancel}) {
     const panel = document.createElement("details");
     panel.id = "expedition_panel";
     panel.className = "expedition_panel";
@@ -22,8 +22,19 @@ export function createExpeditionPanel({registry, read, command}) {
     status.setAttribute("role", "status");
     // Stable controls preserve keyboard focus while the game's timer updates.
     const cards = new Map();
-    body.append(element("p", "A route survey with two approaches. Knowledge, equipment and ordinary stats change your options. Provisional content for review."));
+    body.append(element("p", "Survey by kit, reusable anchors or strength. Inventory supplies, practiced skills and earned traits change your options. Provisional content for review."));
     const stateText = element("p", "", "expedition_state"); body.append(stateText, status);
+    const capabilityText = element("p", "", "expedition_preview"); body.append(capabilityText);
+    const cancelButton = element("button", "Cancel expedition · spent supplies are lost");
+    cancelButton.type = "button";
+    cancelButton.addEventListener("click", () => {
+        const {state} = read();
+        const job = state.pending.find(job => job.context.actorId === "player");
+        try {cancel(job.id, state.sequence); notice = "Cancellation saved. Spent supplies were forfeited.";}
+        catch(error) {notice = error.message;}
+        render(true);
+    });
+    body.append(cancelButton);
     for(const action of registry.actions.values()) {
         const card = element("div", "", "expedition_card");
         const button = element("button", action.label);
@@ -45,7 +56,7 @@ export function createExpeditionPanel({registry, read, command}) {
     function render(force = false) {
         if(!panel.isConnected) document.getElementById("location_actions_div").append(panel);
         const {state, context, error, enabled} = read();
-        const nextSignature = JSON.stringify([state, context.facts, context.external, error, enabled, notice]);
+        const nextSignature = JSON.stringify([state, context.facts, context.external, context.gameplay, error, enabled, notice]);
         if(!force && signature === nextSignature) return;
         signature = nextSignature;
         const actor = state.actors.player;
@@ -54,10 +65,20 @@ export function createExpeditionPanel({registry, read, command}) {
         const opportunities = Object.values(state.opportunities).map(o => o.status === "scheduled"
             ? `Next departure in ${o.due - state.clock} min` : o.status === "available"
                 ? `Departure available for ${o.expires - state.clock} min` : o.status === "expired" ? "Departure missed; survey rewards retained" : "Departure joined");
-        stateText.textContent = [`Prepared kits: ${actor.resources.kits || 0}`, state.campaign.facts.anchor ? "Anchor points known" : "Anchor points unknown",
+        stateText.textContent = [`Inventory kits: ${context.facts.kits || 0}`, `Reusable ropes: ${context.facts.rope || 0}`,
+            `Climbing XP: ${context.gameplay?.player?.skills.Climbing?.xp || 0}`, `Perception XP: ${context.gameplay?.player?.skills.Perception?.xp || 0}`,
+            `Village reputation: ${context.gameplay?.player?.reputation.Village || 0}`,
+            state.campaign.facts.anchor ? "Anchor points known" : "Anchor points unknown",
             world.facts.crossing ? `Crossing: ${world.facts.crossing}` : "Crossing unsurveyed",
             world.facts["guide.condition"] ? `Guide: ${world.facts["guide.condition"]}` : "Guide waiting", ...jobs, ...opportunities].join(" · ");
         status.textContent = error || notice || "Expeditions advance with game minutes, including travel and sleep.";
+        const capabilities = inspectCapabilities(state, registry, context);
+        capabilityText.textContent = "Capabilities: " + Object.values(capabilities).map(capability =>
+            `${capability.label}: ${capability.value}` + (capability.contributions.length ?
+                ` (${capability.contributions.map(source => `${source.label} · ${source.kind}`).join(", ")})` : " (no active source)")).join("; ");
+        const cancellable = state.pending.find(job => job.context.actorId === "player" && job.cancellation === "forfeit");
+        cancelButton.hidden = !cancellable;
+        cancelButton.disabled = !!error;
         for(const action of registry.actions.values()) {
             const preview = evaluateAction(state, registry, action.id, context);
             const {card, button, previewText, requirements} = cards.get(action.id);
@@ -65,10 +86,13 @@ export function createExpeditionPanel({registry, read, command}) {
             button.disabled = !enabled || !!error || !preview.eligible;
             previewText.textContent = `${preview.duration} min · ` + preview.outcomes.filter(o => o.chance > 0)
                 .map(o => `${o.label}: ${Math.round(o.chance * 100)}%`).join(" · ") +
-                (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "");
+                (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "") +
+                preview.rolls.map(roll => ` · ${roll.label}: ` + roll.outcomes.filter(o => o.chance > 0)
+                    .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join("");
             requirements.textContent = preview.reasons.join(" ");
         }
-        history.replaceChildren(...state.history.slice(-6).reverse().map(receipt => element("li", receipt.label)));
+        history.replaceChildren(...state.history.slice(-6).reverse().map(receipt => element("li",
+            [receipt.label, ...(receipt.rolls || []).map(roll => roll.label)].join(" · "))));
     }
     render();
     return {render, panel};

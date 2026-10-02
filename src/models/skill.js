@@ -172,7 +172,7 @@ class Skill {
         }
     }
 
-    add_xp({skillXP, xp_to_add = 0}) {
+    add_xp({skillXP, xp_to_add = 0, track_dependencies = true}) {
         if(!skillXP) {
             skillXP = this.getDefaultSkillXP();
         }
@@ -226,12 +226,12 @@ class Skill {
 
                 let gains;
                 if(level_after_xp < this.max_level) { //wont reach max lvl
-                    gains = this.get_bonus_stats({skillXP, level: level_after_xp});
+                    gains = this.get_bonus_stats({skillXP, level: level_after_xp, track_dependencies});
                     skillXP.xp_to_next_lvl = Math.round(100*(skillXP.total_xp_to_next_lvl - total_xp_to_previous_lvl))/100;
                     skillXP.current_level = level_after_xp;
                     skillXP.current_xp = Math.round(100*(skillXP.total_xp - total_xp_to_previous_lvl))/100;
                 } else { //will reach max lvl
-                    gains = this.get_bonus_stats({skillXP, level: this.max_level});
+                    gains = this.get_bonus_stats({skillXP, level: this.max_level, track_dependencies});
                     skillXP.current_level = this.max_level;
                     skillXP.total_xp_to_next_lvl = "Already reached max lvl";
                     skillXP.current_xp = "Max";
@@ -292,7 +292,7 @@ class Skill {
      * @param {*} level 
      * @returns bonuses from milestones
      */
-    get_bonus_stats({skillXP, level}) {
+    get_bonus_stats({skillXP, level, track_dependencies = true}) {
         //probably should rename, since it's not just stats anymore
         const gains = {stats: {}, xp_multipliers: {}};
 
@@ -322,6 +322,7 @@ class Skill {
                 if(xp_multipliers) {
                     Object.keys(xp_multipliers).forEach(multiplier_key => {
                         gains.xp_multipliers[multiplier_key] = (gains.xp_multipliers[multiplier_key] || 1) * xp_multipliers[multiplier_key];
+                        if(!track_dependencies) return;
                         if(which_skills_affect_skill[multiplier_key]) {
                             if(!which_skills_affect_skill[multiplier_key].includes(this.skill_id)) {
                                 which_skills_affect_skill[multiplier_key].push(this.skill_id);

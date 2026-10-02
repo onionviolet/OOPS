@@ -10,6 +10,20 @@ The runtime now uses the v0.6 development foundation. `main.js` reads `character
 
 ## Decision
 
+### Native transactions, capabilities and RNG increment, 2026-10-01
+
+Implemented following the user's selection of foundations 1 and 2. New effects can grant items by their complete inventory key, award fixed skill XP, change signed regional reputation, and grant/remove an actor capability source. Item costs are consumed at commitment. Pure gameplay snapshots validate totals and propagate child XP using the existing parent rule. Native item construction and skill calculations are staged before the durable write; skill staging disables dependency registration until publication. Inventory, XP totals, money, reputation, extension state and result receipts share one envelope. Rendering follows publication and never awards effects. Native content references are checked before live/imported pending jobs can proceed.
+
+The player is the live native binding. Multiple actor snapshots have a defined ownership boundary, but native NPC assignment is still future work. XP is an explicitly authored fixed award, without implicit XP bonuses. Native stat/XP milestones are staged and published; milestones that unlock skills, recipes or quests reject before costs because the complete unlock needs its own transaction handler. No equipment replacement, injury or arbitrary legacy reward callback is claimed.
+
+Capabilities combine native providers with earned sources. Definitions declare `max` or `sum` stacking. Providers/grants have explicit requirements; source instances record acquisition time, receipt, and optional expiry, world and definition revision. Duplicate active acquisition does not stack or refresh duration. Expired sources remain saved as provenance but stop contributing. Removal is explicit. Skill, equipment, knowledge, trait, bloodline, technique, condition, world and support are supported source kinds; actual lineage trees, inheritance, awakening, general spell execution and combat passives are not implemented.
+
+Actions can reference independently revisioned weighted roll tables. Preview normalizes weights and applies declared condition/capability chance transfers without drawing. Commitment records each draw, selected result and its effects alongside the main outcome. Completion/reload use that frozen plan, even after table edits; preview/render never consumes RNG. The existing seeded stream now serves both action outcomes and discoveries. There is no global luck multiplier, pity policy or randomized loot-affix generator unless explicitly authored later.
+
+The playable proof replaces the extension kit with a real inventory item, adds a carried reusable rope or Climbing 5 route, gives inspection 12 Perception XP and survey routes 60/50/20 Climbing XP, and permits a 20% Field eye trait discovery that improves later survey odds. Departure grants one Village reputation with its money reward. Kit cancellation forfeits supplies; generic refund/forfeit policies are tested, and cancellation preserves RNG. These are original review proposals. The capability history/provenance UI and weighted odds explain the result.
+
+Expansion schema2 adds actor sources and optional roll/cost/cancellation metadata. Schema1 migrates without replaying payouts; existing kit stock moves once into native inventory in `save_migration.js`. Old pending effects remain frozen and do not retroactively gain XP or discoveries. Unknown schemas/native references block loading/import. New saves require the updated fork. Evidence, including the native availability numeric-to-boolean correction, is in [PLAYTEST.md](PLAYTEST.md).
+
 Persistence follow-up, 2026-10-01: `src/save_files.js` validates file envelopes and UTF-8/legacy text; `src/import_probe.js` tests the actual loader in a disposable non-running frame before replacement. `src/reputation_state.js` preserves saved regional totals while permitting legacy omissions to reconstruct, and `src/clear_state.js` gates restored first-clear rewards on earned counts. Native file checks and seventeen active tests are recorded in PLAYTEST.md. This closes the generated-save file gate, not event transactions or general simulation/replay. [Next event proposal](NEXT_EVENT_PROPOSAL.md) remains provisional.
 
 Shared rules are now exercised through the runtime below. Prior standalone/prototype status is retained in `PROTOTYPE_HISTORY.md`. The rest of this document describes boundaries and larger proposed stages; implementation is only the explicitly listed increment.
@@ -24,12 +38,12 @@ The requested engine expansion now has an actual Village expedition. The first m
 |---|---|---|
 | Scoped persistence | `expansion_engine.js`: independently versioned `expansion` namespace; campaign/journey/world/actor/scenario facts, budgets and completion counts; absent legacy namespace gains defaults | Unknown schemas or unsupported live references reject before loader mutation; no silent downgrade. No global character migration or rebirth policy |
 | Definitions and preview | Stable IDs, frozen definitions, checked worlds/references/effects/costs/outcomes, contextual facts, eligibility reasons, odds and duration contributors | No general spell language or automatic topology/reachability proof. Explicit tags are authored facts, not a physics model |
-| Committed effects | Costs reserved at start; seeded draw and selected effects frozen with revision; delayed completion; monotonic command sequence and owner completion counts prevent duplicate grants | Fixed inputs and outcomes only. Debits belong in costs. No cancellation/refund feature, unsupported item/XP mutation or multi-resource legacy rollback |
-| Durable integration | `expansion_persistence.js` writes extension state plus real money in one existing envelope, then main publishes; storage failure keeps the plan unpublished and stops new expedition commands | Money is the sole legacy resource adapter. Web Locks require localhost/HTTPS support; older builds that do not honor the lock must not run concurrently |
+| Committed effects | Costs reserved at start; main and weighted-table draws/effects frozen; delayed completion; monotonic sequence and completion counts prevent duplicate grants; declared refund/forfeit cancellation | Fixed inputs. Native content unlocks, equipment/health mutations and arbitrary callbacks need handlers. Cancellation does not rewind RNG or reopen claimed opportunities |
+| Durable integration | One envelope contains extension state, real money, owned inventories, XP and signed reputation; native publication/render follow a successful write | Player is the live binding. Web Locks require localhost/HTTPS; older builds ignoring the lock must not run concurrently |
 | Scheduler | Integer game minutes, stable same-time order, crossed deadlines, scheduled/available/claimed/expired opportunities; a blocking choice returns unspent requested catch-up | Live content uses nonblocking deadlines. Caller must retain/resume returned catch-up for blocking choices. No offline wall-time replay or ported legacy combat/action timers |
 | Actor ownership | One new assignment per actor; independently owned budgets and context; tested two-actor same-time resolution | Live bridge binds only `player`. No NPC controller, actor creation UI, contested shared claim, knowledge-sharing, party or clone mode |
 | Isolated rewind | Scenario snapshot, reset preview, retained campaign facts, preserved RNG/sequence/history; checkpoint actions may touch only scenario budgets or campaign facts | Unit-tested only. No live rewind/origin UI. No exporting scenario goods, opportunity rewinds, whole-character rollback or historical branch repair |
-| Explainable play | `expedition_content.js` + `expedition_ui.js`: inspect, buy kit or use strength, graded guide condition, scheduled departure, actual money cost/payout, stable keyboard controls | A small ordinary expedition, not the proposed rescue plot or a finished campaign. Kit is explicitly an extension-owned supply, not a legacy inventory item |
+| Explainable play | Real kit and reusable rope, learned anchors/strength, fixed skill rewards, earned trait discovery, provenance/stacking, guide condition and money/reputation departure; stable keyboard controls | A small original expedition with provisional balance, not a finished campaign or an implemented bloodline progression path |
 
 New jobs freeze requirements, probabilities, selected result, effects and duration at commitment. Loader reconstruction does not replay payouts. New random draws occur only on accepted commands, not each timer/render. The last 100 receipts are display history; owner completion counts and monotonic command sequence remain outside that bounded history. Unknown schemas retain the original stored file by blocking writes/import rather than inventing a migration.
 
@@ -41,9 +55,9 @@ This map covers every PF family in [Genre sweep](RESEARCH_GENRE_SWEEP.md) plus t
 
 | Audit family | Foundation now available | Further mechanics required |
 |---|---|---|
-| PF01 Martial/cultivation | Scoped resources, earned facts, conditional milestones | Techniques, breakthrough/reset policies, legacy stat/XP adapter |
+| PF01 Martial/cultivation | Scoped resources, earned facts, conditional milestones, native fixed XP/stat milestones | Techniques, breakthrough/reset policies, new stat/resource handlers |
 | PF02 Learned magic | Knowledge predicates, prep costs, contextual odds/duration | Formula execution, spell effects and compatibility |
-| PF03 Professions/classes | Demonstration receipts, access facts, owned progression | Credential services, loadouts, specializations and real skill rewards |
+| PF03 Professions/classes | Demonstration receipts, access facts, owned progression, real skill rewards | Credential services, loadouts, specializations and native content-unlock handlers |
 | PF04 Beast bonding | Actor budgets/status facts, per-actor assignments | Recruitment/bond model, partner roles and targetable allies |
 | PF05 Summoned patterns | Knowledge versus prepared resources, timed commitments | Pattern registry, deployment/capacity and dismissal rules |
 | PF06 Riders | Actor/world capability conditions | Coupled traversal, mount control, equipment and combat |
@@ -53,7 +67,7 @@ This map covers every PF family in [Genre sweep](RESEARCH_GENRE_SWEEP.md) plus t
 | PF10 Constructs | Reserved inputs, frozen output plans and scheduler | Controller policies, targets, stop rules and legacy production adapter |
 | PF11 Cards/runes | Knowledge facts and explicit resource budgets | Prepared slots, stacking/compatibility and effect execution |
 | PF12 Internal spaces | Scenario/world scoped facts and budgets | Configuration graph, adjacency and construction rules |
-| PF13 Evolving relics | Persistent provenance facts, preparation costs | Legacy item identity, evolution/mutation and maintenance |
+| PF13 Evolving relics | Persistent provenance, preparation costs and complete native item keys | Item evolution/mutation, equipment publication and maintenance |
 | PF14 Pacts/oaths | Scoped permissions, obligations as facts, deadlines | Contract lifecycle, authored failure/exit effects and observer information |
 | PF15 Support/healing | Graded outcomes and saved guide condition affecting later play | Health/injury transactions, objective protection and party combat |
 | PF16 Investigation/stealth | Known/unknown facts, gated information and later consequences | Evidence ownership, NPC beliefs, concealment and detection |
@@ -73,7 +87,7 @@ This map covers every PF family in [Genre sweep](RESEARCH_GENRE_SWEEP.md) plus t
 | Origins/system/vessel/archive | Knowledge access, input/output plans, scenario boundary | Origin policy interface, UI, slot/capacity, allocation and retention rules |
 | Idle automation/offline | Deterministic new-system advance API and explicit safe-choice boundary | Stock targets, exhaustion/stop summaries, clock-change handling, retained catch-up and legacy timer ports |
 
-These larger capabilities remain future work. Develop one real helper/capability branch, then a contrasting obstacle/world; extract additional handlers from those requirements. A general ability engine, institutional simulator and historical rollback are materially larger additions, not content files alone.
+The native item/XP/reputation, capability and weighted-discovery requirements are partly covered by the later increment described above; broader mechanics remain future work. Develop one real helper, then a contrasting obstacle/world; extract handlers from those requirements. A general ability engine, institutional simulator and historical rollback are materially larger additions, not content files alone.
 
 ## Inspected source and actual boundaries
 

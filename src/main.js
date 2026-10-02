@@ -125,10 +125,14 @@ import {encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files
 import {preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
-import {createExpansionState, loadExpansionState, commitAction, advanceSimulation} from "./expansion_engine.js";
-import {expeditionRegistry, initializeExpedition} from "./expedition_content.js";
+import {createExpansionState, loadExpansionState, commitAction, advanceSimulation, cancelAction} from "./expansion_engine.js";
+import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import "./data/expedition_items.js";
 import {createExpeditionPanel} from "./expedition_ui.js";
 import {persistExpansionPlan} from "./expansion_persistence.js";
+import {prepareGameplayPublication, readGameplayActor} from "./gameplay_publication.js";
+
+const gameplayBindings = {player: {category: "person", id: "main_character"}};
 
 let retiredContent = {schema: 1, entries: []};
 let foundationSaveBlocked = false;
@@ -157,25 +161,62 @@ async function acquireSaveOwnership() {return importProbeToken ? true : new Prom
     }).catch(() => resolve(false));
 });}
 
+function gameplaySnapshot() {
+    return {player: readGameplayActor(character, skills, get_context())};
+}
+
+function validateNativeGameplayReferences(definitions) {
+    for(const definition of definitions) for(const effect of definition) {
+        if(effect.type === "item" && !getItemFromKey(effect.key)) throw new Error("Unsupported expedition item.");
+        if(effect.type === "xp" && !Object.hasOwn(skills, effect.skill)) throw new Error(`Unsupported expedition skill ${effect.skill}.`);
+        if(effect.type === "reputation" && !Object.hasOwn(character.reputation, effect.region)) throw new Error("Unsupported expedition reputation region.");
+    }
+}
+
 function expeditionContext() {
-    return {actorId: "player", worldId: "base.frontier", external: {money: character.money},
+    const gameplay = gameplaySnapshot();
+    return {actorId: "player", worldId: "base.frontier", external: {money: character.money}, gameplay,
         facts: {location: current_location?.id, strength: character.getFullStats().strength,
             climbing: skills.Climbing ? character.getTotalSkillLevel("Climbing") : 0,
-            kits: expansionState.actors.player.resources.kits || 0}};
+            kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}};
 }
 
 function persistExpansion(plan) {
     if(!ownsSave || importProbeToken || expansionError) throw new Error(expansionError || "This tab cannot commit expeditions.");
-    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, key: is_on_dev() ? dev_save_key : save_key});}
+    const publication = prepareGameplayPublication(plan.gameplay, {actors: {player: character}, skills, getItemFromKey});
+    // Check pending native rewards before accepting reserved costs, not only at
+    // completion. Unsupported milestone unlocks reject this command safely.
+    if(plan.commitment) {
+        const future = advanceSimulation(plan.state, expeditionRegistry, Math.max(0, plan.commitment.due - plan.state.clock),
+            plan.external, plan.gameplay);
+        prepareGameplayPublication(future.gameplay, {actors: {player: character}, skills, getItemFromKey});
+    }
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings,
+        validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
         expansionError = "Expedition paused because saving failed. Free storage and reload before continuing.";
         throw error;
     }
-    // Publish only after durable storage succeeds. Money is the sole legacy
-    // resource adapter in this increment; item/XP transactions are not claimed.
+    // Every owned domain is durable before native state is published. Rendering
+    // happens afterward and never applies rewards.
     expansionState = plan.state;
     character.money = plan.external.money;
-    update_displayed_money();
+    publication.publish();
+    for(const {id, target} of publication.dependencies) {
+        which_skills_affect_skill[target] ||= [];
+        if(!which_skills_affect_skill[target].includes(id)) which_skills_affect_skill[target].push(id);
+    }
+    try {
+        update_displayed_money();
+        update_displayed_character_inventory();
+        for(const id of publication.changes) {
+            if(skills[id].visibility_treshold <= skills[id].getTotalXP()) {
+                create_new_skill_bar(skills[id]);
+                update_displayed_skill_bar(skills[id], true);
+            }
+        }
+        if(publication.changes.length) character.updateStatsAndDisplay();
+    } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
 }
 
 function startExpedition(actionId, sequence) {
@@ -183,6 +224,10 @@ function startExpedition(actionId, sequence) {
         throw new Error("Finish your current activity, combat, trade or rest before beginning an expedition.");
     }
     persistExpansion(commitAction(expansionState, expeditionRegistry, actionId, expeditionContext(), sequence));
+}
+
+function cancelExpedition(jobId, sequence) {
+    persistExpansion(cancelAction(expansionState, expeditionRegistry, jobId, expeditionContext(), sequence));
 }
 
 function expeditionOccupiesPlayer() {
@@ -196,9 +241,10 @@ function advanceExpeditions(minutes) {
     // Idle clocks need no write. Timers request simulation work; committed jobs
     // and opportunities, including crossed travel deadlines, decide the result.
     const active = expansionState.pending.length || Object.values(expansionState.opportunities)
-        .some(o => o.status === "scheduled" || o.status === "available");
+        .some(o => o.status === "scheduled" || o.status === "available") || Object.values(expansionState.actors)
+        .some(actor => Object.values(actor.sources || {}).some(source => source.expiresAt > expansionState.clock));
     if(active) {
-        try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}));}
+        try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}, gameplaySnapshot()));}
         catch(error) {expansionError ||= error.message;}
     }
     expeditionPanel?.render();
@@ -3515,6 +3561,7 @@ function load(save_data) {
             save_data = prepareV06Save(prepared.save);
             retiredContent = prepared.retired;
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+            validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
         } catch(error) {
             foundationSaveBlocked = true;
             throw error;
@@ -6197,10 +6244,13 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    validateNativeGameplayReferences([...expeditionRegistry.actions.values()].flatMap(action =>
+        [action.costs, action.effects || [], ...action.outcomes.map(outcome => outcome.effects || [])])
+        .concat([...expeditionRegistry.rollTables.values()].flatMap(table => table.outcomes.map(outcome => outcome.effects || []))));
     expeditionPanel = createExpeditionPanel({registry: expeditionRegistry,
         read: () => ({state: expansionState, context: expeditionContext(), error: expansionError,
             enabled: ownsSave && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade()}),
-        command: startExpedition});
+        command: startExpedition, cancel: cancelExpedition});
 }
 
 if(game_options.skip_play_button && !importProbeToken) {
