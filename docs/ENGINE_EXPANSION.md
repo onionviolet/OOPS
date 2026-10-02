@@ -338,3 +338,75 @@ The initial stage proposal is superseded by the current [shared work packages](#
 Extract a service when two real features need the same rule, or when a single feature needs a safety boundary such as save migration or cost commitment. Keep exceptional world/origin behavior local behind an explicit interface. Reassess after the first conditional event and again after the second world. If those examples reveal a fundamental mismatch, compare a larger replacement using their actual requirements; present source cleanliness alone is not a reason to restart.
 
 The implemented increments are listed above. Remaining work packages are proposals, not completion claims. Browser correctness and unit-level contracts do not establish content quality, safe offline combat or full audit support.
+
+## Saved mechanical encounter packet, 2026-10-02
+
+**Status: researched and scoped, unimplemented.** [RNG, encounters and source development](RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md) owns the request, complete current-source RNG audit, six chapter-level book comparisons, bloodline lifecycle and five ranked proof candidates. This packet is an original reversible proposal, not a selected direct adaptation. It complements the [persistent-peer packet](#persistent-peer-source-audit-and-implementation-packet-2026-10-02); implement one shared encounter service rather than two spar engines. A disposable training rig can exercise encounter mechanics without waiting for the peer's off-screen life controller.
+
+### Objective and playable interaction
+
+Make **one nonlethal Village route drill against a braced sparring rig** change player decisions through actual windup, counter and recovery rules. It uses the native character's stats, available stances, real preparation items and earned Rat-step. It is a bounded supported encounter, not proof that all ordinary combat, poisons or future techniques have been ported. Rig fiction, balance, reward and time conversion remain proposals.
+
+Proposed rules:
+
+| Phase / player choice | Required behavioral effect |
+|---|---|
+| Brace then visible windup | The rig protects its posture while preparing a sweep. A heavy strike into brace fails to break it. A simple fixture has two saved windup variants; the cue identifies the supported response, not an unexplained damage lottery. |
+| Defensive stance / real shield | Guard converts the incoming sweep into a disclosed stamina/impact cost based on supported native defense/shield input. It preserves position and permits the next recovery response. Adequate unshielded defense can remain viable under the authored threshold. |
+| Executable Rat-step | At its existing ownership/proficiency/Agility requirements, a new handler moves outside the sweep, avoids that impact and returns during recovery. Using it costs stamina and increments execution exactly once. Having merely observed or owned it does not suffice. |
+| Anchored Survey rope / Prepared survey kit | Rope is reserved from actual inventory for this attempt, fitted at a safe boundary and restrains one sweep to open recovery. A consumed kit supplies one disclosed padding/preparation benefit. Rope remains reusable after release; it is not a freely duplicated item or an inferred equipped bonus. |
+| Recovery and settlement | An exposed recovery permits an interrupt/posture-breaking action using the chosen native stance. Success follows a completed counter/marker objective, not depletion of a huge HP pool. Too much trial impact or exhausted budget fails safely; withdrawal and success release reservations once. |
+
+The first fixture needs at least two viable comparable-stat plans: guard plus recovery strike, and Rat-step or rope plus recovery strike. A diagnostic lead tells players the phase rule. Show the failed unprepared heavy policy alongside a prepared one, without requiring both to have equal speed/cost. No ancestry or rare source is required to enter or succeed.
+
+A prepared policy is saved, for example `guard-on-sweep / heavy-on-recovery / stop-below-stamina`. An optional manual mode offers untimed decisions at the same boundaries. Switching modes cannot reset a turn or consume a fresh draw. Optional practice may teach the sequence; repeated clicking is not the condition for continued idle play. Source-development follow-up can reveal earlier cues or copy a supported move, but that is a separate proof after this resolver works.
+
+### Implementation scope and current integration points
+
+| Current module / behavior | Scoped change |
+|---|---|
+| `src/expansion_engine.js`: cloned plans, sequence checks, supported effects, jobs, receipts | Register a validated encounter effect/command and retained terminal ledger. Preview is pure; opening the panel only reads state. Keep unsupported effects failing before costs. `kind: bloodline` is not an encounter handler. |
+| `src/models/combat.js`: actual combat inputs, direct mutations, wall timers, special mode gaps | Extract only pure calculation inputs needed by the drill, using native stats/stances/shield data. New turns resolve through the saved service and dedicated aftermath. Do not run legacy combat timers alongside it or call `kill_player`, `kill_target`, `on_death`, loot or arbitrary quest callbacks. Repair the existing timer cleanup when sharing its lifecycle; special mode alone does not isolate a spar. |
+| `src/techniques.js`: Rat-step records and hardcoded learned-technique gates | Add an explicit execution handler for this movement action and a committed execution increment. Preserve the current study/practice/crossing semantics. Future innate/instant copying requires an acquisition policy separate from this module's current Rat-step sequence. |
+| `src/gameplay_transactions.js`, `gameplay_publication.js`, `expansion_persistence.js` | Add the narrow native stamina/reservation adapter. Persist native stamina deficit, item debit/reservation, encounter turn, technique execution, acquisition log and final XP together before publication. Retain supported XP-unlock rejection until its actual unlock adapter exists. |
+| `src/main.js`: player occupation, `update_timer`, save/load, native regeneration | Bind the supported encounter to player/base.frontier. Occupation guards must cover activity/combat start, equipment/stance changes that would invalidate snapshots, reserved-item sale/drop/use and native stamina regeneration. Hydration reconstructs projections/UI; it cannot replay costs or rewards. Live expedition still has only player/base.frontier binding. |
+| Native item keys, inventory and `character.stamina_to_full` envelope field | Use full keys for rope/kit; reserve exactly an owned unit with a validated release path. Stage stamina against the frozen max-stamina/stat snapshot, then publish/recompute once. Never write raw cached stats into the envelope or maintain a second authoritative inventory. |
+| Calendar and expansion scheduler | Add a supported turn boundary; next section defines the clock contract. Existing expansion clock only advances while jobs/opportunities/expiring sources are active and is not already the native calendar. |
+
+No general ward compiler, party combat, persistent actor growth, source physiology, global RNG replacement, world travel, lethal outcome or offline replay is included. Native health is unchanged in this training fixture; trial impact is an explicitly separate encounter quantity. Real stamina and item costs still settle. Ordinary native defeat remains fainting/recovery.
+
+### Proposed persisted state and compatibility
+
+Reserve a new validated schema with the migration owner. **Schema4 is a candidate only if the peer packet has not shipped it already.** If integrating both, use one migration for both ledgers; if an intervening schema shipped, use the next version. Documentation does not create a schema4 save. Do not hide new authoritative state in unchecked schema3 extras.
+
+| Domain / proposed shape | Invariant |
+|---|---|
+| `worlds.base.frontier.encounters[id]` | Definition/revision, actor/body binding, entry native stat/gear/available-stance projection, native time anchor, phase/turn/next boundary, chosen windup/queue, trial impact/posture, policy/revision, status, terminal result and settlement ID. Definition edits do not reinterpret an already committed phase. |
+| Encounter random state / optional new `rngStreams` namespace | Seed/counter or frozen draws attached to the committed instance; separate variant selection from unrelated loot/market/flavor. Retain old `rng` and old pending outcomes byte-for-byte in meaning. A stream migration never samples old jobs again. Use the same primitive as the peer resolver if implemented. |
+| Validated item/resource reservations | Owner/key/count, encounter ID and status; stamina budget/current deficit has one authoritative binding. A reserved rope is unavailable to another command. Native regeneration/equipment change cannot silently refill or invalidate the active budget. Terminal release is idempotent. |
+| `actor.techniques` | Existing Rat-step progress/evidence retained; supported committed execution increments once. No invented donor, stolen faculty or awakening is inferred. |
+| Retained encounter settlements | Attempt/terminal IDs and reward-paid status survive journal pruning. First-success reward is one-off; further trials can remain available for demonstration with no duplicate first-clear reward. Declared skill reward stays below an unsupported native unlock or rejects before entry costs. |
+
+Schemas1/2/3 migrate additively to empty encounter/reservation/stream domains, preserving old jobs, draws, technique practices, source records, receipts, personal progression and retired data. Migration grants no kit, faculty, training victory or XP. An unknown new schema rejects before replacing storage; a stale build cannot silently ignore committed reservations. Definition removal requires a compatible recovery handler, not deletion of a paid attempt on load.
+
+Suggested command identity is `{encounterId, expectedTurn, expectedSequence, commandId}`. Double-click/repeat after success returns the existing result or rejects stale input. Cancel/withdraw applies the declared settlement once and retains consumed draws. A new paid attempt can get a new variant; reopening/resuming the same attempt cannot. Import preflight is read-only; restoring an older whole save replaces one coherent branch without copying its rewards into the current branch.
+
+### Transaction and clock requirements
+
+Entry snapshots only supported native state, checks occupation/gear/item/stamina availability and stages reservation plus initial variant together. Each turn validates the saved phase, control policy and budgets; computes the next state without DOM callbacks; saves the complete envelope; then publishes a semantic log/UI update. Storage failure leaves native and encounter state unchanged and blocks further publication until recovery. A late callback contains its encounter/turn generation and cannot advance a closed attempt.
+
+For this bounded prototype, propose **one encounter round equals one game minute**, displayed to the player. This is a provisional drill pace, not a conversion of native combat's wall-second attacks. A single host advance processes the native calendar and supported encounter boundaries in a declared order, persisting both coherently. At a required manual decision, neither clock advances beyond that boundary; remaining supported advancement is retained. Do not call the current calendar-first path and then claim expansion's stop retroactively stopped the calendar.
+
+Idle policy handles the same transitions automatically. Pause/budget exhaustion/withdrawal and same-time settlement have fixed order. Native sleep/travel and new activities are unavailable while the player occupies this drill. No elapsed-wall-time catch-up is enabled; reload pauses/resumes saved progress, rather than deciding an unseen outcome. Later wall-time replay must reuse this resolver and prove caps, safe stops and performance before being advertised.
+
+### Verification and rebuilt browser acceptance
+
+| Gate | Required evidence |
+|---|---|
+| Meaningful resolver tests | Same stats with heavy-during-brace loses the objective while guard/Rat-step/rope policy exposes recovery and succeeds. Latent/observed-only technique fails execution. Unsupported effect, stale turn, insufficient stamina and duplicate command leave state unchanged. Shield/technique/preparation changes actual behavior, not just labels. |
+| Persistence and migration | Reload at windup, after one counter and at terminal result retains phase, selected variant, item reservation, stamina and execution count. Inject failed writes at entry/turn/settlement and compare exact durable bytes plus every native published owner. Old pending actions/drills retain costs/draws; unsupported saves reject without replacement. Journal pruning cannot erase first-reward settlement. |
+| Clock and concurrency | Equivalent supported tick batches produce identical result/draw sequence. Manual stop leaves calendar/turn aligned. Second tab is read-only; late callbacks or input after withdrawal cannot act. Appearance/flavor/UI opening does not consume gameplay RNG. No ordinary death/kill/loot/quest counter increments from this drill. |
+| Rebuilt browser proof | Run `npm test`, `npm run build`, serve a fresh localhost origin with generated fixtures and one writer. Play two viable prepared plans, an unprepared failure, withdrawal and partial/final Save/reload. Inspect visible cue/counter/stamina/item consequences and absence of duplicate reward; re-run an ordinary wolf-rat fight and the existing shop/packing/Rat-step route. Do not use personal exports or prebuilt bundle evidence. |
+| Human playable acceptance | Weibao can explain why the cue/phase changed his choice, queue a workable idle policy and choose a different viable preparation at comparable strength. Price, pacing, lore and rule clarity are reviewed separately from automated correctness. |
+
+**Next implementation action:** add the validated encounter/reservation namespace and pure phase resolver, then connect the native stamina/item/technique bridge and rebuild for the browser gate. Do not call the feature implemented after only definitions, fixtures, migration or setup. This research pass changes documentation only; all 54 existing tests pass and the latest gameplay browser evidence remains 2026-10-01.
